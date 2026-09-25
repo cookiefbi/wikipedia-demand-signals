@@ -31,6 +31,13 @@ PER_MILLION = 1_000_000
 
 RISING, FALLING, FLAT, INSUFFICIENT = "rising", "falling", "flat", "insufficient_data"
 HIGH, MEDIUM, LOW = "high", "medium", "low"
+LEVELS = (LOW, MEDIUM, HIGH)
+
+# Temporary P0 rule (SPEC 4), removed in T12: without the trend-stability test
+# (Mann-Kendall) and the spike check a result cannot show it is stable, so
+# confidence stops at medium. Real case: uk "Астрономія" had a one-month peak in
+# its growth base and still passed every P0 check. None = no cap.
+CONFIDENCE_CAP: str | None = MEDIUM
 
 
 @dataclass(frozen=True)
@@ -216,6 +223,10 @@ def judge(m: Metrics) -> Verdict:
     if signs is not None and trend == FLAT:
         reasons.append(signs)  # for rising/falling it is one of the failed checks
     confidence, checks = _confidence(trend, m, signs)
+    cap = CONFIDENCE_CAP
+    if cap is not None and LEVELS.index(confidence) > LEVELS.index(cap):
+        confidence = cap
+        checks.append(Msg("conf.capped", {"cap": Msg(f"conf_name.{cap}")}))
     return Verdict(trend, confidence, tuple(reasons + checks), m.warnings)
 
 

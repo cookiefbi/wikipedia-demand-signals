@@ -9,6 +9,7 @@ gets English text, the PDF the report language.
 import csv
 import datetime as dt
 import re
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -24,6 +25,19 @@ CHART_PNG = "chart.png"
 REPORT_PDF = "report.pdf"
 
 QID_PATTERN = re.compile(r"Q[1-9]\d*")
+
+# Without --out every question gets its own folder, so a second topic never
+# overwrites the first one's report. last-result.json always holds the latest
+# run's JSON (errors too): a fixed ASCII path to fall back on when the console
+# garbles the printed output, including the paths inside it.
+DEFAULT_ROOT = "wds-output"
+LAST_RESULT = "last-result.json"
+# Keeps folder names short: Windows paths are limited to 260 characters in total.
+TOPIC_SLUG_MAX = 40
+# Letters that Unicode normalization cannot split into an ASCII letter + accent.
+ASCII_LETTERS = str.maketrans(
+    {"ł": "l", "Ł": "L", "đ": "d", "Đ": "D", "ø": "o", "Ø": "O", "ß": "ss", "æ": "ae"}
+)
 
 
 @dataclass(frozen=True)
@@ -83,7 +97,7 @@ def parse_qids(values: list[str]) -> list[str]:
     return qids
 
 
-def parse_article(value: str, requested: list[Lang]) -> tuple[Lang, str]:
+def parse_article(value: str) -> tuple[Lang, str]:
     """'pl:Głodówka lecznicza' -> (pl, 'Głodówka lecznicza')."""
     code, sep, title = value.partition(":")
     if not sep or not code.strip() or not title.strip():
@@ -91,13 +105,18 @@ def parse_article(value: str, requested: list[Lang]) -> tuple[Lang, str]:
             f"--article must look like 'pl:Title', got '{value}'",
             hint="prefix the article title with its language code and a colon",
         )
-    lang = langs.parse_langs(code)[0]
-    if lang not in requested:
-        raise WdsError(
-            f"--article '{value}' is in '{lang.code}', which is not in --langs",
-            hint=f"add {lang.code} to --langs",
-        )
-    return lang, title.strip()
+    return langs.parse_langs(code)[0], title.strip()
+
+
+def slug(text: str, max_len: int = TOPIC_SLUG_MAX) -> str:
+    """ASCII-only piece of a folder name: 'Głodówka lecznicza' -> 'glodowka-lecznicza'.
+
+    ASCII on purpose: the path must stay usable where the console garbles
+    everything else. Scripts without Latin letters (Cyrillic) give ''.
+    """
+    decomposed = unicodedata.normalize("NFKD", text.translate(ASCII_LETTERS))
+    ascii_text = decomposed.encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "-", ascii_text).strip("-")[:max_len].strip("-")
 
 
 def output_dir(out: str) -> Path:
@@ -105,19 +124,40 @@ def output_dir(out: str) -> Path:
     return Path(out).expanduser().resolve()
 
 
-def save_result(out: str, text: str) -> Path | None:
-    """Write result.json. Also called with an error object, so a stale result of an
-    earlier run is never mistaken for this one's.
+def default_dir(
+    a: "Analysis", period: str | None, date_from: str | None, date_to: str | None
+) -> Path:
+    """./wds-output/<topic>_<langs>_<period>, e.g. intermittent-fasting_pl-cs_24m."""
+    qids = "-".join(t.qid for t in a.targets if t.qid)
+    topic = slug(a.label) or slug(qids) or "article"
+    if date_from or date_to:
+        span = (
+            f"{series.month_label(a.period.first)}-{series.month_label(a.period.last)}"
+        )
+    else:
+        span = period or series.DEFAULT_PERIOD
+    return Path.cwd() / DEFAULT_ROOT / f"{topic}_{'-'.join(a.langs)}_{span}"
+
+
+def save_result(out: str | None, result: dict, text: str) -> None:
+    """Write the printed JSON to result.json next to the run's files and, without
+    --out, to wds-output/last-result.json. Errors are written too, so a stale
+    result of an earlier run is never mistaken for this one's.
     """
-    path = output_dir(out) / RESULT_JSON
-    try:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        with open(path, "w", encoding="utf-8", newline="\n") as f:
-            f.write(text + "\n")
-    except OSError as exc:
-        log(f"cannot write {path}: {exc}")
-        return None
-    return path
+    paths = []
+    if saved := result.get("files", {}).get("result_json"):
+        paths.append(Path(saved))
+    if out:
+        paths.append(output_dir(out) / RESULT_JSON)
+    else:
+        paths.append(Path.cwd() / DEFAULT_ROOT / LAST_RESULT)
+    for path in dict.fromkeys(paths):
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(text + "\n")
+        except OSError as exc:
+            log(f"cannot write {path}: {exc}")
 
 
 # --- analysis ---------------------------------------------------------------
@@ -167,10 +207,18 @@ def _topic_total(parts: list[Measured], period: Span) -> Measured:
 
 
 def _assumptions(
-    targets: list[Target], counts: dict[str, int], period: Span, moved_from: Span | None
+    targets: list[Target],
+    counts: dict[str, int],
+    period: Span,
+    moved_from: Span | None,
+    added: list[tuple[str, str]],
 ) -> list[Msg]:
     last, prev = series.yoy_spans(period)
     notes = [
+        Msg("assume.lang_added", {"lang": code, "article": article})
+        for code, article in added
+    ]
+    notes += [
         Msg("assume.article", {"lang": t.lang.code, "title": t.title})
         for t in targets
         if t.title
@@ -204,20 +252,37 @@ def analyze(
     *,
     qids: list[str],
     articles: list[str],
-    langs_arg: str,
+    langs_arg: str | None,
     period: str | None = None,
     date_from: str | None = None,
     date_to: str | None = None,
     rank_by: str = "growth",
     today: dt.date | None = None,
 ) -> Analysis:
-    requested = langs.parse_langs(langs_arg)
     qid_list = parse_qids(qids)
-    article_list = [parse_article(value, requested) for value in articles]
+    article_list = [parse_article(value) for value in articles]
     if not qid_list and not article_list:
         raise WdsError(
             "nothing to analyze",
             hint="pass --qid Q... from `resolve`, or --article lang:Title",
+        )
+    requested = langs.parse_langs(langs_arg) if langs_arg else []
+    if qid_list and not requested:
+        raise WdsError(
+            "--langs is required with --qid",
+            hint="pass the language editions to compare, e.g. --langs pl,cs",
+        )
+    # An --article brings its own language: added, and said so in the assumptions.
+    added: list[tuple[str, str]] = []
+    for lang, title in article_list:
+        if lang not in requested:
+            requested.append(lang)
+            added.append((lang.code, f"{lang.code}:{title}"))
+    if len(requested) > langs.MAX_LANGS:
+        raise WdsError(
+            f"{len(requested)} languages with the --article ones, the limit is "
+            f"{langs.MAX_LANGS} per run",
+            hint="split into runs of up to 10 languages; overlapping runs reuse the cache",
         )
     today = today or utc_today()
     # Check the period before any request; it is resolved again below against the
@@ -279,7 +344,7 @@ def analyze(
         totals=totals,
         ranking=ranking,
         assumptions=_assumptions(
-            targets, counts, chosen, window.shifted(1) if moved else None
+            targets, counts, chosen, window.shifted(1) if moved else None, added
         ),
     )
 
@@ -372,7 +437,7 @@ def write_csv(a: Analysis, path: Path) -> None:
 
 def run(
     args: dict,
-    out: str,
+    out: str | None,
     *,
     report: bool = False,
     report_lang: str = "en",
@@ -388,7 +453,12 @@ def run(
             hint="use --report-lang en",
         )
     analysis = analyze(**args, today=today)
-    folder = output_dir(out)
+    if out:
+        folder = output_dir(out)
+    else:
+        folder = default_dir(
+            analysis, args.get("period"), args.get("date_from"), args.get("date_to")
+        )
     try:
         folder.mkdir(parents=True, exist_ok=True)
         files = {"result_json": str(folder / RESULT_JSON)}

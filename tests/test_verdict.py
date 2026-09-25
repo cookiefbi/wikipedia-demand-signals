@@ -11,6 +11,13 @@ PERIOD = Span(series.parse_month("2024-09", "-"), series.parse_month("2026-08", 
 SPAN = series.analysis_span(PERIOD)  # 24 months: the base is inside the period
 LAST, PREV = series.yoy_spans(PERIOD)
 EDITION = 100_000_000  # views of the whole edition per month
+P0_CAP = verdict.CONFIDENCE_CAP
+
+
+@pytest.fixture(autouse=True)
+def without_cap(monkeypatch):
+    """The rules themselves; the temporary P0 cap has its own test below."""
+    monkeypatch.setattr(verdict, "CONFIDENCE_CAP", None)
 
 
 def monthly(views, edition=EDITION, created=None) -> Monthly:
@@ -168,6 +175,18 @@ def metrics(**changes) -> Metrics:
 )
 def test_history_length(history, confidence):
     assert verdict.judge(metrics(history_months=history)).confidence == confidence
+
+
+def test_p0_caps_confidence_at_medium_and_says_why(monkeypatch):
+    monkeypatch.setattr(verdict, "CONFIDENCE_CAP", P0_CAP)
+    assert P0_CAP == MEDIUM
+    _, v = run(monthly(np.linspace(1000, 2000, SPAN.months).round()))
+    assert (v.trend, v.confidence) == ("rising", MEDIUM)
+    assert reasons(v)[-1] == (
+        "capped at medium until trend stability and one-off spikes are checked"
+    )
+    _, low = run(monthly(two_years(100, 200)))
+    assert low.confidence == LOW  # the cap never raises a level
 
 
 def test_two_failed_checks_are_low():

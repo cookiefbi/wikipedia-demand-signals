@@ -31,6 +31,8 @@ TEXTS: dict[str, dict[str, str]] = {
         "conf.history_too_short": "only {months} months of history: too short for "
         "any trend",
         "conf.insufficient": "confidence is low whenever growth cannot be measured",
+        "conf.capped": "capped at {cap} until trend stability and one-off spikes are "
+        "checked",
         # warnings: problems with the data itself
         "warn.base_incomplete": "views start only in {since}: the 12 months before "
         "the last 12 are incomplete, growth not computed",
@@ -44,6 +46,8 @@ TEXTS: dict[str, dict[str, str]] = {
         "rank.unknown": "no value to rank by: listed last",
         "rank.low_after": "{base}; listed after confident results",
         # assumptions
+        "assume.lang_added": "{lang} added to the compared languages for --article "
+        "'{article}'",
         "assume.article": "{lang}: topic measured by article '{title}'",
         "assume.topic_sum": "{lang}: topic = sum of {count} articles (topic_totals)",
         "assume.no_redirects": "views arriving through redirects (other names of an "
@@ -67,6 +71,9 @@ TEXTS: dict[str, dict[str, str]] = {
         "other names are not counted",
         "caveat.bots": "automated traffic is filtered (agent=user) but not "
         "perfectly: single spikes can be news or bots",
+        "caveat.bot_rules": "Wikimedia filters bots more strictly since 2025-03-20 "
+        "(earlier data were not reprocessed): growth across that date partly "
+        "reflects the rule change",
         # report (PDF and PNG)
         "report.kicker": "Interest in a topic across Wikipedia language editions",
         "report.subtitle": "{items} · {langs} · {first} to {last} ({months} months) "
@@ -112,7 +119,13 @@ TEXTS: dict[str, dict[str, str]] = {
     },
 }
 
-CAVEATS = ("caveat.country", "caveat.pay", "caveat.proxy", "caveat.bots")
+CAVEATS = (
+    "caveat.country",
+    "caveat.pay",
+    "caveat.proxy",
+    "caveat.bots",
+    "caveat.bot_rules",
+)
 
 
 class Msg(NamedTuple):

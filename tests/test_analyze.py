@@ -186,7 +186,15 @@ def test_two_articles_in_one_language_are_summed_into_topic_totals(monkeypatch):
     ("args", "in_error"),
     [
         ({"qids": ["1666254"]}, "not a Wikidata item id"),
-        ({"qids": [], "articles": ["cs:Půst"]}, "not in --langs"),
+        ({"qids": ["Q1"], "langs_arg": None}, "--langs is required with --qid"),
+        (
+            {
+                "qids": [],
+                "articles": ["sv:A"],
+                "langs_arg": "pl,cs,uk,sk,de,fr,es,it,hu,ro",
+            },
+            "11 languages",
+        ),
         ({"qids": [], "articles": ["Půst"]}, "must look like 'pl:Title'"),
         ({"qids": []}, "nothing to analyze"),
         (
@@ -204,6 +212,40 @@ def test_argument_errors_come_before_any_request(monkeypatch, args, in_error):
     with pytest.raises(WdsError) as info:
         analyze.analyze(**args, today=TODAY)
     assert in_error in info.value.error
+
+
+def test_article_language_is_added_and_said_in_the_assumptions(replay):
+    result = run(qids=["Q1666254"], articles=["pl:Głodówka lecznicza"], langs_arg="cs")
+    rows = [(r["qid"], r["lang"], r["status"]) for r in result["results"]]
+    assert rows == [
+        ("Q1666254", "cs", "ok"),
+        ("Q1666254", "pl", "no_article"),  # the item is checked in pl as well
+        ("Q352490", "pl", "ok"),
+    ]
+    assert result["assumptions"][0] == (
+        "pl added to the compared languages for --article 'pl:Głodówka lecznicza'"
+    )
+
+
+def test_article_alone_needs_no_langs(replay):
+    result = run(qids=[], articles=["pl:Głodówka lecznicza"], langs_arg=None)
+    assert [(r["lang"], r["title"]) for r in result["results"]] == [
+        ("pl", "Głodówka lecznicza")
+    ]
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("intermittent fasting", "intermittent-fasting"),
+        ("Głodówka lecznicza", "glodowka-lecznicza"),
+        ("Přerušovaný půst", "prerusovany-pust"),
+        ("Астрономія", ""),
+        ("AC/DC: Back in Black", "ac-dc-back-in-black"),
+    ],
+)
+def test_folder_names_are_ascii(text, expected):
+    assert analyze.slug(text) == expected
 
 
 def test_qids_can_be_repeated_or_comma_separated():
@@ -256,6 +298,33 @@ def test_cli_prints_json_and_writes_the_same_result_json_and_csv(
     cs = by_lang(printed)["cs"]
     last_12 = sum(int(row["article_views"]) for row in rows[-12:])
     assert last_12 == cs["views_last_12m"]
+
+
+def test_default_folder_is_per_question_with_last_result(
+    replay, tmp_path, capsys, monkeypatch
+):
+    monkeypatch.chdir(tmp_path)
+    assert cli("--qid", "Q1666254", "--langs", "pl,cs") == 0
+    assert cli("--qid", "Q333", "--langs", "uk", "--period", "12m") == 0
+    root = tmp_path / "wds-output"
+    fasting = root / "intermittent-fasting_pl-cs_24m"
+    astronomy = root / "astronomy_uk_12m"
+    assert (fasting / "data.csv").exists() and (astronomy / "data.csv").exists()
+    printed = json.loads(capsys.readouterr().out.split("\n}\n")[1] + "\n}")
+    assert printed["files"]["result_json"] == str(astronomy / "result.json")
+    last = json.loads((root / "last-result.json").read_text(encoding="utf-8"))
+    assert last == printed  # the latest run, at a fixed ASCII path
+
+    assert cli("--qid", "Q333", "--langs", "uk", "--to", "2030-01") == wds.EXIT_ERROR
+    last = json.loads((root / "last-result.json").read_text(encoding="utf-8"))
+    assert last["status"] == "error"
+
+
+def test_from_to_folder_names_the_months(replay, tmp_path, monkeypatch, capsys):
+    monkeypatch.chdir(tmp_path)
+    assert cli("--qid", "Q333", "--langs", "uk", "--from", "2023-01") == 0
+    files = json.loads(capsys.readouterr().out)["files"]
+    assert "astronomy_uk_2023-01-2026-08" in files["data_csv"]
 
 
 def test_cli_error_replaces_a_stale_result_json(replay, tmp_path, capsys):

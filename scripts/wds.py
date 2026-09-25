@@ -122,7 +122,9 @@ def build_parser() -> JsonArgumentParser:
         help="article without a Wikidata item, e.g. 'pl:Głodówka lecznicza' (repeatable)",
     )
     p.add_argument(
-        "--langs", required=True, help="comma-separated language codes or English names"
+        "--langs",
+        help="comma-separated language codes or English names; required with --qid "
+        "(an --article language is added automatically)",
     )
     p.add_argument(
         "--period",
@@ -142,7 +144,8 @@ def build_parser() -> JsonArgumentParser:
         "--report-lang", choices=["en", "uk"], default="en", help="PDF language"
     )
     p.add_argument(
-        "--out", default="wds-output", help="output folder (default: ./wds-output)"
+        "--out",
+        help="output folder (default: ./wds-output/<topic>_<langs>_<period>/)",
     )
     p.add_argument(
         "--note",
@@ -177,7 +180,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "analyze":
         # Written first and on errors too: the fallback when the console garbles
         # the output, and never a stale answer from an earlier run.
-        analyze.save_result(args.out, dumps(result))
+        analyze.save_result(args.out, result, dumps(result))
     emit(result)
     return code
 

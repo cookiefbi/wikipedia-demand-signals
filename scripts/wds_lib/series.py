@@ -148,16 +148,20 @@ def resolve_period(
             hint="year-over-year growth needs at least 12 months; "
             "widen --from/--to or use --period 12m",
         )
+    data = f"{month_label(window.first)}..{month_label(window.last)}"
+    if first < window.first:
+        raise WdsError(
+            f"--from {month_label(first)} is before the data window ({data})",
+            hint=f"the earliest --from is {month_label(window.first)}",
+        )
     chosen = Span(first, last)
     needed = analysis_span(chosen)
     if needed.first < window.first:
         raise WdsError(
-            f"period {month_label(first)}..{month_label(last)} needs data from "
-            f"{month_label(needed.first)}, but the data window starts at "
-            f"{month_label(window.first)}",
-            hint=f"start --from at {month_label(window.first)} or later and end --to "
-            f"at {month_label(window.first + 2 * YEAR - 1)} or later "
-            "(growth compares the last 12 months with the 12 before them)",
+            f"growth for a period ending {month_label(last)} needs data from "
+            f"{month_label(needed.first)}, before the data window ({data})",
+            hint=f"the earliest --to is {month_label(window.first + 2 * YEAR - 1)}: "
+            "growth compares the last 12 months with the 12 before them",
         )
     return chosen
 

@@ -216,8 +216,17 @@ def test_only_to_takes_the_default_length():
         ((None, "2026-01", "2026-08"), "shorter than 12 months", "at least 12"),
         ((None, "2026-01", "2025-01"), "after --to", "swap"),
         # 2021-01..2021-12 would need its growth base from 2020-01.
-        ((None, "2021-01", "2021-12"), "needs data from 2020-01", "--to at 2022-08"),
-        ((None, "2020-01", "2022-12"), "window starts at 2020-09", "2020-09"),
+        # 2021-01..2021-12 would need its growth base from 2020-01.
+        (
+            (None, "2021-01", "2021-12"),
+            "needs data from 2020-01",
+            "earliest --to is 2022-08",
+        ),
+        (
+            (None, "2020-01", "2022-12"),
+            "before the data window",
+            "earliest --from is 2020-09",
+        ),
     ],
 )
 def test_bad_periods_are_errors_with_hints(args, in_error, in_hint):
