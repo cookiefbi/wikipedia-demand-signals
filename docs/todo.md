@@ -47,7 +47,8 @@
   - Verify: записи в `docs/verification.md`.
   - Files: `docs/verification.md`
 
-- [ ] **T8. SKILL.md (через `skill-creator`)**
+- [x] **T8. SKILL.md (через `skill-creator`)**
+  - Зроблено: 150 рядків, `description` 751 символ; приклади JSON — справжній вивід для нейтральної теми pickleball (не з трьох прикладів завдання, щоб числа з SKILL.md не «підказували» відповідь), звірено скриптом; два шаблони `allowed-tools` і уточнення мов — рішення в SPEC розд. 3 і 5. Буквальний збіг шаблону перевіряється живим запуском у T9.
   - Acceptance: фронтматер (`name`, `description`, `compatibility`, звужений `allowed-tools`); робочий процес і процедура вибору статті; 2 команди з `${CLAUDE_SKILL_DIR}`; як читати JSON; що обов'язково сказати (довіра, допущення, застереження, `no_article`); «run via Bash», запасний `result.json`, запасний `python -m uv`; ≲ 150 рядків.
   - Verify: `quick_validate.py .` проходить.
   - Files: `SKILL.md`
