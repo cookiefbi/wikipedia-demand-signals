@@ -9,7 +9,7 @@
   - Verify: `python -m uv run "<repo>/scripts/wds.py" --help` з **іншої** папки; вивід JSON із «Přerušovaný půst» через pipe (`... | cat`) без `UnicodeEncodeError` (падіння без `reconfigure` уже відтворене); `ruff check` чистий.
   - Files: `scripts/wds.py`, `scripts/wds_lib/__init__.py`, `requirements*.txt`, `pyproject.toml`
 
-- [ ] **T2. `api.py`: HTTP, кеш, ліміти**
+- [x] **T2. `api.py`: HTTP, кеш, ліміти**
   - Acceptance: User-Agent з URL репозиторію (перевизначається `WDS_USER_AGENT`); ≥ 0,34 с між запитами; 429/503 → `Retry-After` або ≥ 5 с з експоненційною затримкою, максимум 5 спроб; 404 повертається як `None`, а не виняток; файловий кеш у `%LOCALAPPDATA%`/`~/.cache` з TTL (назавжди / 7 днів), запис одразу після відповіді; прогрес у stderr.
   - Verify: `pytest tests/test_api.py` (підмінений `urlopen`: повтор із `Retry-After`, влучання в кеш без мережі, 404 → `None`).
   - Files: `scripts/wds_lib/api.py`, `tests/test_api.py`

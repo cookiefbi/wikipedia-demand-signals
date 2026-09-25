@@ -1,5 +1,7 @@
 """Library behind the wikipedia-demand-signals CLI (scripts/wds.py)."""
 
+import sys
+
 __version__ = "0.1.0"
 
 # Goes into the User-Agent: Wikimedia gives identified clients 200 req/min instead of 10.
@@ -17,3 +19,14 @@ class WdsError(Exception):
 
     def as_dict(self) -> dict:
         return {"status": "error", "error": self.error, "hint": self.hint}
+
+
+def log(message: str) -> None:
+    """Progress for humans and the agent: stderr only, stdout stays pure JSON.
+
+    Never fails on encoding: a title the console cannot show becomes '?'.
+    """
+    encoding = getattr(sys.stderr, "encoding", None) or "utf-8"
+    line = f"[wds] {message}\n".encode(encoding, "replace").decode(encoding)
+    sys.stderr.write(line)
+    sys.stderr.flush()
