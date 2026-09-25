@@ -24,7 +24,8 @@ api ───┼─> resolve ──────────────┐
 | `pageviews.py` | фіксоване 72-місячне вікно, щоденні дані статті й розділу, редиректи (P1), дата створення (P1) |
 | `series.py` | заповнення нулями, обрізання, помісячна агрегація, відкидання неповного місяця |
 | `stats.py` | Mann-Kendall, Theil-Sen на numpy (P1) |
-| `verdict.py` | метрики, `trend`, `confidence`, `topic_totals`, ранжування, `assumptions`, застереження |
+| `verdict.py` | метрики, `trend`, `confidence`, ранжування |
+| `analyze.py` | команда `analyze`: аргументи → статті → ряди → вердикти, `topic_totals`, `assumptions`, JSON/CSV, папка результатів |
 | `report.py` + `i18n.py` | PNG і одна сторінка PDF (matplotlib), шаблони en/uk |
 | `scripts/wds.py` | CLI: аргументи, UTF-8 stdout, JSON + `result.json`, формат помилок |
 
