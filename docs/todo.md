@@ -14,7 +14,7 @@
   - Verify: `pytest tests/test_api.py` (підмінений `urlopen`: повтор із `Retry-After`, влучання в кеш без мережі, 404 → `None`).
   - Files: `scripts/wds_lib/api.py`, `tests/test_api.py`
 
-- [ ] **T3. `langs.py`**
+- [x] **T3. `langs.py`**
   - Acceptance: коди й англійські назви → проєкт (`pl` → `pl.wikipedia`, `Norwegian`/`nb` → `no.wikipedia`); невідома мова → помилка з підказкою «did you mean»; ліміт 10 мов.
   - Verify: `pytest tests/test_langs.py`
   - Files: `scripts/wds_lib/langs.py`, `tests/test_langs.py`
