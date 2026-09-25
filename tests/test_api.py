@@ -1,73 +1,16 @@
-import email.message
-import io
 import itertools
-import json
-import types
 import urllib.error
 
 import pytest
+from helpers import FakeNetwork
+from helpers import http_error as _http_error
 from wds_lib import REPO_URL, WdsError, api
 
 URL = "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/cs.wikipedia/all-access/user/P%C5%99eru%C5%A1ovan%C3%BD_p%C5%AFst/daily/20200901/20260831"
 
 
-class FakeClock:
-    """Stands in for the time module: sleeping advances the clock instantly."""
-
-    def __init__(self) -> None:
-        self.now = 1_000_000.0
-        self.sleeps: list[float] = []
-
-    def time(self) -> float:
-        return self.now
-
-    def monotonic(self) -> float:
-        return self.now
-
-    def sleep(self, seconds: float) -> None:
-        self.sleeps.append(seconds)
-        self.now += seconds
-
-
 def http_error(code: int, retry_after: str | None = None) -> urllib.error.HTTPError:
-    headers = email.message.Message()
-    if retry_after is not None:
-        headers["Retry-After"] = retry_after
-    return urllib.error.HTTPError(URL, code, "error", headers, None)
-
-
-class FakeNetwork:
-    """Replays scripted outcomes: a dict/list is a 200 JSON body, an exception is raised."""
-
-    def __init__(self, *outcomes) -> None:
-        self.outcomes = list(outcomes)
-        self.requests: list = []
-
-    def __call__(self, request, timeout=None):
-        self.requests.append(request)
-        if not self.outcomes:
-            raise AssertionError("unexpected network request")
-        outcome = self.outcomes.pop(0)
-        if isinstance(outcome, BaseException):
-            raise outcome
-        return io.BytesIO(json.dumps(outcome).encode("utf-8"))
-
-
-@pytest.fixture
-def clock(monkeypatch, tmp_path):
-    fake = FakeClock()
-    monkeypatch.setattr(
-        api,
-        "time",
-        types.SimpleNamespace(
-            **{name: getattr(fake, name) for name in ("time", "monotonic", "sleep")}
-        ),
-    )
-    monkeypatch.setenv("LOCALAPPDATA", str(tmp_path))
-    monkeypatch.delenv(api.USER_AGENT_ENV, raising=False)
-    monkeypatch.setattr(api, "_last_request_at", None)
-    monkeypatch.setattr(api, "stats", {"network": 0, "cache": 0})
-    return fake
+    return _http_error(code, retry_after, url=URL)
 
 
 def install(monkeypatch, network: FakeNetwork) -> FakeNetwork:

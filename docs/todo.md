@@ -24,7 +24,7 @@
   - Verify: `pytest tests/test_resolve.py`: astronomy → Q333, не ambiguous; intermittent fasting → Q1666254 першим, `pl: null`; learning English → не ambiguous, без сторінки неоднозначності; Java і Mercury → ambiguous. Плюс один живий запуск CLI.
   - Files: `scripts/wds_lib/resolve.py`, `tests/test_resolve.py`, `tests/fixtures/resolve/*.json`, `tests/fixtures/record.py`
 
-- [ ] **T5. `pageviews.py` + `series.py`**
+- [x] **T5. `pageviews.py` + `series.py`**
   - Acceptance: фіксоване вікно 72 місяці до останнього повного місяця (з урахуванням затримки даних); щоденні дані статті й розділу; 404 → нулі; заповнення нулями; помісячна агрегація; неповний місяць відкинуто; вирізання `--period` / `--from/--to`.
   - Verify: `pytest tests/test_series.py` (синтетичні ряди + межі місяців, 1-ше число місяця); повторний запуск не робить мережевих запитів (stderr).
   - Files: `scripts/wds_lib/pageviews.py`, `scripts/wds_lib/series.py`, `tests/test_series.py`
