@@ -20,6 +20,8 @@ from wds_lib.verdict import Metrics, Monthly, Verdict
 
 RESULT_JSON = "result.json"
 DATA_CSV = "data.csv"
+CHART_PNG = "chart.png"
+REPORT_PDF = "report.pdf"
 
 QID_PATTERN = re.compile(r"Q[1-9]\d*")
 
@@ -43,6 +45,9 @@ class Analysis:
     """Everything the JSON, the CSV and the report are made from."""
 
     label: str
+    item_labels: dict[str, str]  # qid -> English label, to name a missing article
+    langs: list[str]  # requested order: a language keeps its chart color across runs
+    generated: dt.date
     period: Span
     span: Span  # period + growth base: every month a number is computed from
     rank_by: str
@@ -120,14 +125,17 @@ def save_result(out: str, text: str) -> Path | None:
 
 def collect_targets(
     qids: list[str], articles: list[tuple[Lang, str]], requested: list[Lang]
-) -> tuple[list[Target], str]:
-    """One target per (item, language), then one per --article; and a topic label."""
+) -> tuple[list[Target], str, dict[str, str]]:
+    """One target per (item, language), then one per --article; a topic label; and
+    the label of each item."""
     targets: list[Target] = []
     labels: list[str] = []
+    item_labels: dict[str, str] = {}
     if qids:
         items = resolve.sitelink_titles(qids)
         for qid in qids:
-            labels.append(items[qid]["label"] or qid)
+            item_labels[qid] = items[qid]["label"] or qid
+            labels.append(item_labels[qid])
             titles = items[qid]["titles"]
             targets += [
                 Target(lang, qid, titles.get(lang.dbname)) for lang in requested
@@ -137,7 +145,7 @@ def collect_targets(
         if not any(t.lang == lang and t.title == canonical for t in targets):
             labels.append(canonical)
             targets.append(Target(lang, qid, canonical))
-    return targets, " + ".join(labels)
+    return targets, " + ".join(labels), item_labels
 
 
 def _measure(data: Monthly, period: Span) -> Measured:
@@ -216,7 +224,7 @@ def analyze(
     # window the API has actually published.
     series.resolve_period(series.fetch_window(today), period, date_from, date_to)
 
-    targets, label = collect_targets(qid_list, article_list, requested)
+    targets, label, item_labels = collect_targets(qid_list, article_list, requested)
     found = [t for t in targets if t.title]
     window, moved = series.fetch_window(today), False
     if found:
@@ -260,6 +268,9 @@ def analyze(
     counts = {code: len(parts) for code, parts in by_lang.items()}
     return Analysis(
         label=label,
+        item_labels=item_labels,
+        langs=[lang.code for lang in requested],
+        generated=today,
         period=chosen,
         span=span,
         rank_by=rank_by,
@@ -359,20 +370,42 @@ def write_csv(a: Analysis, path: Path) -> None:
                 )
 
 
-def run(args: dict, out: str, *, today: dt.date | None = None) -> dict:
+def run(
+    args: dict,
+    out: str,
+    *,
+    report: bool = False,
+    report_lang: str = "en",
+    note: str | None = None,
+    today: dt.date | None = None,
+) -> dict:
     """analyze() plus files; returns the result JSON (result.json is written by the
     caller with exactly what goes to stdout).
     """
+    if report and report_lang not in i18n.TEXTS:
+        raise WdsError(
+            f"--report-lang {report_lang} is not available yet",
+            hint="use --report-lang en",
+        )
     analysis = analyze(**args, today=today)
     folder = output_dir(out)
     try:
         folder.mkdir(parents=True, exist_ok=True)
-        csv_path = folder / DATA_CSV
-        write_csv(analysis, csv_path)
+        files = {"result_json": str(folder / RESULT_JSON)}
+        write_csv(analysis, folder / DATA_CSV)
+        files["data_csv"] = str(folder / DATA_CSV)
+        if report:
+            # matplotlib takes a second to import: only when a report is asked for.
+            from wds_lib import report as charts
+
+            charts.write_png(analysis, folder / CHART_PNG, report_lang)
+            files["chart_png"] = str(folder / CHART_PNG)
+            charts.write_pdf(analysis, folder / REPORT_PDF, report_lang, note)
+            files["report_pdf"] = str(folder / REPORT_PDF)
     except OSError as exc:
         raise WdsError(
             f"cannot write to {folder}: {exc}",
-            hint="pass --out with a folder you can write to",
+            hint="pass --out with a folder you can write to; if report.pdf is open "
+            "in a viewer, close it and rerun",
         ) from exc
-    files = {"result_json": str(folder / RESULT_JSON), "data_csv": str(csv_path)}
     return to_json(analysis, files)

@@ -35,7 +35,7 @@
   - Verify: `pytest tests/test_verdict.py`; живий запуск `analyze` для astronomy/uk і intermittent fasting/pl,cs (pl → `no_article`).
   - Files: `scripts/wds_lib/verdict.py`, `scripts/wds.py`, `tests/test_verdict.py`
 
-- [ ] **T7. `report.py`** → *контрольна точка B*
+- [x] **T7. `report.py`** → *контрольна точка B*
   - Acceptance: PNG (на мільйон + абсолютні, по мовах); PDF A4 рівно 1 сторінка: параметри, таблиця, графік, вердикти з причинами, `note`, застереження, джерела/дата; шаблон en; шрифт DejaVu Sans.
   - Verify: тест на кількість сторінок PDF; відкрити PDF із назвами pl/cs/uk і подивитися очима.
   - Files: `scripts/wds_lib/report.py`, `scripts/wds_lib/i18n.py`, `tests/test_report.py`

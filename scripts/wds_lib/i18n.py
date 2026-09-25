@@ -30,8 +30,6 @@ TEXTS: dict[str, dict[str, str]] = {
         "conf.history_short": "only {months} months of history ({min_months} wanted)",
         "conf.history_too_short": "only {months} months of history: too short for "
         "any trend",
-        "conf.signs_differ": "absolute and per-million growth point in opposite "
-        "directions",
         "conf.insufficient": "confidence is low whenever growth cannot be measured",
         # warnings: problems with the data itself
         "warn.base_incomplete": "views start only in {since}: the 12 months before "
@@ -69,6 +67,48 @@ TEXTS: dict[str, dict[str, str]] = {
         "other names are not counted",
         "caveat.bots": "automated traffic is filtered (agent=user) but not "
         "perfectly: single spikes can be news or bots",
+        # report (PDF and PNG)
+        "report.kicker": "Interest in a topic across Wikipedia language editions",
+        "report.subtitle": "{items} · {langs} · {first} to {last} ({months} months) "
+        "· ranked by {rank_by}",
+        "rank_by.growth": "growth of share",
+        "rank_by.share": "share of edition views",
+        "rank_by.size": "audience size",
+        "col.lang": "Language",
+        "col.article": "Article",
+        "col.views": "Views, 12 mo",
+        "col.growth": "Growth",
+        "col.per_million": "Per million",
+        "col.pm_growth": "Share growth",
+        "col.trend": "Trend",
+        "col.confidence": "Confidence",
+        "row.total": "topic total ({count} articles)",
+        "row.no_article": "no article",
+        "row.no_article_item": "no article on '{item}'",
+        "row.more": "... {count} more rows in data.csv and result.json",
+        "trend_name.rising": "rising",
+        "trend_name.falling": "falling",
+        "trend_name.flat": "flat",
+        "trend_name.insufficient_data": "insufficient data",
+        "conf_name.high": "high",
+        "conf_name.medium": "medium",
+        "conf_name.low": "low",
+        "chart.per_million": "Views per million views of the edition, by month",
+        "chart.views": "Views per month",
+        "chart.more_langs": "The chart shows the first {shown} languages; all are "
+        "in the table.",
+        "section.verdicts": "Verdicts",
+        "section.note": "Assistant's note",
+        "section.assumptions": "Assumptions",
+        "section.caveats": "Caveats",
+        "verdict.head": "{rank}. {lang}: {trend}, {confidence} confidence",
+        "verdict.no_article": "{lang}: no article on this topic, which is itself a "
+        "signal of low local coverage",
+        "report.truncated": "... more in result.json",
+        "report.footer": "Source: Wikimedia Pageviews API (human traffic, all "
+        "devices) and Wikidata. Generated {date} by wikipedia-demand-signals "
+        "{version}. All numbers and verdicts are computed by code; only the "
+        "assistant's note is written by the assistant.",
     },
 }
 

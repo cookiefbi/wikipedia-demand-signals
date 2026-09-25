@@ -59,8 +59,6 @@ def cmd_resolve(args: argparse.Namespace) -> dict:
 
 
 def cmd_analyze(args: argparse.Namespace) -> dict:
-    if args.report:
-        raise WdsError("--report is not implemented yet", hint="rerun without --report")
     return analyze.run(
         {
             "qids": args.qid,
@@ -72,6 +70,9 @@ def cmd_analyze(args: argparse.Namespace) -> dict:
             "rank_by": args.rank_by,
         },
         args.out,
+        report=args.report,
+        report_lang=args.report_lang,
+        note=args.note,
     )
 
 

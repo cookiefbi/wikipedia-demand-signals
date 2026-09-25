@@ -266,11 +266,6 @@ def test_cli_error_replaces_a_stale_result_json(replay, tmp_path, capsys):
     assert saved["status"] == "error" and "not complete yet" in saved["error"]
 
 
-def test_report_is_not_there_yet(replay, tmp_path, capsys):
-    assert cli("--qid", "Q333", "--langs", "uk", "--report", "--out", str(tmp_path))
-    assert "--report" in json.loads(capsys.readouterr().out)["error"]
-
-
 def test_rerun_is_served_from_the_cache(clock, network, tmp_path, capsys, monkeypatch):
     """Criterion: a repeated question makes no network requests (see stderr)."""
     monkeypatch.setattr(analyze, "utc_today", lambda: TODAY)
