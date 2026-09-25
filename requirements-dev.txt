@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==9.1.1
+# only to cross-check our Mann-Kendall / Theil-Sen implementation
+scipy==1.17.1

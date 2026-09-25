@@ -1,0 +1,194 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "numpy==2.4.6",
+#     "matplotlib==3.11.2",
+# ]
+# ///
+"""wikipedia-demand-signals CLI: interest in a topic across Wikipedia language editions.
+
+Only argument parsing and output live here; all logic is in wds_lib/.
+Every run prints exactly one JSON object to stdout; progress goes to stderr.
+"""
+
+import argparse
+import json
+import sys
+from collections.abc import Callable
+from typing import NoReturn
+
+from wds_lib import WdsError, __version__
+
+# Exit codes: the agent reads the JSON, but a non-zero code keeps shell pipelines honest.
+EXIT_OK = 0
+EXIT_ERROR = 1
+EXIT_USAGE = 2
+
+
+def force_utf8_streams() -> None:
+    """Make stdout/stderr UTF-8 regardless of the console code page.
+
+    On Windows a piped stdout defaults to the ANSI code page (cp1251 etc.), where
+    'ř' in 'Přerušovaný půst' raises UnicodeEncodeError.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
+
+
+def _compact(value: object) -> str:
+    return json.dumps(value, ensure_ascii=False, separators=(", ", ": "))
+
+
+def dumps(obj: dict) -> str:
+    """JSON with one line per top-level key and per list item; deeper levels stay inline.
+
+    Keeps a full result at roughly 20-40 lines: readable for the agent, cheap in tokens.
+    """
+    keys = list(obj)
+    lines = ["{"]
+    for i, key in enumerate(keys):
+        comma = "," if i < len(keys) - 1 else ""
+        value = obj[key]
+        if isinstance(value, list) and value:
+            lines.append(f"  {_compact(key)}: [")
+            lines += [f"    {_compact(item)}," for item in value[:-1]]
+            lines.append(f"    {_compact(value[-1])}")
+            lines.append(f"  ]{comma}")
+        else:
+            lines.append(f"  {_compact(key)}: {_compact(value)}{comma}")
+    lines.append("}")
+    return "\n".join(lines)
+
+
+def emit(obj: dict) -> None:
+    sys.stdout.write(dumps(obj) + "\n")
+    sys.stdout.flush()
+
+
+class JsonArgumentParser(argparse.ArgumentParser):
+    """Usage errors come out as the same JSON error object as every other failure."""
+
+    def error(self, message: str) -> NoReturn:
+        emit(
+            WdsError(
+                message, hint=f"see `{self.prog} --help` for the expected arguments"
+            ).as_dict()
+        )
+        sys.exit(EXIT_USAGE)
+
+
+def cmd_resolve(args: argparse.Namespace) -> dict:
+    raise WdsError(
+        f"'resolve' is not implemented yet (query: {args.query!r})",
+        hint="implementation is in progress",
+    )
+
+
+def cmd_analyze(args: argparse.Namespace) -> dict:
+    raise WdsError(
+        "'analyze' is not implemented yet", hint="implementation is in progress"
+    )
+
+
+def build_parser() -> JsonArgumentParser:
+    parser = JsonArgumentParser(
+        prog="wds.py",
+        description="Interest in a topic across Wikipedia language editions "
+        "(Wikimedia pageviews). Prints one JSON object to stdout.",
+    )
+    parser.add_argument("--version", action="version", version=__version__)
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p = sub.add_parser(
+        "resolve",
+        help="find the Wikidata item (QID) for a topic",
+        description="Find up to 5 candidate Wikidata items for a topic, with the "
+        "article title in each requested language.",
+    )
+    p.add_argument("query", help="topic in English, e.g. 'intermittent fasting'")
+    p.add_argument(
+        "--langs", required=True, help="comma-separated language codes or English names"
+    )
+    p.add_argument(
+        "--search-lang",
+        default="en",
+        help="Wikipedia to search in (default: en); use for local topics missing in en",
+    )
+    p.set_defaults(handler=cmd_resolve)
+
+    p = sub.add_parser(
+        "analyze",
+        help="measure interest for resolved articles",
+        description="Pageviews, year-over-year growth, share of the edition's traffic "
+        "and a verdict per language.",
+    )
+    p.add_argument(
+        "--qid",
+        action="append",
+        default=[],
+        help="Wikidata item, e.g. Q1666254 (repeat or comma-separate for several)",
+    )
+    p.add_argument(
+        "--article",
+        action="append",
+        default=[],
+        metavar="LANG:TITLE",
+        help="article without a Wikidata item, e.g. 'pl:Głodówka lecznicza' (repeatable)",
+    )
+    p.add_argument(
+        "--langs", required=True, help="comma-separated language codes or English names"
+    )
+    p.add_argument(
+        "--period",
+        choices=["12m", "24m", "36m", "5y"],
+        help="analysis period ending with the last full month (default: 24m)",
+    )
+    p.add_argument("--from", dest="date_from", metavar="YYYY-MM", help="period start")
+    p.add_argument("--to", dest="date_to", metavar="YYYY-MM", help="period end")
+    p.add_argument(
+        "--rank-by",
+        choices=["growth", "share", "size"],
+        default="growth",
+        help="how to order languages (default: growth)",
+    )
+    p.add_argument("--report", action="store_true", help="also write chart PNG and PDF")
+    p.add_argument(
+        "--report-lang", choices=["en", "uk"], default="en", help="PDF language"
+    )
+    p.add_argument(
+        "--out", default="wds-output", help="output folder (default: ./wds-output)"
+    )
+    p.add_argument(
+        "--note",
+        help="agent's recommendation for the PDF; words made only of digits are rejected",
+    )
+    p.set_defaults(handler=cmd_analyze)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    force_utf8_streams()
+    args = build_parser().parse_args(argv)
+    handler: Callable[[argparse.Namespace], dict] = args.handler
+    try:
+        result = handler(args)
+    except WdsError as exc:
+        emit(exc.as_dict())
+        return EXIT_ERROR
+    except Exception as exc:  # noqa: BLE001 - last resort: the agent still gets parseable JSON
+        emit(
+            {
+                "status": "error",
+                "error": f"unexpected {type(exc).__name__}: {exc}",
+                "hint": "this is a bug in the skill; retrying will not help, "
+                "tell the user the command failed",
+            }
+        )
+        return EXIT_ERROR
+    emit(result)
+    return EXIT_OK
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,10 @@
+# Tool settings only: the skill itself runs as a PEP 723 script (scripts/wds.py).
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+markers = ["live: calls the real Wikimedia APIs (run with `pytest -m live`)"]
+addopts = "-m 'not live'"
+
+[tool.ruff]
+target-version = "py311"

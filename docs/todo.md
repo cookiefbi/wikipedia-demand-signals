@@ -4,7 +4,7 @@
 
 ## P0 — наскрізний шлях
 
-- [ ] **T1. Каркас CLI**
+- [x] **T1. Каркас CLI**
   - Acceptance: `scripts/wds.py` із заголовком PEP 723 (`numpy`, `matplotlib`), підкоманди `resolve`/`analyze` (поки заглушки); stdout у UTF-8; єдиний формат помилок `{"status":"error","error","hint"}`; `requirements.txt`, `requirements-dev.txt`; `pyproject.toml` лише для налаштувань pytest/ruff.
   - Verify: `python -m uv run "<repo>/scripts/wds.py" --help` з **іншої** папки; вивід JSON із «Přerušovaný půst» через pipe (`... | cat`) без `UnicodeEncodeError` (падіння без `reconfigure` уже відтворене); `ruff check` чистий.
   - Files: `scripts/wds.py`, `scripts/wds_lib/__init__.py`, `requirements*.txt`, `pyproject.toml`

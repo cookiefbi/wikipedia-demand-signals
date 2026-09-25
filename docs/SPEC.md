@@ -35,7 +35,7 @@ uv run "<skill-dir>/scripts/wds.py" analyze --qid Q<id> --langs pl,cs,sk --perio
 python -m pip install -r "<skill-dir>/requirements.txt" && python "<skill-dir>/scripts/wds.py" ...
 
 # тести, лінт, валідація формату
-uv run --with-requirements requirements-dev.txt pytest tests/
+uv run --no-project --with-requirements requirements-dev.txt pytest tests/   # без --no-project uv бачить pyproject.toml і створює .venv/ та uv.lock у репозиторії
 uvx ruff check scripts tests
 python <skill-creator>/scripts/quick_validate.py .
 ```
