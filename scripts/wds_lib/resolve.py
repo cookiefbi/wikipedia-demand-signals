@@ -245,6 +245,82 @@ def is_ambiguous(
     return len(exact) >= 2 and exact[1] >= exact[0] * AMBIGUITY_RATIO
 
 
+def sitelink_titles(qids: list[str]) -> dict[str, dict]:
+    """{qid: {"label": English label, "titles": {dbname: article title}}}.
+
+    One request for all items, without a site filter: the cached answer then also
+    serves "add Slovak" without asking Wikidata again.
+    """
+    url = api.build_url(
+        WIKIDATA_API,
+        {
+            "action": "wbgetentities",
+            "ids": "|".join(sorted(qids)),
+            "props": "labels|sitelinks",
+            "languages": "en",
+            "format": "json",
+        },
+    )
+    body = api.get_json(url, ttl=api.TTL_WEEK) or {}
+    entities = body.get("entities", {})
+    unknown = [q for q in qids if q not in entities or "missing" in entities[q]]
+    if unknown:
+        raise WdsError(
+            f"unknown Wikidata item {', '.join(unknown)}",
+            hint="copy the qid from the `resolve` output, e.g. --qid Q1666254",
+        )
+    return {
+        qid: {
+            "label": entities[qid].get("labels", {}).get("en", {}).get("value", ""),
+            "titles": wikipedia_sitelinks(entities[qid]),
+        }
+        for qid in qids
+    }
+
+
+def lookup_article(lang: Lang, title: str) -> tuple[str, str | None]:
+    """(canonical title, Wikidata item or None) of an existing article.
+
+    Needed because the Pageviews API answers 404 both for "no views" and for "no
+    such page": a typo would silently read as zero interest. Redirects are followed
+    to the article they point to.
+    """
+    url = api.build_url(
+        lang.api_url,
+        {
+            "action": "query",
+            "titles": title,
+            "redirects": "1",
+            "prop": "pageprops",
+            "ppprop": "wikibase_item|disambiguation",
+            "format": "json",
+            "formatversion": "2",
+        },
+    )
+    body = api.get_json(url, ttl=api.TTL_WEEK) or {}
+    pages = body.get("query", {}).get("pages", [])
+    page = pages[0] if pages else {"missing": True}
+    where = f"{lang.code}.wikipedia"
+    if page.get("missing") or page.get("invalid"):
+        raise WdsError(
+            f"no article '{title}' in {where}",
+            hint=f"check the exact title, e.g. with `resolve <topic> --langs {lang.code} "
+            f"--search-lang {lang.code}`",
+        )
+    if page.get("ns") != 0:
+        raise WdsError(
+            f"'{page['title']}' in {where} is not an article",
+            hint="pass an article title without a namespace prefix",
+        )
+    props = page.get("pageprops", {})
+    if "disambiguation" in props:
+        raise WdsError(
+            f"'{page['title']}' in {where} is a disambiguation page",
+            hint="pick the article for the meaning you want and pass that title",
+        )
+    return page["title"], props.get("wikibase_item")
+
+
 def resolve(query: str, requested: list[Lang], search_lang: Lang) -> dict:
     query = query.strip()
     if not query:

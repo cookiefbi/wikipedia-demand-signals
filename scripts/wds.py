@@ -12,12 +12,11 @@ Every run prints exactly one JSON object to stdout; progress goes to stderr.
 """
 
 import argparse
-import json
 import sys
 from collections.abc import Callable
 from typing import NoReturn
 
-from wds_lib import WdsError, __version__, api, langs, log, resolve
+from wds_lib import WdsError, __version__, analyze, api, dumps, langs, log, resolve
 
 # Exit codes: the agent reads the JSON, but a non-zero code keeps shell pipelines honest.
 EXIT_OK = 0
@@ -34,31 +33,6 @@ def force_utf8_streams() -> None:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8")
-
-
-def _compact(value: object) -> str:
-    return json.dumps(value, ensure_ascii=False, separators=(", ", ": "))
-
-
-def dumps(obj: dict) -> str:
-    """JSON with one line per top-level key and per object in a list; the rest inline.
-
-    Keeps a full result at roughly 20-40 lines: readable for the agent, cheap in tokens.
-    """
-    keys = list(obj)
-    lines = ["{"]
-    for i, key in enumerate(keys):
-        comma = "," if i < len(keys) - 1 else ""
-        value = obj[key]
-        if isinstance(value, list) and value and isinstance(value[0], dict):
-            lines.append(f"  {_compact(key)}: [")
-            lines += [f"    {_compact(item)}," for item in value[:-1]]
-            lines.append(f"    {_compact(value[-1])}")
-            lines.append(f"  ]{comma}")
-        else:
-            lines.append(f"  {_compact(key)}: {_compact(value)}{comma}")
-    lines.append("}")
-    return "\n".join(lines)
 
 
 def emit(obj: dict) -> None:
@@ -85,8 +59,19 @@ def cmd_resolve(args: argparse.Namespace) -> dict:
 
 
 def cmd_analyze(args: argparse.Namespace) -> dict:
-    raise WdsError(
-        "'analyze' is not implemented yet", hint="implementation is in progress"
+    if args.report:
+        raise WdsError("--report is not implemented yet", hint="rerun without --report")
+    return analyze.run(
+        {
+            "qids": args.qid,
+            "articles": args.article,
+            "langs_arg": args.langs,
+            "period": args.period,
+            "date_from": args.date_from,
+            "date_to": args.date_to,
+            "rank_by": args.rank_by,
+        },
+        args.out,
     )
 
 
@@ -170,25 +155,30 @@ def main(argv: list[str] | None = None) -> int:
     force_utf8_streams()
     args = build_parser().parse_args(argv)
     handler: Callable[[argparse.Namespace], dict] = args.handler
+    api.stats.update(network=0, cache=0)  # per run, also when called in-process
+    code = EXIT_OK
     try:
         result = handler(args)
     except WdsError as exc:
-        emit(exc.as_dict())
-        return EXIT_ERROR
+        result, code = exc.as_dict(), EXIT_ERROR
     except Exception as exc:  # noqa: BLE001 - last resort: the agent still gets parseable JSON
-        emit(
+        result, code = (
             {
                 "status": "error",
                 "error": f"unexpected {type(exc).__name__}: {exc}",
                 "hint": "this is a bug in the skill; retrying will not help, "
                 "tell the user the command failed",
-            }
+            },
+            EXIT_ERROR,
         )
-        return EXIT_ERROR
     finally:
         log(f"requests: {api.stats['network']} network, {api.stats['cache']} cached")
+    if args.command == "analyze":
+        # Written first and on errors too: the fallback when the console garbles
+        # the output, and never a stale answer from an earlier run.
+        analyze.save_result(args.out, dumps(result))
     emit(result)
-    return EXIT_OK
+    return code
 
 
 if __name__ == "__main__":

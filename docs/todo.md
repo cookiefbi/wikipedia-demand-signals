@@ -29,7 +29,8 @@
   - Verify: `pytest tests/test_series.py` (синтетичні ряди + межі місяців, 1-ше число місяця); повторний запуск не робить мережевих запитів (stderr).
   - Files: `scripts/wds_lib/pageviews.py`, `scripts/wds_lib/series.py`, `tests/test_series.py`
 
-- [ ] **T6. `verdict.py` (простий) + `analyze`**
+- [x] **T6. `verdict.py` (простий) + `analyze`**
+  - Зроблено заздалегідь для T10/T13: дата появи статті поки = перший місяць із переглядами (T10 замінить на першу правку); `topic_totals` (сума статей мови) і три ключі `--rank-by` уже працюють, у T13 лишаються тексти `why` і тести ранжування за частками/розміром на реальних даних.
   - Acceptance: `views_*`, `growth_pct`, `per_million_*`; `trend` за нормалізованим YoY ±10 %; простий `confidence` (обсяг, покриття місяців); `no_article`; `assumptions`; незмінні `caveats`; базове ранжування (low не першим); JSON у stdout + `result.json` + CSV (стаття й редиректи окремими колонками); `--out`.
   - Verify: `pytest tests/test_verdict.py`; живий запуск `analyze` для astronomy/uk і intermittent fasting/pl,cs (pl → `no_article`).
   - Files: `scripts/wds_lib/verdict.py`, `scripts/wds.py`, `tests/test_verdict.py`

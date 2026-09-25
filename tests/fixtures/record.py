@@ -5,6 +5,7 @@ never from hand-written guesses. Rerun to refresh:
 
     python tests/fixtures/record.py languages   # scripts/wds_lib/languages.json
     python tests/fixtures/record.py resolve     # tests/fixtures/resolve/*.json
+    python tests/fixtures/record.py analyze     # tests/fixtures/analyze.json
 """
 
 import argparse
@@ -16,7 +17,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 
-from wds_lib import api, langs, resolve
+from wds_lib import analyze, api, langs, pageviews, resolve
 
 FRESH = 0  # ttl=0: always ask the API, never the local cache
 
@@ -155,14 +156,87 @@ def record_resolve() -> None:
         print(f"{query}: {len(responses)} responses -> {out.name}", file=sys.stderr)
 
 
+# The task's examples on real data. One file: answers are shared by URL (the pl and
+# cs edition totals serve both topics), and a test may replay any subset.
+ANALYZE_SCENARIOS = {
+    "astronomy": {"qids": ["Q333"], "articles": [], "langs_arg": "pl,cs,uk"},
+    "intermittent-fasting": {
+        "qids": ["Q1666254"],
+        "articles": ["pl:Głodówka lecznicza"],
+        "langs_arg": "pl,cs",
+    },
+}
+ANALYZE_FIXTURE = Path(__file__).with_name("analyze.json")
+
+
+def compact(url: str, body: object) -> object:
+    """Keep what the code reads: pageviews as [timestamp, views] pairs (a tenth of
+    the size; tests expand them back), sitelinks without badges.
+    """
+    if body is None:
+        return None
+    if url.startswith(pageviews.PAGEVIEWS_API):
+        return {"items": [[i["timestamp"], i["views"]] for i in body["items"]]}
+    if "action=wbgetentities" in url:
+        return {
+            "entities": {
+                qid: {
+                    key: value
+                    if key != "sitelinks"
+                    else {site: {"title": s["title"]} for site, s in value.items()}
+                    for key, value in entity.items()
+                }
+                for qid, entity in body["entities"].items()
+            }
+        }
+    return body
+
+
+def record_analyze() -> None:
+    """Run the real analyze code against the live APIs and keep every answer."""
+    today = datetime.datetime.now(datetime.UTC).date()
+    raw: dict[str, object] = {}
+    original = api.get_json
+
+    def recording_get(url: str, *, ttl: float | None):
+        if url not in raw:  # one fresh answer per URL, also when asked twice
+            raw[url] = original(url, ttl=FRESH)
+        return raw[url]
+
+    api.get_json = recording_get
+    try:
+        for name, args in ANALYZE_SCENARIOS.items():
+            analyze.analyze(**args, today=today)
+            print(f"{name}: ok", file=sys.stderr)
+    finally:
+        api.get_json = original
+    head = {
+        "today": today.isoformat(),
+        "recorded": today.isoformat(),
+        "scenarios": ANALYZE_SCENARIOS,
+    }
+    lines = [
+        f"  {json.dumps(url)}: "
+        f"{json.dumps(compact(url, body), ensure_ascii=False, separators=(',', ':'))}"
+        for url, body in raw.items()
+    ]
+    text = json.dumps(head, ensure_ascii=False, indent=1)[:-2]
+    text += ',\n "responses": {\n' + ",\n".join(lines) + "\n }\n}\n"
+    json.loads(text)  # must stay valid JSON
+    ANALYZE_FIXTURE.write_bytes(text.encode("utf-8"))
+    print(f"{len(raw)} responses -> {ANALYZE_FIXTURE.name}", file=sys.stderr)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("what", choices=["languages", "resolve"])
+    parser.add_argument("what", choices=["languages", "resolve", "analyze"])
     args = parser.parse_args()
     if args.what == "languages":
         record_languages()
     elif args.what == "resolve":
         record_resolve()
+    elif args.what == "analyze":
+        record_analyze()
 
 
 if __name__ == "__main__":
