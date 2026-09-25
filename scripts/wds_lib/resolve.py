@@ -202,14 +202,17 @@ def coverage(candidate: Candidate, requested: list[Lang]) -> int:
 def rank_candidates(
     candidates: list[Candidate], query: str, requested: list[Lang]
 ) -> list[Candidate]:
-    """Drop disambiguation pages; order by exact name match, search position,
+    """Drop what cannot be analysed; order by exact name match, search position,
     coverage of the requested languages and, last, the number of Wikipedia articles.
 
+    Dropped: disambiguation pages and items without any Wikipedia article (papers,
+    clinical trials, paintings). Items with articles only in other languages stay;
+    the coverage criterion already puts them lower.
     The article count comes last on purpose: otherwise the broad "Fasting" would
     outrank "Intermittent fasting".
     """
     wanted = normalize(query)
-    topics = [c for c in candidates if not c.disambiguation]
+    topics = [c for c in candidates if not c.disambiguation and c.sitelinks]
     return sorted(
         topics,
         key=lambda c: (

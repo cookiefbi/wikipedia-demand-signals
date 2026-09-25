@@ -122,6 +122,23 @@ def test_at_most_five_candidates_with_the_contract_fields(replay):
             assert c["found_via"] in {"wikidata", "fulltext", "both"}
 
 
+def test_zero_article_items_are_gone_but_other_language_ones_stay(replay):
+    for name in (
+        "astronomy",
+        "intermittent-fasting",
+        "learning-english",
+        "java",
+        "mercury",
+    ):
+        result = run(replay, name, "uk")
+        assert all(c["sitelinks_total"] > 0 for c in result["candidates"])
+    astronomy = qids(run(replay, "astronomy", "uk"))
+    assert "Q123958410" not in astronomy  # Conan Gray song, 0 articles
+    assert "Q18889378" not in astronomy  # Munch painting, 0 articles
+    assert "Q3232273" in astronomy  # the magazine: 9 articles, none in uk
+    assert "Q112575736" not in qids(run(replay, "intermittent-fasting", "pl,cs"))
+
+
 def test_found_via_reflects_which_search_found_the_item(replay):
     result = run(replay, "intermittent-fasting", "pl,cs")
     via = {c["qid"]: c["found_via"] for c in result["candidates"]}
@@ -134,7 +151,9 @@ def test_found_via_reflects_which_search_found_the_item(replay):
 PL, CS, UK = (langs.lookup(code) for code in ("pl", "cs", "uk"))
 
 
-def cand(qid, names=(), wd=None, ft=None, sites=(), extra=0) -> Candidate:
+def cand(qid, names=(), wd=None, ft=None, sites=(), extra=1) -> Candidate:
+    """extra: articles in languages nobody asked for (one by default, so the item
+    is analysable somewhere and survives the zero-article filter)."""
     sitelinks = {site: "t" for site in sites} | {f"x{i}wiki": "t" for i in range(extra)}
     return Candidate(qid, wd, ft, names=set(names), sitelinks=sitelinks)
 
@@ -176,6 +195,12 @@ def test_disambiguation_candidates_are_dropped():
     page = cand("D", ["topic"], wd=0)
     page.disambiguation = True
     assert order([page, cand("A", wd=1)]) == ["A"]
+
+
+def test_items_without_any_wikipedia_article_are_dropped():
+    nothing = cand("Z", ["topic"], wd=0, ft=0, extra=0)
+    elsewhere = cand("E", wd=1, extra=5)  # articles, just not in pl/cs: stays
+    assert order([nothing, elsewhere]) == ["E"]
 
 
 def ambiguous(candidates, requested=(PL, CS)) -> bool:
