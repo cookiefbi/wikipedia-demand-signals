@@ -17,7 +17,7 @@ import sys
 from collections.abc import Callable
 from typing import NoReturn
 
-from wds_lib import WdsError, __version__
+from wds_lib import WdsError, __version__, api, langs, log, resolve
 
 # Exit codes: the agent reads the JSON, but a non-zero code keeps shell pipelines honest.
 EXIT_OK = 0
@@ -41,7 +41,7 @@ def _compact(value: object) -> str:
 
 
 def dumps(obj: dict) -> str:
-    """JSON with one line per top-level key and per list item; deeper levels stay inline.
+    """JSON with one line per top-level key and per object in a list; the rest inline.
 
     Keeps a full result at roughly 20-40 lines: readable for the agent, cheap in tokens.
     """
@@ -50,7 +50,7 @@ def dumps(obj: dict) -> str:
     for i, key in enumerate(keys):
         comma = "," if i < len(keys) - 1 else ""
         value = obj[key]
-        if isinstance(value, list) and value:
+        if isinstance(value, list) and value and isinstance(value[0], dict):
             lines.append(f"  {_compact(key)}: [")
             lines += [f"    {_compact(item)}," for item in value[:-1]]
             lines.append(f"    {_compact(value[-1])}")
@@ -79,10 +79,9 @@ class JsonArgumentParser(argparse.ArgumentParser):
 
 
 def cmd_resolve(args: argparse.Namespace) -> dict:
-    raise WdsError(
-        f"'resolve' is not implemented yet (query: {args.query!r})",
-        hint="implementation is in progress",
-    )
+    requested = langs.parse_langs(args.langs)
+    search_lang = langs.parse_langs(args.search_lang)[0]
+    return resolve.resolve(args.query, requested, search_lang)
 
 
 def cmd_analyze(args: argparse.Namespace) -> dict:
@@ -186,6 +185,8 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
         return EXIT_ERROR
+    finally:
+        log(f"requests: {api.stats['network']} network, {api.stats['cache']} cached")
     emit(result)
     return EXIT_OK
 

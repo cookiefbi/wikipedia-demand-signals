@@ -1,0 +1,4263 @@
+{
+ "query": "astronomy",
+ "search_lang": "en",
+ "recorded": "2026-09-25",
+ "responses": {
+  "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=10&search=astronomy&type=item&uselang=en": {
+   "searchinfo": {
+    "search": "astronomy"
+   },
+   "search": [
+    {
+     "id": "Q333",
+     "title": "Q333",
+     "pageid": 526,
+     "concepturi": "http://www.wikidata.org/entity/Q333",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q333",
+     "display": {
+      "label": {
+       "value": "astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "natural science studying celestial objects and phenomena in the cosmos",
+       "language": "en"
+      }
+     },
+     "label": "astronomy",
+     "description": "natural science studying celestial objects and phenomena in the cosmos",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "astronomy"
+     }
+    },
+    {
+     "id": "Q752075",
+     "title": "Q752075",
+     "pageid": 707654,
+     "concepturi": "http://www.wikidata.org/entity/Q752075",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q752075",
+     "display": {
+      "label": {
+       "value": "Astronomy and Astrophysics",
+       "language": "en"
+      },
+      "description": {
+       "value": "scientific journal covering theoretical, observational, and instrumental astronomy and astrophysics",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy and Astrophysics",
+     "description": "scientific journal covering theoretical, observational, and instrumental astronomy and astrophysics",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy and Astrophysics"
+     }
+    },
+    {
+     "id": "Q123958410",
+     "title": "Q123958410",
+     "pageid": 118144617,
+     "concepturi": "http://www.wikidata.org/entity/Q123958410",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q123958410",
+     "display": {
+      "label": {
+       "value": "Astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "vocal track by Conan Gray; 2021 studio recording",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy",
+     "description": "vocal track by Conan Gray; 2021 studio recording",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy"
+     }
+    },
+    {
+     "id": "Q3027134",
+     "title": "Q3027134",
+     "pageid": 2894017,
+     "concepturi": "http://www.wikidata.org/entity/Q3027134",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q3027134",
+     "display": {
+      "label": {
+       "value": "Astronomy Reports",
+       "language": "en"
+      },
+      "description": {
+       "value": "journal",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy Reports",
+     "description": "journal",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy Reports"
+     }
+    },
+    {
+     "id": "Q263028",
+     "title": "Q263028",
+     "pageid": 255061,
+     "concepturi": "http://www.wikidata.org/entity/Q263028",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q263028",
+     "display": {
+      "label": {
+       "value": "Astronomy Letters",
+       "language": "en"
+      },
+      "description": {
+       "value": "journal",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy Letters",
+     "description": "journal",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy Letters"
+     }
+    },
+    {
+     "id": "Q411",
+     "title": "Q411",
+     "pageid": 621,
+     "concepturi": "http://www.wikidata.org/entity/Q411",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q411",
+     "display": {
+      "label": {
+       "value": "astrobiology",
+       "language": "en"
+      },
+      "description": {
+       "value": "study of the formation of life on Earth and elsewhere on other planets in outer space",
+       "language": "en"
+      }
+     },
+     "label": "astrobiology",
+     "description": "study of the formation of life on Earth and elsewhere on other planets in outer space",
+     "match": {
+      "type": "alias",
+      "language": "en",
+      "text": "astronomy and biology"
+     },
+     "aliases": [
+      "astronomy and biology"
+     ]
+    },
+    {
+     "id": "Q3232273",
+     "title": "Q3232273",
+     "pageid": 3085513,
+     "concepturi": "http://www.wikidata.org/entity/Q3232273",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q3232273",
+     "display": {
+      "label": {
+       "value": "Astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "American magazine",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy",
+     "description": "American magazine",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy"
+     }
+    },
+    {
+     "id": "Q12012641",
+     "title": "Q12012641",
+     "pageid": 13232173,
+     "concepturi": "http://www.wikidata.org/entity/Q12012641",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q12012641",
+     "display": {
+      "label": {
+       "value": "astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "fictional class at Hogwarts",
+       "language": "en"
+      }
+     },
+     "label": "astronomy",
+     "description": "fictional class at Hogwarts",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "astronomy"
+     }
+    },
+    {
+     "id": "Q18889378",
+     "title": "Q18889378",
+     "pageid": 20444920,
+     "concepturi": "http://www.wikidata.org/entity/Q18889378",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q18889378",
+     "display": {
+      "label": {
+       "value": "Astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "painting by Edvard Munch (1909 - 2)",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy",
+     "description": "painting by Edvard Munch (1909 - 2)",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy"
+     }
+    },
+    {
+     "id": "Q18889376",
+     "title": "Q18889376",
+     "pageid": 20444918,
+     "concepturi": "http://www.wikidata.org/entity/Q18889376",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q18889376",
+     "display": {
+      "label": {
+       "value": "Astronomy",
+       "language": "en"
+      },
+      "description": {
+       "value": "painting by Edvard Munch (1909 - 1)",
+       "language": "en"
+      }
+     },
+     "label": "Astronomy",
+     "description": "painting by Edvard Munch (1909 - 1)",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Astronomy"
+     }
+    }
+   ],
+   "search-continue": 10,
+   "success": 1
+  },
+  "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&generator=search&gsrlimit=10&gsrnamespace=0&gsrsearch=astronomy&ppprop=wikibase_item%7Cdisambiguation&prop=pageprops": {
+   "batchcomplete": true,
+   "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+   },
+   "query": {
+    "pages": [
+     {
+      "pageid": 14021,
+      "ns": 0,
+      "title": "History of astronomy",
+      "index": 3,
+      "pageprops": {
+       "wikibase_item": "Q50056"
+      }
+     },
+     {
+      "pageid": 26751,
+      "ns": 0,
+      "title": "Sun",
+      "index": 4,
+      "pageprops": {
+       "wikibase_item": "Q525"
+      }
+     },
+     {
+      "pageid": 50650,
+      "ns": 0,
+      "title": "Astronomy",
+      "index": 1,
+      "pageprops": {
+       "wikibase_item": "Q333"
+      }
+     },
+     {
+      "pageid": 82961,
+      "ns": 0,
+      "title": "Radio astronomy",
+      "index": 8,
+      "pageprops": {
+       "wikibase_item": "Q4306"
+      }
+     },
+     {
+      "pageid": 200006,
+      "ns": 0,
+      "title": "Epoch (astronomy)",
+      "index": 7,
+      "pageprops": {
+       "wikibase_item": "Q2703"
+      }
+     },
+     {
+      "pageid": 1524517,
+      "ns": 0,
+      "title": "Chinese astronomy",
+      "index": 10,
+      "pageprops": {
+       "wikibase_item": "Q1268276"
+      }
+     },
+     {
+      "pageid": 1844297,
+      "ns": 0,
+      "title": "Video astronomy",
+      "index": 5,
+      "pageprops": {
+       "wikibase_item": "Q25338351"
+      }
+     },
+     {
+      "pageid": 4536514,
+      "ns": 0,
+      "title": "Babylonian astronomy",
+      "index": 6,
+      "pageprops": {
+       "wikibase_item": "Q787929"
+      }
+     },
+     {
+      "pageid": 5081125,
+      "ns": 0,
+      "title": "Astronomy (disambiguation)",
+      "index": 2,
+      "pageprops": {
+       "disambiguation": "",
+       "wikibase_item": "Q3627653"
+      }
+     },
+     {
+      "pageid": 49292744,
+      "ns": 0,
+      "title": "Astronomy education",
+      "index": 9,
+      "pageprops": {
+       "wikibase_item": "Q22906503"
+      }
+     }
+    ]
+   }
+  },
+  "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q333%7CQ752075%7CQ123958410%7CQ3027134%7CQ263028%7CQ411%7CQ3232273%7CQ12012641%7CQ18889378%7CQ18889376%7CQ3627653%7CQ50056%7CQ525%7CQ25338351%7CQ787929%7CQ2703%7CQ4306%7CQ22906503%7CQ1268276&languages=en&props=labels%7Cdescriptions%7Caliases%7Csitelinks%7Cclaims": {
+   "entities": {
+    "Q333": {
+     "id": "Q333",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "natural science studying celestial objects and phenomena in the cosmos"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q333"
+      },
+      "abwiki": {
+       "title": "Астрономиа"
+      },
+      "afwiki": {
+       "title": "Sterrekunde"
+      },
+      "afwikibooks": {
+       "title": "Sterrekunde"
+      },
+      "alswiki": {
+       "title": "Astronomie"
+      },
+      "amwiki": {
+       "title": "ሥነ ፈለክ"
+      },
+      "angwiki": {
+       "title": "Tungolcræft"
+      },
+      "anpwiki": {
+       "title": "खगोल शास्त्र"
+      },
+      "anwiki": {
+       "title": "Astronomía"
+      },
+      "arcwiki": {
+       "title": "ܡܡܠܠܘܬ ܟܘܟܒܐ"
+      },
+      "arwiki": {
+       "title": "علم الفلك"
+      },
+      "arwikibooks": {
+       "title": "علم الفلك"
+      },
+      "arwikinews": {
+       "title": "تصنيف:علم الفلك"
+      },
+      "arwikiversity": {
+       "title": "علم الفلك"
+      },
+      "arywiki": {
+       "title": "علم د لفلك"
+      },
+      "arzwiki": {
+       "title": "فلك"
+      },
+      "astwiki": {
+       "title": "Astronomía"
+      },
+      "aswiki": {
+       "title": "জ্যোতিৰ্বিজ্ঞান"
+      },
+      "avwiki": {
+       "title": "Астрономия"
+      },
+      "aywiki": {
+       "title": "Alaxpacha yänakata"
+      },
+      "azbwiki": {
+       "title": "آسترونومی"
+      },
+      "azwiki": {
+       "title": "Astronomiya"
+      },
+      "azwikiquote": {
+       "title": "Astronomiya"
+      },
+      "banwiki": {
+       "title": "Astronomi"
+      },
+      "barwiki": {
+       "title": "Astronomie"
+      },
+      "bat_smgwiki": {
+       "title": "Astruonuomėjė"
+      },
+      "bawiki": {
+       "title": "Астрономия"
+      },
+      "bclwiki": {
+       "title": "Astronomiya"
+      },
+      "be_x_oldwiki": {
+       "title": "Астраномія"
+      },
+      "bewiki": {
+       "title": "Астраномія"
+      },
+      "bewwiki": {
+       "title": "Èlmu palak"
+      },
+      "bgwiki": {
+       "title": "Астрономия"
+      },
+      "bgwikinews": {
+       "title": "Категория:Астрономия"
+      },
+      "bhwiki": {
+       "title": "खगोलिकी"
+      },
+      "biwiki": {
+       "title": "Astronomi"
+      },
+      "bjnwiki": {
+       "title": "Kaji tawas langit"
+      },
+      "blkwiki": {
+       "title": "နက္ခတ္တဗေဒ"
+      },
+      "bmwiki": {
+       "title": "Dolokalan"
+      },
+      "bnwiki": {
+       "title": "জ্যোতির্বিজ্ঞান"
+      },
+      "bnwikibooks": {
+       "title": "জ্যোতির্বিজ্ঞান"
+      },
+      "bnwikiquote": {
+       "title": "জ্যোতির্বিজ্ঞান"
+      },
+      "brwiki": {
+       "title": "Steredoniezh"
+      },
+      "bswiki": {
+       "title": "Astronomija"
+      },
+      "btmwiki": {
+       "title": "Astronomi"
+      },
+      "bxrwiki": {
+       "title": "Одон орон шудалал"
+      },
+      "cawiki": {
+       "title": "Astronomia"
+      },
+      "cawikinews": {
+       "title": "Categoria:Astronomia"
+      },
+      "cbk_zamwiki": {
+       "title": "Astronomia"
+      },
+      "cdowiki": {
+       "title": "Tiĕng-ùng"
+      },
+      "cebwiki": {
+       "title": "Astronomiya"
+      },
+      "cewiki": {
+       "title": "Астрономи"
+      },
+      "ckbwiki": {
+       "title": "ئەستێرەناسی"
+      },
+      "commonswiki": {
+       "title": "Astronomy"
+      },
+      "cowiki": {
+       "title": "Astronumia"
+      },
+      "csbwiki": {
+       "title": "Astronomiô"
+      },
+      "cswiki": {
+       "title": "Astronomie"
+      },
+      "cswikinews": {
+       "title": "Kategorie:Astronomie"
+      },
+      "cswikiquote": {
+       "title": "Astronomie"
+      },
+      "cvwiki": {
+       "title": "Астрономи"
+      },
+      "cywiki": {
+       "title": "Seryddiaeth"
+      },
+      "dawiki": {
+       "title": "Astronomi"
+      },
+      "dewiki": {
+       "title": "Astronomie"
+      },
+      "dewikibooks": {
+       "title": "Einführung in die Astronomie"
+      },
+      "dewikinews": {
+       "title": "Kategorie:Astronomie"
+      },
+      "dewikiquote": {
+       "title": "Astronomie"
+      },
+      "dinwiki": {
+       "title": "Ŋiɛ̈ckanhial"
+      },
+      "diqwiki": {
+       "title": "Asmênşınasiye"
+      },
+      "dsbwiki": {
+       "title": "Astronomija"
+      },
+      "dtpwiki": {
+       "title": "Astoronomi"
+      },
+      "dvwiki": {
+       "title": "ފަލަކީ އިލްމު"
+      },
+      "elwiki": {
+       "title": "Αστρονομία"
+      },
+      "emlwiki": {
+       "title": "Astronomî"
+      },
+      "enwiki": {
+       "title": "Astronomy"
+      },
+      "enwikibooks": {
+       "title": "General Astronomy"
+      },
+      "enwikinews": {
+       "title": "Category:Astronomy"
+      },
+      "enwikiquote": {
+       "title": "Astronomy"
+      },
+      "enwikiversity": {
+       "title": "Astronomy"
+      },
+      "enwikivoyage": {
+       "title": "Astronomy"
+      },
+      "eowiki": {
+       "title": "Astronomio"
+      },
+      "eowikinews": {
+       "title": "Kategorio:Astronomio"
+      },
+      "eowikiquote": {
+       "title": "Astronomio"
+      },
+      "eswiki": {
+       "title": "Astronomía"
+      },
+      "eswikibooks": {
+       "title": "Física/Astronomía"
+      },
+      "eswikinews": {
+       "title": "Categoría:Astronomía"
+      },
+      "eswikiquote": {
+       "title": "Astronomía"
+      },
+      "eswikivoyage": {
+       "title": "Astronomía"
+      },
+      "etwiki": {
+       "title": "Astronoomia"
+      },
+      "etwikiquote": {
+       "title": "Astronoomia"
+      },
+      "euwiki": {
+       "title": "Astronomia"
+      },
+      "extwiki": {
+       "title": "Astronomia"
+      },
+      "fawiki": {
+       "title": "اخترشناسی"
+      },
+      "fawikibooks": {
+       "title": "فرهنگ نجوم"
+      },
+      "fawikinews": {
+       "title": "رده:ستاره‌شناسی"
+      },
+      "fawikiquote": {
+       "title": "اخترشناسی"
+      },
+      "ffwiki": {
+       "title": "Astoronomy"
+      },
+      "fiu_vrowiki": {
+       "title": "Tähetiidüs"
+      },
+      "fiwiki": {
+       "title": "Tähtitiede"
+      },
+      "fiwikibooks": {
+       "title": "Tähtitiede"
+      },
+      "fjwiki": {
+       "title": "Maliwalala"
+      },
+      "fowiki": {
+       "title": "Stjørnufrøði"
+      },
+      "frpwiki": {
+       "title": "Astronomia"
+      },
+      "frrwiki": {
+       "title": "Stäärkunde"
+      },
+      "frwiki": {
+       "title": "Astronomie"
+      },
+      "frwikinews": {
+       "title": "Catégorie:Astronomie"
+      },
+      "furwiki": {
+       "title": "Astronomie"
+      },
+      "fywiki": {
+       "title": "Astronomy"
+      },
+      "ganwiki": {
+       "title": "天文學"
+      },
+      "gawiki": {
+       "title": "Réalteolaíocht"
+      },
+      "gcrwiki": {
+       "title": "Lastronnonmi"
+      },
+      "gdwiki": {
+       "title": "Reul-eòlas"
+      },
+      "glwiki": {
+       "title": "Astronomía"
+      },
+      "gnwiki": {
+       "title": "Mbyjakuaa"
+      },
+      "guwiki": {
+       "title": "ખગોળશાસ્ત્ર"
+      },
+      "gvwiki": {
+       "title": "Rollageydys"
+      },
+      "hakwiki": {
+       "title": "Thiên-vùn-ho̍k"
+      },
+      "hawwiki": {
+       "title": "Kilo hōkū"
+      },
+      "hewiki": {
+       "title": "אסטרונומיה"
+      },
+      "hewikiquote": {
+       "title": "אסטרונומיה"
+      },
+      "hewikivoyage": {
+       "title": "אסטרונומיה"
+      },
+      "hifwiki": {
+       "title": "Taara vigyan"
+      },
+      "hiwiki": {
+       "title": "खगोल शास्त्र"
+      },
+      "hrwiki": {
+       "title": "Astronomija"
+      },
+      "hsbwiki": {
+       "title": "Astronomija"
+      },
+      "htwiki": {
+       "title": "Astwonomi"
+      },
+      "huwiki": {
+       "title": "Csillagászat"
+      },
+      "hywiki": {
+       "title": "Աստղագիտություն"
+      },
+      "hywwiki": {
+       "title": "Աստղագիտութիւն"
+      },
+      "iawiki": {
+       "title": "Astronomia"
+      },
+      "ibawiki": {
+       "title": "Astronomi"
+      },
+      "idwiki": {
+       "title": "Astronomi"
+      },
+      "idwikivoyage": {
+       "title": "Astronomi"
+      },
+      "iewiki": {
+       "title": "Astronomie"
+      },
+      "ilowiki": {
+       "title": "Astronomia"
+      },
+      "inhwiki": {
+       "title": "АйламӀилма"
+      },
+      "iowiki": {
+       "title": "Astronomio"
+      },
+      "isvwiki": {
+       "title": "Zvězdoznavstvo"
+      },
+      "iswiki": {
+       "title": "Stjörnufræði"
+      },
+      "itwiki": {
+       "title": "Astronomia"
+      },
+      "itwikinews": {
+       "title": "Categoria:Astronomia"
+      },
+      "itwikiquote": {
+       "title": "Astronomia"
+      },
+      "iuwiki": {
+       "title": "ᓯᓚᓯᐅᕐᓂᖅ"
+      },
+      "jamwiki": {
+       "title": "Aschranami"
+      },
+      "jawiki": {
+       "title": "天文学"
+      },
+      "jawikibooks": {
+       "title": "天文学"
+      },
+      "jawikinews": {
+       "title": "カテゴリ:天文学"
+      },
+      "jawikiversity": {
+       "title": "Topic:天文学"
+      },
+      "jbowiki": {
+       "title": "kesyske"
+      },
+      "jvwiki": {
+       "title": "Astronomi"
+      },
+      "kaawiki": {
+       "title": "Astronomiya"
+      },
+      "kabwiki": {
+       "title": "Tasnallunt"
+      },
+      "kawiki": {
+       "title": "ასტრონომია"
+      },
+      "kkwiki": {
+       "title": "Астрономия"
+      },
+      "kmwiki": {
+       "title": "តារាវិទ្យា"
+      },
+      "kncwiki": {
+       "title": "Ilmu Falak bǝ"
+      },
+      "knwiki": {
+       "title": "ಖಗೋಳಶಾಸ್ತ್ರ"
+      },
+      "kowiki": {
+       "title": "천문학"
+      },
+      "kowikibooks": {
+       "title": "위키책:천문학"
+      },
+      "kowikinews": {
+       "title": "분류:천문학"
+      },
+      "kowikiversity": {
+       "title": "천문학"
+      },
+      "krcwiki": {
+       "title": "Астрономия"
+      },
+      "kswiki": {
+       "title": "فَلکِیات"
+      },
+      "kuwiki": {
+       "title": "Stêrnasî"
+      },
+      "kwwiki": {
+       "title": "Steronieth"
+      },
+      "kywiki": {
+       "title": "Астрономия"
+      },
+      "ladwiki": {
+       "title": "Astronomiya"
+      },
+      "lawiki": {
+       "title": "Astronomia"
+      },
+      "lbewiki": {
+       "title": "ЦӀурттал элму"
+      },
+      "lbwiki": {
+       "title": "Astronomie"
+      },
+      "lezwiki": {
+       "title": "Астрономия"
+      },
+      "lfnwiki": {
+       "title": "Astronomia"
+      },
+      "lgwiki": {
+       "title": "Essomabwengula"
+      },
+      "lijwiki": {
+       "title": "Astronomia"
+      },
+      "liwiki": {
+       "title": "Starekunde"
+      },
+      "lldwiki": {
+       "title": "Astronomia"
+      },
+      "lmowiki": {
+       "title": "Astronomia"
+      },
+      "lnwiki": {
+       "title": "Mambí ma nzɔ́tɔ"
+      },
+      "lowiki": {
+       "title": "ດາລາສາດ"
+      },
+      "ltwiki": {
+       "title": "Astronomija"
+      },
+      "lvwiki": {
+       "title": "Astronomija"
+      },
+      "madwiki": {
+       "title": "Astronomi"
+      },
+      "magwiki": {
+       "title": "खगोलशास्त्र"
+      },
+      "map_bmswiki": {
+       "title": "Astronomi"
+      },
+      "mgwiki": {
+       "title": "Haikintana"
+      },
+      "mhrwiki": {
+       "title": "Астрономий"
+      },
+      "minwiki": {
+       "title": "Astronomi"
+      },
+      "miwiki": {
+       "title": "Tātai arorangi"
+      },
+      "mkwiki": {
+       "title": "Астрономија"
+      },
+      "mlwiki": {
+       "title": "ജ്യോതിഃശാസ്ത്രം"
+      },
+      "mniwiki": {
+       "title": "ꯈꯦꯟꯆꯣꯡꯂꯣꯟ"
+      },
+      "mnwiki": {
+       "title": "Одон орон"
+      },
+      "mnwwiki": {
+       "title": "ပညာအာကာသ"
+      },
+      "mrwiki": {
+       "title": "खगोलशास्त्र"
+      },
+      "mswiki": {
+       "title": "Astronomi"
+      },
+      "mtwiki": {
+       "title": "Astronomija"
+      },
+      "mwlwiki": {
+       "title": "Astronomie"
+      },
+      "mywiki": {
+       "title": "နက္ခတ္တဗေဒ"
+      },
+      "mznwiki": {
+       "title": "اساره‌دونی"
+      },
+      "nahwiki": {
+       "title": "Ilhuicamatiliztli"
+      },
+      "napwiki": {
+       "title": "Astronumia"
+      },
+      "nds_nlwiki": {
+       "title": "Steernskunde"
+      },
+      "ndswiki": {
+       "title": "Astronomie"
+      },
+      "newiki": {
+       "title": "खगोल शास्त्र"
+      },
+      "newwiki": {
+       "title": "खगोलशास्त्र"
+      },
+      "niawiki": {
+       "title": "Astronomi"
+      },
+      "nlwiki": {
+       "title": "Astronomie"
+      },
+      "nlwikinews": {
+       "title": "Categorie:Astronomie"
+      },
+      "nnwiki": {
+       "title": "Astronomi"
+      },
+      "novwiki": {
+       "title": "Astronomia"
+      },
+      "nowiki": {
+       "title": "Astronomi"
+      },
+      "nqowiki": {
+       "title": "ߛߊ߲ߡߊߛߓߍ"
+      },
+      "nrmwiki": {
+       "title": "Astrononmie"
+      },
+      "nsowiki": {
+       "title": "Thutanaledi"
+      },
+      "ocwiki": {
+       "title": "Astronomia"
+      },
+      "olowiki": {
+       "title": "Tiähtitiedo"
+      },
+      "omwiki": {
+       "title": "Xin-hawaa"
+      },
+      "oswiki": {
+       "title": "Астрономи"
+      },
+      "pamwiki": {
+       "title": "Astronomia"
+      },
+      "pawiki": {
+       "title": "ਤਾਰਾ ਵਿਗਿਆਨ"
+      },
+      "pcdwiki": {
+       "title": "Astrononmie"
+      },
+      "pcmwiki": {
+       "title": "Astronomi"
+      },
+      "plwiki": {
+       "title": "Astronomia"
+      },
+      "plwikinews": {
+       "title": "Kategoria:Astronomia"
+      },
+      "plwikiquote": {
+       "title": "Astronomia"
+      },
+      "pmswiki": {
+       "title": "Astronomìa"
+      },
+      "pnbwiki": {
+       "title": "تارا پڑھت"
+      },
+      "pswiki": {
+       "title": "ستورپوهنه"
+      },
+      "ptwiki": {
+       "title": "Astronomia"
+      },
+      "ptwikibooks": {
+       "title": "Astronomia"
+      },
+      "ptwikinews": {
+       "title": "Categoria:Astronomia"
+      },
+      "ptwikiquote": {
+       "title": "Astronomia"
+      },
+      "quwiki": {
+       "title": "Quyllur yachay"
+      },
+      "rkiwiki": {
+       "title": "နက္ခတ္တဗေဒ"
+      },
+      "rmwiki": {
+       "title": "Astronomia"
+      },
+      "rmywiki": {
+       "title": "Chexanipen"
+      },
+      "roa_rupwiki": {
+       "title": "Astronomie"
+      },
+      "rowiki": {
+       "title": "Astronomie"
+      },
+      "ruewiki": {
+       "title": "Астрономія"
+      },
+      "ruwiki": {
+       "title": "Астрономия"
+      },
+      "ruwikibooks": {
+       "title": "Астрономия"
+      },
+      "ruwikinews": {
+       "title": "Категория:Астрономия"
+      },
+      "ruwikiquote": {
+       "title": "Астрономия"
+      },
+      "sahwiki": {
+       "title": "Астрономия"
+      },
+      "sawiki": {
+       "title": "खगोलशास्त्रम्"
+      },
+      "scnwiki": {
+       "title": "Astrunumìa"
+      },
+      "scowiki": {
+       "title": "Astronomy"
+      },
+      "scwiki": {
+       "title": "Astronomia"
+      },
+      "sdwiki": {
+       "title": "علمِ فلڪيات"
+      },
+      "sgwiki": {
+       "title": "Sêndâtongo"
+      },
+      "shiwiki": {
+       "title": "Tasnaggurt"
+      },
+      "shwiki": {
+       "title": "Astronomija"
+      },
+      "simplewiki": {
+       "title": "Astronomy"
+      },
+      "siwiki": {
+       "title": "තාරකා විද්‍යාව"
+      },
+      "skrwiki": {
+       "title": "فلکیات"
+      },
+      "skwiki": {
+       "title": "Astronómia"
+      },
+      "slwiki": {
+       "title": "Astronomija"
+      },
+      "smwiki": {
+       "title": "Saienisi o fetū"
+      },
+      "snwiki": {
+       "title": "Zvechadenga"
+      },
+      "sowiki": {
+       "title": "Xiddigmaal"
+      },
+      "sqwiki": {
+       "title": "Astronomia"
+      },
+      "sqwikiquote": {
+       "title": "Astronomia"
+      },
+      "srwiki": {
+       "title": "Астрономија"
+      },
+      "srwikinews": {
+       "title": "Категорија:Астрономија"
+      },
+      "srwikiquote": {
+       "title": "Астрономија"
+      },
+      "stqwiki": {
+       "title": "Stiernkunde af Astronomie"
+      },
+      "suwiki": {
+       "title": "Astronomi"
+      },
+      "svwiki": {
+       "title": "Astronomi"
+      },
+      "svwikinews": {
+       "title": "Kategori:Astronomi"
+      },
+      "swwiki": {
+       "title": "Elimuanga"
+      },
+      "szlwiki": {
+       "title": "Astrōnōmijŏ"
+      },
+      "tawiki": {
+       "title": "வானியல்"
+      },
+      "tawikinews": {
+       "title": "பகுப்பு:வானியல்"
+      },
+      "tcywiki": {
+       "title": "ಖಗೋಳ ಶಾಸ್ತ್ರ"
+      },
+      "tetwiki": {
+       "title": "Astronomia"
+      },
+      "tewiki": {
+       "title": "ఖగోళ శాస్త్రం"
+      },
+      "tgwiki": {
+       "title": "Ахтаршиносӣ"
+      },
+      "thwiki": {
+       "title": "ดาราศาสตร์"
+      },
+      "thwikibooks": {
+       "title": "ดาราศาสตร์ทั่วไป"
+      },
+      "tiwiki": {
+       "title": "ስነ-ኮኾብ"
+      },
+      "tkwiki": {
+       "title": "Astronomiýa"
+      },
+      "tlwiki": {
+       "title": "Astronomiya"
+      },
+      "tlywiki": {
+       "title": "Astronomijə"
+      },
+      "tokwiki": {
+       "title": "sona mun"
+      },
+      "tpiwiki": {
+       "title": "Estronomi"
+      },
+      "trwiki": {
+       "title": "Astronomi"
+      },
+      "trwikinews": {
+       "title": "Kategori:Astronomi"
+      },
+      "tswiki": {
+       "title": "Dyondzo-Tinyeleti"
+      },
+      "ttwiki": {
+       "title": "Астрономия"
+      },
+      "ugwiki": {
+       "title": "ئاسترونومىيە"
+      },
+      "ukwiki": {
+       "title": "Астрономія"
+      },
+      "ukwikinews": {
+       "title": "Категорія:Астрономія"
+      },
+      "ukwikiquote": {
+       "title": "Астрономія"
+      },
+      "urwiki": {
+       "title": "فلکیات"
+      },
+      "uzwiki": {
+       "title": "Astronomiya"
+      },
+      "vecwiki": {
+       "title": "Astronomia"
+      },
+      "vepwiki": {
+       "title": "Astronomii"
+      },
+      "viwiki": {
+       "title": "Thiên văn học"
+      },
+      "viwikiquote": {
+       "title": "Thiên văn học"
+      },
+      "vlswiki": {
+       "title": "Astronomie"
+      },
+      "vowiki": {
+       "title": "Stelav"
+      },
+      "warwiki": {
+       "title": "Astronomiya"
+      },
+      "wawiki": {
+       "title": "Astronomeye"
+      },
+      "wowiki": {
+       "title": "Saytubiddiw"
+      },
+      "wuuwiki": {
+       "title": "天文學"
+      },
+      "xhwiki": {
+       "title": "I-Astronomi"
+      },
+      "xmfwiki": {
+       "title": "ასტრონომია"
+      },
+      "yiwiki": {
+       "title": "אסטראנאמיע"
+      },
+      "yowiki": {
+       "title": "Ìtòràwọ̀"
+      },
+      "zawiki": {
+       "title": "Denhvwnz"
+      },
+      "zeawiki": {
+       "title": "Staerrekunde"
+      },
+      "zghwiki": {
+       "title": "ⵜⴰⵙⵏⵉⵜⵔⵉⵜ"
+      },
+      "zh_classicalwiki": {
+       "title": "天文學"
+      },
+      "zh_min_nanwiki": {
+       "title": "Thian-bûn-ha̍k"
+      },
+      "zh_min_nanwikibooks": {
+       "title": "Thian-bûn-ha̍k"
+      },
+      "zh_yuewiki": {
+       "title": "天文學"
+      },
+      "zhwiki": {
+       "title": "天文學"
+      },
+      "zhwikibooks": {
+       "title": "天文学"
+      },
+      "zhwikinews": {
+       "title": "Category:天文"
+      },
+      "zuwiki": {
+       "title": "UMchazamkhathi"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q2465832"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11862829"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q752075": {
+     "id": "Q752075",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy and Astrophysics"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "scientific journal covering theoretical, observational, and instrumental astronomy and astrophysics"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Astronomy & Astrophysics"
+       },
+       {
+        "language": "en",
+        "value": "A&A"
+       },
+       {
+        "language": "en",
+        "value": "Astronomy and Astrophysics Suppl."
+       },
+       {
+        "language": "en",
+        "value": "Astronomy and Astrophysics Supplement Series"
+       },
+       {
+        "language": "en",
+        "value": "A&A Supplement Series"
+       },
+       {
+        "language": "en",
+        "value": "Astronomy and Astrophysics, Suppl. Ser."
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "مجلة علم الفلك والفيزياء الفلكية"
+      },
+      "astwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "bgwiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "cawiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "cswiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "dewiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "enwiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "eswiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "fiwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "frwiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "idwiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "itwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "jawiki": {
+       "title": "アストロノミー・アンド・アストロフィジックス"
+      },
+      "kowiki": {
+       "title": "아스트로노미 & 아스트로피직스"
+      },
+      "lbwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "mnwiki": {
+       "title": "Одон орон ба астрофизик"
+      },
+      "nlwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "plwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "ptwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "rowiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "ruwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "skwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "srwiki": {
+       "title": "Астрономија и астрофизика"
+      },
+      "ukwiki": {
+       "title": "Astronomy and Astrophysics"
+      },
+      "viwiki": {
+       "title": "Astronomy & Astrophysics"
+      },
+      "zhwiki": {
+       "title": "天文与天体物理学报"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5633421"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q123958410": {
+     "id": "Q123958410",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "vocal track by Conan Gray; 2021 studio recording"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q55850593"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3027134": {
+     "id": "Q3027134",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy Reports"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "journal"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "azwiki": {
+       "title": "Astronomiçeskiy jurnal"
+      },
+      "dewiki": {
+       "title": "Astronomy Reports"
+      },
+      "enwiki": {
+       "title": "Astronomy Reports"
+      },
+      "frwiki": {
+       "title": "Astronomy Reports"
+      },
+      "nlwiki": {
+       "title": "Astronomy Reports"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5633421"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q263028": {
+     "id": "Q263028",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy Letters"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "journal"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "dewiki": {
+       "title": "Astronomy Letters"
+      },
+      "enwiki": {
+       "title": "Astronomy Letters"
+      },
+      "nlwiki": {
+       "title": "Astronomy Letters"
+      },
+      "ruwiki": {
+       "title": "Письма в Астрономический журнал"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5633421"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q411": {
+     "id": "Q411",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "astrobiology"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "study of the formation of life on Earth and elsewhere on other planets in outer space"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "exobiology"
+       },
+       {
+        "language": "en",
+        "value": "xenobiology"
+       },
+       {
+        "language": "en",
+        "value": "Astrobiology"
+       },
+       {
+        "language": "en",
+        "value": "biology in outer space"
+       },
+       {
+        "language": "en",
+        "value": "space biology"
+       },
+       {
+        "language": "en",
+        "value": "astronomy and biology"
+       },
+       {
+        "language": "en",
+        "value": "astronomical biology"
+       },
+       {
+        "language": "en",
+        "value": "biological astronomy"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Astrobiologie"
+      },
+      "anwiki": {
+       "title": "Astrobiolochía"
+      },
+      "arwiki": {
+       "title": "علم الأحياء الفلكي"
+      },
+      "arzwiki": {
+       "title": "استروبيولوجيا"
+      },
+      "astwiki": {
+       "title": "Astrobioloxía"
+      },
+      "azwiki": {
+       "title": "Astrobiologiya"
+      },
+      "bat_smgwiki": {
+       "title": "Astrobioluogėjė"
+      },
+      "be_x_oldwiki": {
+       "title": "Астрабіялёгія"
+      },
+      "bewiki": {
+       "title": "Астрабіялогія"
+      },
+      "bgwiki": {
+       "title": "Астробиология"
+      },
+      "bnwiki": {
+       "title": "জ্যোতির্জীববিজ্ঞান"
+      },
+      "bswiki": {
+       "title": "Astrobiologija"
+      },
+      "cawiki": {
+       "title": "Astrobiologia"
+      },
+      "cdowiki": {
+       "title": "Tiĕng-ùng Sĕng-ŭk-hŏk"
+      },
+      "ckbwiki": {
+       "title": "ستێرژینناسی"
+      },
+      "cswiki": {
+       "title": "Astrobiologie"
+      },
+      "cywiki": {
+       "title": "Astrofioleg"
+      },
+      "dawiki": {
+       "title": "Astrobiologi"
+      },
+      "dewiki": {
+       "title": "Astrobiologie"
+      },
+      "elwiki": {
+       "title": "Βιοαστρονομία"
+      },
+      "enwiki": {
+       "title": "Astrobiology"
+      },
+      "enwikiversity": {
+       "title": "Exobiology"
+      },
+      "eowiki": {
+       "title": "Astrobiologio"
+      },
+      "eswiki": {
+       "title": "Astrobiología"
+      },
+      "etwiki": {
+       "title": "Astrobioloogia"
+      },
+      "euwiki": {
+       "title": "Astrobiologia"
+      },
+      "fawiki": {
+       "title": "اخترزیست‌شناسی"
+      },
+      "fiwiki": {
+       "title": "Astrobiologia"
+      },
+      "frwiki": {
+       "title": "Astrobiologie"
+      },
+      "gawiki": {
+       "title": "Eisibhitheolaíocht"
+      },
+      "glwiki": {
+       "title": "Astrobioloxía"
+      },
+      "hewiki": {
+       "title": "אסטרוביולוגיה"
+      },
+      "hiwiki": {
+       "title": "खगोलजीव विज्ञान"
+      },
+      "hrwiki": {
+       "title": "Astrobiologija"
+      },
+      "huwiki": {
+       "title": "Asztrobiológia"
+      },
+      "hywiki": {
+       "title": "Աստղակենսաբանություն"
+      },
+      "hywwiki": {
+       "title": "Աստղակենսաբանութիւն"
+      },
+      "idwiki": {
+       "title": "Astrobiologi"
+      },
+      "igwiki": {
+       "title": "Astrobiology"
+      },
+      "iowiki": {
+       "title": "Astrobiologio"
+      },
+      "iswiki": {
+       "title": "Stjörnulíffræði"
+      },
+      "itwiki": {
+       "title": "Astrobiologia"
+      },
+      "jawiki": {
+       "title": "宇宙生物学"
+      },
+      "kawiki": {
+       "title": "ასტრობიოლოგია"
+      },
+      "kkwiki": {
+       "title": "Экзобиология"
+      },
+      "knwiki": {
+       "title": "ಆಸ್ಟ್ರೋಬಯಾಲಾಜಿ"
+      },
+      "kowiki": {
+       "title": "우주생물학"
+      },
+      "kywiki": {
+       "title": "Астробиология"
+      },
+      "lawiki": {
+       "title": "Astrobiologia"
+      },
+      "lbwiki": {
+       "title": "Astrobiologie"
+      },
+      "lfnwiki": {
+       "title": "Biolojia estrateral"
+      },
+      "ltwiki": {
+       "title": "Astrobiologija"
+      },
+      "lvwiki": {
+       "title": "Astrobioloģija"
+      },
+      "minwiki": {
+       "title": "Astrobiologi"
+      },
+      "mkwiki": {
+       "title": "Астробиологија"
+      },
+      "mlwiki": {
+       "title": "ജ്യോതിർജീവശാസ്ത്രം"
+      },
+      "mnwiki": {
+       "title": "Астробиологи"
+      },
+      "mswiki": {
+       "title": "Astrobiologi"
+      },
+      "newiki": {
+       "title": "खगोलजीव विज्ञान"
+      },
+      "nlwiki": {
+       "title": "Astrobiologie"
+      },
+      "nnwiki": {
+       "title": "Astrobiologi"
+      },
+      "novwiki": {
+       "title": "Astrobiologia"
+      },
+      "nowiki": {
+       "title": "Astrobiologi"
+      },
+      "omwiki": {
+       "title": "Astiroobaayoloojii"
+      },
+      "plwiki": {
+       "title": "Astrobiologia"
+      },
+      "pswiki": {
+       "title": "ستورو ژونپوهنه"
+      },
+      "ptwiki": {
+       "title": "Astrobiologia"
+      },
+      "rowiki": {
+       "title": "Astrobiologie"
+      },
+      "ruwiki": {
+       "title": "Астробиология"
+      },
+      "ruwikinews": {
+       "title": "Категория:Астробиология"
+      },
+      "scowiki": {
+       "title": "Astrobiology"
+      },
+      "shwiki": {
+       "title": "Astrobiologija"
+      },
+      "simplewiki": {
+       "title": "Astrobiology"
+      },
+      "siwiki": {
+       "title": "අභ්‍යාවකාශ ජීව විද්‍යාව"
+      },
+      "skwiki": {
+       "title": "Astrobiológia"
+      },
+      "slwiki": {
+       "title": "Astrobiologija"
+      },
+      "sqwiki": {
+       "title": "Astrobiologjia"
+      },
+      "srwiki": {
+       "title": "Астробиологија"
+      },
+      "svwiki": {
+       "title": "Astrobiologi"
+      },
+      "tawiki": {
+       "title": "வானுயிரியல்"
+      },
+      "tewiki": {
+       "title": "ఆస్ట్రోబయాలజీ"
+      },
+      "tgwiki": {
+       "title": "Ахтарзистшиносӣ"
+      },
+      "thwiki": {
+       "title": "ดาราศาสตร์ชีววิทยา"
+      },
+      "tkwiki": {
+       "title": "Astrobiologiýa"
+      },
+      "tlwiki": {
+       "title": "Astrobiyolohiya"
+      },
+      "trwiki": {
+       "title": "Astrobiyoloji"
+      },
+      "trwikiquote": {
+       "title": "Astrobiyoloji"
+      },
+      "ukwiki": {
+       "title": "Астробіологія"
+      },
+      "urwiki": {
+       "title": "فلکی حیاتیات"
+      },
+      "uzwiki": {
+       "title": "Astrobiologiya"
+      },
+      "viwiki": {
+       "title": "Sinh học vũ trụ"
+      },
+      "warwiki": {
+       "title": "Astrobiyolohiya"
+      },
+      "wuuwiki": {
+       "title": "天体生物学"
+      },
+      "zh_yuewiki": {
+       "title": "天體生物學"
+      },
+      "zhwiki": {
+       "title": "天體生物學"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q28598684"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q131565179"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11862829"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1047113"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4671286"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q2267705"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3232273": {
+     "id": "Q3232273",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "American magazine"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "arwiki": {
+       "title": "مجلة الفلك"
+      },
+      "enwiki": {
+       "title": "Astronomy (magazine)"
+      },
+      "fawiki": {
+       "title": "آسترونومی (مجله)"
+      },
+      "fiwiki": {
+       "title": "Astronomy"
+      },
+      "frwiki": {
+       "title": "Astronomy (magazine)"
+      },
+      "jawiki": {
+       "title": "アストロノミー"
+      },
+      "rowiki": {
+       "title": "Astronomy Magazine"
+      },
+      "ruwiki": {
+       "title": "Astronomy"
+      },
+      "zhwiki": {
+       "title": "天文學 (雜誌)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q41298"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q12012641": {
+     "id": "Q12012641",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "fictional class at Hogwarts"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "nlwiki": {
+       "title": "Astronomie (Harry Potter)"
+      },
+      "svwiki": {
+       "title": "Astronomi (Harry Potter)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1647221"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q18889378": {
+     "id": "Q18889378",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "painting by Edvard Munch (1909 - 2)"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3305213"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q18889376": {
+     "id": "Q18889376",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "painting by Edvard Munch (1909 - 1)"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3305213"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3627653": {
+     "id": "Q3627653",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Wikimedia disambiguation page"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "cvwiki": {
+       "title": "Астрономи (пĕлтерĕшсем)"
+      },
+      "enwiki": {
+       "title": "Astronomy (disambiguation)"
+      },
+      "frwiki": {
+       "title": "Astronomy"
+      },
+      "itwiki": {
+       "title": "Astronomy"
+      },
+      "ruwiki": {
+       "title": "Астрономия (значения)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4167410"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q50056": {
+     "id": "Q50056",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "history of astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "history of one of the natural sciences"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "astronomical history"
+       },
+       {
+        "language": "en",
+        "value": "astronomy history"
+       },
+       {
+        "language": "en",
+        "value": "galactic history"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "تاريخ علم الفلك"
+      },
+      "arwikibooks": {
+       "title": "تاريخ الفلك"
+      },
+      "astwiki": {
+       "title": "Historia de l'astronomía"
+      },
+      "azwiki": {
+       "title": "Astronomiya tarixi"
+      },
+      "bewiki": {
+       "title": "Гісторыя астраноміі"
+      },
+      "bgwiki": {
+       "title": "История на астрономията"
+      },
+      "bnwiki": {
+       "title": "জ্যোতির্বিজ্ঞানের ইতিহাস"
+      },
+      "cawiki": {
+       "title": "Història de l'astronomia"
+      },
+      "cswiki": {
+       "title": "Historie astronomie"
+      },
+      "dawiki": {
+       "title": "Astronomiens historie"
+      },
+      "dewiki": {
+       "title": "Geschichte der Astronomie"
+      },
+      "dewikibooks": {
+       "title": "Einführung in die Astronomie: Historische Entwicklungen"
+      },
+      "elwiki": {
+       "title": "Ιστορία της αστρονομίας"
+      },
+      "enwiki": {
+       "title": "History of astronomy"
+      },
+      "eowiki": {
+       "title": "Historio de la astronomio"
+      },
+      "eswiki": {
+       "title": "Historia de la astronomía"
+      },
+      "etwiki": {
+       "title": "Astronoomia ajalugu"
+      },
+      "euwiki": {
+       "title": "Astronomiaren historia"
+      },
+      "fawiki": {
+       "title": "تاریخ اخترشناسی"
+      },
+      "fiwiki": {
+       "title": "Tähtitieteen historia"
+      },
+      "frwiki": {
+       "title": "Histoire de l'astronomie"
+      },
+      "glwiki": {
+       "title": "Historia da astronomía"
+      },
+      "hewiki": {
+       "title": "היסטוריה של האסטרונומיה"
+      },
+      "hiwiki": {
+       "title": "खगोलिकी का इतिहास"
+      },
+      "hrwiki": {
+       "title": "Povijest astronomije"
+      },
+      "hywiki": {
+       "title": "Աստղագիտության պատմություն"
+      },
+      "iawiki": {
+       "title": "Historia del astronomia"
+      },
+      "idwiki": {
+       "title": "Sejarah astronomi"
+      },
+      "igwiki": {
+       "title": "Akụkọ banyere mbara igwe"
+      },
+      "itwiki": {
+       "title": "Storia dell'astronomia"
+      },
+      "jawiki": {
+       "title": "天文学史"
+      },
+      "kowiki": {
+       "title": "천문학사"
+      },
+      "lawiki": {
+       "title": "Historia astronomiae"
+      },
+      "lbwiki": {
+       "title": "Geschicht vun der Astronomie"
+      },
+      "mkwiki": {
+       "title": "Историја на астрономијата"
+      },
+      "mswiki": {
+       "title": "Sejarah astronomi"
+      },
+      "nlwiki": {
+       "title": "Geschiedenis van de astronomie"
+      },
+      "nowiki": {
+       "title": "Astronomiens historie"
+      },
+      "papwiki": {
+       "title": "Historia di astronomia"
+      },
+      "pswiki": {
+       "title": "د ستورپوهنې تاريخ (2)"
+      },
+      "ptwiki": {
+       "title": "História da astronomia"
+      },
+      "rmwiki": {
+       "title": "Istorgia da l'astronomia"
+      },
+      "rowiki": {
+       "title": "Istoria astronomiei"
+      },
+      "ruwiki": {
+       "title": "История астрономии"
+      },
+      "ruwikiversity": {
+       "title": "История астрономии"
+      },
+      "sawiki": {
+       "title": "खगोलशास्त्रस्य इतिहासः"
+      },
+      "shwiki": {
+       "title": "Historija astronomije"
+      },
+      "simplewiki": {
+       "title": "History of astronomy"
+      },
+      "skwiki": {
+       "title": "Dejiny astronómie"
+      },
+      "sqwiki": {
+       "title": "Historia e astronomisë"
+      },
+      "srwiki": {
+       "title": "Историја астрономије"
+      },
+      "svwiki": {
+       "title": "Astronomins historia"
+      },
+      "trwiki": {
+       "title": "Astronomi tarihi"
+      },
+      "ukwiki": {
+       "title": "Історія астрономії"
+      },
+      "viwiki": {
+       "title": "Lịch sử thiên văn học"
+      },
+      "zh_yuewiki": {
+       "title": "天文史"
+      },
+      "zhwiki": {
+       "title": "天文学史"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q17524420"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11862829"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q525": {
+     "id": "Q525",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Sun"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "star at the centre of the Solar System"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "the Sun"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q525"
+      },
+      "abwiki": {
+       "title": "Амра"
+      },
+      "acewiki": {
+       "title": "Mata uroe"
+      },
+      "adywiki": {
+       "title": "Тыгъэ"
+      },
+      "afwiki": {
+       "title": "Son"
+      },
+      "alswiki": {
+       "title": "Sonne"
+      },
+      "amiwiki": {
+       "title": "Cidal"
+      },
+      "amwiki": {
+       "title": "ፀሐይ"
+      },
+      "angwiki": {
+       "title": "Sunne"
+      },
+      "annwiki": {
+       "title": "Ura"
+      },
+      "anpwiki": {
+       "title": "सूर्य"
+      },
+      "anwiki": {
+       "title": "Sol"
+      },
+      "arcwiki": {
+       "title": "ܫܡܫܐ"
+      },
+      "arwiki": {
+       "title": "الشمس"
+      },
+      "arwikiversity": {
+       "title": "الشمس"
+      },
+      "arywiki": {
+       "title": "شمش"
+      },
+      "arzwiki": {
+       "title": "شمس"
+      },
+      "astwiki": {
+       "title": "Sol"
+      },
+      "aswiki": {
+       "title": "সূৰ্য"
+      },
+      "atjwiki": {
+       "title": "Pisimw"
+      },
+      "avkwiki": {
+       "title": "Awalt"
+      },
+      "avwiki": {
+       "title": "Бакъ"
+      },
+      "awawiki": {
+       "title": "सूर्य"
+      },
+      "aywiki": {
+       "title": "Willka"
+      },
+      "azbwiki": {
+       "title": "گونش"
+      },
+      "azwiki": {
+       "title": "Günəş"
+      },
+      "azwikiquote": {
+       "title": "Günəş"
+      },
+      "banwiki": {
+       "title": "Surya"
+      },
+      "barwiki": {
+       "title": "Sun"
+      },
+      "bat_smgwiki": {
+       "title": "Saulė"
+      },
+      "bawiki": {
+       "title": "Ҡояш"
+      },
+      "bclwiki": {
+       "title": "Saldang"
+      },
+      "be_x_oldwiki": {
+       "title": "Сонца"
+      },
+      "bewiki": {
+       "title": "Сонца"
+      },
+      "bewwiki": {
+       "title": "Mataari"
+      },
+      "bgwiki": {
+       "title": "Слънце"
+      },
+      "bhwiki": {
+       "title": "सुरुज"
+      },
+      "biwiki": {
+       "title": "San"
+      },
+      "bjnwiki": {
+       "title": "Matahari"
+      },
+      "blkwiki": {
+       "title": "မွူး"
+      },
+      "bmwiki": {
+       "title": "Tile"
+      },
+      "bnwiki": {
+       "title": "সূর্য"
+      },
+      "bnwikiquote": {
+       "title": "সূর্য"
+      },
+      "bowiki": {
+       "title": "ཉི་མ།"
+      },
+      "brwiki": {
+       "title": "Heol"
+      },
+      "bswiki": {
+       "title": "Sunce"
+      },
+      "bswikiquote": {
+       "title": "Sunce"
+      },
+      "btmwiki": {
+       "title": "Sidumadang ari"
+      },
+      "bugwiki": {
+       "title": "ᨆᨈᨕᨛᨔᨚ"
+      },
+      "bxrwiki": {
+       "title": "Наран"
+      },
+      "cawiki": {
+       "title": "Sol"
+      },
+      "cawikiquote": {
+       "title": "Sol"
+      },
+      "cbk_zamwiki": {
+       "title": "Sol"
+      },
+      "cdowiki": {
+       "title": "Nĭk-tàu"
+      },
+      "cebwiki": {
+       "title": "Adlaw"
+      },
+      "cewiki": {
+       "title": "Малх"
+      },
+      "chrwiki": {
+       "title": "ᏅᏓ"
+      },
+      "chywiki": {
+       "title": "Éše'he"
+      },
+      "ckbwiki": {
+       "title": "خۆر"
+      },
+      "commonswiki": {
+       "title": "Sun"
+      },
+      "cowiki": {
+       "title": "Soli"
+      },
+      "crhwiki": {
+       "title": "Küneş"
+      },
+      "csbwiki": {
+       "title": "Słuńce"
+      },
+      "cswiki": {
+       "title": "Slunce"
+      },
+      "cswikibooks": {
+       "title": "Sluneční soustava/Slunce"
+      },
+      "cswikiquote": {
+       "title": "Slunce"
+      },
+      "cuwiki": {
+       "title": "Слъньцє"
+      },
+      "cvwiki": {
+       "title": "Хĕвел"
+      },
+      "cywiki": {
+       "title": "Haul"
+      },
+      "dawiki": {
+       "title": "Solen"
+      },
+      "dewiki": {
+       "title": "Sonne"
+      },
+      "dewikiquote": {
+       "title": "Sonne"
+      },
+      "dewikisource": {
+       "title": "Sonne"
+      },
+      "dgawiki": {
+       "title": "Ŋmenaa"
+      },
+      "dinwiki": {
+       "title": "Akɔ̈l"
+      },
+      "diqwiki": {
+       "title": "Tici"
+      },
+      "dsbwiki": {
+       "title": "Słyńco"
+      },
+      "dtpwiki": {
+       "title": "Tadau"
+      },
+      "dtywiki": {
+       "title": "सूर्य"
+      },
+      "dvwiki": {
+       "title": "އިރު"
+      },
+      "eewiki": {
+       "title": "Ɣe"
+      },
+      "elwiki": {
+       "title": "Ήλιος"
+      },
+      "elwikiquote": {
+       "title": "Ήλιος"
+      },
+      "emlwiki": {
+       "title": "Såul"
+      },
+      "enwiki": {
+       "title": "Sun"
+      },
+      "enwikibooks": {
+       "title": "Introduction to Astrophysics/Sun"
+      },
+      "enwikiquote": {
+       "title": "Sun"
+      },
+      "eowiki": {
+       "title": "Suno"
+      },
+      "eowikiquote": {
+       "title": "Suno"
+      },
+      "eswiki": {
+       "title": "Sol"
+      },
+      "eswikiquote": {
+       "title": "Sol"
+      },
+      "etwiki": {
+       "title": "Päike"
+      },
+      "etwikiquote": {
+       "title": "Päike"
+      },
+      "euwiki": {
+       "title": "Eguzkia"
+      },
+      "extwiki": {
+       "title": "Sol"
+      },
+      "fatwiki": {
+       "title": "Ewia"
+      },
+      "fawiki": {
+       "title": "خورشید"
+      },
+      "fawikibooks": {
+       "title": "فرهنگ نجوم/منظومه شمسی/خورشید"
+      },
+      "fawikiquote": {
+       "title": "خورشید"
+      },
+      "ffwiki": {
+       "title": "Naange"
+      },
+      "fiu_vrowiki": {
+       "title": "Päiv"
+      },
+      "fiwiki": {
+       "title": "Aurinko"
+      },
+      "fiwikiquote": {
+       "title": "Aurinko"
+      },
+      "fjwiki": {
+       "title": "Matanisiga"
+      },
+      "fonwiki": {
+       "title": "Hwe"
+      },
+      "fowiki": {
+       "title": "Sólin"
+      },
+      "frpwiki": {
+       "title": "Solely"
+      },
+      "frrwiki": {
+       "title": "San"
+      },
+      "frwiki": {
+       "title": "Soleil"
+      },
+      "frwikiquote": {
+       "title": "Soleil"
+      },
+      "furwiki": {
+       "title": "Soreli"
+      },
+      "fywiki": {
+       "title": "Sinne"
+      },
+      "gagwiki": {
+       "title": "Güneş"
+      },
+      "ganwiki": {
+       "title": "太陽"
+      },
+      "gawiki": {
+       "title": "Grian"
+      },
+      "gcrwiki": {
+       "title": "Solèy"
+      },
+      "gdwiki": {
+       "title": "Grian"
+      },
+      "glkwiki": {
+       "title": "خۊر"
+      },
+      "glwiki": {
+       "title": "Sol"
+      },
+      "gnwiki": {
+       "title": "Kuarahy"
+      },
+      "gomwiki": {
+       "title": "सूर्य"
+      },
+      "gotwiki": {
+       "title": "𐍃𐌿𐌽𐌽𐍉"
+      },
+      "gucwiki": {
+       "title": "Ka'i"
+      },
+      "guwiki": {
+       "title": "સૂર્ય"
+      },
+      "guwwiki": {
+       "title": "Owhè"
+      },
+      "gvwiki": {
+       "title": "Yn Ghrian"
+      },
+      "hakwiki": {
+       "title": "Ngit-thèu"
+      },
+      "hawiki": {
+       "title": "Rana"
+      },
+      "hawwiki": {
+       "title": "Lā"
+      },
+      "hewiki": {
+       "title": "השמש"
+      },
+      "hewikiquote": {
+       "title": "השמש"
+      },
+      "hifwiki": {
+       "title": "Suraj"
+      },
+      "hiwiki": {
+       "title": "सूर्य"
+      },
+      "hiwikiquote": {
+       "title": "सूर्य"
+      },
+      "hrwiki": {
+       "title": "Sunce"
+      },
+      "hrwikiquote": {
+       "title": "Sunce"
+      },
+      "hsbwiki": {
+       "title": "Słónco"
+      },
+      "htwiki": {
+       "title": "Solèy"
+      },
+      "huwiki": {
+       "title": "Nap"
+      },
+      "hywiki": {
+       "title": "Արեգակ"
+      },
+      "iawiki": {
+       "title": "Sol"
+      },
+      "ibawiki": {
+       "title": "Mata panas"
+      },
+      "idwiki": {
+       "title": "Matahari"
+      },
+      "iewiki": {
+       "title": "Sole"
+      },
+      "ikwiki": {
+       "title": "Siqiñiq"
+      },
+      "ilowiki": {
+       "title": "Init"
+      },
+      "inhwiki": {
+       "title": "Малх"
+      },
+      "iowiki": {
+       "title": "Suno"
+      },
+      "isvwiki": {
+       "title": "Solnce"
+      },
+      "iswiki": {
+       "title": "Sólin"
+      },
+      "itwiki": {
+       "title": "Sole"
+      },
+      "itwikiquote": {
+       "title": "Sole"
+      },
+      "itwikiversity": {
+       "title": "Il sole (scuola media)"
+      },
+      "iuwiki": {
+       "title": "ᓯᕿᓂᖅ"
+      },
+      "jamwiki": {
+       "title": "Son"
+      },
+      "jawiki": {
+       "title": "太陽"
+      },
+      "jawikibooks": {
+       "title": "太陽"
+      },
+      "jawikiquote": {
+       "title": "太陽"
+      },
+      "jbowiki": {
+       "title": "solri"
+      },
+      "jvwiki": {
+       "title": "Srengéngé"
+      },
+      "kaawiki": {
+       "title": "Quyash"
+      },
+      "kabwiki": {
+       "title": "Tafukt (itri)"
+      },
+      "kajwiki": {
+       "title": "Nom"
+      },
+      "kawiki": {
+       "title": "მზე"
+      },
+      "kbpwiki": {
+       "title": "Wɩsɩ"
+      },
+      "kcgwiki": {
+       "title": "Mam"
+      },
+      "kgewiki": {
+       "title": "Mataharani"
+      },
+      "kgwiki": {
+       "title": "Ntângu"
+      },
+      "kiwiki": {
+       "title": "Riũa"
+      },
+      "kkwiki": {
+       "title": "Күн (жұлдыз)"
+      },
+      "kmwiki": {
+       "title": "ព្រះអាទិត្យ"
+      },
+      "kncwiki": {
+       "title": "Kǝngal"
+      },
+      "knwiki": {
+       "title": "ಸೂರ್ಯ"
+      },
+      "koiwiki": {
+       "title": "Шонді"
+      },
+      "kowiki": {
+       "title": "태양"
+      },
+      "kowikibooks": {
+       "title": "태양"
+      },
+      "kowikiquote": {
+       "title": "태양"
+      },
+      "kowikiversity": {
+       "title": "태양"
+      },
+      "krcwiki": {
+       "title": "Кюн"
+      },
+      "kshwiki": {
+       "title": "Sunn"
+      },
+      "kswiki": {
+       "title": "آفتاب"
+      },
+      "kuswiki": {
+       "title": "Winnig"
+      },
+      "kuwiki": {
+       "title": "Roj (stêrk)"
+      },
+      "kvwiki": {
+       "title": "Шонді"
+      },
+      "kwwiki": {
+       "title": "Howl"
+      },
+      "kywiki": {
+       "title": "Күн"
+      },
+      "ladwiki": {
+       "title": "Sol"
+      },
+      "lawiki": {
+       "title": "Sol"
+      },
+      "lawikiquote": {
+       "title": "Sol"
+      },
+      "lbewiki": {
+       "title": "Баргъ"
+      },
+      "lbwiki": {
+       "title": "Sonn"
+      },
+      "lezwiki": {
+       "title": "Рагъ"
+      },
+      "lfnwiki": {
+       "title": "Sol"
+      },
+      "lgwiki": {
+       "title": "Enjuba"
+      },
+      "lijwiki": {
+       "title": "Sô"
+      },
+      "liwiki": {
+       "title": "Zon"
+      },
+      "lldwiki": {
+       "title": "Surëdl"
+      },
+      "lmowiki": {
+       "title": "Sol"
+      },
+      "lnwiki": {
+       "title": "Mói"
+      },
+      "lowiki": {
+       "title": "ດວງຕາເວັນ"
+      },
+      "ltgwiki": {
+       "title": "Saule"
+      },
+      "ltwiki": {
+       "title": "Saulė"
+      },
+      "ltwikiquote": {
+       "title": "Saulė"
+      },
+      "lvwiki": {
+       "title": "Saule"
+      },
+      "madwiki": {
+       "title": "Mata'arè"
+      },
+      "magwiki": {
+       "title": "सूर्य"
+      },
+      "maiwiki": {
+       "title": "सूर्य"
+      },
+      "map_bmswiki": {
+       "title": "Srengenge"
+      },
+      "mdfwiki": {
+       "title": "Шись"
+      },
+      "mgwiki": {
+       "title": "Masoandro"
+      },
+      "minwiki": {
+       "title": "Matoari"
+      },
+      "miwiki": {
+       "title": "Te Rā"
+      },
+      "mkwiki": {
+       "title": "Сонце"
+      },
+      "mlwiki": {
+       "title": "സൂര്യൻ"
+      },
+      "mniwiki": {
+       "title": "ꯅꯨꯃꯤꯠ"
+      },
+      "mnwiki": {
+       "title": "Нар"
+      },
+      "mnwwiki": {
+       "title": "သၟိင်တ္ၚဲ"
+      },
+      "mrjwiki": {
+       "title": "Кечӹ (астрономи)"
+      },
+      "mrwiki": {
+       "title": "सूर्य"
+      },
+      "mswiki": {
+       "title": "Matahari"
+      },
+      "mtwiki": {
+       "title": "Xemx"
+      },
+      "mwlwiki": {
+       "title": "Sol"
+      },
+      "myvwiki": {
+       "title": "Чи (пертпельксэнь вал)"
+      },
+      "mywiki": {
+       "title": "နေ"
+      },
+      "mznwiki": {
+       "title": "خارشید"
+      },
+      "nahwiki": {
+       "title": "Tonatiuh"
+      },
+      "napwiki": {
+       "title": "Sole"
+      },
+      "nds_nlwiki": {
+       "title": "Zunne"
+      },
+      "ndswiki": {
+       "title": "Sünn"
+      },
+      "newiki": {
+       "title": "सूर्य"
+      },
+      "newwiki": {
+       "title": "सूर्द्यः"
+      },
+      "niawiki": {
+       "title": "Luo"
+      },
+      "nlwiki": {
+       "title": "Zon"
+      },
+      "nlwikiquote": {
+       "title": "Zon"
+      },
+      "nnwiki": {
+       "title": "Sola"
+      },
+      "novwiki": {
+       "title": "Sune"
+      },
+      "nowiki": {
+       "title": "Solen"
+      },
+      "nqowiki": {
+       "title": "ߕߋ߬ߟߋ"
+      },
+      "nrmwiki": {
+       "title": "Solé"
+      },
+      "nupwiki": {
+       "title": "Yigidi"
+      },
+      "nvwiki": {
+       "title": "Jóhonaaʼéí"
+      },
+      "nywiki": {
+       "title": "Dzuwa"
+      },
+      "ocwiki": {
+       "title": "Soleu"
+      },
+      "olowiki": {
+       "title": "Päiväine"
+      },
+      "omwiki": {
+       "title": "Biiftuu"
+      },
+      "orwiki": {
+       "title": "ସୂର୍ଯ୍ୟ"
+      },
+      "oswiki": {
+       "title": "Хур"
+      },
+      "pamwiki": {
+       "title": "Aldo"
+      },
+      "papwiki": {
+       "title": "Solo"
+      },
+      "pawiki": {
+       "title": "ਸੂਰਜ"
+      },
+      "pcdwiki": {
+       "title": "Solel"
+      },
+      "pcmwiki": {
+       "title": "Sun"
+      },
+      "pdcwiki": {
+       "title": "Sunn"
+      },
+      "pflwiki": {
+       "title": "Sonne"
+      },
+      "plwiki": {
+       "title": "Słońce"
+      },
+      "plwikinews": {
+       "title": "Kategoria:Słońce"
+      },
+      "plwikiquote": {
+       "title": "Słońce"
+      },
+      "pmswiki": {
+       "title": "Sol"
+      },
+      "pnbwiki": {
+       "title": "سورج"
+      },
+      "pntwiki": {
+       "title": "Ήλος"
+      },
+      "pplwiki": {
+       "title": "Tunal"
+      },
+      "pswiki": {
+       "title": "لمر"
+      },
+      "ptwiki": {
+       "title": "Sol"
+      },
+      "ptwikiquote": {
+       "title": "Sol"
+      },
+      "pwnwiki": {
+       "title": "Qadaw"
+      },
+      "quwiki": {
+       "title": "Inti"
+      },
+      "rmwiki": {
+       "title": "Sulegl"
+      },
+      "rmywiki": {
+       "title": "Kham"
+      },
+      "roa_rupwiki": {
+       "title": "Soari"
+      },
+      "rowiki": {
+       "title": "Soare"
+      },
+      "rowikibooks": {
+       "title": "Sistemul solar/Soare"
+      },
+      "rskwiki": {
+       "title": "Слунко"
+      },
+      "ruewiki": {
+       "title": "Сонце"
+      },
+      "ruwiki": {
+       "title": "Солнце"
+      },
+      "ruwikinews": {
+       "title": "Категория:Солнце"
+      },
+      "ruwikiquote": {
+       "title": "Солнце"
+      },
+      "rwwiki": {
+       "title": "Izuba"
+      },
+      "sahwiki": {
+       "title": "Күн (сулус)"
+      },
+      "satwiki": {
+       "title": "ᱥᱤᱧ ᱪᱟᱸᱫᱚ"
+      },
+      "sawiki": {
+       "title": "सूर्यः"
+      },
+      "scnwiki": {
+       "title": "Suli"
+      },
+      "scowiki": {
+       "title": "Sun"
+      },
+      "scwiki": {
+       "title": "Sole"
+      },
+      "sdwiki": {
+       "title": "سج"
+      },
+      "sewiki": {
+       "title": "Beaivváš"
+      },
+      "shiwiki": {
+       "title": "Tafukt"
+      },
+      "shnwiki": {
+       "title": "ဝၼ်း"
+      },
+      "shwiki": {
+       "title": "Sunce"
+      },
+      "simplewiki": {
+       "title": "Sun"
+      },
+      "siwiki": {
+       "title": "හිරු"
+      },
+      "skrwiki": {
+       "title": "سورج"
+      },
+      "skwiki": {
+       "title": "Slnko"
+      },
+      "skwikiquote": {
+       "title": "Slnko"
+      },
+      "slwiki": {
+       "title": "Sonce"
+      },
+      "smnwiki": {
+       "title": "Piäiváš"
+      },
+      "smwiki": {
+       "title": "La"
+      },
+      "snwiki": {
+       "title": "Zuva"
+      },
+      "sowiki": {
+       "title": "Qorax"
+      },
+      "sqwiki": {
+       "title": "Dielli"
+      },
+      "srnwiki": {
+       "title": "Son"
+      },
+      "srwiki": {
+       "title": "Сунце"
+      },
+      "srwikiquote": {
+       "title": "Сунце"
+      },
+      "stqwiki": {
+       "title": "Sunne"
+      },
+      "suwiki": {
+       "title": "Panonpoé"
+      },
+      "svwiki": {
+       "title": "Solen"
+      },
+      "swwiki": {
+       "title": "Jua"
+      },
+      "sylwiki": {
+       "title": "ꠡꠥꠞꠥꠎ"
+      },
+      "szlwiki": {
+       "title": "Słōńce"
+      },
+      "szywiki": {
+       "title": "cilal"
+      },
+      "tawiki": {
+       "title": "ஞாயிறு (விண்மீன்)"
+      },
+      "tawikibooks": {
+       "title": "சூரியன்"
+      },
+      "taywiki": {
+       "title": "wagi'"
+      },
+      "tcywiki": {
+       "title": "ಸೂರ್ಯ"
+      },
+      "tddwiki": {
+       "title": "ᥘᥦᥖᥱ"
+      },
+      "tewiki": {
+       "title": "సూర్యుడు"
+      },
+      "tgwiki": {
+       "title": "Офтоб"
+      },
+      "thwiki": {
+       "title": "ดวงอาทิตย์"
+      },
+      "tiwiki": {
+       "title": "ጸሓይ"
+      },
+      "tkwiki": {
+       "title": "Gün (ýyldyz)"
+      },
+      "tlwiki": {
+       "title": "Araw (astronomiya)"
+      },
+      "tlywiki": {
+       "title": "Həši"
+      },
+      "tnwiki": {
+       "title": "Letsatsi"
+      },
+      "tokwiki": {
+       "title": "mun So"
+      },
+      "tpiwiki": {
+       "title": "San"
+      },
+      "trvwiki": {
+       "title": "Hido"
+      },
+      "trwiki": {
+       "title": "Güneş"
+      },
+      "ttwiki": {
+       "title": "Кояш"
+      },
+      "tumwiki": {
+       "title": "Zuŵa"
+      },
+      "twwiki": {
+       "title": "Owia"
+      },
+      "tyvwiki": {
+       "title": "Хүн (сылдыс)"
+      },
+      "udmwiki": {
+       "title": "Шунды"
+      },
+      "ugwiki": {
+       "title": "قۇياش"
+      },
+      "ukwiki": {
+       "title": "Сонце"
+      },
+      "ukwikiquote": {
+       "title": "Сонце"
+      },
+      "urwiki": {
+       "title": "سورج"
+      },
+      "urwikiquote": {
+       "title": "آفتاب"
+      },
+      "uzwiki": {
+       "title": "Quyosh"
+      },
+      "uzwikiquote": {
+       "title": "Quyosh"
+      },
+      "vecwiki": {
+       "title": "Sołe"
+      },
+      "vepwiki": {
+       "title": "Päiväine"
+      },
+      "viwiki": {
+       "title": "Mặt Trời"
+      },
+      "viwikiquote": {
+       "title": "Mặt Trời"
+      },
+      "vlswiki": {
+       "title": "Zunne"
+      },
+      "vowiki": {
+       "title": "Sol"
+      },
+      "warwiki": {
+       "title": "Adlaw (astronomiya)"
+      },
+      "wawiki": {
+       "title": "Solea"
+      },
+      "wowiki": {
+       "title": "Jant"
+      },
+      "wuuwiki": {
+       "title": "日头"
+      },
+      "xalwiki": {
+       "title": "Нарн"
+      },
+      "xhwiki": {
+       "title": "Ilanga"
+      },
+      "xmfwiki": {
+       "title": "ბჟა"
+      },
+      "yiwiki": {
+       "title": "זון"
+      },
+      "yowiki": {
+       "title": "Òrùn"
+      },
+      "zawiki": {
+       "title": "Daengngoenz"
+      },
+      "zeawiki": {
+       "title": "Zunne"
+      },
+      "zghwiki": {
+       "title": "ⵜⴰⴼⵓⴽⵜ"
+      },
+      "zh_classicalwiki": {
+       "title": "日"
+      },
+      "zh_min_nanwiki": {
+       "title": "Ji̍t-thâu"
+      },
+      "zh_yuewiki": {
+       "title": "太陽"
+      },
+      "zhwiki": {
+       "title": "太阳"
+      },
+      "zhwikiquote": {
+       "title": "日"
+      },
+      "zuwiki": {
+       "title": "Ilanga"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5864"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3592493"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q25338351": {
+     "id": "Q25338351",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "video astronomy"
+      }
+     },
+     "descriptions": {},
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Camera Assisted Astronomy"
+       }
+      ]
+     },
+     "sitelinks": {
+      "enwiki": {
+       "title": "Video astronomy"
+      }
+     },
+     "claims": {
+      "P31": []
+     }
+    },
+    "Q787929": {
+     "id": "Q787929",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Babylonian astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "ancient astronomy"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "arwiki": {
+       "title": "علم الفلك البابلي"
+      },
+      "bewiki": {
+       "title": "Вавілонская астраномія"
+      },
+      "bnwiki": {
+       "title": "ব্যাবিলনীয় জ্যোতির্বিজ্ঞান"
+      },
+      "cawiki": {
+       "title": "Astronomia babilònica"
+      },
+      "enwiki": {
+       "title": "Babylonian astronomy"
+      },
+      "eswiki": {
+       "title": "Astronomía babilónica"
+      },
+      "euwiki": {
+       "title": "Babiloniar astronomia"
+      },
+      "fawiki": {
+       "title": "اخترشناسی بابلی"
+      },
+      "frwiki": {
+       "title": "Astronomie mésopotamienne"
+      },
+      "hrwiki": {
+       "title": "Babilonska astronomija"
+      },
+      "huwiki": {
+       "title": "Babiloni csillagászat"
+      },
+      "hywiki": {
+       "title": "Աստղագիտությունը Բաբելոնում"
+      },
+      "idwiki": {
+       "title": "Astronomi Babilonia"
+      },
+      "itwiki": {
+       "title": "Astronomia babilonese"
+      },
+      "kowiki": {
+       "title": "바빌로니아 천문학"
+      },
+      "mkwiki": {
+       "title": "Вавилонска астрономија"
+      },
+      "nowiki": {
+       "title": "Babylonsk astronomi"
+      },
+      "ptwiki": {
+       "title": "Astronomia babilônica"
+      },
+      "rowiki": {
+       "title": "Astronomia babiloniană"
+      },
+      "ruwiki": {
+       "title": "Вавилонская астрономия"
+      },
+      "shwiki": {
+       "title": "Vavilonska astronomija"
+      },
+      "skwiki": {
+       "title": "Babylonská astronómia"
+      },
+      "trwiki": {
+       "title": "Babil astronomisi"
+      },
+      "ukwiki": {
+       "title": "Вавилонська астрономія"
+      },
+      "viwiki": {
+       "title": "Thiên văn học Babylon"
+      },
+      "zhwiki": {
+       "title": "巴比伦天文学"
+      }
+     },
+     "claims": {
+      "P31": []
+     }
+    },
+    "Q2703": {
+     "id": "Q2703",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "epoch"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "moment in time used as a reference point for some time-varying astronomical quantity"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "afwiki": {
+       "title": "Epog (sterrekunde)"
+      },
+      "arwiki": {
+       "title": "حقبة (علم الفلك)"
+      },
+      "astwiki": {
+       "title": "Dómina (astronomía)"
+      },
+      "bawiki": {
+       "title": "Дәүер (астрономия)"
+      },
+      "be_x_oldwiki": {
+       "title": "Эпоха (астраномія)"
+      },
+      "bewiki": {
+       "title": "Эпоха (астраномія)"
+      },
+      "bgwiki": {
+       "title": "Епоха (астрономия)"
+      },
+      "bnwiki": {
+       "title": "প্রসঙ্গতিথি (জ্যোতির্বিজ্ঞান)"
+      },
+      "bswiki": {
+       "title": "Epoha (astronomija)"
+      },
+      "cawiki": {
+       "title": "Època (astronomia)"
+      },
+      "cswiki": {
+       "title": "Epocha (astronomie)"
+      },
+      "dewiki": {
+       "title": "Epoche (Astronomie)"
+      },
+      "elwiki": {
+       "title": "Εποχή (αστρονομία)"
+      },
+      "enwiki": {
+       "title": "Epoch (astronomy)"
+      },
+      "eowiki": {
+       "title": "Epoko (astronomio)"
+      },
+      "eswiki": {
+       "title": "Época (astronomía)"
+      },
+      "euwiki": {
+       "title": "Garai (astronomia)"
+      },
+      "fawiki": {
+       "title": "مبدأ (اخترشناسی)"
+      },
+      "fiwiki": {
+       "title": "Epookki (tähtitiede)"
+      },
+      "frwiki": {
+       "title": "Époque (astronomie)"
+      },
+      "glwiki": {
+       "title": "Época (astronomía)"
+      },
+      "hewiki": {
+       "title": "תקופת ייחוס (אסטרונומיה)"
+      },
+      "hiwiki": {
+       "title": "युगारम्भ (खगोलशास्त्र)"
+      },
+      "hrwiki": {
+       "title": "Epoha (astronomija)"
+      },
+      "hywiki": {
+       "title": "Էպոխա (աստղագիտություն)"
+      },
+      "idwiki": {
+       "title": "Epos (astronomi)"
+      },
+      "itwiki": {
+       "title": "Epoca (astronomia)"
+      },
+      "jawiki": {
+       "title": "元期"
+      },
+      "kawiki": {
+       "title": "ეპოქა (ასტრონომია)"
+      },
+      "kowiki": {
+       "title": "역기점"
+      },
+      "lawiki": {
+       "title": "Epocha (astronomia)"
+      },
+      "lbwiki": {
+       "title": "Epoch (Astronomie)"
+      },
+      "ltwiki": {
+       "title": "Epocha (astronomija)"
+      },
+      "mkwiki": {
+       "title": "Епоха (астрономија)"
+      },
+      "mrwiki": {
+       "title": "युग (खगोलशास्त्र)"
+      },
+      "mswiki": {
+       "title": "Epok (astronomi)"
+      },
+      "nlwiki": {
+       "title": "Epoche (coördinaten)"
+      },
+      "nnwiki": {
+       "title": "Astronomisk epoke"
+      },
+      "nowiki": {
+       "title": "Epoke (astronomi)"
+      },
+      "plwiki": {
+       "title": "Epoka (astronomia)"
+      },
+      "ptwiki": {
+       "title": "Época (astronomia)"
+      },
+      "rowiki": {
+       "title": "Epocă (astronomie)"
+      },
+      "ruwiki": {
+       "title": "Эпоха (астрономия)"
+      },
+      "shwiki": {
+       "title": "Epoha (astronomija)"
+      },
+      "simplewiki": {
+       "title": "Epoch (astronomy)"
+      },
+      "skwiki": {
+       "title": "Epocha (astronómia)"
+      },
+      "slwiki": {
+       "title": "Epoha (astronomija)"
+      },
+      "srwiki": {
+       "title": "Епоха (астрономија)"
+      },
+      "svwiki": {
+       "title": "Epok (astronomi)"
+      },
+      "szlwiki": {
+       "title": "Epoka (astrōnōmijŏ)"
+      },
+      "thwiki": {
+       "title": "ต้นยุคอ้างอิง (ดาราศาสตร์)"
+      },
+      "trwiki": {
+       "title": "Devir (astronomi)"
+      },
+      "ttwiki": {
+       "title": "Дәвер (астрономия)"
+      },
+      "ukwiki": {
+       "title": "Епоха (астрономія)"
+      },
+      "uzwiki": {
+       "title": "Davr (astronomiya)"
+      },
+      "viwiki": {
+       "title": "Kỷ nguyên (thiên văn học)"
+      },
+      "zh_yuewiki": {
+       "title": "曆元"
+      },
+      "zhwiki": {
+       "title": "曆元"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q22337463"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q4306": {
+     "id": "Q4306",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "radio astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "subfield of astronomy that studies celestial objects at radio frequencies"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "radioastronomy"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Radio-astronomie"
+      },
+      "arwiki": {
+       "title": "علم الفلك الراديوي"
+      },
+      "azwiki": {
+       "title": "Radioastronomiya"
+      },
+      "bgwiki": {
+       "title": "Радиоастрономия"
+      },
+      "bnwiki": {
+       "title": "বেতার জ্যোতির্বিজ্ঞান"
+      },
+      "cawiki": {
+       "title": "Radioastronomia"
+      },
+      "ckbwiki": {
+       "title": "ئەستێرەناسیی ڕادیۆیی"
+      },
+      "cswiki": {
+       "title": "Radioastronomie"
+      },
+      "dawiki": {
+       "title": "Radioastronomi"
+      },
+      "dewiki": {
+       "title": "Radioastronomie"
+      },
+      "elwiki": {
+       "title": "Ραδιοαστρονομία"
+      },
+      "enwiki": {
+       "title": "Radio astronomy"
+      },
+      "eowiki": {
+       "title": "Radioastronomio"
+      },
+      "eswiki": {
+       "title": "Radioastronomía"
+      },
+      "etwiki": {
+       "title": "Raadioastronoomia"
+      },
+      "fawiki": {
+       "title": "اخترشناسی رادیویی"
+      },
+      "fiwiki": {
+       "title": "Radiotähtitiede"
+      },
+      "frwiki": {
+       "title": "Radioastronomie"
+      },
+      "gawiki": {
+       "title": "Radairéalteolaíocht"
+      },
+      "hewiki": {
+       "title": "רדיו-אסטרונומיה"
+      },
+      "hiwiki": {
+       "title": "रेडियो खगोलशास्त्र"
+      },
+      "hrwiki": {
+       "title": "Radioastronomija"
+      },
+      "huwiki": {
+       "title": "Rádiócsillagászat"
+      },
+      "hywiki": {
+       "title": "Ռադիոաստղագիտություն"
+      },
+      "idwiki": {
+       "title": "Astronomi radio"
+      },
+      "itwiki": {
+       "title": "Radioastronomia"
+      },
+      "jawiki": {
+       "title": "電波天文学"
+      },
+      "kawiki": {
+       "title": "რადიოასტრონომია"
+      },
+      "kkwiki": {
+       "title": "Радиоастрономия"
+      },
+      "knwiki": {
+       "title": "ರೇಡಿಯೊ ಖಗೋಳವಿಜ್ಞಾನ"
+      },
+      "kowiki": {
+       "title": "전파천문학"
+      },
+      "kywiki": {
+       "title": "Радиоастрономия"
+      },
+      "lbwiki": {
+       "title": "Radioastronomie"
+      },
+      "ltwiki": {
+       "title": "Radioastronomija"
+      },
+      "mkwiki": {
+       "title": "Радиоастрономија"
+      },
+      "mlwiki": {
+       "title": "റേഡിയോ അസ്‌ട്രോണമി"
+      },
+      "mnwiki": {
+       "title": "Одон орон судлалын радио"
+      },
+      "mrwiki": {
+       "title": "रेडिओ खगोलशास्त्र"
+      },
+      "mswiki": {
+       "title": "Astronomi radio"
+      },
+      "nlwiki": {
+       "title": "Radioastronomie"
+      },
+      "nnwiki": {
+       "title": "Radioastronomi"
+      },
+      "nowiki": {
+       "title": "Radioastronomi"
+      },
+      "plwiki": {
+       "title": "Radioastronomia"
+      },
+      "pnbwiki": {
+       "title": "ریڈیو تارا پڑھت"
+      },
+      "ptwiki": {
+       "title": "Radioastronomia"
+      },
+      "rowiki": {
+       "title": "Radioastronomie"
+      },
+      "ruwiki": {
+       "title": "Радиоастрономия"
+      },
+      "shwiki": {
+       "title": "Radioastronomija"
+      },
+      "simplewiki": {
+       "title": "Radio astronomy"
+      },
+      "skwiki": {
+       "title": "Rádioastronómia"
+      },
+      "srwiki": {
+       "title": "Radio-astronomija"
+      },
+      "svwiki": {
+       "title": "Radioastronomi"
+      },
+      "tewiki": {
+       "title": "రేడియో ఖగోళశాస్త్రం"
+      },
+      "tgwiki": {
+       "title": "Радиоастрономия"
+      },
+      "thwiki": {
+       "title": "ดาราศาสตร์วิทยุ"
+      },
+      "tlwiki": {
+       "title": "Radyoastronomiya"
+      },
+      "trwiki": {
+       "title": "Radyo astronomi"
+      },
+      "ukwiki": {
+       "title": "Радіоастрономія"
+      },
+      "uzwiki": {
+       "title": "Radioastronomiya"
+      },
+      "viwiki": {
+       "title": "Thiên văn vô tuyến"
+      },
+      "wuuwiki": {
+       "title": "射电天文学"
+      },
+      "xmfwiki": {
+       "title": "რადიოასტრონომია"
+      },
+      "zhwiki": {
+       "title": "射电天文学"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q131565179"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q22906503": {
+     "id": "Q22906503",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy education"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "methods to teach astronomy and their research"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "arwiki": {
+       "title": "تعليم علم الفلك"
+      },
+      "bnwiki": {
+       "title": "জ্যোতির্বিজ্ঞান শিক্ষা"
+      },
+      "enwiki": {
+       "title": "Astronomy education"
+      }
+     },
+     "claims": {
+      "P31": []
+     }
+    },
+    "Q1268276": {
+     "id": "Q1268276",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Chinese astronomy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Astronomy as practiced in historical China"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "arwiki": {
+       "title": "علم الفلك في الصين"
+      },
+      "cawiki": {
+       "title": "Astronomia xinesa"
+      },
+      "elwiki": {
+       "title": "Κινεζική αστρονομία"
+      },
+      "enwiki": {
+       "title": "Chinese astronomy"
+      },
+      "eswiki": {
+       "title": "Astronomía china"
+      },
+      "fawiki": {
+       "title": "اخترشناسی چینی"
+      },
+      "frwiki": {
+       "title": "Astronomie chinoise"
+      },
+      "gawiki": {
+       "title": "Réalteolaíocht na Síne"
+      },
+      "glwiki": {
+       "title": "Astronomía chinesa"
+      },
+      "idwiki": {
+       "title": "Astronomi Tionghoa"
+      },
+      "itwiki": {
+       "title": "Astronomia cinese"
+      },
+      "kowiki": {
+       "title": "중국의 천문학"
+      },
+      "mlwiki": {
+       "title": "ചൈനീസ് ജ്യോതിഃശാസ്ത്രം"
+      },
+      "nowiki": {
+       "title": "Kinesisk astronomi"
+      },
+      "pawiki": {
+       "title": "ਚੀਨੀ ਖਗੋਲ ਸ਼ਾਸਤਰ"
+      },
+      "pnbwiki": {
+       "title": "چینی فلکیات"
+      },
+      "ptwiki": {
+       "title": "Astronomia chinesa"
+      },
+      "shwiki": {
+       "title": "Kineska astronomija"
+      },
+      "skwiki": {
+       "title": "Čínska astronómia"
+      },
+      "svwiki": {
+       "title": "Kinesisk astronomi"
+      },
+      "trwiki": {
+       "title": "Çin astronomisi"
+      },
+      "ukwiki": {
+       "title": "Астрономія у Стародавньому Китаї"
+      },
+      "urwiki": {
+       "title": "چینی فلکیات"
+      },
+      "viwiki": {
+       "title": "Thiên văn học Trung Quốc"
+      },
+      "zhwiki": {
+       "title": "中国天文学史"
+      }
+     },
+     "claims": {
+      "P31": []
+     }
+    }
+   }
+  }
+ }
+}

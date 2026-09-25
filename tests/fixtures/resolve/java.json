@@ -1,0 +1,4522 @@
+{
+ "query": "Java",
+ "search_lang": "en",
+ "recorded": "2026-09-25",
+ "responses": {
+  "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=10&search=Java&type=item&uselang=en": {
+   "searchinfo": {
+    "search": "Java"
+   },
+   "search": [
+    {
+     "id": "Q251",
+     "title": "Q251",
+     "pageid": 393,
+     "concepturi": "http://www.wikidata.org/entity/Q251",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q251",
+     "display": {
+      "label": {
+       "value": "Java",
+       "language": "en"
+      },
+      "description": {
+       "value": "object-oriented programming language",
+       "language": "en"
+      }
+     },
+     "label": "Java",
+     "description": "object-oriented programming language",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java"
+     }
+    },
+    {
+     "id": "Q2063",
+     "title": "Q2063",
+     "pageid": 2972,
+     "concepturi": "http://www.wikidata.org/entity/Q2063",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q2063",
+     "display": {
+      "label": {
+       "value": "JSON",
+       "language": "en"
+      },
+      "description": {
+       "value": "text-based open standard designed for human-readable data interchange",
+       "language": "en"
+      }
+     },
+     "label": "JSON",
+     "description": "text-based open standard designed for human-readable data interchange",
+     "match": {
+      "type": "alias",
+      "language": "en",
+      "text": "JavaScript/Handling JSON"
+     },
+     "aliases": [
+      "JavaScript/Handling JSON"
+     ]
+    },
+    {
+     "id": "Q61612399",
+     "title": "Q61612399",
+     "pageid": 61462015,
+     "concepturi": "http://www.wikidata.org/entity/Q61612399",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q61612399",
+     "display": {
+      "label": {
+       "value": "Java",
+       "language": "en"
+      },
+      "description": {
+       "value": "genus of insects",
+       "language": "en"
+      }
+     },
+     "label": "Java",
+     "description": "genus of insects",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java"
+     }
+    },
+    {
+     "id": "Q3757",
+     "title": "Q3757",
+     "pageid": 4654,
+     "concepturi": "http://www.wikidata.org/entity/Q3757",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q3757",
+     "display": {
+      "label": {
+       "value": "Java",
+       "language": "en"
+      },
+      "description": {
+       "value": "island of Indonesia",
+       "language": "en"
+      }
+     },
+     "label": "Java",
+     "description": "island of Indonesia",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java"
+     }
+    },
+    {
+     "id": "Q2005",
+     "title": "Q2005",
+     "pageid": 2914,
+     "concepturi": "http://www.wikidata.org/entity/Q2005",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q2005",
+     "display": {
+      "label": {
+       "value": "JavaScript",
+       "language": "en"
+      },
+      "description": {
+       "value": "high-level programming language",
+       "language": "en"
+      }
+     },
+     "label": "JavaScript",
+     "description": "high-level programming language",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "JavaScript"
+     }
+    },
+    {
+     "id": "Q37270782",
+     "title": "Q37270782",
+     "pageid": 38647914,
+     "concepturi": "http://www.wikidata.org/entity/Q37270782",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q37270782",
+     "display": {
+      "label": {
+       "value": "Java",
+       "language": "en"
+      },
+      "description": {
+       "value": "family name",
+       "language": "en"
+      }
+     },
+     "label": "Java",
+     "description": "family name",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java"
+     }
+    },
+    {
+     "id": "Q879704",
+     "title": "Q879704",
+     "pageid": 830764,
+     "concepturi": "http://www.wikidata.org/entity/Q879704",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q879704",
+     "display": {
+      "label": {
+       "value": "Javanese script",
+       "language": "en"
+      },
+      "description": {
+       "value": "writing system used for Javanic languages",
+       "language": "en"
+      }
+     },
+     "label": "Javanese script",
+     "description": "writing system used for Javanic languages",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Javanese script"
+     }
+    },
+    {
+     "id": "Q193321",
+     "title": "Q193321",
+     "pageid": 191373,
+     "concepturi": "http://www.wikidata.org/entity/Q193321",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q193321",
+     "display": {
+      "label": {
+       "value": "Java virtual machine",
+       "language": "en"
+      },
+      "description": {
+       "value": "runtime environment that can execute Java bytecode as a result of compiling computer programs written in the Java programming language",
+       "language": "en"
+      }
+     },
+     "label": "Java virtual machine",
+     "description": "runtime environment that can execute Java bytecode as a result of compiling computer programs written in the Java programming language",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java virtual machine"
+     }
+    },
+    {
+     "id": "Q1713118",
+     "title": "Q1713118",
+     "pageid": 1646292,
+     "concepturi": "http://www.wikidata.org/entity/Q1713118",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q1713118",
+     "display": {
+      "label": {
+       "value": "Java platform",
+       "language": "en"
+      },
+      "description": {
+       "value": "set of several computer software products and specifications",
+       "language": "en"
+      }
+     },
+     "label": "Java platform",
+     "description": "set of several computer software products and specifications",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java platform"
+     }
+    },
+    {
+     "id": "Q56300903",
+     "title": "Q56300903",
+     "pageid": 56239480,
+     "concepturi": "http://www.wikidata.org/entity/Q56300903",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q56300903",
+     "display": {
+      "label": {
+       "value": "Java",
+       "language": "en"
+      },
+      "description": {
+       "value": "hamlet in Wanze, Belgium",
+       "language": "en"
+      }
+     },
+     "label": "Java",
+     "description": "hamlet in Wanze, Belgium",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Java"
+     }
+    }
+   ],
+   "search-continue": 10,
+   "success": 1
+  },
+  "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&generator=search&gsrlimit=10&gsrnamespace=0&gsrsearch=Java&ppprop=wikibase_item%7Cdisambiguation&prop=pageprops": {
+   "batchcomplete": true,
+   "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+   },
+   "query": {
+    "pages": [
+     {
+      "pageid": 9845,
+      "ns": 0,
+      "title": "JavaScript",
+      "index": 4,
+      "pageprops": {
+       "wikibase_item": "Q2005"
+      }
+     },
+     {
+      "pageid": 15881,
+      "ns": 0,
+      "title": "Java (programming language)",
+      "index": 2,
+      "pageprops": {
+       "wikibase_item": "Q251"
+      }
+     },
+     {
+      "pageid": 26980,
+      "ns": 0,
+      "title": "Sun Microsystems",
+      "index": 3,
+      "pageprops": {
+       "wikibase_item": "Q14647"
+      }
+     },
+     {
+      "pageid": 69336,
+      "ns": 0,
+      "title": "Java",
+      "index": 1,
+      "pageprops": {
+       "wikibase_item": "Q3757"
+      }
+     },
+     {
+      "pageid": 320443,
+      "ns": 0,
+      "title": "East Java",
+      "index": 7,
+      "pageprops": {
+       "wikibase_item": "Q3586"
+      }
+     },
+     {
+      "pageid": 453584,
+      "ns": 0,
+      "title": "Central Java",
+      "index": 9,
+      "pageprops": {
+       "wikibase_item": "Q3557"
+      }
+     },
+     {
+      "pageid": 467143,
+      "ns": 0,
+      "title": "Java Sea",
+      "index": 6,
+      "pageprops": {
+       "wikibase_item": "Q49364"
+      }
+     },
+     {
+      "pageid": 4718446,
+      "ns": 0,
+      "title": "Java (software platform)",
+      "index": 8,
+      "pageprops": {
+       "wikibase_item": "Q1713118"
+      }
+     },
+     {
+      "pageid": 7771171,
+      "ns": 0,
+      "title": "Java version history",
+      "index": 5,
+      "pageprops": {
+       "wikibase_item": "Q2365981"
+      }
+     },
+     {
+      "pageid": 11832002,
+      "ns": 0,
+      "title": ".java",
+      "index": 10,
+      "pageprops": {
+       "disambiguation": "",
+       "wikibase_item": "Q110128680"
+      }
+     }
+    ]
+   }
+  },
+  "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q251%7CQ2063%7CQ61612399%7CQ3757%7CQ2005%7CQ37270782%7CQ879704%7CQ193321%7CQ1713118%7CQ56300903%7CQ14647%7CQ2365981%7CQ49364%7CQ3586%7CQ3557%7CQ110128680&languages=en&props=labels%7Cdescriptions%7Caliases%7Csitelinks%7Cclaims": {
+   "entities": {
+    "Q251": {
+     "id": "Q251",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "object-oriented programming language"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "java programming language"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q251"
+      },
+      "acewiki": {
+       "title": "Java"
+      },
+      "afwiki": {
+       "title": "Java (programmeertaal)"
+      },
+      "amwiki": {
+       "title": "ጃቫ"
+      },
+      "anwiki": {
+       "title": "Lenguache de programación Java"
+      },
+      "arwiki": {
+       "title": "جافا (لغة برمجة)"
+      },
+      "arwikibooks": {
+       "title": "برمجة جافا"
+      },
+      "arywiki": {
+       "title": "جاڤا"
+      },
+      "arzwiki": {
+       "title": "جافا (لغة برمجه)"
+      },
+      "astwiki": {
+       "title": "Java (llinguaxe de programación)"
+      },
+      "aswiki": {
+       "title": "জাভা"
+      },
+      "azbwiki": {
+       "title": "جاوا"
+      },
+      "azwiki": {
+       "title": "Java"
+      },
+      "azwikibooks": {
+       "title": "Java"
+      },
+      "bat_smgwiki": {
+       "title": "Java"
+      },
+      "be_x_oldwiki": {
+       "title": "Java"
+      },
+      "bewiki": {
+       "title": "Java (мова праграмавання)"
+      },
+      "bgwiki": {
+       "title": "Java"
+      },
+      "bnwiki": {
+       "title": "জাভা (প্রোগ্রামিং ভাষা)"
+      },
+      "bnwikibooks": {
+       "title": "জাভা প্রোগ্রামিং"
+      },
+      "bswiki": {
+       "title": "Java (programski jezik)"
+      },
+      "bugwiki": {
+       "title": "Java"
+      },
+      "cawiki": {
+       "title": "Java (llenguatge de programació)"
+      },
+      "cdowiki": {
+       "title": "Java"
+      },
+      "ckbwiki": {
+       "title": "جاڤا (زمانی بەرنامەسازی)"
+      },
+      "cowiki": {
+       "title": "Java"
+      },
+      "cswiki": {
+       "title": "Java (programovací jazyk)"
+      },
+      "cswikibooks": {
+       "title": "Java"
+      },
+      "cvwiki": {
+       "title": "Java (компьютер чĕлхи)"
+      },
+      "cywiki": {
+       "title": "Java (iaith raglennu)"
+      },
+      "dawiki": {
+       "title": "Java (programmeringssprog)"
+      },
+      "dawikibooks": {
+       "title": "Java"
+      },
+      "dewiki": {
+       "title": "Java (Programmiersprache)"
+      },
+      "dewikibooks": {
+       "title": "Java Standard"
+      },
+      "dewikiversity": {
+       "title": "Kurs:Programmierung in Java"
+      },
+      "elwiki": {
+       "title": "Java"
+      },
+      "enwiki": {
+       "title": "Java (programming language)"
+      },
+      "enwikibooks": {
+       "title": "Java Programming"
+      },
+      "enwikiquote": {
+       "title": "Java (programming language)"
+      },
+      "enwikiversity": {
+       "title": "Portal:Java"
+      },
+      "eowiki": {
+       "title": "Java (programlingvo)"
+      },
+      "eswiki": {
+       "title": "Java (lenguaje de programación)"
+      },
+      "eswikibooks": {
+       "title": "Programación en Java"
+      },
+      "etwiki": {
+       "title": "Java"
+      },
+      "euwiki": {
+       "title": "Java (programazio-lengoaia)"
+      },
+      "extwiki": {
+       "title": "Java"
+      },
+      "fawiki": {
+       "title": "جاوا"
+      },
+      "fiwiki": {
+       "title": "Java"
+      },
+      "fiwikibooks": {
+       "title": "Java"
+      },
+      "fjwiki": {
+       "title": "Java"
+      },
+      "frwiki": {
+       "title": "Java (langage)"
+      },
+      "frwikibooks": {
+       "title": "Programmation Java"
+      },
+      "frwikinews": {
+       "title": "Catégorie:Java (technique)"
+      },
+      "frwikiversity": {
+       "title": "Java"
+      },
+      "gawiki": {
+       "title": "Java"
+      },
+      "glwiki": {
+       "title": "Java (linguaxe de programación)"
+      },
+      "guwiki": {
+       "title": "જાવા (પ્રોગ્રામિંગ ભાષા)"
+      },
+      "hakwiki": {
+       "title": "Java"
+      },
+      "hawiki": {
+       "title": "Java programming language"
+      },
+      "hewiki": {
+       "title": "ג'אווה (שפת תכנות)"
+      },
+      "hewikibooks": {
+       "title": "Java"
+      },
+      "hiwiki": {
+       "title": "जावा (प्रोग्रामिंग भाषा)"
+      },
+      "hrwiki": {
+       "title": "Java (programski jezik)"
+      },
+      "htwiki": {
+       "title": "Java (enfòmatik)"
+      },
+      "huwiki": {
+       "title": "Java (programozási nyelv)"
+      },
+      "huwikibooks": {
+       "title": "Java programozás"
+      },
+      "hywiki": {
+       "title": "Ջավա"
+      },
+      "iawiki": {
+       "title": "Java (linguage de programmation)"
+      },
+      "idwiki": {
+       "title": "Java"
+      },
+      "iowiki": {
+       "title": "Java (programifo-linguo)"
+      },
+      "iswiki": {
+       "title": "Java (forritunarmál)"
+      },
+      "iswikibooks": {
+       "title": "Java"
+      },
+      "itwiki": {
+       "title": "Java (linguaggio di programmazione)"
+      },
+      "itwikibooks": {
+       "title": "Java"
+      },
+      "itwikiversity": {
+       "title": "Materia:Java"
+      },
+      "jawiki": {
+       "title": "Java"
+      },
+      "jawikibooks": {
+       "title": "Java"
+      },
+      "kaawiki": {
+       "title": "Java (programmalastırıw tili)"
+      },
+      "kabwiki": {
+       "title": "Java (tutlayt)"
+      },
+      "kawiki": {
+       "title": "ჯავა (პროგრამირების ენა)"
+      },
+      "kawikibooks": {
+       "title": "Java"
+      },
+      "kkwiki": {
+       "title": "Java (бағдарламалау тілі)"
+      },
+      "knwiki": {
+       "title": "ಜಾವಾ (ಪ್ರೊಗ್ರಾಮಿಂಗ್ ಭಾಷೆ)"
+      },
+      "kowiki": {
+       "title": "자바 (프로그래밍 언어)"
+      },
+      "kswiki": {
+       "title": "جاوا (پرٛوگرٛامِنٛگ زَبان)"
+      },
+      "kuwiki": {
+       "title": "Java (zimanê bernamesaziyê)"
+      },
+      "kywiki": {
+       "title": "Java"
+      },
+      "lawiki": {
+       "title": "Java (lingua programmationis)"
+      },
+      "lijwiki": {
+       "title": "Java (lenguazzo)"
+      },
+      "lmowiki": {
+       "title": "Java"
+      },
+      "lowiki": {
+       "title": "ພາສາຈາວາ (ພາສາໂປຣແກຣມຄອມພິວເຕີ)"
+      },
+      "ltwiki": {
+       "title": "Java (programavimo kalba)"
+      },
+      "lvwiki": {
+       "title": "Java (programmēšanas valoda)"
+      },
+      "minwiki": {
+       "title": "Java"
+      },
+      "mkwiki": {
+       "title": "Java (програмски јазик)"
+      },
+      "mlwiki": {
+       "title": "ജാവ (പ്രോഗ്രാമിങ് ഭാഷ)"
+      },
+      "mlwikibooks": {
+       "title": "ജാവ പ്രോഗ്രാമിങ്ങ്"
+      },
+      "mnwiki": {
+       "title": "Java"
+      },
+      "mrwiki": {
+       "title": "जावा (आज्ञावली भाषा)"
+      },
+      "mswiki": {
+       "title": "Java"
+      },
+      "mywiki": {
+       "title": "ဂျာဗား (ပရိုဂရမ်မင်းဘာသာစကား)"
+      },
+      "newiki": {
+       "title": "जाभा"
+      },
+      "nlwiki": {
+       "title": "Java (programmeertaal)"
+      },
+      "nlwikibooks": {
+       "title": "Programmeren in Java"
+      },
+      "nnwiki": {
+       "title": "Programmeringsspråket Java"
+      },
+      "nowiki": {
+       "title": "Java (programmeringsspråk)"
+      },
+      "nowikibooks": {
+       "title": "Java"
+      },
+      "ocwiki": {
+       "title": "Java (lengatge)"
+      },
+      "orwiki": {
+       "title": "ଜାଭା (ପ୍ରୋଗ୍ରାମିଂ ଭାଷା)"
+      },
+      "pawiki": {
+       "title": "ਜਾਵਾ (ਪ੍ਰੋਗਰਾਮਿੰਗ ਭਾਸ਼ਾ)"
+      },
+      "plwiki": {
+       "title": "Java"
+      },
+      "plwikibooks": {
+       "title": "Java"
+      },
+      "pmswiki": {
+       "title": "Java (lengagi ëd programassion)"
+      },
+      "pnbwiki": {
+       "title": "جاوا (پروگرامنگ زبان)"
+      },
+      "ptwiki": {
+       "title": "Java (linguagem de programação)"
+      },
+      "ptwikibooks": {
+       "title": "Java"
+      },
+      "quwiki": {
+       "title": "Java (wakichiy simi)"
+      },
+      "rowiki": {
+       "title": "Java (limbaj de programare)"
+      },
+      "ruwiki": {
+       "title": "Java"
+      },
+      "ruwikibooks": {
+       "title": "Java"
+      },
+      "ruwikinews": {
+       "title": "Категория:Java"
+      },
+      "sahwiki": {
+       "title": "Java"
+      },
+      "sawiki": {
+       "title": "जावा"
+      },
+      "sdwiki": {
+       "title": "جاوا (پروگرامنگ جي ٻولي)"
+      },
+      "shwiki": {
+       "title": "Java (programski jezik)"
+      },
+      "simplewiki": {
+       "title": "Java (programming language)"
+      },
+      "siwiki": {
+       "title": "ජාවා (ක්‍රමලේඛන භාෂාව)"
+      },
+      "skwiki": {
+       "title": "Java (programovací jazyk)"
+      },
+      "slwiki": {
+       "title": "Java (programski jezik)"
+      },
+      "sowiki": {
+       "title": "Java (luuqada borograaminta)"
+      },
+      "sqwiki": {
+       "title": "Java (gjuhë programimi)"
+      },
+      "sqwikibooks": {
+       "title": "Java"
+      },
+      "srwiki": {
+       "title": "Java (програмски језик)"
+      },
+      "svwiki": {
+       "title": "Java (programspråk)"
+      },
+      "swwiki": {
+       "title": "Java (lugha ya programu)"
+      },
+      "tawiki": {
+       "title": "ஜாவா (நிரலாக்க மொழி)"
+      },
+      "tawikibooks": {
+       "title": "ஜாவா"
+      },
+      "tewiki": {
+       "title": "జావా"
+      },
+      "tgwiki": {
+       "title": "Java"
+      },
+      "thwiki": {
+       "title": "ภาษาจาวา"
+      },
+      "thwikibooks": {
+       "title": "ภาษาจาวา"
+      },
+      "tlwiki": {
+       "title": "Java (wikang pamprograma)"
+      },
+      "tokwiki": {
+       "title": "toki ilo Sawa"
+      },
+      "trwiki": {
+       "title": "Java"
+      },
+      "trwikibooks": {
+       "title": "Java"
+      },
+      "ttwiki": {
+       "title": "Java"
+      },
+      "ukwiki": {
+       "title": "Java"
+      },
+      "ukwikibooks": {
+       "title": "Освоюємо Java"
+      },
+      "urwiki": {
+       "title": "جاوا (پروگرامنگ زبان)"
+      },
+      "uzwiki": {
+       "title": "Java"
+      },
+      "vecwiki": {
+       "title": "Java (lenguajo de programasion)"
+      },
+      "viwiki": {
+       "title": "Java (ngôn ngữ lập trình)"
+      },
+      "warwiki": {
+       "title": "Java (linggwahe hin pagprograma)"
+      },
+      "wuuwiki": {
+       "title": "Java"
+      },
+      "zh_classicalwiki": {
+       "title": "爪哇程式語"
+      },
+      "zh_min_nanwiki": {
+       "title": "Java (thêng-sek gí-giân)"
+      },
+      "zh_yuewiki": {
+       "title": "Java (程式語言)"
+      },
+      "zhwiki": {
+       "title": "Java"
+      },
+      "zhwikibooks": {
+       "title": "Java"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q56062429"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q7397"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q12772052"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q9143"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q2063": {
+     "id": "Q2063",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "JSON"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "text-based open standard designed for human-readable data interchange"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "JavaScript/Handling JSON"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q2063"
+      },
+      "arwiki": {
+       "title": "JSON"
+      },
+      "azwiki": {
+       "title": "JSON"
+      },
+      "bewiki": {
+       "title": "JSON"
+      },
+      "bgwiki": {
+       "title": "JSON"
+      },
+      "bnwiki": {
+       "title": "জেসন"
+      },
+      "cawiki": {
+       "title": "JSON"
+      },
+      "cswiki": {
+       "title": "JavaScript Object Notation"
+      },
+      "dawiki": {
+       "title": "JSON"
+      },
+      "dewiki": {
+       "title": "JSON"
+      },
+      "elwiki": {
+       "title": "JSON"
+      },
+      "enwiki": {
+       "title": "JSON"
+      },
+      "enwikibooks": {
+       "title": "JSON"
+      },
+      "eswiki": {
+       "title": "JSON"
+      },
+      "etwiki": {
+       "title": "JSON"
+      },
+      "euwiki": {
+       "title": "JavaScript Object Notation"
+      },
+      "fawiki": {
+       "title": "جی‌سان"
+      },
+      "fiwiki": {
+       "title": "JSON"
+      },
+      "frwiki": {
+       "title": "JavaScript Object Notation"
+      },
+      "glwiki": {
+       "title": "JavaScript Object Notation"
+      },
+      "hewiki": {
+       "title": "JSON"
+      },
+      "hiwiki": {
+       "title": "जेसन"
+      },
+      "hrwiki": {
+       "title": "JSON"
+      },
+      "huwiki": {
+       "title": "JSON"
+      },
+      "hywiki": {
+       "title": "JSON"
+      },
+      "idwiki": {
+       "title": "JSON"
+      },
+      "iowiki": {
+       "title": "JSON"
+      },
+      "itwiki": {
+       "title": "JavaScript Object Notation"
+      },
+      "jawiki": {
+       "title": "JSON"
+      },
+      "jawikibooks": {
+       "title": "JSON"
+      },
+      "kaawiki": {
+       "title": "JSON"
+      },
+      "kowiki": {
+       "title": "JSON"
+      },
+      "kywiki": {
+       "title": "JSON"
+      },
+      "ltwiki": {
+       "title": "JSON"
+      },
+      "lvwiki": {
+       "title": "JSON"
+      },
+      "mediawikiwiki": {
+       "title": "JSON"
+      },
+      "mlwiki": {
+       "title": "ജെസൺ"
+      },
+      "mswiki": {
+       "title": "JSON"
+      },
+      "nlwiki": {
+       "title": "JSON"
+      },
+      "nowiki": {
+       "title": "JSON"
+      },
+      "plwiki": {
+       "title": "JSON"
+      },
+      "ptwiki": {
+       "title": "JSON"
+      },
+      "rowiki": {
+       "title": "JSON"
+      },
+      "ruwiki": {
+       "title": "JSON"
+      },
+      "simplewiki": {
+       "title": "JSON"
+      },
+      "slwiki": {
+       "title": "JSON"
+      },
+      "sqwiki": {
+       "title": "JSON"
+      },
+      "srwiki": {
+       "title": "JSON"
+      },
+      "svwiki": {
+       "title": "JSON"
+      },
+      "tawiki": {
+       "title": "யேசண்"
+      },
+      "thwiki": {
+       "title": "เจซัน"
+      },
+      "trwiki": {
+       "title": "JSON"
+      },
+      "ukwiki": {
+       "title": "JSON"
+      },
+      "uzwiki": {
+       "title": "JSON"
+      },
+      "viwiki": {
+       "title": "JSON"
+      },
+      "zh_yuewiki": {
+       "title": "JSON"
+      },
+      "zhwiki": {
+       "title": "JSON"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q235557"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q24451526"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q681263"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1048236"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q137273092"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q61612399": {
+     "id": "Q61612399",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "genus of insects"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "cebwiki": {
+       "title": "Java (insekto)"
+      },
+      "enwiki": {
+       "title": "Java (wasp)"
+      },
+      "specieswiki": {
+       "title": "Java"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q16521"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3757": {
+     "id": "Q3757",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "island of Indonesia"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Pulau Jawa"
+       },
+       {
+        "language": "en",
+        "value": "Jawa Island"
+       },
+       {
+        "language": "en",
+        "value": "Java Island"
+       },
+       {
+        "language": "en",
+        "value": "Pulau Java"
+       },
+       {
+        "language": "en",
+        "value": "Jawa"
+       },
+       {
+        "language": "en",
+        "value": "Java island"
+       },
+       {
+        "language": "en",
+        "value": "Java, Indonesia"
+       },
+       {
+        "language": "en",
+        "value": "Giava"
+       },
+       {
+        "language": "en",
+        "value": "Ява"
+       }
+      ]
+     },
+     "sitelinks": {
+      "acewiki": {
+       "title": "Jawoë"
+      },
+      "afwiki": {
+       "title": "Java (eiland)"
+      },
+      "amwiki": {
+       "title": "ጃዋ"
+      },
+      "anwiki": {
+       "title": "Chava"
+      },
+      "arwiki": {
+       "title": "جاوة"
+      },
+      "astwiki": {
+       "title": "Xava"
+      },
+      "aswiki": {
+       "title": "জাভা দ্বীপ"
+      },
+      "azwiki": {
+       "title": "Yava"
+      },
+      "banwiki": {
+       "title": "Jawa"
+      },
+      "bawiki": {
+       "title": "Ява"
+      },
+      "bbcwiki": {
+       "title": "Pulo Jawa"
+      },
+      "bclwiki": {
+       "title": "Haba"
+      },
+      "be_x_oldwiki": {
+       "title": "Ява"
+      },
+      "bewiki": {
+       "title": "Ява"
+      },
+      "bgwiki": {
+       "title": "Ява"
+      },
+      "bjnwiki": {
+       "title": "Pulau Jawa"
+      },
+      "bnwiki": {
+       "title": "জাভা দ্বীপ"
+      },
+      "bnwikivoyage": {
+       "title": "জাভা"
+      },
+      "bowiki": {
+       "title": "ཇ་ཝ།"
+      },
+      "brwiki": {
+       "title": "Jawa"
+      },
+      "bswiki": {
+       "title": "Java (ostrvo)"
+      },
+      "btmwiki": {
+       "title": "Jawa"
+      },
+      "bugwiki": {
+       "title": "ᨍᨓ"
+      },
+      "cawiki": {
+       "title": "Java"
+      },
+      "cebwiki": {
+       "title": "Java (pulo sa Indonesya)"
+      },
+      "ckbwiki": {
+       "title": "جاڤا"
+      },
+      "commonswiki": {
+       "title": "Java"
+      },
+      "cswiki": {
+       "title": "Jáva"
+      },
+      "cywiki": {
+       "title": "Jawa"
+      },
+      "dawiki": {
+       "title": "Java (ø)"
+      },
+      "dewiki": {
+       "title": "Java (Insel)"
+      },
+      "dewikivoyage": {
+       "title": "Java"
+      },
+      "elwiki": {
+       "title": "Ιάβα"
+      },
+      "enwiki": {
+       "title": "Java"
+      },
+      "enwikinews": {
+       "title": "Category:Java"
+      },
+      "enwikivoyage": {
+       "title": "Java"
+      },
+      "eowiki": {
+       "title": "Javo"
+      },
+      "eowikinews": {
+       "title": "Kategorio:Javo"
+      },
+      "eswiki": {
+       "title": "Java (isla)"
+      },
+      "eswikivoyage": {
+       "title": "Java"
+      },
+      "etwiki": {
+       "title": "Jaava"
+      },
+      "euwiki": {
+       "title": "Java (uhartea)"
+      },
+      "fawiki": {
+       "title": "جاوه"
+      },
+      "fawikivoyage": {
+       "title": "جاوه"
+      },
+      "fiwiki": {
+       "title": "Jaava"
+      },
+      "fiwikivoyage": {
+       "title": "Jaava"
+      },
+      "frrwiki": {
+       "title": "Jaawa"
+      },
+      "frwiki": {
+       "title": "Java (île)"
+      },
+      "frwikinews": {
+       "title": "Catégorie:Java"
+      },
+      "frwikivoyage": {
+       "title": "Java"
+      },
+      "fywiki": {
+       "title": "Java (eilân)"
+      },
+      "gawiki": {
+       "title": "Iáva"
+      },
+      "gdwiki": {
+       "title": "Diàbha"
+      },
+      "glwiki": {
+       "title": "Xava"
+      },
+      "gorwiki": {
+       "title": "Jawa"
+      },
+      "guwiki": {
+       "title": "જાવા (ટાપુ)"
+      },
+      "hakwiki": {
+       "title": "Jawa"
+      },
+      "hawiki": {
+       "title": "Java"
+      },
+      "hewiki": {
+       "title": "ג'אווה"
+      },
+      "hifwiki": {
+       "title": "Java"
+      },
+      "hiwiki": {
+       "title": "जावा (द्वीप)"
+      },
+      "hrwiki": {
+       "title": "Java (otok)"
+      },
+      "htwiki": {
+       "title": "Jawa"
+      },
+      "huwiki": {
+       "title": "Jáva"
+      },
+      "hywiki": {
+       "title": "Ճավա"
+      },
+      "iawiki": {
+       "title": "Java"
+      },
+      "ibawiki": {
+       "title": "Jawa"
+      },
+      "idwiki": {
+       "title": "Jawa"
+      },
+      "idwikivoyage": {
+       "title": "Jawa"
+      },
+      "iewiki": {
+       "title": "Java"
+      },
+      "ilowiki": {
+       "title": "Java"
+      },
+      "iowiki": {
+       "title": "Java"
+      },
+      "iswiki": {
+       "title": "Java"
+      },
+      "itwiki": {
+       "title": "Giava"
+      },
+      "itwikivoyage": {
+       "title": "Giava"
+      },
+      "jawiki": {
+       "title": "ジャワ島"
+      },
+      "jawikivoyage": {
+       "title": "ジャワ島"
+      },
+      "jvwiki": {
+       "title": "Jawa"
+      },
+      "kaawiki": {
+       "title": "Yava"
+      },
+      "kawiki": {
+       "title": "იავა"
+      },
+      "kgewiki": {
+       "title": "Jawa"
+      },
+      "kkwiki": {
+       "title": "Ява"
+      },
+      "kmwiki": {
+       "title": "កោះជ្វា"
+      },
+      "knwiki": {
+       "title": "ಜಾವಾ (ದ್ವೀಪ)"
+      },
+      "kowiki": {
+       "title": "자와섬"
+      },
+      "kuwiki": {
+       "title": "Cava"
+      },
+      "kywiki": {
+       "title": "Ява аралы"
+      },
+      "ladwiki": {
+       "title": "Djava (isola)"
+      },
+      "lawiki": {
+       "title": "Iava"
+      },
+      "lbwiki": {
+       "title": "Java"
+      },
+      "liwiki": {
+       "title": "Java"
+      },
+      "lmowiki": {
+       "title": "Giava"
+      },
+      "lowiki": {
+       "title": "ເກາະຈາວາ"
+      },
+      "ltwiki": {
+       "title": "Java (sala)"
+      },
+      "lvwiki": {
+       "title": "Java (sala)"
+      },
+      "madwiki": {
+       "title": "Jhâbâ"
+      },
+      "map_bmswiki": {
+       "title": "Jawa"
+      },
+      "mgwiki": {
+       "title": "Java"
+      },
+      "minwiki": {
+       "title": "Jawa"
+      },
+      "mkwiki": {
+       "title": "Јава"
+      },
+      "mlwiki": {
+       "title": "ജാവ (ദ്വീപ്)"
+      },
+      "mnwiki": {
+       "title": "Жава"
+      },
+      "mrjwiki": {
+       "title": "Ява"
+      },
+      "mrwiki": {
+       "title": "जावा"
+      },
+      "mswiki": {
+       "title": "Jawa"
+      },
+      "mywiki": {
+       "title": "ဂျားဗားကျွန်း"
+      },
+      "mznwiki": {
+       "title": "جاوه"
+      },
+      "newiki": {
+       "title": "जावा द्वीप"
+      },
+      "newwiki": {
+       "title": "जावा"
+      },
+      "nlwiki": {
+       "title": "Java (eiland)"
+      },
+      "nlwikinews": {
+       "title": "Categorie:Java"
+      },
+      "nlwikivoyage": {
+       "title": "Java"
+      },
+      "nnwiki": {
+       "title": "Java"
+      },
+      "nowiki": {
+       "title": "Java (øy)"
+      },
+      "ocwiki": {
+       "title": "Java"
+      },
+      "orwiki": {
+       "title": "ଜାଭା"
+      },
+      "oswiki": {
+       "title": "Явæ"
+      },
+      "pamwiki": {
+       "title": "Java"
+      },
+      "papwiki": {
+       "title": "Java"
+      },
+      "pawiki": {
+       "title": "ਜਾਵਾ ਟਾਪੂ"
+      },
+      "plwiki": {
+       "title": "Jawa"
+      },
+      "plwikiquote": {
+       "title": "Jawa"
+      },
+      "plwikivoyage": {
+       "title": "Jawa"
+      },
+      "pmswiki": {
+       "title": "Giava"
+      },
+      "pnbwiki": {
+       "title": "جاوا"
+      },
+      "ptwiki": {
+       "title": "Java"
+      },
+      "quwiki": {
+       "title": "Hawa wat'a"
+      },
+      "rowiki": {
+       "title": "Insula Java"
+      },
+      "ruwiki": {
+       "title": "Ява"
+      },
+      "ruwikinews": {
+       "title": "Категория:Ява"
+      },
+      "sahwiki": {
+       "title": "Ява"
+      },
+      "satwiki": {
+       "title": "ᱡᱟᱵᱷᱟ (ᱫᱤᱯ)"
+      },
+      "sawiki": {
+       "title": "यवद्वीप"
+      },
+      "scnwiki": {
+       "title": "Giava"
+      },
+      "scowiki": {
+       "title": "Java"
+      },
+      "sdwiki": {
+       "title": "جاوا"
+      },
+      "shwiki": {
+       "title": "Java (otok)"
+      },
+      "simplewiki": {
+       "title": "Java"
+      },
+      "siwiki": {
+       "title": "ජාවා දූපත"
+      },
+      "skwiki": {
+       "title": "Jáva (ostrov)"
+      },
+      "slwiki": {
+       "title": "Java"
+      },
+      "sqwiki": {
+       "title": "Xhava"
+      },
+      "srnwiki": {
+       "title": "Java"
+      },
+      "srwiki": {
+       "title": "Јава"
+      },
+      "stqwiki": {
+       "title": "Java (Ailound)"
+      },
+      "suwiki": {
+       "title": "Pulo Jawa"
+      },
+      "svwiki": {
+       "title": "Java"
+      },
+      "swwiki": {
+       "title": "Java"
+      },
+      "szlwiki": {
+       "title": "Jawa"
+      },
+      "tawiki": {
+       "title": "சாவகம் (தீவு)"
+      },
+      "tewiki": {
+       "title": "జావా దీవి"
+      },
+      "tgwiki": {
+       "title": "Ҷава"
+      },
+      "thwiki": {
+       "title": "เกาะชวา"
+      },
+      "tlwiki": {
+       "title": "Java (pulo)"
+      },
+      "tokwiki": {
+       "title": "ma Sawa"
+      },
+      "trwiki": {
+       "title": "Cava"
+      },
+      "ttwiki": {
+       "title": "Ява"
+      },
+      "ukwiki": {
+       "title": "Ява (острів)"
+      },
+      "urwiki": {
+       "title": "جاوا"
+      },
+      "uzwiki": {
+       "title": "Java (orol)"
+      },
+      "viwiki": {
+       "title": "Java (hòn đảo)"
+      },
+      "viwikivoyage": {
+       "title": "Java"
+      },
+      "vowiki": {
+       "title": "Yafeän"
+      },
+      "warwiki": {
+       "title": "Java"
+      },
+      "wuuwiki": {
+       "title": "爪哇岛"
+      },
+      "zh_classicalwiki": {
+       "title": "爪哇島"
+      },
+      "zh_min_nanwiki": {
+       "title": "Jawa"
+      },
+      "zh_yuewiki": {
+       "title": "爪哇"
+      },
+      "zhwiki": {
+       "title": "爪哇岛"
+      },
+      "zhwikivoyage": {
+       "title": "爪哇島"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q23442"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q2005": {
+     "id": "Q2005",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "JavaScript"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "high-level programming language"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q2005"
+      },
+      "afwiki": {
+       "title": "JavaScript"
+      },
+      "angwiki": {
+       "title": "JavaScript"
+      },
+      "anwiki": {
+       "title": "JavaScript"
+      },
+      "arwiki": {
+       "title": "جافا سكريبت"
+      },
+      "arwikibooks": {
+       "title": "برمجة جافا سكريبت"
+      },
+      "arwikiversity": {
+       "title": "جافا سكريبت"
+      },
+      "arzwiki": {
+       "title": "جافا سكريبت"
+      },
+      "astwiki": {
+       "title": "JavaScript"
+      },
+      "aswiki": {
+       "title": "জাভাস্ক্ৰীপ্ট"
+      },
+      "azbwiki": {
+       "title": "جاوااسکریپت"
+      },
+      "azwiki": {
+       "title": "JavaScript"
+      },
+      "azwikibooks": {
+       "title": "JavaScript"
+      },
+      "azwikiquote": {
+       "title": "JavaScript"
+      },
+      "bat_smgwiki": {
+       "title": "JavaScript"
+      },
+      "be_x_oldwiki": {
+       "title": "JavaScript"
+      },
+      "bewiki": {
+       "title": "JavaScript"
+      },
+      "bewikibooks": {
+       "title": "JavaScript"
+      },
+      "bgwiki": {
+       "title": "JavaScript"
+      },
+      "bgwikibooks": {
+       "title": "JavaScript"
+      },
+      "blkwiki": {
+       "title": "JavaScript"
+      },
+      "bnwiki": {
+       "title": "জাভাস্ক্রিপ্ট"
+      },
+      "bnwikibooks": {
+       "title": "জাভাস্ক্রিপ্ট"
+      },
+      "brwiki": {
+       "title": "Javascript"
+      },
+      "bugwiki": {
+       "title": "JavaScript"
+      },
+      "cawiki": {
+       "title": "JavaScript"
+      },
+      "cdowiki": {
+       "title": "JavaScript"
+      },
+      "ckbwiki": {
+       "title": "جاڤاسکریپت"
+      },
+      "cswiki": {
+       "title": "JavaScript"
+      },
+      "cswikiversity": {
+       "title": "JavaScript"
+      },
+      "cvwiki": {
+       "title": "JavaScript"
+      },
+      "dawiki": {
+       "title": "JavaScript"
+      },
+      "dewiki": {
+       "title": "JavaScript"
+      },
+      "dewikibooks": {
+       "title": "Websiteentwicklung: JavaScript"
+      },
+      "dewikiversity": {
+       "title": "Kurs:Webdesign/Javascript"
+      },
+      "elwiki": {
+       "title": "JavaScript"
+      },
+      "enwiki": {
+       "title": "JavaScript"
+      },
+      "enwikibooks": {
+       "title": "JavaScript"
+      },
+      "enwikiversity": {
+       "title": "JavaScript Programming"
+      },
+      "eowiki": {
+       "title": "JavaScript"
+      },
+      "eswiki": {
+       "title": "JavaScript"
+      },
+      "eswikibooks": {
+       "title": "Programación en JavaScript"
+      },
+      "eswikiversity": {
+       "title": "Diseño Web/Retos Javascript"
+      },
+      "etwiki": {
+       "title": "JavaScript"
+      },
+      "euwiki": {
+       "title": "JavaScript"
+      },
+      "fawiki": {
+       "title": "جاوااسکریپت"
+      },
+      "fawikibooks": {
+       "title": "جاوا اسکریپت"
+      },
+      "fiwiki": {
+       "title": "JavaScript"
+      },
+      "fiwikibooks": {
+       "title": "JavaScript"
+      },
+      "frrwiki": {
+       "title": "JavaScript"
+      },
+      "frwiki": {
+       "title": "JavaScript"
+      },
+      "frwikibooks": {
+       "title": "Programmation JavaScript"
+      },
+      "frwikiversity": {
+       "title": "JavaScript"
+      },
+      "glwiki": {
+       "title": "JavaScript"
+      },
+      "glwikibooks": {
+       "title": "JavaScript"
+      },
+      "hakwiki": {
+       "title": "JavaScript"
+      },
+      "hawiki": {
+       "title": "JavaScript"
+      },
+      "hewiki": {
+       "title": "JavaScript"
+      },
+      "hewikibooks": {
+       "title": "JavaScript"
+      },
+      "hiwiki": {
+       "title": "जावास्क्रिप्ट"
+      },
+      "hrwiki": {
+       "title": "JavaScript"
+      },
+      "huwiki": {
+       "title": "JavaScript"
+      },
+      "huwikibooks": {
+       "title": "Java Script"
+      },
+      "hywiki": {
+       "title": "ՋավաՍկրիպտ"
+      },
+      "iawiki": {
+       "title": "JavaScript"
+      },
+      "idwiki": {
+       "title": "JavaScript"
+      },
+      "idwikibooks": {
+       "title": "JavaScript"
+      },
+      "iowiki": {
+       "title": "JavaScript"
+      },
+      "iswiki": {
+       "title": "JavaScript"
+      },
+      "iswikibooks": {
+       "title": "JavaScript"
+      },
+      "itwiki": {
+       "title": "JavaScript"
+      },
+      "itwikibooks": {
+       "title": "JavaScript"
+      },
+      "itwikiversity": {
+       "title": "JavaScript"
+      },
+      "jawiki": {
+       "title": "JavaScript"
+      },
+      "jawikibooks": {
+       "title": "JavaScript"
+      },
+      "jawikiversity": {
+       "title": "Topic:JavaScript"
+      },
+      "jvwiki": {
+       "title": "JavaScript"
+      },
+      "kaawiki": {
+       "title": "JavaScript"
+      },
+      "kabwiki": {
+       "title": "JavaScript"
+      },
+      "kawiki": {
+       "title": "JavaScript"
+      },
+      "kkwiki": {
+       "title": "JavaScript"
+      },
+      "kmwiki": {
+       "title": "JavaScript"
+      },
+      "kowiki": {
+       "title": "자바스크립트"
+      },
+      "kswiki": {
+       "title": "جاوا سِکرِپٹ"
+      },
+      "kuwiki": {
+       "title": "JavaScript"
+      },
+      "kywiki": {
+       "title": "JavaScript"
+      },
+      "lawiki": {
+       "title": "JavaScript"
+      },
+      "lfnwiki": {
+       "title": "JavaScript"
+      },
+      "lmowiki": {
+       "title": "JavaScript"
+      },
+      "lowiki": {
+       "title": "ຈາວາສຄຣິປຕ໌"
+      },
+      "ltwiki": {
+       "title": "JavaScript"
+      },
+      "lvwiki": {
+       "title": "JavaScript"
+      },
+      "mediawikiwiki": {
+       "title": "JavaScript"
+      },
+      "mkwiki": {
+       "title": "JavaScript"
+      },
+      "mlwiki": {
+       "title": "ജാവാസ്ക്രിപ്റ്റ്"
+      },
+      "mnwiki": {
+       "title": "JavaScript"
+      },
+      "mrwiki": {
+       "title": "जावास्क्रिप्ट"
+      },
+      "mswiki": {
+       "title": "JavaScript"
+      },
+      "mswikibooks": {
+       "title": "JavaScript"
+      },
+      "mywiki": {
+       "title": "JavaScript"
+      },
+      "mznwiki": {
+       "title": "جاوااسکریپت"
+      },
+      "newiki": {
+       "title": "जाभास्क्रिप्ट"
+      },
+      "nlwiki": {
+       "title": "JavaScript"
+      },
+      "nlwikibooks": {
+       "title": "Programmeren in JavaScript"
+      },
+      "nowiki": {
+       "title": "JavaScript"
+      },
+      "orwiki": {
+       "title": "ଜାଭାସ୍କ୍ରିପ୍ଟ"
+      },
+      "plwiki": {
+       "title": "JavaScript"
+      },
+      "plwikibooks": {
+       "title": "JavaScript"
+      },
+      "pmswiki": {
+       "title": "JavaScript"
+      },
+      "pnbwiki": {
+       "title": "جاوا سکرپٹ"
+      },
+      "ptwiki": {
+       "title": "JavaScript"
+      },
+      "ptwikibooks": {
+       "title": "JavaScript"
+      },
+      "ptwikiversity": {
+       "title": "Introdução ao JavaScript"
+      },
+      "pwnwiki": {
+       "title": "JavaScript"
+      },
+      "quwiki": {
+       "title": "JavaScript"
+      },
+      "rkiwiki": {
+       "title": "JavaScript"
+      },
+      "rowiki": {
+       "title": "JavaScript"
+      },
+      "ruwiki": {
+       "title": "JavaScript"
+      },
+      "ruwikibooks": {
+       "title": "Книга JavaScript"
+      },
+      "ruwikinews": {
+       "title": "Категория:JavaScript"
+      },
+      "ruwikiversity": {
+       "title": "JavaScript"
+      },
+      "sahwiki": {
+       "title": "JavaScript"
+      },
+      "scowiki": {
+       "title": "JavaScript"
+      },
+      "shwiki": {
+       "title": "JavaScript"
+      },
+      "simplewiki": {
+       "title": "JavaScript"
+      },
+      "siwiki": {
+       "title": "ජාවා උපදේශාවලිය"
+      },
+      "skwiki": {
+       "title": "JavaScript"
+      },
+      "slwiki": {
+       "title": "JavaScript"
+      },
+      "sowiki": {
+       "title": "JavaScript"
+      },
+      "sqwiki": {
+       "title": "JavaScript"
+      },
+      "sqwikibooks": {
+       "title": "Java Scripts Libri"
+      },
+      "srwiki": {
+       "title": "JavaScript"
+      },
+      "suwiki": {
+       "title": "JavaScript"
+      },
+      "svwiki": {
+       "title": "Javascript"
+      },
+      "swwiki": {
+       "title": "Hatijava"
+      },
+      "tawiki": {
+       "title": "யாவாக்கிறிட்டு"
+      },
+      "tawikibooks": {
+       "title": "யாவாக்கிறிட்டு"
+      },
+      "tcywiki": {
+       "title": "ಜಾವಾಸ್ಕ್ರಿಪ್ಟ್"
+      },
+      "tetwiki": {
+       "title": "JavaScript"
+      },
+      "tewiki": {
+       "title": "జావాస్క్రిప్టు"
+      },
+      "thwiki": {
+       "title": "จาวาสคริปต์"
+      },
+      "thwikibooks": {
+       "title": "จาวาสคริปต์"
+      },
+      "tkwiki": {
+       "title": "JavaScript"
+      },
+      "tlwiki": {
+       "title": "JavaScript"
+      },
+      "tokwiki": {
+       "title": "toki ilo Sawasi"
+      },
+      "trwiki": {
+       "title": "JavaScript"
+      },
+      "trwikibooks": {
+       "title": "JavaScript"
+      },
+      "ttwiki": {
+       "title": "JavaScript"
+      },
+      "tumwiki": {
+       "title": "JavaScript"
+      },
+      "ukwiki": {
+       "title": "JavaScript"
+      },
+      "urwiki": {
+       "title": "جاوا اسکرپٹ"
+      },
+      "uzwiki": {
+       "title": "JavaScript"
+      },
+      "vecwiki": {
+       "title": "JavaScript"
+      },
+      "viwiki": {
+       "title": "JavaScript"
+      },
+      "viwikibooks": {
+       "title": "Tự học JavaScript"
+      },
+      "wikifunctionswiki": {
+       "title": "Z600"
+      },
+      "wuuwiki": {
+       "title": "JavaScript"
+      },
+      "zh_classicalwiki": {
+       "title": "爪哇手稿語"
+      },
+      "zh_min_nanwiki": {
+       "title": "JavaScript"
+      },
+      "zh_yuewiki": {
+       "title": "JavaScript"
+      },
+      "zhwiki": {
+       "title": "JavaScript"
+      },
+      "zhwikibooks": {
+       "title": "JavaScript"
+      },
+      "zhwikiversity": {
+       "title": "JavaScript簡介"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q187432"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q28920810"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q21562092"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3839507"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q28920813"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q241317"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1993334"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q12772052"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q9143"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q28923017"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q211496"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q180868"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1051282"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q193076"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q275596"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30267"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1135914"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q37270782": {
+     "id": "Q37270782",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "family name"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "commonswiki": {
+       "title": "Category:Java (surname)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q101352"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q879704": {
+     "id": "Q879704",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Javanese script"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "writing system used for Javanic languages"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Javanese abugida"
+       },
+       {
+        "language": "en",
+        "value": "Aksara Jawa"
+       },
+       {
+        "language": "en",
+        "value": "Hanacaraka"
+       },
+       {
+        "language": "en",
+        "value": "Javanese alphabet"
+       },
+       {
+        "language": "en",
+        "value": "Javanese"
+       },
+       {
+        "language": "en",
+        "value": "Java"
+       }
+      ]
+     },
+     "sitelinks": {
+      "anpwiki": {
+       "title": "जावाई लिपि"
+      },
+      "arwiki": {
+       "title": "كتابة جاوية"
+      },
+      "cawiki": {
+       "title": "Alfabet javanès"
+      },
+      "dewiki": {
+       "title": "Javanische Schrift"
+      },
+      "enwiki": {
+       "title": "Javanese script"
+      },
+      "eowiki": {
+       "title": "Java alfabeto"
+      },
+      "eswiki": {
+       "title": "Alfabeto javanés"
+      },
+      "fawiki": {
+       "title": "الفبای جاوه‌ای"
+      },
+      "fiwiki": {
+       "title": "Jaavalainen kirjaimisto"
+      },
+      "frwiki": {
+       "title": "Écriture javanaise"
+      },
+      "hawiki": {
+       "title": "Javanese script"
+      },
+      "hiwiki": {
+       "title": "जावाई लिपि"
+      },
+      "idwiki": {
+       "title": "Aksara Jawa"
+      },
+      "itwiki": {
+       "title": "Alfabeto giavanese"
+      },
+      "jawiki": {
+       "title": "ジャワ文字"
+      },
+      "jvwiki": {
+       "title": "Aksara Carakan"
+      },
+      "kawiki": {
+       "title": "იავური დამწერლობა"
+      },
+      "kgewiki": {
+       "title": "Huruf Jawa"
+      },
+      "kowiki": {
+       "title": "자와 문자"
+      },
+      "madwiki": {
+       "title": "Aksara Carakan Madhurâ"
+      },
+      "map_bmswiki": {
+       "title": "Aksara Jawa"
+      },
+      "mkwiki": {
+       "title": "Јаванско писмо"
+      },
+      "mswiki": {
+       "title": "Tulisan Jawa"
+      },
+      "nowiki": {
+       "title": "Javanesisk skrift"
+      },
+      "plwiki": {
+       "title": "Pismo jawajskie"
+      },
+      "pnbwiki": {
+       "title": "جاوی لپی"
+      },
+      "pswiki": {
+       "title": "جاوايي ليکدود"
+      },
+      "ruwiki": {
+       "title": "Яванское письмо"
+      },
+      "svwiki": {
+       "title": "Javanesisk skrift"
+      },
+      "thwiki": {
+       "title": "อักษรชวา"
+      },
+      "trwiki": {
+       "title": "Cava yazısı"
+      },
+      "ukwiki": {
+       "title": "Яванське письмо"
+      },
+      "viwiki": {
+       "title": "Chữ Java"
+      },
+      "zhwiki": {
+       "title": "爪哇字母"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q335806"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q29517555"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4004706"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q193321": {
+     "id": "Q193321",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java virtual machine"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "runtime environment that can execute Java bytecode as a result of compiling computer programs written in the Java programming language"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "JVM"
+       },
+       {
+        "language": "en",
+        "value": "Java VM"
+       },
+       {
+        "language": "en",
+        "value": "JavaVM"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q193321"
+      },
+      "amwiki": {
+       "title": "ጃቫ ቨርቹአል ማሽን"
+      },
+      "arwiki": {
+       "title": "آلة جافا الافتراضية"
+      },
+      "azwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "bgwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "bnwiki": {
+       "title": "জাভা ভার্চুয়াল মেশিন"
+      },
+      "bswiki": {
+       "title": "Java Virtual Machine"
+      },
+      "cawiki": {
+       "title": "Màquina virtual Java"
+      },
+      "cswiki": {
+       "title": "Java Virtual Machine"
+      },
+      "dewiki": {
+       "title": "Java Virtual Machine"
+      },
+      "enwiki": {
+       "title": "Java virtual machine"
+      },
+      "eswiki": {
+       "title": "Máquina virtual Java"
+      },
+      "etwiki": {
+       "title": "Java virtuaalmasin"
+      },
+      "fawiki": {
+       "title": "ماشین مجازی جاوا"
+      },
+      "fiwiki": {
+       "title": "Java-virtuaalikone"
+      },
+      "frwiki": {
+       "title": "Machine virtuelle Java"
+      },
+      "hewiki": {
+       "title": "Java Virtual Machine"
+      },
+      "hiwiki": {
+       "title": "जावा आभासी मशीन"
+      },
+      "hrwiki": {
+       "title": "Java (virtualni stroj)"
+      },
+      "huwiki": {
+       "title": "Java virtuális gép"
+      },
+      "hywiki": {
+       "title": "Ջավա վիրտուալ մեքենա"
+      },
+      "iawiki": {
+       "title": "Machina virtual Java"
+      },
+      "idwiki": {
+       "title": "Mesin Virtual Java"
+      },
+      "itwiki": {
+       "title": "Macchina virtuale Java"
+      },
+      "itwikibooks": {
+       "title": "Java/La macchina virtuale"
+      },
+      "jawiki": {
+       "title": "Java仮想マシン"
+      },
+      "jawikibooks": {
+       "title": "プログラミング/Java仮想機械"
+      },
+      "kkwiki": {
+       "title": "Java виртуалды машинасы"
+      },
+      "kowiki": {
+       "title": "자바 가상 머신"
+      },
+      "mlwiki": {
+       "title": "ജാവ വെർച്വൽ മെഷീൻ"
+      },
+      "mnwiki": {
+       "title": "Java virtual machine"
+      },
+      "mswiki": {
+       "title": "Mesin maya Java"
+      },
+      "mywiki": {
+       "title": "Java ဒြပ်မဲ့စက်"
+      },
+      "nlwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "pawiki": {
+       "title": "ਜਾਵਾ ਵਰਚੁਅਲ ਮਸ਼ੀਨ"
+      },
+      "plwiki": {
+       "title": "Wirtualna maszyna Javy"
+      },
+      "ptwiki": {
+       "title": "Máquina virtual Java"
+      },
+      "ruwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "shwiki": {
+       "title": "Java (virtualna mašina)"
+      },
+      "simplewiki": {
+       "title": "Java virtual machine"
+      },
+      "sqwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "srwiki": {
+       "title": "Java виртуелна машина"
+      },
+      "svwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "tawiki": {
+       "title": "ஜாவா மெய்நிகர் இயந்திரம்"
+      },
+      "trwiki": {
+       "title": "Java sanal makinesi"
+      },
+      "ukwiki": {
+       "title": "Віртуальна машина Java"
+      },
+      "uzwiki": {
+       "title": "Java Virtual Machine"
+      },
+      "viwiki": {
+       "title": "Máy ảo Java"
+      },
+      "zhwiki": {
+       "title": "Java虚拟机"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1004415"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q241317"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q56842894"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q192726"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q317623"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q2101564"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q1713118": {
+     "id": "Q1713118",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java platform"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "set of several computer software products and specifications"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Java"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "جافا (منصة برمجية)"
+      },
+      "be_x_oldwiki": {
+       "title": "Java (праграмная плятформа)"
+      },
+      "bewiki": {
+       "title": "Java (праграмная платформа)"
+      },
+      "cawiki": {
+       "title": "Plataforma Java"
+      },
+      "cswiki": {
+       "title": "Java (platforma)"
+      },
+      "dewiki": {
+       "title": "Java-Technologie"
+      },
+      "enwiki": {
+       "title": "Java (software platform)"
+      },
+      "eswiki": {
+       "title": "Plataforma Java"
+      },
+      "fawiki": {
+       "title": "سکوی جاوا"
+      },
+      "frwiki": {
+       "title": "Java (technique)"
+      },
+      "hewiki": {
+       "title": "Java (פלטפורמת תוכנה)"
+      },
+      "idwiki": {
+       "title": "Java (platform perangkat lunak)"
+      },
+      "itwiki": {
+       "title": "Piattaforma Java"
+      },
+      "jawiki": {
+       "title": "Javaプラットフォーム"
+      },
+      "kkwiki": {
+       "title": "Java (платформасы)"
+      },
+      "kowiki": {
+       "title": "자바 (소프트웨어 플랫폼)"
+      },
+      "mlwiki": {
+       "title": "ജാവ (സോഫ്റ്റ്‌വെയർ പ്ലാറ്റ്‌ഫോം)"
+      },
+      "mywiki": {
+       "title": "Java ပလက်ဖောင်း"
+      },
+      "nqowiki": {
+       "title": "ߖߝ߭ߊ߫"
+      },
+      "pawiki": {
+       "title": "ਜਾਵਾ (ਸਾਫ਼ਟਵੇਅਰ ਪਲੇਟਫ਼ਾਰਮ)"
+      },
+      "ptwiki": {
+       "title": "Java (plataforma de software)"
+      },
+      "ruwiki": {
+       "title": "Java (программная платформа)"
+      },
+      "simplewiki": {
+       "title": "Java application"
+      },
+      "trwiki": {
+       "title": "Java (yazılım ortamı)"
+      },
+      "ukwiki": {
+       "title": "Java (платформа програмного забезпечення)"
+      },
+      "viwiki": {
+       "title": "Java (công nghệ)"
+      },
+      "zhwiki": {
+       "title": "Java平臺"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q271680"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q241317"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q56300903": {
+     "id": "Q56300903",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "hamlet in Wanze, Belgium"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "commonswiki": {
+       "title": "Category:Java (Belgique)"
+      },
+      "frwiki": {
+       "title": "Java (Belgique)"
+      },
+      "nlwiki": {
+       "title": "Java (België)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q486972"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5084"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q14647": {
+     "id": "Q14647",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Sun Microsystems"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "defunct American computer hardware and software company"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Sun Microsystems, Inc."
+       },
+       {
+        "language": "en",
+        "value": "Sun"
+       },
+       {
+        "language": "en",
+        "value": "Stanford University Network"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Sun Microsystems"
+      },
+      "arwiki": {
+       "title": "صن ميكروسيستمز"
+      },
+      "astwiki": {
+       "title": "Sun Microsystems"
+      },
+      "azbwiki": {
+       "title": "سان مایکروسیستمز"
+      },
+      "azwiki": {
+       "title": "Sun Microsystems"
+      },
+      "be_x_oldwiki": {
+       "title": "Sun Microsystems"
+      },
+      "bewiki": {
+       "title": "Sun Microsystems"
+      },
+      "bgwiki": {
+       "title": "Сън Майкросистъмс"
+      },
+      "bnwiki": {
+       "title": "সান মাইক্রোসিস্টেম্‌স"
+      },
+      "cawiki": {
+       "title": "Sun Microsystems"
+      },
+      "cswiki": {
+       "title": "Sun Microsystems"
+      },
+      "cvwiki": {
+       "title": "Sun Microsystems"
+      },
+      "dawiki": {
+       "title": "Sun Microsystems"
+      },
+      "dewiki": {
+       "title": "Sun Microsystems"
+      },
+      "enwiki": {
+       "title": "Sun Microsystems"
+      },
+      "eowiki": {
+       "title": "Sun Microsystems"
+      },
+      "eswiki": {
+       "title": "Sun Microsystems"
+      },
+      "eswikinews": {
+       "title": "Categoría:Sun Microsystems"
+      },
+      "etwiki": {
+       "title": "Sun Microsystems"
+      },
+      "euwiki": {
+       "title": "Sun Microsystems"
+      },
+      "fawiki": {
+       "title": "سان مایکروسیستمز"
+      },
+      "fiwiki": {
+       "title": "Sun Microsystems"
+      },
+      "frwiki": {
+       "title": "Sun Microsystems"
+      },
+      "frwikiquote": {
+       "title": "Sun Microsystems"
+      },
+      "gawiki": {
+       "title": "Sun Microsystems"
+      },
+      "glwiki": {
+       "title": "Sun Microsystems"
+      },
+      "hewiki": {
+       "title": "סאן מיקרוסיסטמס"
+      },
+      "hiwiki": {
+       "title": "सन माइक्रोसिस्टम्स"
+      },
+      "huwiki": {
+       "title": "Sun Microsystems"
+      },
+      "iawiki": {
+       "title": "Sun Microsystems"
+      },
+      "idwiki": {
+       "title": "Sun Microsystems"
+      },
+      "iswiki": {
+       "title": "Sun Microsystems"
+      },
+      "itwiki": {
+       "title": "Sun Microsystems"
+      },
+      "jawiki": {
+       "title": "サン・マイクロシステムズ"
+      },
+      "kaawiki": {
+       "title": "Sun Microsystems"
+      },
+      "kkwiki": {
+       "title": "Sun Microsystems"
+      },
+      "knwiki": {
+       "title": "ಸನ್ ಮೈಕ್ರೋಸಿಸ್ಟಮ್ಸ್"
+      },
+      "kowiki": {
+       "title": "썬 마이크로시스템즈"
+      },
+      "lawiki": {
+       "title": "Sun Microsystems"
+      },
+      "ltwiki": {
+       "title": "Sun Microsystems"
+      },
+      "lvwiki": {
+       "title": "Sun Microsystems"
+      },
+      "mlwiki": {
+       "title": "സൺ മൈക്രോസിസ്റ്റംസ്"
+      },
+      "mswiki": {
+       "title": "Sun Microsystems"
+      },
+      "mywiki": {
+       "title": "ဆန်း မိုက်ခရို စစ်စတမ်"
+      },
+      "newiki": {
+       "title": "सन माइक्रो सिस्टमस्"
+      },
+      "nlwiki": {
+       "title": "Sun Microsystems"
+      },
+      "nnwiki": {
+       "title": "Sun Microsystems"
+      },
+      "nowiki": {
+       "title": "Sun Microsystems"
+      },
+      "ocwiki": {
+       "title": "Sun Microsystems"
+      },
+      "pawiki": {
+       "title": "ਸਨ ਮਾਈਕਰੋਸਿਸਟਮਜ਼"
+      },
+      "plwiki": {
+       "title": "Sun Microsystems"
+      },
+      "ptwiki": {
+       "title": "Sun Microsystems"
+      },
+      "rkiwiki": {
+       "title": "ဆန်း မိုက်ခရို စစ်စတမ်"
+      },
+      "rowiki": {
+       "title": "Sun Microsystems"
+      },
+      "ruwiki": {
+       "title": "Sun Microsystems"
+      },
+      "ruwikinews": {
+       "title": "Категория:Sun"
+      },
+      "shnwiki": {
+       "title": "သၢၼ်း မၢႆႉၶရူဝ်ႇ ၸိတ်ႉသတမ်ႇ"
+      },
+      "shwiki": {
+       "title": "Sun Microsystems"
+      },
+      "simplewiki": {
+       "title": "Sun Microsystems"
+      },
+      "siwiki": {
+       "title": "සන් මයික්‍රෝසිස්ටම්ස්"
+      },
+      "skwiki": {
+       "title": "Sun Microsystems"
+      },
+      "sqwiki": {
+       "title": "Sun Microsystems"
+      },
+      "srwiki": {
+       "title": "Sun Microsystems"
+      },
+      "svwiki": {
+       "title": "Sun Microsystems"
+      },
+      "tawiki": {
+       "title": "சன் மைக்ரோசிஸ்டம்ஸ்"
+      },
+      "tewiki": {
+       "title": "సన్ మైక్రో సిస్టమ్స్"
+      },
+      "thwiki": {
+       "title": "ซันไมโครซิสเต็มส์"
+      },
+      "trwiki": {
+       "title": "Sun Microsystems"
+      },
+      "ukwiki": {
+       "title": "Sun Microsystems"
+      },
+      "urwiki": {
+       "title": "سن مائیکرو سسٹمز"
+      },
+      "viwiki": {
+       "title": "Sun Microsystems"
+      },
+      "wuuwiki": {
+       "title": "太阳计算机系统"
+      },
+      "zh_yuewiki": {
+       "title": "太陽電腦"
+      },
+      "zhwiki": {
+       "title": "昇陽電腦"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1058914"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q891723"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4830453"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q110080207"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q2365981": {
+     "id": "Q2365981",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java SE version history"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Wikimedia list article"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "JDK 1.2"
+       },
+       {
+        "language": "en",
+        "value": "JDK 5.0"
+       },
+       {
+        "language": "en",
+        "value": "Java version history"
+       },
+       {
+        "language": "en",
+        "value": "history of Java"
+       }
+      ]
+     },
+     "sitelinks": {
+      "dewiki": {
+       "title": "Versionsgeschichte von Java"
+      },
+      "enwiki": {
+       "title": "Java version history"
+      },
+      "fawiki": {
+       "title": "تاریخچه نگارش جاوا"
+      },
+      "huwiki": {
+       "title": "Java verziótörténet"
+      },
+      "jawiki": {
+       "title": "Javaバージョン履歴"
+      },
+      "kowiki": {
+       "title": "자바 버전 역사"
+      },
+      "ptwikibooks": {
+       "title": "Java/A história de Java"
+      },
+      "ruwiki": {
+       "title": "История версий Java SE"
+      },
+      "ukwiki": {
+       "title": "Історія версій Java"
+      },
+      "zhwiki": {
+       "title": "Java版本歷史"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q80096233"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q17524420"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q49364": {
+     "id": "Q49364",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Java Sea"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "shallow sea between Java and Borneo, in Indonesia"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "acewiki": {
+       "title": "Laôt Jawa"
+      },
+      "afwiki": {
+       "title": "Javasee"
+      },
+      "arwiki": {
+       "title": "بحر جاوة"
+      },
+      "arzwiki": {
+       "title": "بحر چاڤا"
+      },
+      "astwiki": {
+       "title": "Mar de Xava"
+      },
+      "azbwiki": {
+       "title": "جاوه دنیزی"
+      },
+      "azwiki": {
+       "title": "Yava dənizi"
+      },
+      "banwiki": {
+       "title": "Segara Jawa"
+      },
+      "bawiki": {
+       "title": "Ява диңгеҙе"
+      },
+      "be_x_oldwiki": {
+       "title": "Яванскае мора"
+      },
+      "bewiki": {
+       "title": "Яванскае мора"
+      },
+      "bewwiki": {
+       "title": "Laot Jawa"
+      },
+      "bgwiki": {
+       "title": "Яванско море"
+      },
+      "bnwiki": {
+       "title": "জাভা সাগর"
+      },
+      "brwiki": {
+       "title": "Mor Jawa"
+      },
+      "bswiki": {
+       "title": "Javansko more"
+      },
+      "cawiki": {
+       "title": "Mar de Java"
+      },
+      "commonswiki": {
+       "title": "Java Sea"
+      },
+      "cswiki": {
+       "title": "Jávské moře"
+      },
+      "cvwiki": {
+       "title": "Ява тинĕсĕ"
+      },
+      "dawiki": {
+       "title": "Javahavet"
+      },
+      "dewiki": {
+       "title": "Javasee"
+      },
+      "elwiki": {
+       "title": "Θάλασσα της Ιάβας"
+      },
+      "enwiki": {
+       "title": "Java Sea"
+      },
+      "enwikinews": {
+       "title": "Category:Java Sea"
+      },
+      "eowiki": {
+       "title": "Java maro"
+      },
+      "eowikinews": {
+       "title": "Kategorio:Java Maro"
+      },
+      "eswiki": {
+       "title": "Mar de Java"
+      },
+      "etwiki": {
+       "title": "Jaava meri"
+      },
+      "euwiki": {
+       "title": "Javako itsasoa"
+      },
+      "fawiki": {
+       "title": "دریای جاوه"
+      },
+      "fiwiki": {
+       "title": "Jaavanmeri"
+      },
+      "frrwiki": {
+       "title": "Jaawa Sia"
+      },
+      "frwiki": {
+       "title": "Mer de Java"
+      },
+      "fywiki": {
+       "title": "Javasee"
+      },
+      "glwiki": {
+       "title": "Mar de Xava"
+      },
+      "hewiki": {
+       "title": "ים ג'אווה"
+      },
+      "hifwiki": {
+       "title": "Java Samundar"
+      },
+      "hiwiki": {
+       "title": "जावा सागर"
+      },
+      "hrwiki": {
+       "title": "Javansko more"
+      },
+      "huwiki": {
+       "title": "Jáva-tenger"
+      },
+      "hywiki": {
+       "title": "Ճավայի ծով"
+      },
+      "ibawiki": {
+       "title": "Tasik Jawa"
+      },
+      "idwiki": {
+       "title": "Laut Jawa"
+      },
+      "ilowiki": {
+       "title": "Baybay Java"
+      },
+      "iswiki": {
+       "title": "Jövuhaf"
+      },
+      "itwiki": {
+       "title": "Mar di Giava"
+      },
+      "jawiki": {
+       "title": "ジャワ海"
+      },
+      "jvwiki": {
+       "title": "Sagara Jawa"
+      },
+      "kaawiki": {
+       "title": "Yava teńizi"
+      },
+      "kawiki": {
+       "title": "იავის ზღვა"
+      },
+      "kkwiki": {
+       "title": "Ява теңізі"
+      },
+      "kmwiki": {
+       "title": "សមុទ្រជ្វា"
+      },
+      "kowiki": {
+       "title": "자와해"
+      },
+      "krcwiki": {
+       "title": "Ява тенгиз"
+      },
+      "kywiki": {
+       "title": "Ява деңизи"
+      },
+      "lawiki": {
+       "title": "Mare Iavanicum"
+      },
+      "liwiki": {
+       "title": "Javazieë"
+      },
+      "ltwiki": {
+       "title": "Javos jūra"
+      },
+      "lvwiki": {
+       "title": "Javas jūra"
+      },
+      "madwiki": {
+       "title": "Tasè' Jhâbâ"
+      },
+      "mgwiki": {
+       "title": "Ranomasin' i Java"
+      },
+      "mhrwiki": {
+       "title": "Ява теҥыз"
+      },
+      "minwiki": {
+       "title": "Lauik Jawa"
+      },
+      "mkwiki": {
+       "title": "Јаванско Море"
+      },
+      "mlwiki": {
+       "title": "ജാവാ കടൽ"
+      },
+      "mrwiki": {
+       "title": "जावा समुद्र"
+      },
+      "mswiki": {
+       "title": "Laut Jawa"
+      },
+      "mznwiki": {
+       "title": "جاوه دریا"
+      },
+      "ndswiki": {
+       "title": "Javasee"
+      },
+      "newwiki": {
+       "title": "जावा सागर"
+      },
+      "nlwiki": {
+       "title": "Javazee"
+      },
+      "nnwiki": {
+       "title": "Javasjøen"
+      },
+      "nowiki": {
+       "title": "Javasjøen"
+      },
+      "orwiki": {
+       "title": "ଜାଭା ସାଗର"
+      },
+      "pawiki": {
+       "title": "ਜਾਵਾ ਸਾਗਰ"
+      },
+      "plwiki": {
+       "title": "Morze Jawajskie"
+      },
+      "pnbwiki": {
+       "title": "جاوا سمندر"
+      },
+      "ptwiki": {
+       "title": "Mar de Java"
+      },
+      "rowiki": {
+       "title": "Marea Java"
+      },
+      "ruwiki": {
+       "title": "Яванское море"
+      },
+      "sahwiki": {
+       "title": "Ява байҕала"
+      },
+      "scowiki": {
+       "title": "Java Sea"
+      },
+      "shwiki": {
+       "title": "Javansko more"
+      },
+      "simplewiki": {
+       "title": "Java Sea"
+      },
+      "siwiki": {
+       "title": "ජාවා මුහුද"
+      },
+      "skwiki": {
+       "title": "Jávske more"
+      },
+      "slwiki": {
+       "title": "Javansko morje"
+      },
+      "srwiki": {
+       "title": "Јаванско море"
+      },
+      "svwiki": {
+       "title": "Javasjön"
+      },
+      "swwiki": {
+       "title": "Bahari ya Java"
+      },
+      "tawiki": {
+       "title": "சாவகக் கடல்"
+      },
+      "tewiki": {
+       "title": "జావా సముద్రం"
+      },
+      "tgwiki": {
+       "title": "Баҳри Ҷава"
+      },
+      "thwiki": {
+       "title": "ทะเลชวา"
+      },
+      "trwiki": {
+       "title": "Cava Denizi"
+      },
+      "ukwiki": {
+       "title": "Яванське море"
+      },
+      "urwiki": {
+       "title": "بحیرہ جاوا"
+      },
+      "uzwiki": {
+       "title": "Java dengizi"
+      },
+      "viwiki": {
+       "title": "Biển Java"
+      },
+      "warwiki": {
+       "title": "Dagat Java"
+      },
+      "wuuwiki": {
+       "title": "爪哇海"
+      },
+      "xmfwiki": {
+       "title": "იავაშ ზუღა"
+      },
+      "zh_min_nanwiki": {
+       "title": "Jawa Hái"
+      },
+      "zh_yuewiki": {
+       "title": "爪哇海"
+      },
+      "zhwiki": {
+       "title": "爪哇海"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q165"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3586": {
+     "id": "Q3586",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "East Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "province of Indonesia, on island of Java"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Jatim"
+       },
+       {
+        "language": "en",
+        "value": "Province of East Java"
+       },
+       {
+        "language": "en",
+        "value": "East Java province"
+       },
+       {
+        "language": "en",
+        "value": "Jawa Timur"
+       },
+       {
+        "language": "en",
+        "value": "East Java Province"
+       }
+      ]
+     },
+     "sitelinks": {
+      "acewiki": {
+       "title": "JawaTimu"
+      },
+      "arwiki": {
+       "title": "جاوة الشرقية"
+      },
+      "arzwiki": {
+       "title": "شرق چاڤا"
+      },
+      "azbwiki": {
+       "title": "دوغو جاوه"
+      },
+      "azwiki": {
+       "title": "Şərqi Yava"
+      },
+      "banwiki": {
+       "title": "Jawa Timur"
+      },
+      "bclwiki": {
+       "title": "Subangan na Haba"
+      },
+      "bewiki": {
+       "title": "Усходняя Ява"
+      },
+      "bewwiki": {
+       "title": "Jawa Wètan"
+      },
+      "bgwiki": {
+       "title": "Източна Ява"
+      },
+      "biwiki": {
+       "title": "Is Java"
+      },
+      "bjnwiki": {
+       "title": "Jawa Timur"
+      },
+      "bnwikivoyage": {
+       "title": "পূর্ব জাভা"
+      },
+      "btmwiki": {
+       "title": "Jawa Timur"
+      },
+      "cawiki": {
+       "title": "Java Oriental"
+      },
+      "cdowiki": {
+       "title": "Dĕ̤ng Jawa"
+      },
+      "cebwiki": {
+       "title": "Jawa Timur"
+      },
+      "ckbwiki": {
+       "title": "جاڤەی ڕۆژھەڵات"
+      },
+      "cswiki": {
+       "title": "Východní Jáva"
+      },
+      "cywiki": {
+       "title": "Dwyrain Jawa"
+      },
+      "dawiki": {
+       "title": "Østjava"
+      },
+      "dewiki": {
+       "title": "Jawa Timur"
+      },
+      "dewikinews": {
+       "title": "Kategorie:Jawa Timur"
+      },
+      "dewikivoyage": {
+       "title": "Jawa Timur"
+      },
+      "dzwiki": {
+       "title": "ཤར་ཇ་ཝ། ས་གནས།"
+      },
+      "enwiki": {
+       "title": "East Java"
+      },
+      "enwikivoyage": {
+       "title": "East Java"
+      },
+      "eowiki": {
+       "title": "Orienta Javo"
+      },
+      "eswiki": {
+       "title": "Provincia de Java Oriental"
+      },
+      "eswikivoyage": {
+       "title": "Java Oriental"
+      },
+      "euwiki": {
+       "title": "Ekialdeko Java"
+      },
+      "fawiki": {
+       "title": "جاوه شرقی"
+      },
+      "fawikivoyage": {
+       "title": "جاوه شرقی"
+      },
+      "fiwiki": {
+       "title": "Itä-Jaava"
+      },
+      "frrwiki": {
+       "title": "Uast Jaawa"
+      },
+      "frwiki": {
+       "title": "Java oriental"
+      },
+      "frwikivoyage": {
+       "title": "Java oriental"
+      },
+      "gorwiki": {
+       "title": "Jawa Timur"
+      },
+      "hakwiki": {
+       "title": "Tûng Jawa"
+      },
+      "hewiki": {
+       "title": "מזרח ג'אווה"
+      },
+      "hiwiki": {
+       "title": "पूर्व जावा"
+      },
+      "ibawiki": {
+       "title": "Jawa Timur"
+      },
+      "idwiki": {
+       "title": "Jawa Timur"
+      },
+      "idwikivoyage": {
+       "title": "Jawa Timur"
+      },
+      "ilowiki": {
+       "title": "Daya a Java"
+      },
+      "itwiki": {
+       "title": "Giava Orientale"
+      },
+      "itwikivoyage": {
+       "title": "Giava Orientale"
+      },
+      "jawiki": {
+       "title": "東ジャワ州"
+      },
+      "jvwiki": {
+       "title": "Jawa Wétan"
+      },
+      "kawiki": {
+       "title": "აღმოსავლეთი იავა"
+      },
+      "kgewiki": {
+       "title": "Jawa Darak"
+      },
+      "kmwiki": {
+       "title": "ជ្វាខាងកើត"
+      },
+      "kowiki": {
+       "title": "동자와주"
+      },
+      "ltwiki": {
+       "title": "Rytų Java"
+      },
+      "lvwiki": {
+       "title": "Austrumjava"
+      },
+      "madwiki": {
+       "title": "Jhâbâ Tèmor"
+      },
+      "map_bmswiki": {
+       "title": "Jawa Wetan"
+      },
+      "mgwiki": {
+       "title": "Java Atsinanana"
+      },
+      "minwiki": {
+       "title": "Jawa Timur"
+      },
+      "mkwiki": {
+       "title": "Источна Јава"
+      },
+      "mlwiki": {
+       "title": "കിഴക്കൻ ജാവ"
+      },
+      "mnwiki": {
+       "title": "Зүүн Жава"
+      },
+      "mrwiki": {
+       "title": "पूर्व जावा"
+      },
+      "mswiki": {
+       "title": "Jawa Timur"
+      },
+      "mywiki": {
+       "title": "အရှေ့ ဂျာဗားပြည်နယ်"
+      },
+      "mznwiki": {
+       "title": "شرقی جاوه"
+      },
+      "nlwiki": {
+       "title": "Oost-Java"
+      },
+      "nlwikivoyage": {
+       "title": "Oost-Java"
+      },
+      "nnwiki": {
+       "title": "Aust-Java"
+      },
+      "nowiki": {
+       "title": "Jawa Timur"
+      },
+      "ocwiki": {
+       "title": "Java oriental"
+      },
+      "plwiki": {
+       "title": "Jawa Wschodnia"
+      },
+      "plwikivoyage": {
+       "title": "Jawa Wschodnia"
+      },
+      "pnbwiki": {
+       "title": "صوبا چڑھدا جاوا"
+      },
+      "ptwiki": {
+       "title": "Java Oriental"
+      },
+      "rowiki": {
+       "title": "Provincia Java de Est"
+      },
+      "ruwiki": {
+       "title": "Восточная Ява"
+      },
+      "satwiki": {
+       "title": "ᱥᱟᱢᱟᱝ ᱡᱟᱵᱷᱟ"
+      },
+      "scowiki": {
+       "title": "East Java"
+      },
+      "shwiki": {
+       "title": "Istočna Java"
+      },
+      "simplewiki": {
+       "title": "East Java"
+      },
+      "siwiki": {
+       "title": "නැගෙනහිර ජාවා පළාත, ඉන්දුනීසියාව"
+      },
+      "slwiki": {
+       "title": "Vzhodna Java"
+      },
+      "srwiki": {
+       "title": "Источна Јава"
+      },
+      "suwiki": {
+       "title": "Jawa Wétan"
+      },
+      "svwiki": {
+       "title": "Jawa Timur"
+      },
+      "tawiki": {
+       "title": "கிழக்கு சாவகம்"
+      },
+      "thwiki": {
+       "title": "จังหวัดชวาตะวันออก"
+      },
+      "tlwiki": {
+       "title": "Silangang Java"
+      },
+      "trwiki": {
+       "title": "Doğu Cava"
+      },
+      "ukwiki": {
+       "title": "Східна Ява"
+      },
+      "urwiki": {
+       "title": "مشرقی جاوا"
+      },
+      "uzwiki": {
+       "title": "Sharqiy Java"
+      },
+      "vecwiki": {
+       "title": "Java Oriental"
+      },
+      "viwiki": {
+       "title": "Đông Java"
+      },
+      "warwiki": {
+       "title": "Sinirangan nga Java"
+      },
+      "wuuwiki": {
+       "title": "东爪哇省"
+      },
+      "zh_min_nanwiki": {
+       "title": "Tang Jawa Séng"
+      },
+      "zh_yuewiki": {
+       "title": "東爪哇"
+      },
+      "zhwiki": {
+       "title": "东爪哇省"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5098"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q3557": {
+     "id": "Q3557",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Central Java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "province of Indonesia, on island of Java"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Provinsi Jawa Tengah"
+       },
+       {
+        "language": "en",
+        "value": "Province of Central Java"
+       },
+       {
+        "language": "en",
+        "value": "Jateng"
+       },
+       {
+        "language": "en",
+        "value": "Jawa Tengah"
+       },
+       {
+        "language": "en",
+        "value": "Jawa Tengah Province"
+       },
+       {
+        "language": "en",
+        "value": "Central Java Province"
+       }
+      ]
+     },
+     "sitelinks": {
+      "acewiki": {
+       "title": "Jawoë Teungöh"
+      },
+      "arwiki": {
+       "title": "جاوة الوسطى"
+      },
+      "azbwiki": {
+       "title": "مرکزی جاوه"
+      },
+      "azwiki": {
+       "title": "Mərkəzi Yava"
+      },
+      "banwiki": {
+       "title": "Jawa Tengah"
+      },
+      "bbcwiki": {
+       "title": "Jawa Tonga"
+      },
+      "bewwiki": {
+       "title": "Jawa Tenga"
+      },
+      "bgwiki": {
+       "title": "Централна Ява"
+      },
+      "bjnwiki": {
+       "title": "Jawa Tengah"
+      },
+      "btmwiki": {
+       "title": "Jawa Tengah"
+      },
+      "cawiki": {
+       "title": "Java Central"
+      },
+      "cdowiki": {
+       "title": "Dṳ̆ng Cuā-uă"
+      },
+      "cebwiki": {
+       "title": "Provinsi Jawa Tengah"
+      },
+      "cswiki": {
+       "title": "Střední Jáva"
+      },
+      "cywiki": {
+       "title": "Canolbarth Jawa"
+      },
+      "dawiki": {
+       "title": "Centraljava"
+      },
+      "dewiki": {
+       "title": "Jawa Tengah"
+      },
+      "dewikinews": {
+       "title": "Kategorie:Jawa Tengah"
+      },
+      "dewikivoyage": {
+       "title": "Jawa Tengah"
+      },
+      "diqwiki": {
+       "title": "Cavaya Merkezi"
+      },
+      "dzwiki": {
+       "title": "དབུས་ཇཱ་ཝ་ ས་གནས།"
+      },
+      "enwiki": {
+       "title": "Central Java"
+      },
+      "enwikivoyage": {
+       "title": "Central Java"
+      },
+      "eowiki": {
+       "title": "Centra Javo"
+      },
+      "eowikinews": {
+       "title": "Kategorio:Centra Javo"
+      },
+      "eswiki": {
+       "title": "Provincia de Java Central"
+      },
+      "euwiki": {
+       "title": "Erdialdeko Java"
+      },
+      "fawiki": {
+       "title": "جاوه مرکزی"
+      },
+      "fawikivoyage": {
+       "title": "جاوه مرکزی"
+      },
+      "fiwiki": {
+       "title": "Keski-Jaava"
+      },
+      "frrwiki": {
+       "title": "Maden Jaawa"
+      },
+      "frwiki": {
+       "title": "Java central"
+      },
+      "frwikivoyage": {
+       "title": "Java central"
+      },
+      "gorwiki": {
+       "title": "Jawa Tengah"
+      },
+      "hakwiki": {
+       "title": "Chûng Jawa"
+      },
+      "hewiki": {
+       "title": "מרכז ג'אווה"
+      },
+      "hiwiki": {
+       "title": "मध्य जावा"
+      },
+      "idwiki": {
+       "title": "Jawa Tengah"
+      },
+      "idwikivoyage": {
+       "title": "Jawa Tengah"
+      },
+      "ilowiki": {
+       "title": "Tengnga a Java"
+      },
+      "itwiki": {
+       "title": "Giava Centrale"
+      },
+      "itwikivoyage": {
+       "title": "Giava Centrale"
+      },
+      "jawiki": {
+       "title": "中部ジャワ州"
+      },
+      "jvwiki": {
+       "title": "Jawa Tengah"
+      },
+      "kawiki": {
+       "title": "ცენტრალური იავა"
+      },
+      "kgewiki": {
+       "title": "Jawa Tongah"
+      },
+      "kowiki": {
+       "title": "중앙자와주"
+      },
+      "ltwiki": {
+       "title": "Centrinė Java"
+      },
+      "lvwiki": {
+       "title": "Centrālā Java"
+      },
+      "madwiki": {
+       "title": "Jhâbâ Tengnga"
+      },
+      "map_bmswiki": {
+       "title": "Jawa Tengah"
+      },
+      "mgwiki": {
+       "title": "Java Afovoany"
+      },
+      "minwiki": {
+       "title": "Jawa Tengah"
+      },
+      "mlwiki": {
+       "title": "മദ്ധ്യ ജാവ"
+      },
+      "mnwiki": {
+       "title": "Төв Жава"
+      },
+      "mrwiki": {
+       "title": "मध्य जावा"
+      },
+      "mswiki": {
+       "title": "Jawa Tengah"
+      },
+      "mznwiki": {
+       "title": "میونی جاوه"
+      },
+      "nlwiki": {
+       "title": "Midden-Java"
+      },
+      "nlwikivoyage": {
+       "title": "Midden-Java"
+      },
+      "nowiki": {
+       "title": "Jawa Tengah"
+      },
+      "plwiki": {
+       "title": "Jawa Środkowa"
+      },
+      "plwikivoyage": {
+       "title": "Jawa Środkowa"
+      },
+      "pnbwiki": {
+       "title": "صوبا گبھلا جاوا"
+      },
+      "ptwiki": {
+       "title": "Java Central"
+      },
+      "rowiki": {
+       "title": "Provincia Java Centrală"
+      },
+      "ruwiki": {
+       "title": "Центральная Ява"
+      },
+      "ruwikivoyage": {
+       "title": "Центральная Ява"
+      },
+      "satwiki": {
+       "title": "ᱛᱟᱞᱢᱟ ᱡᱟᱵᱷᱟ"
+      },
+      "scowiki": {
+       "title": "Central Java"
+      },
+      "shwiki": {
+       "title": "Centralna Java"
+      },
+      "simplewiki": {
+       "title": "Central Java"
+      },
+      "siwiki": {
+       "title": "මධ්‍යම ජාවා පළාත, ඉන්දුනීසියාව"
+      },
+      "skwiki": {
+       "title": "Jawa Tengah"
+      },
+      "srwiki": {
+       "title": "Централна Јава"
+      },
+      "suwiki": {
+       "title": "Jawa Tengah"
+      },
+      "svwiki": {
+       "title": "Jawa Tengah"
+      },
+      "tawiki": {
+       "title": "நடுச் சாவகம்"
+      },
+      "thwiki": {
+       "title": "จังหวัดชวากลาง"
+      },
+      "tlwiki": {
+       "title": "Gitnang Java"
+      },
+      "trwiki": {
+       "title": "Orta Cava"
+      },
+      "ukwiki": {
+       "title": "Центральна Ява"
+      },
+      "urwiki": {
+       "title": "وسطی جاوا"
+      },
+      "vecwiki": {
+       "title": "Java Sentral"
+      },
+      "viwiki": {
+       "title": "Trung Java"
+      },
+      "warwiki": {
+       "title": "Butnga nga Java"
+      },
+      "wuuwiki": {
+       "title": "中爪哇省"
+      },
+      "zh_min_nanwiki": {
+       "title": "Tiong Jawa Séng"
+      },
+      "zh_yuewiki": {
+       "title": "中爪哇"
+      },
+      "zhwiki": {
+       "title": "中爪哇省"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5098"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q110128680": {
+     "id": "Q110128680",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": ".java"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Wikimedia disambiguation page"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "enwiki": {
+       "title": ".java"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4167410"
+          }
+         }
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+}

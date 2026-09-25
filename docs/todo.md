@@ -19,7 +19,7 @@
   - Verify: `pytest tests/test_langs.py`
   - Files: `scripts/wds_lib/langs.py`, `tests/test_langs.py`
 
-- [ ] **T4. `resolve` на справжніх даних** → *контрольна точка A*
+- [x] **T4. `resolve` на справжніх даних** → *контрольна точка A*
   - Acceptance: скрипт запису фікстур для 5 запитів; обидва пошуки + `wbgetentities`; сортування (точний збіг → позиція в пошуку → покриття мов → `sitelinks_total`, лише Wikipedia); сторінки неоднозначності відфільтровані; правило `ambiguous` зі SPEC; до 5 кандидатів; `--search-lang`.
   - Verify: `pytest tests/test_resolve.py`: astronomy → Q333, не ambiguous; intermittent fasting → Q1666254 першим, `pl: null`; learning English → не ambiguous, без сторінки неоднозначності; Java і Mercury → ambiguous. Плюс один живий запуск CLI.
   - Files: `scripts/wds_lib/resolve.py`, `tests/test_resolve.py`, `tests/fixtures/resolve/*.json`, `tests/fixtures/record.py`

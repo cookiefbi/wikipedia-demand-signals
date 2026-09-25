@@ -56,8 +56,9 @@ def test_non_ascii_json_survives_a_legacy_code_page_pipe(tmp_path):
         if k not in ("PYTHONUTF8", "PYTHONIOENCODING")
     }
     env["PYTHONIOENCODING"] = "cp1251"
+    # An unknown "language" is echoed in the error before any network request.
     proc = run_cli(
-        "resolve", "Přerušovaný půst", "--langs", "cs", cwd=tmp_path, env=env
+        "resolve", "astronomy", "--langs", "Přerušovaný půst", cwd=tmp_path, env=env
     )
     assert b"UnicodeEncodeError" not in proc.stderr
     result = json.loads(proc.stdout.decode("utf-8"))
@@ -73,7 +74,7 @@ def test_usage_error_is_the_standard_json_error(tmp_path):
     assert result["hint"]
 
 
-def test_dumps_is_valid_json_with_one_line_per_list_item():
+def test_dumps_is_valid_json_with_one_line_per_object_in_a_list():
     obj = {
         "status": "ok",
         "results": [
@@ -81,9 +82,11 @@ def test_dumps_is_valid_json_with_one_line_per_list_item():
             {"lang": "pl", "status": "no_article"},
         ],
         "empty": [],
+        "langs": ["pl", "cs"],
         "files": {"a": "b"},
     }
     text = wds.dumps(obj)
     assert json.loads(text) == obj
     assert "Přerušovaný půst" in text
-    assert len(text.splitlines()) == 9
+    assert len(text.splitlines()) == 10
+    assert '"langs": ["pl", "cs"]' in text

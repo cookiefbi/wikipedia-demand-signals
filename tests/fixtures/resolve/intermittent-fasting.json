@@ -1,0 +1,1943 @@
+{
+ "query": "intermittent fasting",
+ "search_lang": "en",
+ "recorded": "2026-09-25",
+ "responses": {
+  "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=10&search=intermittent%20fasting&type=item&uselang=en": {
+   "searchinfo": {
+    "search": "intermittent fasting"
+   },
+   "search": [
+    {
+     "id": "Q1666254",
+     "title": "Q1666254",
+     "pageid": 1599841,
+     "concepturi": "http://www.wikidata.org/entity/Q1666254",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q1666254",
+     "display": {
+      "label": {
+       "value": "intermittent fasting",
+       "language": "en"
+      },
+      "description": {
+       "value": "a diet that cycles between a period of fasting and non-fasting",
+       "language": "en"
+      }
+     },
+     "label": "intermittent fasting",
+     "description": "a diet that cycles between a period of fasting and non-fasting",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "intermittent fasting"
+     }
+    },
+    {
+     "id": "Q112575736",
+     "title": "Q112575736",
+     "pageid": 107465636,
+     "concepturi": "http://www.wikidata.org/entity/Q112575736",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q112575736",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting Can Make Us Healthier",
+       "language": "en"
+      },
+      "description": {
+       "value": "Article published in Scientific European on 15 January 2019",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting Can Make Us Healthier",
+     "description": "Article published in Scientific European on 15 January 2019",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting Can Make Us Healthier"
+     }
+    },
+    {
+     "id": "Q79110871",
+     "title": "Q79110871",
+     "pageid": 78557161,
+     "concepturi": "http://www.wikidata.org/entity/Q79110871",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q79110871",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting as a Means to Lose Fluid Overload and Weight in Complicated Obesity",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting as a Means to Lose Fluid Overload and Weight in Complicated Obesity",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting as a Means to Lose Fluid Overload and Weight in Complicated Obesity"
+     }
+    },
+    {
+     "id": "Q63574657",
+     "title": "Q63574657",
+     "pageid": 63298520,
+     "concepturi": "http://www.wikidata.org/entity/Q63574657",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q63574657",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting Versus Daily Caloric Restriction for Weight Loss",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting Versus Daily Caloric Restriction for Weight Loss",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting Versus Daily Caloric Restriction for Weight Loss"
+     }
+    },
+    {
+     "id": "Q113910824",
+     "title": "Q113910824",
+     "pageid": 108651761,
+     "concepturi": "http://www.wikidata.org/entity/Q113910824",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q113910824",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting on the Incidence of Gestational Diabetes Mellitus Obese Pregnant Women in 3rd Trimester",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting on the Incidence of Gestational Diabetes Mellitus Obese Pregnant Women in 3rd Trimester",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting on the Incidence of Gestational Diabetes Mellitus Obese Pregnant Women in 3rd Trimester"
+     }
+    },
+    {
+     "id": "Q137269977",
+     "title": "Q137269977",
+     "pageid": 130951451,
+     "concepturi": "http://www.wikidata.org/entity/Q137269977",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q137269977",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting Mastery: When and How to Eat",
+       "language": "en"
+      },
+      "description": {
+       "value": "book by Atharva Inamdar",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting Mastery: When and How to Eat",
+     "description": "book by Atharva Inamdar",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting Mastery: When and How to Eat"
+     }
+    },
+    {
+     "id": "Q110268079",
+     "title": "Q110268079",
+     "pageid": 105336249,
+     "concepturi": "http://www.wikidata.org/entity/Q110268079",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q110268079",
+     "display": {
+      "label": {
+       "value": "The Megyn Kelly Show Ep. 136",
+       "language": "en"
+      },
+      "description": {
+       "value": "episode of the Megyn Kelly Show",
+       "language": "en"
+      }
+     },
+     "label": "The Megyn Kelly Show Ep. 136",
+     "description": "episode of the Megyn Kelly Show",
+     "match": {
+      "type": "alias",
+      "language": "en",
+      "text": "Intermittent Fasting - What You Need To Know, with Cynthia Thurlow"
+     },
+     "aliases": [
+      "Intermittent Fasting - What You Need To Know, with Cynthia Thurlow"
+     ]
+    },
+    {
+     "id": "Q74271532",
+     "title": "Q74271532",
+     "pageid": 73897046,
+     "concepturi": "http://www.wikidata.org/entity/Q74271532",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q74271532",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting in Hypertriglyceridemic Overweight or Obese Subjects",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting in Hypertriglyceridemic Overweight or Obese Subjects",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting in Hypertriglyceridemic Overweight or Obese Subjects"
+     }
+    },
+    {
+     "id": "Q64597788",
+     "title": "Q64597788",
+     "pageid": 64282511,
+     "concepturi": "http://www.wikidata.org/entity/Q64597788",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q64597788",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting in Refractory Epilepsy",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting in Refractory Epilepsy",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting in Refractory Epilepsy"
+     }
+    },
+    {
+     "id": "Q65337335",
+     "title": "Q65337335",
+     "pageid": 64976007,
+     "concepturi": "http://www.wikidata.org/entity/Q65337335",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q65337335",
+     "display": {
+      "label": {
+       "value": "Intermittent Fasting, Caloric Restriction and Body Composition in Obese Men and Women",
+       "language": "en"
+      },
+      "description": {
+       "value": "clinical trial",
+       "language": "en"
+      }
+     },
+     "label": "Intermittent Fasting, Caloric Restriction and Body Composition in Obese Men and Women",
+     "description": "clinical trial",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Intermittent Fasting, Caloric Restriction and Body Composition in Obese Men and Women"
+     }
+    }
+   ],
+   "search-continue": 10,
+   "success": 1
+  },
+  "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&generator=search&gsrlimit=10&gsrnamespace=0&gsrsearch=intermittent%20fasting&ppprop=wikibase_item%7Cdisambiguation&prop=pageprops": {
+   "batchcomplete": true,
+   "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+   },
+   "query": {
+    "pages": [
+     {
+      "pageid": 8460,
+      "ns": 0,
+      "title": "Dieting",
+      "index": 8,
+      "pageprops": {
+       "wikibase_item": "Q861974"
+      }
+     },
+     {
+      "pageid": 187886,
+      "ns": 0,
+      "title": "Fasting",
+      "index": 2,
+      "pageprops": {
+       "wikibase_item": "Q44602"
+      }
+     },
+     {
+      "pageid": 512662,
+      "ns": 0,
+      "title": "Cardiovascular disease",
+      "index": 9,
+      "pageprops": {
+       "wikibase_item": "Q389735"
+      }
+     },
+     {
+      "pageid": 20104879,
+      "ns": 0,
+      "title": "Intermittent fasting",
+      "index": 1,
+      "pageprops": {
+       "wikibase_item": "Q1666254"
+      }
+     },
+     {
+      "pageid": 23739220,
+      "ns": 0,
+      "title": "Michael Mosley",
+      "index": 3,
+      "pageprops": {
+       "wikibase_item": "Q6831466"
+      }
+     },
+     {
+      "pageid": 26434412,
+      "ns": 0,
+      "title": "Mark Mattson",
+      "index": 10,
+      "pageprops": {
+       "wikibase_item": "Q6768760"
+      }
+     },
+     {
+      "pageid": 30486001,
+      "ns": 0,
+      "title": "Fastic",
+      "index": 4,
+      "pageprops": {
+       "wikibase_item": "Q120441738"
+      }
+     },
+     {
+      "pageid": 70038136,
+      "ns": 0,
+      "title": "Jason Fung",
+      "index": 6,
+      "pageprops": {
+       "wikibase_item": "Q61677978"
+      }
+     },
+     {
+      "pageid": 70176323,
+      "ns": 0,
+      "title": "Krista Varady",
+      "index": 7,
+      "pageprops": {
+       "wikibase_item": "Q90757093"
+      }
+     },
+     {
+      "pageid": 72675122,
+      "ns": 0,
+      "title": "Greg O'Gallagher",
+      "index": 5,
+      "pageprops": {
+       "wikibase_item": "Q120671912"
+      }
+     }
+    ]
+   }
+  },
+  "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q1666254%7CQ112575736%7CQ79110871%7CQ63574657%7CQ113910824%7CQ137269977%7CQ110268079%7CQ74271532%7CQ64597788%7CQ65337335%7CQ44602%7CQ6831466%7CQ120441738%7CQ120671912%7CQ61677978%7CQ90757093%7CQ861974%7CQ389735%7CQ6768760&languages=en&props=labels%7Cdescriptions%7Caliases%7Csitelinks%7Cclaims": {
+   "entities": {
+    "Q1666254": {
+     "id": "Q1666254",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "intermittent fasting"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "a diet that cycles between a period of fasting and non-fasting"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "IF"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "صوم متقطع"
+      },
+      "astwiki": {
+       "title": "Ayunu intermitente"
+      },
+      "bgwiki": {
+       "title": "Периодично гладуване"
+      },
+      "bnwiki": {
+       "title": "সবিরাম উপবাস"
+      },
+      "cswiki": {
+       "title": "Přerušovaný půst"
+      },
+      "dawiki": {
+       "title": "Periodisk faste"
+      },
+      "dewiki": {
+       "title": "Intermittierendes Fasten"
+      },
+      "enwiki": {
+       "title": "Intermittent fasting"
+      },
+      "eswiki": {
+       "title": "Ayuno intermitente"
+      },
+      "euwiki": {
+       "title": "Aldizkako barau"
+      },
+      "fawiki": {
+       "title": "روزه‌گیری مقطعی"
+      },
+      "fiwiki": {
+       "title": "Pätkäpaasto"
+      },
+      "frwiki": {
+       "title": "Jeûne intermittent"
+      },
+      "hewiki": {
+       "title": "צום לסירוגין"
+      },
+      "hiwiki": {
+       "title": "आंतरायिक उपवास"
+      },
+      "huwiki": {
+       "title": "Időszakos böjt"
+      },
+      "idwiki": {
+       "title": "Puasa intermiten"
+      },
+      "itwiki": {
+       "title": "Digiuno intermittente"
+      },
+      "jawiki": {
+       "title": "断続的断食"
+      },
+      "kowiki": {
+       "title": "간헐적 단식"
+      },
+      "mrwiki": {
+       "title": "असंतत उपवास"
+      },
+      "mswiki": {
+       "title": "Puasa berkala"
+      },
+      "rowiki": {
+       "title": "Post intermitent"
+      },
+      "ruwiki": {
+       "title": "Периодическое голодание"
+      },
+      "slwiki": {
+       "title": "Prekinitveni post"
+      },
+      "sqwiki": {
+       "title": "Agjërimi me ndërprerje"
+      },
+      "thwiki": {
+       "title": "การอดอาหารเป็นพัก ๆ"
+      },
+      "ukwiki": {
+       "title": "Інтервальне голодування"
+      },
+      "viwiki": {
+       "title": "Nhịn ăn gián đoạn"
+      },
+      "xhwiki": {
+       "title": "Intermitent fasting"
+      },
+      "zhwiki": {
+       "title": "間歇性斷食"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q474191"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q112575736": {
+     "id": "Q112575736",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting Can Make Us Healthier"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Article published in Scientific European on 15 January 2019"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q191067"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q79110871": {
+     "id": "Q79110871",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting as a Means to Lose Fluid Overload and Weight in Complicated Obesity"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q63574657": {
+     "id": "Q63574657",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting Versus Daily Caloric Restriction for Weight Loss"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q113910824": {
+     "id": "Q113910824",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting on the Incidence of Gestational Diabetes Mellitus Obese Pregnant Women in 3rd Trimester"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q137269977": {
+     "id": "Q137269977",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting Mastery: When and How to Eat"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "book by Atharva Inamdar"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q7725634"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q110268079": {
+     "id": "Q110268079",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "The Megyn Kelly Show Ep. 136"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "episode of the Megyn Kelly Show"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Intermittent Fasting - What You Need To Know, with Cynthia Thurlow"
+       },
+       {
+        "language": "en",
+        "value": "Ep. 136"
+       }
+      ]
+     },
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q61855877"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q74271532": {
+     "id": "Q74271532",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting in Hypertriglyceridemic Overweight or Obese Subjects"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q64597788": {
+     "id": "Q64597788",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting in Refractory Epilepsy"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q65337335": {
+     "id": "Q65337335",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Intermittent Fasting, Caloric Restriction and Body Composition in Obese Men and Women"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "clinical trial"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q30612"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q44602": {
+     "id": "Q44602",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "fasting"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "willing abstinence from some, or reduced consumption of, food, drink or both, for a period of time"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "fast"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arcwiki": {
+       "title": "ܨܘܡܐ"
+      },
+      "arwiki": {
+       "title": "صوم"
+      },
+      "arzwiki": {
+       "title": "صيام"
+      },
+      "astwiki": {
+       "title": "Ayunu"
+      },
+      "azbwiki": {
+       "title": "اوروج"
+      },
+      "azwikiquote": {
+       "title": "Oruc"
+      },
+      "bat_smgwiki": {
+       "title": "Pasninks"
+      },
+      "bawiki": {
+       "title": "Ризыҡланыу әҙәбе"
+      },
+      "be_x_oldwiki": {
+       "title": "Пост"
+      },
+      "bewiki": {
+       "title": "Пост (рэлігія)"
+      },
+      "bgwiki": {
+       "title": "Пост (въздържание)"
+      },
+      "bnwiki": {
+       "title": "উপবাস"
+      },
+      "bnwikiquote": {
+       "title": "উপবাস"
+      },
+      "bswiki": {
+       "title": "Post"
+      },
+      "cawiki": {
+       "title": "Dejuni"
+      },
+      "ckbwiki": {
+       "title": "ڕۆژوو"
+      },
+      "crhwiki": {
+       "title": "Oraza"
+      },
+      "csbwiki": {
+       "title": "Pòst"
+      },
+      "cswiki": {
+       "title": "Půst"
+      },
+      "cswikiquote": {
+       "title": "Půst"
+      },
+      "cvwiki": {
+       "title": "Тип тытни"
+      },
+      "dawiki": {
+       "title": "Faste"
+      },
+      "dewiki": {
+       "title": "Fasten"
+      },
+      "dewikiquote": {
+       "title": "Fasten"
+      },
+      "diqwiki": {
+       "title": "Roce (din)"
+      },
+      "elwiki": {
+       "title": "Νηστεία"
+      },
+      "elwikiquote": {
+       "title": "Νηστεία"
+      },
+      "enwiki": {
+       "title": "Fasting"
+      },
+      "enwikiquote": {
+       "title": "Fasting"
+      },
+      "enwikisource": {
+       "title": "Portal:Fasting"
+      },
+      "eowiki": {
+       "title": "Fasto"
+      },
+      "eowikiquote": {
+       "title": "Fasto"
+      },
+      "eswiki": {
+       "title": "Ayuno"
+      },
+      "etwiki": {
+       "title": "Paast"
+      },
+      "etwikiquote": {
+       "title": "Paast"
+      },
+      "euwiki": {
+       "title": "Barau"
+      },
+      "fawiki": {
+       "title": "روزه"
+      },
+      "fawikiquote": {
+       "title": "روزه"
+      },
+      "fiwiki": {
+       "title": "Paasto"
+      },
+      "frwiki": {
+       "title": "Jeûne"
+      },
+      "frwikiquote": {
+       "title": "Jeûne"
+      },
+      "gawiki": {
+       "title": "Troscadh"
+      },
+      "gdwiki": {
+       "title": "Aoine"
+      },
+      "glwiki": {
+       "title": "Xaxún"
+      },
+      "gomwiki": {
+       "title": "Upas"
+      },
+      "gorwiki": {
+       "title": "Puasa"
+      },
+      "hawiki": {
+       "title": "Azumi"
+      },
+      "hewiki": {
+       "title": "צום"
+      },
+      "hiwiki": {
+       "title": "उपवास"
+      },
+      "hiwikiquote": {
+       "title": "उपवास"
+      },
+      "hrwiki": {
+       "title": "Post"
+      },
+      "huwiki": {
+       "title": "Böjt"
+      },
+      "huwikiquote": {
+       "title": "Böjt"
+      },
+      "hywiki": {
+       "title": "Պահք"
+      },
+      "hywwiki": {
+       "title": "Պահք"
+      },
+      "idwiki": {
+       "title": "Puasa"
+      },
+      "iswiki": {
+       "title": "Fasta"
+      },
+      "itwiki": {
+       "title": "Digiuno"
+      },
+      "itwikiquote": {
+       "title": "Digiuno"
+      },
+      "jawiki": {
+       "title": "断食"
+      },
+      "jvwiki": {
+       "title": "Puasa"
+      },
+      "kawiki": {
+       "title": "მარხვა"
+      },
+      "kgewiki": {
+       "title": "Puasa"
+      },
+      "kkwiki": {
+       "title": "Ашығу"
+      },
+      "knwiki": {
+       "title": "ಉಪವಾಸ"
+      },
+      "kowiki": {
+       "title": "단식"
+      },
+      "kuwiki": {
+       "title": "Rojî"
+      },
+      "lawiki": {
+       "title": "Ieiunium"
+      },
+      "lbwiki": {
+       "title": "Faaschten"
+      },
+      "lijwiki": {
+       "title": "Zazun"
+      },
+      "liwiki": {
+       "title": "Vaste"
+      },
+      "ltwiki": {
+       "title": "Pasninkas"
+      },
+      "lvwiki": {
+       "title": "Gavēšana"
+      },
+      "madwiki": {
+       "title": "Pasa"
+      },
+      "mgwiki": {
+       "title": "Fifadian-kanina"
+      },
+      "minwiki": {
+       "title": "Puaso"
+      },
+      "mkwiki": {
+       "title": "Пост"
+      },
+      "mlwiki": {
+       "title": "ഉപവാസം"
+      },
+      "mrwiki": {
+       "title": "उपवास"
+      },
+      "mswiki": {
+       "title": "Puasa"
+      },
+      "mznwiki": {
+       "title": "روجه"
+      },
+      "newiki": {
+       "title": "उपवास"
+      },
+      "nlwiki": {
+       "title": "Vasten"
+      },
+      "nnwiki": {
+       "title": "Faste"
+      },
+      "nowiki": {
+       "title": "Faste"
+      },
+      "ocwiki": {
+       "title": "June"
+      },
+      "orwiki": {
+       "title": "ଉପବାସ"
+      },
+      "plwiki": {
+       "title": "Post"
+      },
+      "plwikiquote": {
+       "title": "Post"
+      },
+      "pnbwiki": {
+       "title": "روزہ"
+      },
+      "ptwiki": {
+       "title": "Jejum"
+      },
+      "ptwikiquote": {
+       "title": "Jejum"
+      },
+      "rowiki": {
+       "title": "Post"
+      },
+      "rskwiki": {
+       "title": "Пост"
+      },
+      "ruewiki": {
+       "title": "Говіня"
+      },
+      "ruwiki": {
+       "title": "Пост (религия)"
+      },
+      "ruwikiquote": {
+       "title": "Пост (религия)"
+      },
+      "scnwiki": {
+       "title": "Dijunu"
+      },
+      "sdwiki": {
+       "title": "روزا"
+      },
+      "shwiki": {
+       "title": "Post"
+      },
+      "simplewiki": {
+       "title": "Fasting"
+      },
+      "skwiki": {
+       "title": "Pôst"
+      },
+      "skwikiquote": {
+       "title": "Pôst"
+      },
+      "slwiki": {
+       "title": "Postenje"
+      },
+      "slwikiquote": {
+       "title": "Post"
+      },
+      "sqwiki": {
+       "title": "Agjërimi"
+      },
+      "srwiki": {
+       "title": "Пост"
+      },
+      "suwiki": {
+       "title": "Puasa"
+      },
+      "svwiki": {
+       "title": "Fasta"
+      },
+      "swwiki": {
+       "title": "Saumu"
+      },
+      "tawiki": {
+       "title": "நோன்பு"
+      },
+      "tewiki": {
+       "title": "ఉపవాసం"
+      },
+      "thwiki": {
+       "title": "การอดอาหาร"
+      },
+      "tkwiki": {
+       "title": "Oraza"
+      },
+      "tlwiki": {
+       "title": "Ayuno"
+      },
+      "trwiki": {
+       "title": "Oruç"
+      },
+      "trwikiquote": {
+       "title": "Oruç"
+      },
+      "ukwiki": {
+       "title": "Піст"
+      },
+      "ukwikiquote": {
+       "title": "Піст"
+      },
+      "urwiki": {
+       "title": "روزہ"
+      },
+      "vewiki": {
+       "title": "U ḓidzima zwiḽiwa"
+      },
+      "viwiki": {
+       "title": "Nhịn ăn"
+      },
+      "wawiki": {
+       "title": "Djune"
+      },
+      "wuuwiki": {
+       "title": "禁食"
+      },
+      "xmfwiki": {
+       "title": "პიჩვანი"
+      },
+      "zh_yuewiki": {
+       "title": "禁食"
+      },
+      "zhwiki": {
+       "title": "禁食"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3769299"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q118612017"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q6831466": {
+     "id": "Q6831466",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Michael Mosley"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "British journalist, producer and presenter (1957–2024)"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Michael Hugh Mosley"
+       },
+       {
+        "language": "en",
+        "value": "Dr. Michael Mosley"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "مايكل موسلي (مذيع)"
+      },
+      "arzwiki": {
+       "title": "مايكل موسلى"
+      },
+      "commonswiki": {
+       "title": "Category:Michael Mosley (broadcaster)"
+      },
+      "cywiki": {
+       "title": "Michael Mosley"
+      },
+      "dewiki": {
+       "title": "Michael Mosley (Fernsehmoderator)"
+      },
+      "enwiki": {
+       "title": "Michael Mosley"
+      },
+      "eswiki": {
+       "title": "Michael Mosley (locutor)"
+      },
+      "fawiki": {
+       "title": "مایکل موزلی (گوینده)"
+      },
+      "fiwiki": {
+       "title": "Michael Mosley"
+      },
+      "hawiki": {
+       "title": "Michael Mosley"
+      },
+      "hewiki": {
+       "title": "מייקל מוסלי"
+      },
+      "nowiki": {
+       "title": "Michael Mosley"
+      },
+      "svwiki": {
+       "title": "Michael Mosley"
+      },
+      "zhwiki": {
+       "title": "迈克尔·J·莫斯利"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q120441738": {
+     "id": "Q120441738",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Fastic"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "intermittent fasting app for iOS and Android launched by Fastic GmbH in 2019"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "enwiki": {
+       "title": "Fastic"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q7397"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q120671912": {
+     "id": "Q120671912",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Greg O’Gallagher"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "American actor and musician"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "enwiki": {
+       "title": "Greg O'Gallagher"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q61677978": {
+     "id": "Q61677978",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Jason Fung"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Canadian medical author (born in 1973)"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "J. Fung"
+       },
+       {
+        "language": "en",
+        "value": "Jason Fung MD"
+       }
+      ]
+     },
+     "sitelinks": {
+      "enwiki": {
+       "title": "Jason Fung"
+      },
+      "hawiki": {
+       "title": "Jason Fung"
+      },
+      "ptwiki": {
+       "title": "Jason Fung"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q90757093": {
+     "id": "Q90757093",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Krista A Varady"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Canadian-American scientist"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Krista Varady"
+       }
+      ]
+     },
+     "sitelinks": {
+      "enwiki": {
+       "title": "Krista Varady"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q861974": {
+     "id": "Q861974",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "reducing diet"
+      }
+     },
+     "descriptions": {},
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "diet"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arzwiki": {
+       "title": "ريچييم"
+      },
+      "astwiki": {
+       "title": "Dieta (alimentación)"
+      },
+      "bgwiki": {
+       "title": "Диета"
+      },
+      "cswiki": {
+       "title": "Dieta"
+      },
+      "dawiki": {
+       "title": "Slankekur"
+      },
+      "dewiki": {
+       "title": "Diät"
+      },
+      "elwiki": {
+       "title": "Δίαιτα"
+      },
+      "emlwiki": {
+       "title": "Diéta dimagrànta"
+      },
+      "enwiki": {
+       "title": "Dieting"
+      },
+      "eowiki": {
+       "title": "Dietado"
+      },
+      "eswiki": {
+       "title": "Dieta (alimentación)"
+      },
+      "etwiki": {
+       "title": "Dieet"
+      },
+      "fawiki": {
+       "title": "رژیم (درمان)"
+      },
+      "fiwiki": {
+       "title": "Laihduttaminen"
+      },
+      "frwiki": {
+       "title": "Régime amaigrissant"
+      },
+      "hewiki": {
+       "title": "דיאטת הרזיה"
+      },
+      "huwiki": {
+       "title": "Diéta (étrend)"
+      },
+      "hywiki": {
+       "title": "Դիետիկ սննդակարգ"
+      },
+      "idwiki": {
+       "title": "Diet (ransum)"
+      },
+      "jawiki": {
+       "title": "ダイエット"
+      },
+      "knwiki": {
+       "title": "ಪಥ್ಯಮಾಡುವಿಕೆ"
+      },
+      "kowiki": {
+       "title": "식이요법"
+      },
+      "lvwiki": {
+       "title": "Diēta"
+      },
+      "mkwiki": {
+       "title": "Начин на исхрана"
+      },
+      "mlwiki": {
+       "title": "ഡയറ്റിങ്ങ്"
+      },
+      "nowiki": {
+       "title": "Slanking"
+      },
+      "pawiki": {
+       "title": "ਬੰਨ੍ਹਵੀਂ ਖ਼ੁਰਾਕ"
+      },
+      "ptwiki": {
+       "title": "Dieta"
+      },
+      "ruwiki": {
+       "title": "Диетическое питание"
+      },
+      "svwiki": {
+       "title": "Bantning"
+      },
+      "tgwiki": {
+       "title": "Парҳез"
+      },
+      "thwiki": {
+       "title": "การกำหนดอาหาร"
+      },
+      "tlwiki": {
+       "title": "Pagdidiyeta"
+      },
+      "viwiki": {
+       "title": "Ăn kiêng"
+      },
+      "yiwiki": {
+       "title": "דיעטע"
+      },
+      "zhwiki": {
+       "title": "节食"
+      }
+     },
+     "claims": {
+      "P31": []
+     }
+    },
+    "Q389735": {
+     "id": "Q389735",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "cardiovascular disease"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "class of diseases that involve the heart or blood vessels"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "CV disease"
+       },
+       {
+        "language": "en",
+        "value": "cardiovascular system disease"
+       },
+       {
+        "language": "en",
+        "value": "myocardiovascular system disease"
+       },
+       {
+        "language": "en",
+        "value": "heart, respiratory, and blood vessel disease"
+       },
+       {
+        "language": "en",
+        "value": "diseases of the circulatory system"
+       },
+       {
+        "language": "en",
+        "value": "cardiovascular diseases"
+       },
+       {
+        "language": "en",
+        "value": "disease of subdivision of hemolymphoid system"
+       },
+       {
+        "language": "en",
+        "value": "CVD"
+       },
+       {
+        "language": "en",
+        "value": "cardiovascular dysfunction"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Hartbloedvatsiekte"
+      },
+      "anwiki": {
+       "title": "Malautía cardiovascular"
+      },
+      "arwiki": {
+       "title": "مرض قلبي وعائي"
+      },
+      "astwiki": {
+       "title": "Enfermedaes cardiovasculares"
+      },
+      "azbwiki": {
+       "title": "اورک‌توتما مریضلیگی"
+      },
+      "bgwiki": {
+       "title": "Сърдечносъдови заболявания"
+      },
+      "bhwiki": {
+       "title": "हार्ट के बेमारी"
+      },
+      "bnwiki": {
+       "title": "হৃদ-রক্তবাহ রোগ"
+      },
+      "cawiki": {
+       "title": "Malaltia cardiovascular"
+      },
+      "ckbwiki": {
+       "title": "نەخۆشیی دڵ و لوولەکانی خوێن"
+      },
+      "cswiki": {
+       "title": "Kardiovaskulární onemocnění"
+      },
+      "cywiki": {
+       "title": "Clefyd cardiofasgwlar"
+      },
+      "dawiki": {
+       "title": "Hjerte-kar-sygdomme"
+      },
+      "dewiki": {
+       "title": "Herz-Kreislauf-Erkrankung"
+      },
+      "dtywiki": {
+       "title": "हृदय रोग"
+      },
+      "elwiki": {
+       "title": "Καρδιαγγειακές παθήσεις"
+      },
+      "enwiki": {
+       "title": "Cardiovascular disease"
+      },
+      "eowiki": {
+       "title": "Korvaskula malsano"
+      },
+      "eswiki": {
+       "title": "Enfermedades cardiovasculares"
+      },
+      "etwiki": {
+       "title": "Kardiovaskulaarsed haigused"
+      },
+      "euwiki": {
+       "title": "Gaixotasun kardiobaskular"
+      },
+      "fawiki": {
+       "title": "بیماری قلبی-عروقی"
+      },
+      "fiwiki": {
+       "title": "Sydän- ja verisuonitauti"
+      },
+      "frwiki": {
+       "title": "Maladie cardiovasculaire"
+      },
+      "glwiki": {
+       "title": "Doenza cardiovascular"
+      },
+      "gpewiki": {
+       "title": "Cardiovascular disease"
+      },
+      "hawiki": {
+       "title": "Cutar zuciya"
+      },
+      "hewiki": {
+       "title": "מחלה קרדיווסקולרית"
+      },
+      "hiwiki": {
+       "title": "हृदयवाहिका रोग"
+      },
+      "huwiki": {
+       "title": "Szív- és érrendszeri betegségek"
+      },
+      "hywiki": {
+       "title": "Սիրտ-անոթային հիվանդություն"
+      },
+      "idwiki": {
+       "title": "Penyakit kardiovaskular"
+      },
+      "itwiki": {
+       "title": "Malattie cardiovascolari"
+      },
+      "jawiki": {
+       "title": "心血管疾患"
+      },
+      "jawikibooks": {
+       "title": "病理学/循環障害"
+      },
+      "kbpwiki": {
+       "title": "Ñamɩyɛ nɛ calɩm hosi kʊdɔŋ (maladie cardio-vasculaire)"
+      },
+      "knwiki": {
+       "title": "ಹೃದಯರೋಗ"
+      },
+      "kowiki": {
+       "title": "심혈관계 질환"
+      },
+      "kywiki": {
+       "title": "Кан айлануунун бузулушу"
+      },
+      "lawiki": {
+       "title": "Morbus cardiovascularis"
+      },
+      "lfnwiki": {
+       "title": "Maladia cardiovascular"
+      },
+      "lvwiki": {
+       "title": "Sirds slimības"
+      },
+      "mkwiki": {
+       "title": "Срцево заболување"
+      },
+      "mrwiki": {
+       "title": "हृदय व रक्तवाहिन्यासंबंधी रोग"
+      },
+      "mswiki": {
+       "title": "Penyakit kardiovaskular"
+      },
+      "newiki": {
+       "title": "हृदय रोग"
+      },
+      "newwiki": {
+       "title": "नुगः ल्वय्"
+      },
+      "nlwiki": {
+       "title": "Hart- en vaatziekten"
+      },
+      "nowiki": {
+       "title": "Hjerte- og karsykdommer"
+      },
+      "orwiki": {
+       "title": "ହୃଦରକ୍ତନାଳୀ ରୋଗ"
+      },
+      "pawiki": {
+       "title": "ਕਾਰਡੀਓਵੈਸਕੁਲਰ ਰੋਗ"
+      },
+      "plwiki": {
+       "title": "Choroby układu krążenia"
+      },
+      "ptwiki": {
+       "title": "Doença cardiovascular"
+      },
+      "rowiki": {
+       "title": "Boală cardiovasculară"
+      },
+      "ruwiki": {
+       "title": "Сердечно-сосудистые заболевания"
+      },
+      "ruwikinews": {
+       "title": "Категория:Сердечно-сосудистые заболевания"
+      },
+      "sawiki": {
+       "title": "हृदयरोगः"
+      },
+      "shwiki": {
+       "title": "Kardiovaskularna bolest"
+      },
+      "simplewiki": {
+       "title": "Cardiovascular disease"
+      },
+      "siwiki": {
+       "title": "හෘද රෝග"
+      },
+      "slwiki": {
+       "title": "Srčno-žilna bolezen"
+      },
+      "sqwiki": {
+       "title": "Sëmundjet e zemrës"
+      },
+      "srwiki": {
+       "title": "Kardiovaskularna bolest"
+      },
+      "svwiki": {
+       "title": "Hjärt- och kärlsjukdomar"
+      },
+      "swwiki": {
+       "title": "Ugonjwa wa moyo"
+      },
+      "tawiki": {
+       "title": "இதயக் குழலிய நோய்"
+      },
+      "thwiki": {
+       "title": "โรคระบบหัวใจหลอดเลือด"
+      },
+      "trwiki": {
+       "title": "Kardiyovasküler hastalık"
+      },
+      "ttwiki": {
+       "title": "Йөрәк-кан тамырлары чирләре"
+      },
+      "ukwiki": {
+       "title": "Серцево-судинні захворювання"
+      },
+      "urwiki": {
+       "title": "مرض قلبی عروقی"
+      },
+      "uzwiki": {
+       "title": "Yurak-qon tomir kasalliklari"
+      },
+      "viwiki": {
+       "title": "Bệnh tim mạch"
+      },
+      "wuuwiki": {
+       "title": "心血管疾病"
+      },
+      "zh_yuewiki": {
+       "title": "心血管病"
+      },
+      "zhwiki": {
+       "title": "心血管疾病"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11862829"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q112193867"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q6768760": {
+     "id": "Q6768760",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mark Mattson"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "American neuroscientist"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mark P Mattson"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "مارك ماتسون"
+      },
+      "azbwiki": {
+       "title": "مارک متسون"
+      },
+      "enwiki": {
+       "title": "Mark Mattson"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+}

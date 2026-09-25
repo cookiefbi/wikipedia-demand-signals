@@ -1,0 +1,4033 @@
+{
+ "query": "Mercury",
+ "search_lang": "en",
+ "recorded": "2026-09-25",
+ "responses": {
+  "https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&limit=10&search=Mercury&type=item&uselang=en": {
+   "searchinfo": {
+    "search": "Mercury"
+   },
+   "search": [
+    {
+     "id": "Q613883",
+     "title": "Q613883",
+     "pageid": 578146,
+     "concepturi": "http://www.wikidata.org/entity/Q613883",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q613883",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "automobile marque of the Ford Motor Company",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "description": "automobile marque of the Ford Motor Company",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q1231263",
+     "title": "Q1231263",
+     "pageid": 1172548,
+     "concepturi": "http://www.wikidata.org/entity/Q1231263",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q1231263",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "commune in Savoie, France",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "description": "commune in Savoie, France",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q308",
+     "title": "Q308",
+     "pageid": 495,
+     "concepturi": "http://www.wikidata.org/entity/Q308",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q308",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "first planet from the Solar System and smallest among all, tellurian and with extreme temperatures",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "description": "first planet from the Solar System and smallest among all, tellurian and with extreme temperatures",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q165745",
+     "title": "Q165745",
+     "pageid": 166349,
+     "concepturi": "http://www.wikidata.org/entity/Q165745",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q165745",
+     "display": {
+      "label": {
+       "value": "Mercury Records",
+       "language": "en"
+      },
+      "description": {
+       "value": "American record label",
+       "language": "en"
+      }
+     },
+     "label": "Mercury Records",
+     "description": "American record label",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury Records"
+     }
+    },
+    {
+     "id": "Q925",
+     "title": "Q925",
+     "pageid": 1248,
+     "concepturi": "http://www.wikidata.org/entity/Q925",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q925",
+     "display": {
+      "label": {
+       "value": "mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "chemical element with symbol Hg and atomic number 80",
+       "language": "en"
+      }
+     },
+     "label": "mercury",
+     "description": "chemical element with symbol Hg and atomic number 80",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "mercury"
+     }
+    },
+    {
+     "id": "Q60009810",
+     "title": "Q60009810",
+     "pageid": 59890192,
+     "concepturi": "http://www.wikidata.org/entity/Q60009810",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q60009810",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "male given name",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "description": "male given name",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q1150",
+     "title": "Q1150",
+     "pageid": 1512,
+     "concepturi": "http://www.wikidata.org/entity/Q1150",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q1150",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "Roman god of trade, merchants, thieves and travel",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "description": "Roman god of trade, merchants, thieves and travel",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q107119712",
+     "title": "Q107119712",
+     "pageid": 102368317,
+     "concepturi": "http://www.wikidata.org/entity/Q107119712",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q107119712",
+     "display": {
+      "label": {
+       "value": "Mercury",
+       "language": "en"
+      }
+     },
+     "label": "Mercury",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury"
+     }
+    },
+    {
+     "id": "Q1274643",
+     "title": "Q1274643",
+     "pageid": 1215200,
+     "concepturi": "http://www.wikidata.org/entity/Q1274643",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q1274643",
+     "display": {
+      "label": {
+       "value": "Phoenix Mercury",
+       "language": "en"
+      },
+      "description": {
+       "value": "American professional women's basketball team",
+       "language": "en"
+      }
+     },
+     "label": "Phoenix Mercury",
+     "description": "American professional women's basketball team",
+     "match": {
+      "type": "alias",
+      "language": "en",
+      "text": "Mercury"
+     },
+     "aliases": [
+      "Mercury"
+     ]
+    },
+    {
+     "id": "Q87526778",
+     "title": "Q87526778",
+     "pageid": 86767364,
+     "concepturi": "http://www.wikidata.org/entity/Q87526778",
+     "repository": "wikidata",
+     "url": "//www.wikidata.org/wiki/Q87526778",
+     "display": {
+      "label": {
+       "value": "Mercury symbol",
+       "language": "en"
+      },
+      "description": {
+       "value": "planetary, alchemical and gender symbol",
+       "language": "en"
+      }
+     },
+     "label": "Mercury symbol",
+     "description": "planetary, alchemical and gender symbol",
+     "match": {
+      "type": "label",
+      "language": "en",
+      "text": "Mercury symbol"
+     }
+    }
+   ],
+   "search-continue": 10,
+   "success": 1
+  },
+  "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&generator=search&gsrlimit=10&gsrnamespace=0&gsrsearch=Mercury&ppprop=wikibase_item%7Cdisambiguation&prop=pageprops": {
+   "batchcomplete": true,
+   "continue": {
+    "gsroffset": 10,
+    "continue": "gsroffset||"
+   },
+   "query": {
+    "pages": [
+     {
+      "pageid": 19007,
+      "ns": 0,
+      "title": "Mercury",
+      "index": 1,
+      "pageprops": {
+       "disambiguation": "",
+       "wikibase_item": "Q48397"
+      }
+     },
+     {
+      "pageid": 19694,
+      "ns": 0,
+      "title": "Mercury (planet)",
+      "index": 3,
+      "pageprops": {
+       "wikibase_item": "Q308"
+      }
+     },
+     {
+      "pageid": 19812,
+      "ns": 0,
+      "title": "Project Mercury",
+      "index": 8,
+      "pageprops": {
+       "wikibase_item": "Q52162"
+      }
+     },
+     {
+      "pageid": 37417,
+      "ns": 0,
+      "title": "Mercury (mythology)",
+      "index": 6,
+      "pageprops": {
+       "wikibase_item": "Q1150"
+      }
+     },
+     {
+      "pageid": 42068,
+      "ns": 0,
+      "title": "Freddie Mercury",
+      "index": 4,
+      "pageprops": {
+       "wikibase_item": "Q15869"
+      }
+     },
+     {
+      "pageid": 140995,
+      "ns": 0,
+      "title": "Mercury Prize",
+      "index": 7,
+      "pageprops": {
+       "wikibase_item": "Q501876"
+      }
+     },
+     {
+      "pageid": 256339,
+      "ns": 0,
+      "title": "Mercury (automobile)",
+      "index": 9,
+      "pageprops": {
+       "wikibase_item": "Q613883"
+      }
+     },
+     {
+      "pageid": 325909,
+      "ns": 0,
+      "title": "Mercury Records",
+      "index": 5,
+      "pageprops": {
+       "wikibase_item": "Q165745"
+      }
+     },
+     {
+      "pageid": 18617142,
+      "ns": 0,
+      "title": "Mercury (element)",
+      "index": 2,
+      "pageprops": {
+       "wikibase_item": "Q925"
+      }
+     },
+     {
+      "pageid": 43623248,
+      "ns": 0,
+      "title": "Mercury Marauder",
+      "index": 10,
+      "pageprops": {
+       "wikibase_item": "Q763495"
+      }
+     }
+    ]
+   }
+  },
+  "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q613883%7CQ1231263%7CQ308%7CQ165745%7CQ925%7CQ60009810%7CQ1150%7CQ107119712%7CQ1274643%7CQ87526778%7CQ48397%7CQ15869%7CQ501876%7CQ52162%7CQ763495&languages=en&props=labels%7Cdescriptions%7Caliases%7Csitelinks%7Cclaims": {
+   "entities": {
+    "Q613883": {
+     "id": "Q613883",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "automobile marque of the Ford Motor Company"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Ford Motor Company. Mercury Division"
+       },
+       {
+        "language": "en",
+        "value": "Mercury Division"
+       },
+       {
+        "language": "en",
+        "value": "Mercury automobile"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "ميركوري"
+      },
+      "arzwiki": {
+       "title": "ميركورى"
+      },
+      "azbwiki": {
+       "title": "مرکوری (آرابا)"
+      },
+      "cawiki": {
+       "title": "Mercury (automòbil)"
+      },
+      "cswiki": {
+       "title": "Ford Mercury"
+      },
+      "dewiki": {
+       "title": "Mercury (Automarke)"
+      },
+      "enwiki": {
+       "title": "Mercury (automobile)"
+      },
+      "eswiki": {
+       "title": "Mercury (automóviles)"
+      },
+      "fawiki": {
+       "title": "مرکوری (خودرو)"
+      },
+      "fiwiki": {
+       "title": "Mercury (automerkki)"
+      },
+      "frwiki": {
+       "title": "Mercury (automobile)"
+      },
+      "hewiki": {
+       "title": "מרקורי (רכב)"
+      },
+      "idwiki": {
+       "title": "Mercury (perusahaan otomotif)"
+      },
+      "itwiki": {
+       "title": "Mercury (azienda)"
+      },
+      "jawiki": {
+       "title": "マーキュリー (自動車)"
+      },
+      "kowiki": {
+       "title": "머큐리 (자동차)"
+      },
+      "ltwiki": {
+       "title": "Mercury (automobilis)"
+      },
+      "nlwiki": {
+       "title": "Mercury (automerk)"
+      },
+      "nowiki": {
+       "title": "Mercury (bil)"
+      },
+      "plwiki": {
+       "title": "Mercury (marka samochodów)"
+      },
+      "ptwiki": {
+       "title": "Mercury (automóveis)"
+      },
+      "ruwiki": {
+       "title": "Mercury (автомобильная марка)"
+      },
+      "simplewiki": {
+       "title": "Mercury (automobile)"
+      },
+      "svwiki": {
+       "title": "Mercury (bilmärke)"
+      },
+      "trwiki": {
+       "title": "Mercury (otomobil)"
+      },
+      "ukwiki": {
+       "title": "Mercury"
+      },
+      "zhwiki": {
+       "title": "水星 (汽车)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q10429667"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q167270"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q334453"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q1231263": {
+     "id": "Q1231263",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "commune in Savoie, France"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "anwiki": {
+       "title": "Mercury (Saboya)"
+      },
+      "astwiki": {
+       "title": "Mercury (Saboya)"
+      },
+      "cawiki": {
+       "title": "Mercury (Savoia)"
+      },
+      "cebwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "cewiki": {
+       "title": "МегӀкуьгӀи (Севваь)"
+      },
+      "dewiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "elwiki": {
+       "title": "Μερκυρί"
+      },
+      "enwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "eowiki": {
+       "title": "Mercury (Savojo)"
+      },
+      "eswiki": {
+       "title": "Mercury (Saboya)"
+      },
+      "euwiki": {
+       "title": "Mercury (Savoia)"
+      },
+      "fiwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "frwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "huwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "itwiki": {
+       "title": "Mercury (Francia)"
+      },
+      "lawiki": {
+       "title": "Mercuriacum (Francia)"
+      },
+      "lldwiki": {
+       "title": "Mercury"
+      },
+      "lmowiki": {
+       "title": "Mercury (FR-73)"
+      },
+      "mswiki": {
+       "title": "Mercury, Savoie"
+      },
+      "nlwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "ocwiki": {
+       "title": "Mercury"
+      },
+      "plwiki": {
+       "title": "Mercury (Sabaudia)"
+      },
+      "ptwiki": {
+       "title": "Mercury (Saboia)"
+      },
+      "rowiki": {
+       "title": "Mercury, Savoie"
+      },
+      "skwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "svwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "trwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "ukwiki": {
+       "title": "Меркюрі (Савоя)"
+      },
+      "uzwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "vecwiki": {
+       "title": "Mercury"
+      },
+      "viwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "vowiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "warwiki": {
+       "title": "Mercury, Savoie"
+      },
+      "zh_min_nanwiki": {
+       "title": "Mercury (Savoie)"
+      },
+      "zhwiki": {
+       "title": "梅屈里"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q484170"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q308": {
+     "id": "Q308",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "first planet from the Solar System and smallest among all, tellurian and with extreme temperatures"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Sol I"
+       },
+       {
+        "language": "en",
+        "value": "Hermes"
+       },
+       {
+        "language": "en",
+        "value": "Sol b"
+       },
+       {
+        "language": "en",
+        "value": "Sol 1"
+       },
+       {
+        "language": "en",
+        "value": "Planet Mercury"
+       },
+       {
+        "language": "en",
+        "value": "☿"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abstractwiki": {
+       "title": "Q308"
+      },
+      "abwiki": {
+       "title": "Меркури"
+      },
+      "adywiki": {
+       "title": "Меркурий"
+      },
+      "afwiki": {
+       "title": "Mercurius"
+      },
+      "alswiki": {
+       "title": "Merkur (Planet)"
+      },
+      "amwiki": {
+       "title": "ኣጣርድ"
+      },
+      "angwiki": {
+       "title": "Wōden (tungol)"
+      },
+      "annwiki": {
+       "title": "Mekuri"
+      },
+      "anpwiki": {
+       "title": "बुध ग्रह"
+      },
+      "anwiki": {
+       "title": "Mercurio (planeta)"
+      },
+      "arwiki": {
+       "title": "عطارد"
+      },
+      "arywiki": {
+       "title": "عطارد"
+      },
+      "arzwiki": {
+       "title": "عطارد"
+      },
+      "astwiki": {
+       "title": "Mercuriu (planeta)"
+      },
+      "aswiki": {
+       "title": "বুধ গ্ৰহ"
+      },
+      "avkwiki": {
+       "title": "Niskaduz"
+      },
+      "awawiki": {
+       "title": "बुध ग्रह"
+      },
+      "azbwiki": {
+       "title": "عطارد"
+      },
+      "azwiki": {
+       "title": "Merkuri (planet)"
+      },
+      "banwiki": {
+       "title": "Mérkurius"
+      },
+      "barwiki": {
+       "title": "Merkur (Planet)"
+      },
+      "bat_smgwiki": {
+       "title": "Merkorėjos (planeta)"
+      },
+      "bawiki": {
+       "title": "Меркурий"
+      },
+      "bclwiki": {
+       "title": "Merkuryo (planeta)"
+      },
+      "be_x_oldwiki": {
+       "title": "Мэркурый"
+      },
+      "bewiki": {
+       "title": "Меркурый"
+      },
+      "bewwiki": {
+       "title": "Utarid"
+      },
+      "bgwiki": {
+       "title": "Меркурий (планета)"
+      },
+      "bhwiki": {
+       "title": "बुध (ग्रह)"
+      },
+      "bjnwiki": {
+       "title": "Merkurius"
+      },
+      "bnwiki": {
+       "title": "বুধ গ্রহ"
+      },
+      "bnwikiquote": {
+       "title": "বুধ গ্রহ"
+      },
+      "bowiki": {
+       "title": "ལྷག་པ།"
+      },
+      "brwiki": {
+       "title": "Merc'her (planedenn)"
+      },
+      "bswiki": {
+       "title": "Merkur"
+      },
+      "btmwiki": {
+       "title": "Merkurius"
+      },
+      "bxrwiki": {
+       "title": "Һагба (гараг)"
+      },
+      "cawiki": {
+       "title": "Mercuri (planeta)"
+      },
+      "cdowiki": {
+       "title": "Cūi-sĭng"
+      },
+      "cebwiki": {
+       "title": "Merkuryo (planeta)"
+      },
+      "cewiki": {
+       "title": "Меркурий"
+      },
+      "chrwiki": {
+       "title": "ᎹᎫᎵ"
+      },
+      "ckbwiki": {
+       "title": "زاوە"
+      },
+      "commonswiki": {
+       "title": "Mercury (planet)"
+      },
+      "cowiki": {
+       "title": "Mercuriu (pianeta)"
+      },
+      "crhwiki": {
+       "title": "Utarit"
+      },
+      "csbwiki": {
+       "title": "Merkùri"
+      },
+      "cswiki": {
+       "title": "Merkur (planeta)"
+      },
+      "cswikibooks": {
+       "title": "Sluneční soustava/Merkur"
+      },
+      "cswikinews": {
+       "title": "Kategorie:Merkur"
+      },
+      "cuwiki": {
+       "title": "Єрмии"
+      },
+      "cvwiki": {
+       "title": "Меркурий"
+      },
+      "cywiki": {
+       "title": "Mercher (planed)"
+      },
+      "dawiki": {
+       "title": "Merkur (planet)"
+      },
+      "dawikibooks": {
+       "title": "Solsystemet/Merkur"
+      },
+      "dewiki": {
+       "title": "Merkur (Planet)"
+      },
+      "diqwiki": {
+       "title": "Merkur"
+      },
+      "dsbwiki": {
+       "title": "Merkur (planet)"
+      },
+      "dtywiki": {
+       "title": "बुधग्रह"
+      },
+      "dzwiki": {
+       "title": "མར་ཀུ་རི"
+      },
+      "elwiki": {
+       "title": "Ερμής (πλανήτης)"
+      },
+      "emlwiki": {
+       "title": "Mercûri"
+      },
+      "enwiki": {
+       "title": "Mercury (planet)"
+      },
+      "enwikinews": {
+       "title": "Category:Mercury (planet)"
+      },
+      "enwikiquote": {
+       "title": "Mercury (planet)"
+      },
+      "eowiki": {
+       "title": "Merkuro (planedo)"
+      },
+      "eowikinews": {
+       "title": "Kategorio:Merkuro"
+      },
+      "eswiki": {
+       "title": "Mercurio (planeta)"
+      },
+      "etwiki": {
+       "title": "Merkuur"
+      },
+      "etwikiquote": {
+       "title": "Merkuur"
+      },
+      "euwiki": {
+       "title": "Merkurio (planeta)"
+      },
+      "extwiki": {
+       "title": "Mercuriu (praneta)"
+      },
+      "fawiki": {
+       "title": "عطارد"
+      },
+      "fawikibooks": {
+       "title": "فرهنگ نجوم/منظومه شمسی/عطارد"
+      },
+      "fiu_vrowiki": {
+       "title": "Merkuur"
+      },
+      "fiwiki": {
+       "title": "Merkurius"
+      },
+      "fjwiki": {
+       "title": "Mekuri"
+      },
+      "fowiki": {
+       "title": "Merkur"
+      },
+      "frpwiki": {
+       "title": "Mèrcuro (planèta)"
+      },
+      "frrwiki": {
+       "title": "Merkurius"
+      },
+      "frwiki": {
+       "title": "Mercure (planète)"
+      },
+      "frwikinews": {
+       "title": "Catégorie:Mercure"
+      },
+      "frwikiquote": {
+       "title": "Mercure (planète)"
+      },
+      "furwiki": {
+       "title": "Mercuri (planet)"
+      },
+      "fywiki": {
+       "title": "Merkuerius (planeet)"
+      },
+      "ganwiki": {
+       "title": "水星"
+      },
+      "gawiki": {
+       "title": "Mearcair (pláinéad)"
+      },
+      "gcrwiki": {
+       "title": "Mèrkir (planèt)"
+      },
+      "gdwiki": {
+       "title": "Mearcar (planaid)"
+      },
+      "glkwiki": {
+       "title": "عۊطارد"
+      },
+      "glwiki": {
+       "title": "Mercurio (planeta)"
+      },
+      "gnwiki": {
+       "title": "Pirapane"
+      },
+      "gotwiki": {
+       "title": "𐍅𐍉𐌳𐌰𐌽𐍃"
+      },
+      "guwiki": {
+       "title": "બુધ (ગ્રહ)"
+      },
+      "gvwiki": {
+       "title": "Curain"
+      },
+      "hakwiki": {
+       "title": "Súi-sên"
+      },
+      "hawwiki": {
+       "title": "Ukalialiʻi"
+      },
+      "hewiki": {
+       "title": "כוכב חמה"
+      },
+      "hifwiki": {
+       "title": "Budhgrah"
+      },
+      "hiwiki": {
+       "title": "बुध (ग्रह)"
+      },
+      "hrwiki": {
+       "title": "Merkur"
+      },
+      "hsbwiki": {
+       "title": "Merkur"
+      },
+      "htwiki": {
+       "title": "Mèki (planèt)"
+      },
+      "huwiki": {
+       "title": "Merkúr"
+      },
+      "hywiki": {
+       "title": "Մերկուրի (մոլորակ)"
+      },
+      "iawiki": {
+       "title": "Mercurio (planeta)"
+      },
+      "idwiki": {
+       "title": "Merkurius"
+      },
+      "iewiki": {
+       "title": "Mercur"
+      },
+      "ilowiki": {
+       "title": "Merkurio"
+      },
+      "inhwiki": {
+       "title": "Меркурий"
+      },
+      "iowiki": {
+       "title": "Merkuro"
+      },
+      "iswiki": {
+       "title": "Merkúr (reikistjarna)"
+      },
+      "itwiki": {
+       "title": "Mercurio (astronomia)"
+      },
+      "itwikiquote": {
+       "title": "Mercurio (astronomia)"
+      },
+      "iuwiki": {
+       "title": "ᒥᕐᑰᕆ"
+      },
+      "jamwiki": {
+       "title": "Moerkiuri (planit)"
+      },
+      "jawiki": {
+       "title": "水星"
+      },
+      "jawikibooks": {
+       "title": "水星"
+      },
+      "jbowiki": {
+       "title": "merkurios"
+      },
+      "jvwiki": {
+       "title": "Merkurius"
+      },
+      "kaawiki": {
+       "title": "Merkuriy (planeta)"
+      },
+      "kabwiki": {
+       "title": "Aziweɣ (amtiweg)"
+      },
+      "kawiki": {
+       "title": "მერკური"
+      },
+      "kbpwiki": {
+       "title": "Mɛɛrkiiri"
+      },
+      "kcgwiki": {
+       "title": "Makyuri"
+      },
+      "kgwiki": {
+       "title": "Merkure"
+      },
+      "kiwiki": {
+       "title": "Makiurĩ"
+      },
+      "kkwiki": {
+       "title": "Меркурий (ғаламшар)"
+      },
+      "kmwiki": {
+       "title": "ពុធ (ភព)"
+      },
+      "kncwiki": {
+       "title": "Mercury"
+      },
+      "knwiki": {
+       "title": "ಬುಧ"
+      },
+      "kowiki": {
+       "title": "수성"
+      },
+      "kowikibooks": {
+       "title": "수성"
+      },
+      "kowikiquote": {
+       "title": "수성"
+      },
+      "kowikiversity": {
+       "title": "수성"
+      },
+      "kshwiki": {
+       "title": "Merrkuur (Planneet)"
+      },
+      "kswiki": {
+       "title": "بۄد (گرُٛہُد)"
+      },
+      "kuwiki": {
+       "title": "Tîr (gerstêrk)"
+      },
+      "kvwiki": {
+       "title": "Меркурий"
+      },
+      "kwwiki": {
+       "title": "Merher (planet)"
+      },
+      "kywiki": {
+       "title": "Меркурий"
+      },
+      "lawiki": {
+       "title": "Mercurius (planeta)"
+      },
+      "lbwiki": {
+       "title": "Merkur (Planéit)"
+      },
+      "lezwiki": {
+       "title": "Меркурий"
+      },
+      "lfnwiki": {
+       "title": "Mercurio"
+      },
+      "lijwiki": {
+       "title": "Mercûrio (astronomia)"
+      },
+      "liwiki": {
+       "title": "Mercurius (planeet)"
+      },
+      "lldwiki": {
+       "title": "Miercul"
+      },
+      "lmowiki": {
+       "title": "Mercurio (pianeta)"
+      },
+      "lnwiki": {
+       "title": "Mekulé"
+      },
+      "ltwiki": {
+       "title": "Merkurijus (planeta)"
+      },
+      "lvwiki": {
+       "title": "Merkurs (planēta)"
+      },
+      "madwiki": {
+       "title": "Mèrkurius"
+      },
+      "magwiki": {
+       "title": "बुध (ग्रह)"
+      },
+      "map_bmswiki": {
+       "title": "Merkurius"
+      },
+      "mdfwiki": {
+       "title": "Меркури (шары тяште)"
+      },
+      "mgwiki": {
+       "title": "Merkiora (planeta)"
+      },
+      "mkwiki": {
+       "title": "Меркур (планета)"
+      },
+      "mlwiki": {
+       "title": "ബുധൻ"
+      },
+      "mnwiki": {
+       "title": "Буд"
+      },
+      "mrwiki": {
+       "title": "बुध ग्रह"
+      },
+      "mswiki": {
+       "title": "Utarid"
+      },
+      "mtwiki": {
+       "title": "Merkurju (pjaneta)"
+      },
+      "mwlwiki": {
+       "title": "Marcúrio (planeta)"
+      },
+      "mywiki": {
+       "title": "ဗုဒ္ဓဟူးဂြိုဟ်"
+      },
+      "mznwiki": {
+       "title": "عطارد"
+      },
+      "nahwiki": {
+       "title": "Payīnalcītlalli"
+      },
+      "napwiki": {
+       "title": "Mercurio"
+      },
+      "nds_nlwiki": {
+       "title": "Merkurius (planeet)"
+      },
+      "ndswiki": {
+       "title": "Merkur (Planet)"
+      },
+      "newiki": {
+       "title": "बुधग्रह"
+      },
+      "newwiki": {
+       "title": "सुनगु"
+      },
+      "niawiki": {
+       "title": "Merkurius"
+      },
+      "nlwiki": {
+       "title": "Mercurius (planeet)"
+      },
+      "nnwiki": {
+       "title": "Planeten Merkur"
+      },
+      "novwiki": {
+       "title": "Merkurie (planete)"
+      },
+      "nowiki": {
+       "title": "Merkur"
+      },
+      "nqowiki": {
+       "title": "ߜߐߞߎ"
+      },
+      "nrmwiki": {
+       "title": "Mèrtchure"
+      },
+      "nvwiki": {
+       "title": "Mókiwii"
+      },
+      "ocwiki": {
+       "title": "Mercuri (planeta)"
+      },
+      "olowiki": {
+       "title": "Merkurius"
+      },
+      "omwiki": {
+       "title": "Meerkurii"
+      },
+      "orwiki": {
+       "title": "ବୁଧ"
+      },
+      "oswiki": {
+       "title": "Меркурий"
+      },
+      "pamwiki": {
+       "title": "Merkúriu"
+      },
+      "papwiki": {
+       "title": "Merkurio (planeta)"
+      },
+      "pawiki": {
+       "title": "ਬੁੱਧ (ਗ੍ਰਹਿ)"
+      },
+      "pcmwiki": {
+       "title": "Mekuri (planet)"
+      },
+      "plwiki": {
+       "title": "Merkury"
+      },
+      "pmswiki": {
+       "title": "Mercuri (pianeta)"
+      },
+      "pnbwiki": {
+       "title": "عطارد"
+      },
+      "pplwiki": {
+       "title": "Ne kuneshnaj talsital (Ne achtu talsital)"
+      },
+      "pswiki": {
+       "title": "عطارد"
+      },
+      "ptwiki": {
+       "title": "Mercúrio (planeta)"
+      },
+      "quwiki": {
+       "title": "Qatuylla"
+      },
+      "rmwiki": {
+       "title": "Mercur (planet)"
+      },
+      "rmywiki": {
+       "title": "Budor"
+      },
+      "roa_rupwiki": {
+       "title": "Mercur (planetâ)"
+      },
+      "rowiki": {
+       "title": "Mercur (planetă)"
+      },
+      "rowikibooks": {
+       "title": "Sistemul solar/Mercur"
+      },
+      "ruewiki": {
+       "title": "Меркур (планета)"
+      },
+      "ruwiki": {
+       "title": "Меркурий"
+      },
+      "ruwikinews": {
+       "title": "Категория:Меркурий"
+      },
+      "ruwikiquote": {
+       "title": "Меркурий"
+      },
+      "sahwiki": {
+       "title": "Мэндэҥэ"
+      },
+      "satwiki": {
+       "title": "ᱮᱞᱟᱝ ᱮᱸᱜᱮᱞ"
+      },
+      "sawiki": {
+       "title": "बुधः"
+      },
+      "scnwiki": {
+       "title": "Mircuriu (pianeta)"
+      },
+      "scowiki": {
+       "title": "Mercur (planet)"
+      },
+      "scwiki": {
+       "title": "Mercùriu (praneta)"
+      },
+      "sdwiki": {
+       "title": "عطارد"
+      },
+      "sewiki": {
+       "title": "Merkurius"
+      },
+      "shiwiki": {
+       "title": "Azwaq"
+      },
+      "shwiki": {
+       "title": "Merkur"
+      },
+      "simplewiki": {
+       "title": "Mercury (planet)"
+      },
+      "siwiki": {
+       "title": "බුධ"
+      },
+      "skrwiki": {
+       "title": "عطارد"
+      },
+      "skwiki": {
+       "title": "Merkúr"
+      },
+      "slwiki": {
+       "title": "Merkur"
+      },
+      "smnwiki": {
+       "title": "Merkurius"
+      },
+      "snwiki": {
+       "title": "Nyamatsatse"
+      },
+      "sowiki": {
+       "title": "Dusaa"
+      },
+      "sqwiki": {
+       "title": "Merkuri (planet)"
+      },
+      "srwiki": {
+       "title": "Меркур"
+      },
+      "srwikiquote": {
+       "title": "Меркур"
+      },
+      "stqwiki": {
+       "title": "Merkur"
+      },
+      "suwiki": {
+       "title": "Mérkurius"
+      },
+      "svwiki": {
+       "title": "Merkurius"
+      },
+      "swwiki": {
+       "title": "Utaridi"
+      },
+      "szlwiki": {
+       "title": "Merkury"
+      },
+      "tawiki": {
+       "title": "புதன் (கோள்)"
+      },
+      "tawikibooks": {
+       "title": "புதன்"
+      },
+      "tddwiki": {
+       "title": "ᥛᥣᥱ ᥓᥧᥱ ᥘᥤᥱ"
+      },
+      "tewiki": {
+       "title": "బుధుడు"
+      },
+      "tgwiki": {
+       "title": "Уторид"
+      },
+      "thwiki": {
+       "title": "ดาวพุธ"
+      },
+      "tkwiki": {
+       "title": "Merkuriý"
+      },
+      "tlwiki": {
+       "title": "Merkuryo (planeta)"
+      },
+      "tlywiki": {
+       "title": "Merkuri"
+      },
+      "tokwiki": {
+       "title": "mun Mekuliju"
+      },
+      "trwiki": {
+       "title": "Merkür"
+      },
+      "ttwiki": {
+       "title": "Меркурий (планета)"
+      },
+      "tumwiki": {
+       "title": "Mekyuri"
+      },
+      "tyvwiki": {
+       "title": "Меркурий"
+      },
+      "tywiki": {
+       "title": "Tāèro"
+      },
+      "udmwiki": {
+       "title": "Меркурий"
+      },
+      "ugwiki": {
+       "title": "مېركۇرىي"
+      },
+      "ukwiki": {
+       "title": "Меркурій (планета)"
+      },
+      "urwiki": {
+       "title": "عطارد"
+      },
+      "uzwiki": {
+       "title": "Merkuriy"
+      },
+      "vecwiki": {
+       "title": "Mercùrio (astronomia)"
+      },
+      "vepwiki": {
+       "title": "Merkurii"
+      },
+      "viwiki": {
+       "title": "Sao Thủy"
+      },
+      "viwikiquote": {
+       "title": "Sao Thủy"
+      },
+      "vlswiki": {
+       "title": "Mercurius (planete)"
+      },
+      "vowiki": {
+       "title": "Merkuriy"
+      },
+      "warwiki": {
+       "title": "Merkuryo (planeta)"
+      },
+      "wawiki": {
+       "title": "Mierkeure (planete)"
+      },
+      "wowiki": {
+       "title": "Merkuur"
+      },
+      "wuuwiki": {
+       "title": "水星"
+      },
+      "xalwiki": {
+       "title": "Меркурий һариг"
+      },
+      "xhwiki": {
+       "title": "I-Mercury (iplanethi)"
+      },
+      "xmfwiki": {
+       "title": "მერკური (პლანეტა)"
+      },
+      "yiwiki": {
+       "title": "מערקור"
+      },
+      "yowiki": {
+       "title": "Mẹ́rkúríù (pálánẹ́tì)"
+      },
+      "zawiki": {
+       "title": "Ndaundeiqraemx"
+      },
+      "zeawiki": {
+       "title": "Mercurius (planete)"
+      },
+      "zghwiki": {
+       "title": "ⴰⵣⵡⴰⵇ"
+      },
+      "zh_classicalwiki": {
+       "title": "辰星"
+      },
+      "zh_min_nanwiki": {
+       "title": "Chúi-chheⁿ"
+      },
+      "zh_yuewiki": {
+       "title": "水星"
+      },
+      "zhwiki": {
+       "title": "水星"
+      },
+      "zuwiki": {
+       "title": "UNomjubane"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3504248"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3901935"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q165745": {
+     "id": "Q165745",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury Records"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "American record label"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mercury Music Group"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "تسجيلات ميركوري"
+      },
+      "bgwiki": {
+       "title": "Мъркюри Рекърдс"
+      },
+      "cawiki": {
+       "title": "Mercury Records"
+      },
+      "cswiki": {
+       "title": "Mercury Records"
+      },
+      "dawiki": {
+       "title": "Mercury Records"
+      },
+      "dewiki": {
+       "title": "Mercury Records"
+      },
+      "enwiki": {
+       "title": "Mercury Records"
+      },
+      "eowiki": {
+       "title": "Mercury Records"
+      },
+      "eswiki": {
+       "title": "Mercury Records"
+      },
+      "etwiki": {
+       "title": "Mercury Records"
+      },
+      "fawiki": {
+       "title": "مرکوری رکوردز"
+      },
+      "fiwiki": {
+       "title": "Mercury Records"
+      },
+      "frwiki": {
+       "title": "Mercury Records"
+      },
+      "glwiki": {
+       "title": "Mercury Records"
+      },
+      "hewiki": {
+       "title": "מרקורי רקורדס"
+      },
+      "hrwiki": {
+       "title": "Mercury Records"
+      },
+      "idwiki": {
+       "title": "Mercury Records"
+      },
+      "iswiki": {
+       "title": "Mercury Records"
+      },
+      "itwiki": {
+       "title": "Mercury Records"
+      },
+      "jawiki": {
+       "title": "マーキュリー・レコード"
+      },
+      "kawiki": {
+       "title": "Mercury Records"
+      },
+      "kowiki": {
+       "title": "머큐리 레코드"
+      },
+      "ltwiki": {
+       "title": "Mercury Records"
+      },
+      "lvwiki": {
+       "title": "Mercury Records"
+      },
+      "nlwiki": {
+       "title": "Mercury Records"
+      },
+      "nnwiki": {
+       "title": "Mercury Records"
+      },
+      "nowiki": {
+       "title": "Mercury Records"
+      },
+      "plwiki": {
+       "title": "Mercury Records"
+      },
+      "ptwiki": {
+       "title": "Mercury Records"
+      },
+      "rowiki": {
+       "title": "Mercury Records"
+      },
+      "ruwiki": {
+       "title": "Mercury Records"
+      },
+      "scnwiki": {
+       "title": "Mercury Records"
+      },
+      "simplewiki": {
+       "title": "Mercury Records"
+      },
+      "skwiki": {
+       "title": "Mercury Records"
+      },
+      "srwiki": {
+       "title": "Mercury Records"
+      },
+      "svwiki": {
+       "title": "Mercury Records"
+      },
+      "thwiki": {
+       "title": "เมอร์คิวรีเรเคิดส์"
+      },
+      "trwiki": {
+       "title": "Mercury Records"
+      },
+      "ukwiki": {
+       "title": "Mercury Records"
+      },
+      "zhwiki": {
+       "title": "水星唱片"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q18127"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q925": {
+     "id": "Q925",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "chemical element with symbol Hg and atomic number 80"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "element 80"
+       },
+       {
+        "language": "en",
+        "value": "mercury (element)"
+       },
+       {
+        "language": "en",
+        "value": "hydrargyrum"
+       },
+       {
+        "language": "en",
+        "value": "80Hg"
+       },
+       {
+        "language": "en",
+        "value": "quicksilver"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Kwik"
+      },
+      "amwiki": {
+       "title": "ባዜቃ"
+      },
+      "anwiki": {
+       "title": "Mercurio (elemento)"
+      },
+      "arwiki": {
+       "title": "زئبق"
+      },
+      "arywiki": {
+       "title": "زاواق"
+      },
+      "arzwiki": {
+       "title": "زيبق"
+      },
+      "astwiki": {
+       "title": "Mercuriu (elementu)"
+      },
+      "azbwiki": {
+       "title": "جیوه"
+      },
+      "azwiki": {
+       "title": "Civə"
+      },
+      "banwiki": {
+       "title": "Rasa (datu)"
+      },
+      "bawiki": {
+       "title": "Терегөмөш"
+      },
+      "bclwiki": {
+       "title": "Asugi"
+      },
+      "be_x_oldwiki": {
+       "title": "Ртуць"
+      },
+      "bewiki": {
+       "title": "Ртуць"
+      },
+      "bgwiki": {
+       "title": "Живак"
+      },
+      "bhwiki": {
+       "title": "पारा"
+      },
+      "bnwiki": {
+       "title": "পারদ"
+      },
+      "bowiki": {
+       "title": "མེར་ཁུ་རི།"
+      },
+      "brwiki": {
+       "title": "Merkur"
+      },
+      "bswiki": {
+       "title": "Živa"
+      },
+      "cawiki": {
+       "title": "Mercuri (element)"
+      },
+      "cdowiki": {
+       "title": "Cūi-ngṳ̀ng"
+      },
+      "ckbwiki": {
+       "title": "جیوە"
+      },
+      "commonswiki": {
+       "title": "Mercury (element)"
+      },
+      "cowiki": {
+       "title": "Argentuvivu"
+      },
+      "cswiki": {
+       "title": "Rtuť"
+      },
+      "cvwiki": {
+       "title": "Чĕркĕмĕл"
+      },
+      "cywiki": {
+       "title": "Arian byw (elfen)"
+      },
+      "dagwiki": {
+       "title": "Zeeba"
+      },
+      "dawiki": {
+       "title": "Kviksølv"
+      },
+      "dewiki": {
+       "title": "Quecksilber"
+      },
+      "dvwiki": {
+       "title": "ދިރޭރަހަ"
+      },
+      "elwiki": {
+       "title": "Υδράργυρος"
+      },
+      "emlwiki": {
+       "title": "Mercùri"
+      },
+      "enwiki": {
+       "title": "Mercury (element)"
+      },
+      "enwikiquote": {
+       "title": "Mercury (element)"
+      },
+      "eowiki": {
+       "title": "Hidrargo"
+      },
+      "eowikiquote": {
+       "title": "Hidrargo"
+      },
+      "eswiki": {
+       "title": "Mercurio (elemento)"
+      },
+      "etwiki": {
+       "title": "Elavhõbe"
+      },
+      "etwikiquote": {
+       "title": "Elavhõbe"
+      },
+      "euwiki": {
+       "title": "Merkurio (elementua)"
+      },
+      "extwiki": {
+       "title": "Mercuriu (elementu)"
+      },
+      "fawiki": {
+       "title": "جیوه"
+      },
+      "fiwiki": {
+       "title": "Elohopea"
+      },
+      "fowiki": {
+       "title": "Kyksilvur"
+      },
+      "frrwiki": {
+       "title": "Kwaksalwer"
+      },
+      "frwiki": {
+       "title": "Mercure (chimie)"
+      },
+      "furwiki": {
+       "title": "Mercuri (element)"
+      },
+      "gawiki": {
+       "title": "Mearcair (dúil)"
+      },
+      "gdwiki": {
+       "title": "Mearcar (meatailt)"
+      },
+      "glwiki": {
+       "title": "Mercurio (elemento)"
+      },
+      "gnwiki": {
+       "title": "Kuarepotimembe"
+      },
+      "guwiki": {
+       "title": "પારો"
+      },
+      "gvwiki": {
+       "title": "Mercur"
+      },
+      "hakwiki": {
+       "title": "Súi-ngiùn"
+      },
+      "hawwiki": {
+       "title": "Melekulia"
+      },
+      "hewiki": {
+       "title": "כספית"
+      },
+      "hifwiki": {
+       "title": "Mercury (element)"
+      },
+      "hiwiki": {
+       "title": "पारा"
+      },
+      "hrwiki": {
+       "title": "Živa"
+      },
+      "htwiki": {
+       "title": "Mèki (chimi)"
+      },
+      "huwiki": {
+       "title": "Higany"
+      },
+      "hywiki": {
+       "title": "Սնդիկ"
+      },
+      "hywwiki": {
+       "title": "Սնդիկ"
+      },
+      "iawiki": {
+       "title": "Mercurio (elemento)"
+      },
+      "idwiki": {
+       "title": "Raksa"
+      },
+      "idwikibooks": {
+       "title": "Raksa"
+      },
+      "iowiki": {
+       "title": "Merkurio"
+      },
+      "iswiki": {
+       "title": "Kvikasilfur"
+      },
+      "itwiki": {
+       "title": "Mercurio (elemento chimico)"
+      },
+      "itwikiquote": {
+       "title": "Mercurio (elemento chimico)"
+      },
+      "jawiki": {
+       "title": "水銀"
+      },
+      "jawikibooks": {
+       "title": "高校化学 水銀とカドミウム"
+      },
+      "jbowiki": {
+       "title": "margu"
+      },
+      "kawiki": {
+       "title": "ვერცხლისწყალი"
+      },
+      "kbpwiki": {
+       "title": "Mɛrɩkɩrɩ"
+      },
+      "kgewiki": {
+       "title": "Raksa"
+      },
+      "kiwiki": {
+       "title": "Mercury"
+      },
+      "kkwiki": {
+       "title": "Сынап"
+      },
+      "knwiki": {
+       "title": "ಪಾದರಸ"
+      },
+      "koiwiki": {
+       "title": "Ртуть"
+      },
+      "kowiki": {
+       "title": "수은"
+      },
+      "kuwiki": {
+       "title": "Zîbeq"
+      },
+      "kvwiki": {
+       "title": "Тюрк"
+      },
+      "kwwiki": {
+       "title": "Merkuri"
+      },
+      "kywiki": {
+       "title": "Сымап"
+      },
+      "lawiki": {
+       "title": "Hydrargyrum"
+      },
+      "lbewiki": {
+       "title": "Хьюму муси"
+      },
+      "lbwiki": {
+       "title": "Quecksëlwer"
+      },
+      "lijwiki": {
+       "title": "Mercuio (elemento)"
+      },
+      "liwiki": {
+       "title": "Kwik"
+      },
+      "lmowiki": {
+       "title": "Mercurio (element chimich)"
+      },
+      "lowiki": {
+       "title": "ເມີຄູຣີ (ອົງປະກອບ)"
+      },
+      "ltwiki": {
+       "title": "Gyvsidabris"
+      },
+      "lvwiki": {
+       "title": "Dzīvsudrabs"
+      },
+      "mgwiki": {
+       "title": "Volavelona"
+      },
+      "mhrwiki": {
+       "title": "Майдар"
+      },
+      "miwiki": {
+       "title": "Konuoi"
+      },
+      "mkwiki": {
+       "title": "Жива"
+      },
+      "mlwiki": {
+       "title": "രസം (മൂലകം)"
+      },
+      "mniwiki": {
+       "title": "ꯁꯅꯥ ꯍꯤꯗꯥꯛ"
+      },
+      "mnwiki": {
+       "title": "Мөнгөн ус"
+      },
+      "mrjwiki": {
+       "title": "Ртуть"
+      },
+      "mrwiki": {
+       "title": "पारा"
+      },
+      "mswiki": {
+       "title": "Raksa"
+      },
+      "myvwiki": {
+       "title": "Эрексия"
+      },
+      "mywiki": {
+       "title": "ပြဒါး"
+      },
+      "mznwiki": {
+       "title": "جیوه"
+      },
+      "nahwiki": {
+       "title": "Yoliamochitl"
+      },
+      "ndswiki": {
+       "title": "Quecksülver"
+      },
+      "newiki": {
+       "title": "पारो"
+      },
+      "newwiki": {
+       "title": "पारो"
+      },
+      "nlwiki": {
+       "title": "Kwik"
+      },
+      "nnwiki": {
+       "title": "Kvikksølv"
+      },
+      "novwiki": {
+       "title": "Merkurie (kemial elemente)"
+      },
+      "nowiki": {
+       "title": "Kvikksølv"
+      },
+      "nvwiki": {
+       "title": "Béésh tózháanii"
+      },
+      "ocwiki": {
+       "title": "Mercuri (element)"
+      },
+      "olowiki": {
+       "title": "Artugu"
+      },
+      "omwiki": {
+       "title": "Bisha meetaa"
+      },
+      "orwiki": {
+       "title": "ପାରଦ"
+      },
+      "oswiki": {
+       "title": "Джынасу"
+      },
+      "pamwiki": {
+       "title": "Asugi"
+      },
+      "papwiki": {
+       "title": "Kuik"
+      },
+      "pawiki": {
+       "title": "ਪਾਰਾ"
+      },
+      "plwiki": {
+       "title": "Rtęć"
+      },
+      "plwikiquote": {
+       "title": "Rtęć"
+      },
+      "pmswiki": {
+       "title": "Mercuri (element)"
+      },
+      "pnbwiki": {
+       "title": "پارہ"
+      },
+      "pswiki": {
+       "title": "پاره"
+      },
+      "ptwiki": {
+       "title": "Mercúrio (elemento químico)"
+      },
+      "quwiki": {
+       "title": "Yaku qullqi"
+      },
+      "roa_rupwiki": {
+       "title": "Ghearyiru"
+      },
+      "rowiki": {
+       "title": "Mercur (element)"
+      },
+      "ruwiki": {
+       "title": "Ртуть"
+      },
+      "ruwikinews": {
+       "title": "Категория:Ртуть"
+      },
+      "sawiki": {
+       "title": "पारदः"
+      },
+      "scnwiki": {
+       "title": "Mercuriu (elementu chìmicu)"
+      },
+      "scowiki": {
+       "title": "Mercur (element)"
+      },
+      "scwiki": {
+       "title": "Mercùriu (elementu chìmicu)"
+      },
+      "sdwiki": {
+       "title": "مرڪري (پارو)"
+      },
+      "sewiki": {
+       "title": "Eallisilba"
+      },
+      "shwiki": {
+       "title": "Živa"
+      },
+      "simplewiki": {
+       "title": "Mercury (element)"
+      },
+      "siwiki": {
+       "title": "රසදිය"
+      },
+      "skwiki": {
+       "title": "Ortuť"
+      },
+      "slwiki": {
+       "title": "Živo srebro"
+      },
+      "smnwiki": {
+       "title": "Elleesilbâ"
+      },
+      "sowiki": {
+       "title": "Meerkuri"
+      },
+      "sqwiki": {
+       "title": "Zhiva"
+      },
+      "srwiki": {
+       "title": "Жива"
+      },
+      "stqwiki": {
+       "title": "Kwäksäälwer"
+      },
+      "suwiki": {
+       "title": "Cai raksa"
+      },
+      "svwiki": {
+       "title": "Kvicksilver"
+      },
+      "swwiki": {
+       "title": "Zebaki"
+      },
+      "szlwiki": {
+       "title": "Żywe strzybło"
+      },
+      "tawiki": {
+       "title": "பாதரசம்"
+      },
+      "tewiki": {
+       "title": "పాదరసము"
+      },
+      "tgwiki": {
+       "title": "Симоб"
+      },
+      "thwiki": {
+       "title": "ปรอท"
+      },
+      "tlwiki": {
+       "title": "Asoge"
+      },
+      "tokwiki": {
+       "title": "kiwen Mani telo"
+      },
+      "trwiki": {
+       "title": "Cıva"
+      },
+      "ttwiki": {
+       "title": "Терекөмеш"
+      },
+      "ugwiki": {
+       "title": "مېركۇرىي(element)"
+      },
+      "ukwiki": {
+       "title": "Ртуть"
+      },
+      "urwiki": {
+       "title": "پارہ"
+      },
+      "uzwiki": {
+       "title": "Simob"
+      },
+      "vepwiki": {
+       "title": "Artut'"
+      },
+      "viwiki": {
+       "title": "Thủy ngân"
+      },
+      "vowiki": {
+       "title": "Hidrargin"
+      },
+      "warwiki": {
+       "title": "Asoge"
+      },
+      "wawiki": {
+       "title": "Mierkeure (elemint)"
+      },
+      "wuuwiki": {
+       "title": "汞"
+      },
+      "xalwiki": {
+       "title": "Мөңгүсан"
+      },
+      "xhwiki": {
+       "title": "I-Mercury"
+      },
+      "yiwiki": {
+       "title": "קוועקזילבער"
+      },
+      "yowiki": {
+       "title": "Fàdákàolómi"
+      },
+      "zawiki": {
+       "title": "Raemxngaenz"
+      },
+      "zh_classicalwiki": {
+       "title": "汞"
+      },
+      "zh_min_nanwiki": {
+       "title": "Chúi-gîn"
+      },
+      "zh_yuewiki": {
+       "title": "水銀"
+      },
+      "zhwiki": {
+       "title": "汞"
+      },
+      "zuwiki": {
+       "title": "Isigidi (inhlwa)"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11344"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q106192073"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q1929547"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q60009810": {
+     "id": "Q60009810",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "male given name"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q12308941"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q1150": {
+     "id": "Q1150",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Roman god of trade, merchants, thieves and travel"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mercurius"
+       },
+       {
+        "language": "en",
+        "value": "Mercury (mythology)"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Mercurius (mitologie)"
+      },
+      "alswiki": {
+       "title": "Mercurius"
+      },
+      "anwiki": {
+       "title": "Mercurio (mitolochía)"
+      },
+      "arwiki": {
+       "title": "ميركوري (أسطورة)"
+      },
+      "arzwiki": {
+       "title": "ميركيورى(ميثولوجيا)"
+      },
+      "azwiki": {
+       "title": "Merkuri (mifologiya)"
+      },
+      "banwiki": {
+       "title": "Mérkurius (mitologi)"
+      },
+      "bewiki": {
+       "title": "Меркурый (міфалогія)"
+      },
+      "bewikiquote": {
+       "title": "Меркурый"
+      },
+      "bgwiki": {
+       "title": "Меркурий (митология)"
+      },
+      "bnwiki": {
+       "title": "মের্কুরিউস"
+      },
+      "brwiki": {
+       "title": "Merc'her (doue)"
+      },
+      "bswiki": {
+       "title": "Merkur (mitologija)"
+      },
+      "cawiki": {
+       "title": "Mercuri (mitologia)"
+      },
+      "ckbwiki": {
+       "title": "مێرکوری (میتۆلۆژیا)"
+      },
+      "cowiki": {
+       "title": "Mercuriu (mitolugia)"
+      },
+      "cswiki": {
+       "title": "Merkur (mytologie)"
+      },
+      "cywiki": {
+       "title": "Mercher (mytholeg)"
+      },
+      "dawiki": {
+       "title": "Merkur (gud)"
+      },
+      "dewiki": {
+       "title": "Mercurius"
+      },
+      "elwiki": {
+       "title": "Μερκούριους"
+      },
+      "enwiki": {
+       "title": "Mercury (mythology)"
+      },
+      "enwikiquote": {
+       "title": "Mercury (mythology)"
+      },
+      "eowiki": {
+       "title": "Merkuro (dio)"
+      },
+      "eswiki": {
+       "title": "Mercurio (mitología)"
+      },
+      "etwiki": {
+       "title": "Mercurius"
+      },
+      "euwiki": {
+       "title": "Merkurio (mitologia)"
+      },
+      "fawiki": {
+       "title": "مرکوری (اسطوره)"
+      },
+      "fiwiki": {
+       "title": "Mercurius"
+      },
+      "frwiki": {
+       "title": "Mercure (mythologie)"
+      },
+      "gawiki": {
+       "title": "Mearcair (miotaseolaíocht)"
+      },
+      "glwiki": {
+       "title": "Mercurio (deus)"
+      },
+      "hewiki": {
+       "title": "מרקוריוס"
+      },
+      "hiwiki": {
+       "title": "मरक्युरी"
+      },
+      "hrwiki": {
+       "title": "Merkur (mitologija)"
+      },
+      "huwiki": {
+       "title": "Mercurius"
+      },
+      "iawiki": {
+       "title": "Mercurio (deo)"
+      },
+      "idwiki": {
+       "title": "Merkurius (mitologi)"
+      },
+      "iswiki": {
+       "title": "Merkúr (guð)"
+      },
+      "itwiki": {
+       "title": "Mercurio (divinità)"
+      },
+      "itwikiquote": {
+       "title": "Mercurio (divinità)"
+      },
+      "jawiki": {
+       "title": "メルクリウス"
+      },
+      "kawiki": {
+       "title": "მერკური (ღმერთი)"
+      },
+      "kowiki": {
+       "title": "메르쿠리우스"
+      },
+      "kuwiki": {
+       "title": "Merkûr (mîtolojî)"
+      },
+      "kwwiki": {
+       "title": "Merher (duw)"
+      },
+      "lawiki": {
+       "title": "Mercurius (deus)"
+      },
+      "lbwiki": {
+       "title": "Merkur (Mythologie)"
+      },
+      "lijwiki": {
+       "title": "Mercuio (divinitæ)"
+      },
+      "lmowiki": {
+       "title": "Mercuri (dia)"
+      },
+      "ltwiki": {
+       "title": "Merkurijus (mitologija)"
+      },
+      "lvwiki": {
+       "title": "Merkurs (mitoloģija)"
+      },
+      "mgwiki": {
+       "title": "Merkiora (andriamanitra)"
+      },
+      "mkwiki": {
+       "title": "Меркур (бог)"
+      },
+      "mniwiki": {
+       "title": "ꯃꯦꯔꯀ꯭ꯌꯨꯔꯤ (ꯈꯣꯌꯨꯝ)"
+      },
+      "mrwiki": {
+       "title": "मर्क्युरी"
+      },
+      "mswiki": {
+       "title": "Mercurius"
+      },
+      "mtwiki": {
+       "title": "Merkurju (mitoloġija)"
+      },
+      "nlwiki": {
+       "title": "Mercurius (mythologie)"
+      },
+      "nnwiki": {
+       "title": "Guden Merkur"
+      },
+      "nowiki": {
+       "title": "Merkur (gud)"
+      },
+      "ocwiki": {
+       "title": "Mercuri (mitologia)"
+      },
+      "pawiki": {
+       "title": "ਮਰਕਰੀ"
+      },
+      "plwiki": {
+       "title": "Merkury (mitologia)"
+      },
+      "pmswiki": {
+       "title": "Mercuri (mitologìa)"
+      },
+      "ptwiki": {
+       "title": "Mercúrio (mitologia)"
+      },
+      "rowiki": {
+       "title": "Mercur (zeu)"
+      },
+      "ruwiki": {
+       "title": "Меркурий (мифология)"
+      },
+      "shwiki": {
+       "title": "Merkur (mitologija)"
+      },
+      "simplewiki": {
+       "title": "Mercury (mythology)"
+      },
+      "skwiki": {
+       "title": "Merkúr (boh)"
+      },
+      "slwiki": {
+       "title": "Merkur (mitologija)"
+      },
+      "srwiki": {
+       "title": "Меркур (бог)"
+      },
+      "svwiki": {
+       "title": "Mercurius"
+      },
+      "swwiki": {
+       "title": "Mercurius"
+      },
+      "tawiki": {
+       "title": "மெர்க்குரி (தொன்மவியல்)"
+      },
+      "thwiki": {
+       "title": "เมอร์คิวรี (เทพปกรณัม)"
+      },
+      "tlwiki": {
+       "title": "Merkuryo (mitolohiya)"
+      },
+      "trwiki": {
+       "title": "Merkür (mitoloji)"
+      },
+      "ukwiki": {
+       "title": "Меркурій (міфологія)"
+      },
+      "uzwiki": {
+       "title": "Merkuriy (xudo)"
+      },
+      "viwiki": {
+       "title": "Mercury"
+      },
+      "vlswiki": {
+       "title": "Mercurius (mythologie)"
+      },
+      "warwiki": {
+       "title": "Mercury (mitolohiya)"
+      },
+      "wuuwiki": {
+       "title": "墨丘利"
+      },
+      "zh_yuewiki": {
+       "title": "墨丘利"
+      },
+      "zhwiki": {
+       "title": "墨丘利"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q11688446"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q106748215"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q107119712": {
+     "id": "Q107119712",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {},
+     "aliases": {},
+     "sitelinks": {},
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q1274643": {
+     "id": "Q1274643",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Phoenix Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "American professional women's basketball team"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mercury"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "فينيكس ميركوري"
+      },
+      "cawiki": {
+       "title": "Phoenix Mercury"
+      },
+      "dewiki": {
+       "title": "Phoenix Mercury"
+      },
+      "enwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "eswiki": {
+       "title": "Phoenix Mercury"
+      },
+      "fawiki": {
+       "title": "فینکس مرکوری"
+      },
+      "fiwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "frwiki": {
+       "title": "Mercury de Phoenix"
+      },
+      "glwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "hewiki": {
+       "title": "פיניקס מרקורי"
+      },
+      "iowiki": {
+       "title": "Phoenix Mercury"
+      },
+      "iswiki": {
+       "title": "Phoenix Mercury"
+      },
+      "itwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "jawiki": {
+       "title": "フェニックス・マーキュリー"
+      },
+      "kowiki": {
+       "title": "피닉스 머큐리"
+      },
+      "lvwiki": {
+       "title": "Fīniksas \"Mercury\""
+      },
+      "nlwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "plwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "ptwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "ruwiki": {
+       "title": "Финикс Меркури"
+      },
+      "simplewiki": {
+       "title": "Phoenix Mercury"
+      },
+      "srwiki": {
+       "title": "Финикс Меркјури"
+      },
+      "svwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "trwiki": {
+       "title": "Phoenix Mercury"
+      },
+      "zhwiki": {
+       "title": "鳳凰城水星"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q13393265"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q87526778": {
+     "id": "Q87526778",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury symbol"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "planetary, alchemical and gender symbol"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "intersex symbol"
+       },
+       {
+        "language": "en",
+        "value": "transgender symbol"
+       },
+       {
+        "language": "en",
+        "value": "non-binary symbol"
+       },
+       {
+        "language": "en",
+        "value": "mercury symbol"
+       },
+       {
+        "language": "en",
+        "value": "hydrargyrum symbol"
+       },
+       {
+        "language": "en",
+        "value": "quicksilver symbol"
+       }
+      ]
+     },
+     "sitelinks": {
+      "arwiki": {
+       "title": "☿"
+      },
+      "commonswiki": {
+       "title": "Category:☿"
+      },
+      "enwiki": {
+       "title": "☿"
+      },
+      "eswiki": {
+       "title": "☿"
+      },
+      "ptwiki": {
+       "title": "☿"
+      },
+      "trwiki": {
+       "title": "☿"
+      },
+      "zhwiki": {
+       "title": "☿"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q7884742"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q48397": {
+     "id": "Q48397",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Wikimedia disambiguation page"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mergher"
+       },
+       {
+        "language": "en",
+        "value": "Merkurijus"
+       }
+      ]
+     },
+     "sitelinks": {
+      "anpwiki": {
+       "title": "पारा"
+      },
+      "arwiki": {
+       "title": "عطارد (توضيح)"
+      },
+      "bnwiki": {
+       "title": "বুধ (দ্ব্যর্থতা নিরসন)"
+      },
+      "cawiki": {
+       "title": "Mercury (desambiguació)"
+      },
+      "cebwiki": {
+       "title": "Mercury"
+      },
+      "cswiki": {
+       "title": "Mercury"
+      },
+      "dewiki": {
+       "title": "Mercury"
+      },
+      "enwiki": {
+       "title": "Mercury"
+      },
+      "enwikiquote": {
+       "title": "Mercury"
+      },
+      "eswiki": {
+       "title": "Mercury"
+      },
+      "etwiki": {
+       "title": "Mercury"
+      },
+      "fawiki": {
+       "title": "مرکوری"
+      },
+      "fiwiki": {
+       "title": "Mercury"
+      },
+      "frwiki": {
+       "title": "Mercury"
+      },
+      "hewiki": {
+       "title": "מרקורי"
+      },
+      "itwiki": {
+       "title": "Mercury"
+      },
+      "jawiki": {
+       "title": "マーキュリー"
+      },
+      "kawiki": {
+       "title": "Mercury"
+      },
+      "kowiki": {
+       "title": "머큐리"
+      },
+      "kwwiki": {
+       "title": "Mergher"
+      },
+      "ltwiki": {
+       "title": "Merkurijus"
+      },
+      "lvwiki": {
+       "title": "Mercury"
+      },
+      "mniwiki": {
+       "title": "ꯌꯨꯝꯁꯀꯩꯁ ꯊꯄꯤ"
+      },
+      "mywiki": {
+       "title": "မာကျူရီ"
+      },
+      "nlwiki": {
+       "title": "Mercury"
+      },
+      "nowiki": {
+       "title": "Mercury"
+      },
+      "plwiki": {
+       "title": "Mercury"
+      },
+      "ptwiki": {
+       "title": "Mercury"
+      },
+      "rowiki": {
+       "title": "Mercury"
+      },
+      "ruwiki": {
+       "title": "Mercury"
+      },
+      "scowiki": {
+       "title": "Mercury"
+      },
+      "simplewiki": {
+       "title": "Mercury"
+      },
+      "skwiki": {
+       "title": "Mercury"
+      },
+      "slwiki": {
+       "title": "Mercury"
+      },
+      "svwiki": {
+       "title": "Mercury"
+      },
+      "thwiki": {
+       "title": "เมอร์คิวรี"
+      },
+      "trwiki": {
+       "title": "Mercury"
+      },
+      "ukwiki": {
+       "title": "Mercury (значення)"
+      },
+      "viwiki": {
+       "title": "Mercury (định hướng)"
+      },
+      "zh_yuewiki": {
+       "title": "Mercury"
+      },
+      "zhwiki": {
+       "title": "Mercury"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q4167410"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q15869": {
+     "id": "Q15869",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Freddie Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "British singer, songwriter and musician, frontman of the rock band Queen (1946–1991)"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Larry Lurex"
+       }
+      ]
+     },
+     "sitelinks": {
+      "abwiki": {
+       "title": "Меркиури, Фредди"
+      },
+      "acewiki": {
+       "title": "Freddie Mercury"
+      },
+      "afwiki": {
+       "title": "Freddie Mercury"
+      },
+      "alswiki": {
+       "title": "Freddie Mercury"
+      },
+      "amwiki": {
+       "title": "ፍሬዲ መርኩሪ"
+      },
+      "angwiki": {
+       "title": "Freddie Mercury"
+      },
+      "anwiki": {
+       "title": "Freddie Mercury"
+      },
+      "arwiki": {
+       "title": "فريدي ميركوري"
+      },
+      "arzwiki": {
+       "title": "فريدى ميركورى"
+      },
+      "astwiki": {
+       "title": "Freddie Mercury"
+      },
+      "aywiki": {
+       "title": "Freddie Mercury"
+      },
+      "azbwiki": {
+       "title": "فردی مرکوری"
+      },
+      "azwiki": {
+       "title": "Freddi Merkyuri"
+      },
+      "azwikiquote": {
+       "title": "Freddi Merkyuri"
+      },
+      "bat_smgwiki": {
+       "title": "Fredis Merkoris"
+      },
+      "bawiki": {
+       "title": "Фредди Меркьюри"
+      },
+      "bclwiki": {
+       "title": "Freddie Mercury"
+      },
+      "be_x_oldwiki": {
+       "title": "Фрэдзі Мэрк’юры"
+      },
+      "bewiki": {
+       "title": "Фрэдзі Меркуры"
+      },
+      "bgwiki": {
+       "title": "Фреди Меркюри"
+      },
+      "bgwikiquote": {
+       "title": "Фреди Меркюри"
+      },
+      "bnwiki": {
+       "title": "ফ্রেডি মার্কারি"
+      },
+      "brwiki": {
+       "title": "Freddie Mercury"
+      },
+      "bswiki": {
+       "title": "Freddie Mercury"
+      },
+      "cawiki": {
+       "title": "Freddie Mercury"
+      },
+      "cawikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "cebwiki": {
+       "title": "Freddie Mercury"
+      },
+      "chwiki": {
+       "title": "Freddie Mercury"
+      },
+      "chywiki": {
+       "title": "Freddie Mercury"
+      },
+      "ckbwiki": {
+       "title": "فرێدی مێرکوری"
+      },
+      "commonswiki": {
+       "title": "Freddie Mercury"
+      },
+      "cowiki": {
+       "title": "Freddie Mercury"
+      },
+      "cswiki": {
+       "title": "Freddie Mercury"
+      },
+      "cswikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "cywiki": {
+       "title": "Freddie Mercury"
+      },
+      "dawiki": {
+       "title": "Freddie Mercury"
+      },
+      "dewiki": {
+       "title": "Freddie Mercury"
+      },
+      "dewikinews": {
+       "title": "Kategorie:Freddie Mercury"
+      },
+      "dewikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "dsbwiki": {
+       "title": "Freddie Mercury"
+      },
+      "elwiki": {
+       "title": "Φρέντι Μέρκιουρι"
+      },
+      "emlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "enwiki": {
+       "title": "Freddie Mercury"
+      },
+      "enwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "eowiki": {
+       "title": "Freddie Mercury"
+      },
+      "eswiki": {
+       "title": "Freddie Mercury"
+      },
+      "eswikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "etwiki": {
+       "title": "Freddie Mercury"
+      },
+      "euwiki": {
+       "title": "Freddie Mercury"
+      },
+      "fawiki": {
+       "title": "فردی مرکوری"
+      },
+      "fiwiki": {
+       "title": "Freddie Mercury"
+      },
+      "fowiki": {
+       "title": "Freddie Mercury"
+      },
+      "frpwiki": {
+       "title": "Freddie Mercury"
+      },
+      "frwiki": {
+       "title": "Freddie Mercury"
+      },
+      "frwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "fywiki": {
+       "title": "Freddie Mercury"
+      },
+      "gawiki": {
+       "title": "Freddie Mercury"
+      },
+      "gdwiki": {
+       "title": "Freddie Mercury"
+      },
+      "glwiki": {
+       "title": "Freddie Mercury"
+      },
+      "gnwiki": {
+       "title": "Freddie Mercury"
+      },
+      "guwiki": {
+       "title": "ફ્રેડી મર્ક્યુરી"
+      },
+      "gvwiki": {
+       "title": "Freddie Mercury"
+      },
+      "hawiki": {
+       "title": "Freddie Mercury"
+      },
+      "hewiki": {
+       "title": "פרדי מרקיורי"
+      },
+      "hewikiquote": {
+       "title": "פרדי מרקיורי"
+      },
+      "hiwiki": {
+       "title": "फ़्रेडडी मर्करी"
+      },
+      "hrwiki": {
+       "title": "Freddie Mercury"
+      },
+      "hsbwiki": {
+       "title": "Freddie Mercury"
+      },
+      "htwiki": {
+       "title": "Freddie Mercury"
+      },
+      "huwiki": {
+       "title": "Freddie Mercury"
+      },
+      "huwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "hywiki": {
+       "title": "Ֆրեդի Մերկուրի"
+      },
+      "hywikiquote": {
+       "title": "Ֆրեդի Մերկուրի"
+      },
+      "hywwiki": {
+       "title": "Ֆրետի Մըրքըրի"
+      },
+      "idwiki": {
+       "title": "Freddie Mercury"
+      },
+      "iowiki": {
+       "title": "Freddie Mercury"
+      },
+      "iswiki": {
+       "title": "Freddie Mercury"
+      },
+      "itwiki": {
+       "title": "Freddie Mercury"
+      },
+      "itwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "jawiki": {
+       "title": "フレディ・マーキュリー"
+      },
+      "jvwiki": {
+       "title": "Freddie Mercury"
+      },
+      "kaawiki": {
+       "title": "Freddie Mercury"
+      },
+      "kawiki": {
+       "title": "ფრედი მერკური"
+      },
+      "kkwiki": {
+       "title": "Фредди Меркьюри"
+      },
+      "kowiki": {
+       "title": "프레디 머큐리"
+      },
+      "kuwiki": {
+       "title": "Freddie Mercury"
+      },
+      "lawiki": {
+       "title": "Fridericus Mercury"
+      },
+      "lbwiki": {
+       "title": "Freddie Mercury"
+      },
+      "lijwiki": {
+       "title": "Freddie Mercury"
+      },
+      "lmowiki": {
+       "title": "Freddie Mercury"
+      },
+      "lnwiki": {
+       "title": "Freddie Mercury"
+      },
+      "lowiki": {
+       "title": "ເຟຣດດີ ເມີຣ໌ຄູຣີ"
+      },
+      "ltwiki": {
+       "title": "Freddie Mercury"
+      },
+      "ltwikiquote": {
+       "title": "Fredis Merkuris"
+      },
+      "lvwiki": {
+       "title": "Fredijs Merkūrijs"
+      },
+      "mgwiki": {
+       "title": "Freddie Mercury"
+      },
+      "mkwiki": {
+       "title": "Фреди Меркјури"
+      },
+      "mlwiki": {
+       "title": "ഫ്രെഡ്ഡി മെർക്കുറി"
+      },
+      "mnwiki": {
+       "title": "Фрэдди Мэркүри"
+      },
+      "mrwiki": {
+       "title": "फ्रेडी मर्क्युरी"
+      },
+      "mswiki": {
+       "title": "Freddie Mercury"
+      },
+      "mwlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "mywiki": {
+       "title": "ဖရက်ဒီ မာကျူရီ"
+      },
+      "nahwiki": {
+       "title": "Freddie Mercury"
+      },
+      "nds_nlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "ndswiki": {
+       "title": "Freddie Mercury"
+      },
+      "newiki": {
+       "title": "फ्रेडी मर्क्युरी"
+      },
+      "nlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "nlwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "nnwiki": {
+       "title": "Freddie Mercury"
+      },
+      "nowiki": {
+       "title": "Freddie Mercury"
+      },
+      "nowikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "ocwiki": {
+       "title": "Freddie Mercury"
+      },
+      "pagwiki": {
+       "title": "Freddie Mercury"
+      },
+      "pamwiki": {
+       "title": "Freddie Mercury"
+      },
+      "papwiki": {
+       "title": "Freddie Mercury"
+      },
+      "pawiki": {
+       "title": "ਫਰੈਡੀ ਮਰਕਰੀ"
+      },
+      "plwiki": {
+       "title": "Freddie Mercury"
+      },
+      "plwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "pmswiki": {
+       "title": "Freddie Mercury"
+      },
+      "ptwiki": {
+       "title": "Freddie Mercury"
+      },
+      "ptwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "quwiki": {
+       "title": "Freddie Mercury"
+      },
+      "roa_rupwiki": {
+       "title": "Freddie Mercury"
+      },
+      "rowiki": {
+       "title": "Freddie Mercury"
+      },
+      "ruwiki": {
+       "title": "Фредди Меркьюри"
+      },
+      "ruwikinews": {
+       "title": "Категория:Фредди Меркьюри"
+      },
+      "ruwikiquote": {
+       "title": "Фредди Меркьюри"
+      },
+      "sahwiki": {
+       "title": "Фредди Меркүри"
+      },
+      "scnwiki": {
+       "title": "Freddie Mercury"
+      },
+      "scowiki": {
+       "title": "Freddie Mercury"
+      },
+      "scwiki": {
+       "title": "Freddie Mercury"
+      },
+      "sewiki": {
+       "title": "Freddie Mercury"
+      },
+      "shwiki": {
+       "title": "Freddie Mercury"
+      },
+      "simplewiki": {
+       "title": "Freddie Mercury"
+      },
+      "skwiki": {
+       "title": "Freddie Mercury"
+      },
+      "slwiki": {
+       "title": "Freddie Mercury"
+      },
+      "slwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "smnwiki": {
+       "title": "Freddie Mercury"
+      },
+      "sqwiki": {
+       "title": "Freddie Mercury"
+      },
+      "srwiki": {
+       "title": "Фреди Меркјури"
+      },
+      "srwikinews": {
+       "title": "Категорија:Фреди Меркјури"
+      },
+      "srwikiquote": {
+       "title": "Фреди Меркјури"
+      },
+      "suwiki": {
+       "title": "Freddie Mercury"
+      },
+      "svwiki": {
+       "title": "Freddie Mercury"
+      },
+      "swwiki": {
+       "title": "Freddie Mercury"
+      },
+      "szlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "tewiki": {
+       "title": "ఫ్రెడ్డీ మెర్క్యూరీ"
+      },
+      "tgwiki": {
+       "title": "Фредди Меркури"
+      },
+      "thwiki": {
+       "title": "เฟรดดี เมอร์คิวรี"
+      },
+      "tlwiki": {
+       "title": "Freddie Mercury"
+      },
+      "tlywiki": {
+       "title": "Freddi Merkuri"
+      },
+      "tokwiki": {
+       "title": "jan Pesi Mekuwi"
+      },
+      "tpiwiki": {
+       "title": "Freddie Mercury"
+      },
+      "trwiki": {
+       "title": "Freddie Mercury"
+      },
+      "trwikiquote": {
+       "title": "Freddie Mercury"
+      },
+      "ttwiki": {
+       "title": "Фредди Меркьюри"
+      },
+      "tyvwiki": {
+       "title": "Фредди Меркьюри"
+      },
+      "ukwiki": {
+       "title": "Фредді Мерк'юрі"
+      },
+      "ukwikiquote": {
+       "title": "Фредді Мерк'юрі"
+      },
+      "urwiki": {
+       "title": "فریڈی مرکری"
+      },
+      "uzwiki": {
+       "title": "Freddie Mercury"
+      },
+      "vecwiki": {
+       "title": "Freddie Mercury"
+      },
+      "viwiki": {
+       "title": "Freddie Mercury"
+      },
+      "vlswiki": {
+       "title": "Freddie Mercury"
+      },
+      "vowiki": {
+       "title": "Freddie Mercury"
+      },
+      "warwiki": {
+       "title": "Freddie Mercury"
+      },
+      "wawiki": {
+       "title": "Freddie Mercury"
+      },
+      "wuuwiki": {
+       "title": "弗雷迪·默丘里"
+      },
+      "xmfwiki": {
+       "title": "ფრედი მერკური"
+      },
+      "yiwiki": {
+       "title": "פרעדי מערקורי"
+      },
+      "yowiki": {
+       "title": "Freddie Mercury"
+      },
+      "zh_min_nanwiki": {
+       "title": "Freddie Mercury"
+      },
+      "zh_yuewiki": {
+       "title": "費迪墨格利"
+      },
+      "zhwiki": {
+       "title": "弗雷迪·默丘里"
+      },
+      "zuwiki": {
+       "title": "Freddie Mercury"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q5"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q501876": {
+     "id": "Q501876",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury Prize"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "Annual music prize in the United Kingdom"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "afwiki": {
+       "title": "Mercury-prys"
+      },
+      "arwiki": {
+       "title": "جائزة ميركوري"
+      },
+      "arzwiki": {
+       "title": "جايزة ميركورى"
+      },
+      "be_x_oldwiki": {
+       "title": "Mercury Prize"
+      },
+      "bewiki": {
+       "title": "Mercury Prize"
+      },
+      "cawiki": {
+       "title": "Premi Mercury"
+      },
+      "cswiki": {
+       "title": "Mercury Prize"
+      },
+      "cywiki": {
+       "title": "Gwobr Mercury"
+      },
+      "dewiki": {
+       "title": "Mercury Prize"
+      },
+      "enwiki": {
+       "title": "Mercury Prize"
+      },
+      "eswiki": {
+       "title": "Premio Mercury"
+      },
+      "fawiki": {
+       "title": "جایزه مرکوری"
+      },
+      "fiwiki": {
+       "title": "Mercury Prize"
+      },
+      "frwiki": {
+       "title": "Mercury Prize"
+      },
+      "glwiki": {
+       "title": "Mercury Prize"
+      },
+      "hewiki": {
+       "title": "פרס מרקיורי"
+      },
+      "idwiki": {
+       "title": "Mercury Prize"
+      },
+      "iswiki": {
+       "title": "Mercury-verðlaunin"
+      },
+      "itwiki": {
+       "title": "Premio Mercury"
+      },
+      "jawiki": {
+       "title": "マーキュリー賞"
+      },
+      "kowiki": {
+       "title": "머큐리상"
+      },
+      "nlwiki": {
+       "title": "Mercury Prize"
+      },
+      "nowiki": {
+       "title": "Mercury Prize"
+      },
+      "plwiki": {
+       "title": "Mercury Prize"
+      },
+      "ptwiki": {
+       "title": "Mercury Prize"
+      },
+      "rowiki": {
+       "title": "Mercury Prize"
+      },
+      "ruwiki": {
+       "title": "Mercury Prize"
+      },
+      "shwiki": {
+       "title": "Mercury Prize"
+      },
+      "simplewiki": {
+       "title": "Mercury Prize"
+      },
+      "srwiki": {
+       "title": "Награда Меркјури"
+      },
+      "svwiki": {
+       "title": "Mercury Prize"
+      },
+      "thwiki": {
+       "title": "รางวัลเมอร์คิวรี"
+      },
+      "tlwiki": {
+       "title": "Mercury Prize"
+      },
+      "trwiki": {
+       "title": "Merkür Ödülü"
+      },
+      "ukwiki": {
+       "title": "Mercury Prize"
+      },
+      "viwiki": {
+       "title": "Giải Mercury"
+      },
+      "zhwiki": {
+       "title": "水星音樂獎"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q618779"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q52162": {
+     "id": "Q52162",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Project Mercury"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "first human spaceflight program of the United States"
+      }
+     },
+     "aliases": {
+      "en": [
+       {
+        "language": "en",
+        "value": "Mercury program"
+       }
+      ]
+     },
+     "sitelinks": {
+      "afwiki": {
+       "title": "Mercury-program"
+      },
+      "anwiki": {
+       "title": "Programa Mercury"
+      },
+      "arwiki": {
+       "title": "مشروع ميركوري"
+      },
+      "astwiki": {
+       "title": "Proyeutu Mercury"
+      },
+      "azwiki": {
+       "title": "Merkuri layihəsi"
+      },
+      "bgwiki": {
+       "title": "Мъркюри (програма)"
+      },
+      "bswiki": {
+       "title": "Program \"Mercury\""
+      },
+      "cawiki": {
+       "title": "Programa Mercury"
+      },
+      "ckbwiki": {
+       "title": "پرۆژەی مێرکری"
+      },
+      "commonswiki": {
+       "title": "Project Mercury"
+      },
+      "cswiki": {
+       "title": "Program Mercury"
+      },
+      "dawiki": {
+       "title": "Mercury-programmet"
+      },
+      "dewiki": {
+       "title": "Mercury-Programm"
+      },
+      "elwiki": {
+       "title": "Πρόγραμμα Μέρκιουρι"
+      },
+      "enwiki": {
+       "title": "Project Mercury"
+      },
+      "eswiki": {
+       "title": "Programa Mercury"
+      },
+      "etwiki": {
+       "title": "Mercury programm"
+      },
+      "euwiki": {
+       "title": "Mercury programa"
+      },
+      "fawiki": {
+       "title": "برنامه فضایی مرکوری"
+      },
+      "fiwiki": {
+       "title": "Mercury (avaruusohjelma)"
+      },
+      "frwiki": {
+       "title": "Programme Mercury"
+      },
+      "gawiki": {
+       "title": "Mercury"
+      },
+      "glwiki": {
+       "title": "Proxecto Mercury"
+      },
+      "hewiki": {
+       "title": "תוכנית מרקורי"
+      },
+      "hrwiki": {
+       "title": "Program Mercury"
+      },
+      "huwiki": {
+       "title": "Mercury-program"
+      },
+      "hywiki": {
+       "title": "Մերկուրի (ծրագիր)"
+      },
+      "idwiki": {
+       "title": "Proyek Mercury"
+      },
+      "iswiki": {
+       "title": "Mercury-geimferðaáætlunin"
+      },
+      "itwiki": {
+       "title": "Programma Mercury"
+      },
+      "jawiki": {
+       "title": "マーキュリー計画"
+      },
+      "kowiki": {
+       "title": "머큐리 계획"
+      },
+      "lawiki": {
+       "title": "Inceptum Mercurius"
+      },
+      "lbwiki": {
+       "title": "Mercury-Programm"
+      },
+      "ltwiki": {
+       "title": "Mercury"
+      },
+      "lvwiki": {
+       "title": "Mercury (kosmiskais projekts)"
+      },
+      "mswiki": {
+       "title": "Projek Mercury"
+      },
+      "nlwiki": {
+       "title": "Mercuryprogramma"
+      },
+      "nnwiki": {
+       "title": "Mercury-programmet"
+      },
+      "nowiki": {
+       "title": "Mercury-programmet"
+      },
+      "plwiki": {
+       "title": "Program Mercury"
+      },
+      "pswiki": {
+       "title": "مرکیوري پروژه"
+      },
+      "ptwiki": {
+       "title": "Projeto Mercury"
+      },
+      "rowiki": {
+       "title": "Programul Mercury"
+      },
+      "ruwiki": {
+       "title": "Меркурий (космическая программа)"
+      },
+      "skwiki": {
+       "title": "Program Mercury"
+      },
+      "slwiki": {
+       "title": "Projekt Mercury"
+      },
+      "svwiki": {
+       "title": "Mercuryprogrammet"
+      },
+      "tawiki": {
+       "title": "மேர்க்குரித் திட்டம்"
+      },
+      "trwiki": {
+       "title": "Mercury Projesi"
+      },
+      "ukwiki": {
+       "title": "Меркурій (космічна програма)"
+      },
+      "uzwiki": {
+       "title": "Merkuriy (kosmik kema)"
+      },
+      "viwiki": {
+       "title": "Chương trình Mercury"
+      },
+      "wuuwiki": {
+       "title": "水星计划"
+      },
+      "zhwiki": {
+       "title": "水星计划"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q21605492"
+          }
+         }
+        }
+       },
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q13226541"
+          }
+         }
+        }
+       }
+      ]
+     }
+    },
+    "Q763495": {
+     "id": "Q763495",
+     "labels": {
+      "en": {
+       "language": "en",
+       "value": "Mercury Marauder"
+      }
+     },
+     "descriptions": {
+      "en": {
+       "language": "en",
+       "value": "car model"
+      }
+     },
+     "aliases": {},
+     "sitelinks": {
+      "commonswiki": {
+       "title": "Category:Mercury Marauder"
+      },
+      "dewiki": {
+       "title": "Mercury Marauder"
+      },
+      "enwiki": {
+       "title": "Mercury Marauder"
+      },
+      "fawiki": {
+       "title": "مرکوری مارودر"
+      },
+      "fiwiki": {
+       "title": "Mercury Marauder"
+      },
+      "itwiki": {
+       "title": "Mercury Marauder"
+      },
+      "jawiki": {
+       "title": "マーキュリー・マローダー"
+      },
+      "plwiki": {
+       "title": "Mercury Marauder (1963)"
+      },
+      "ptwiki": {
+       "title": "Mercury Marauder"
+      },
+      "ruwiki": {
+       "title": "Mercury Marauder"
+      },
+      "ukwiki": {
+       "title": "Mercury Marauder"
+      }
+     },
+     "claims": {
+      "P31": [
+       {
+        "mainsnak": {
+         "datavalue": {
+          "value": {
+           "id": "Q3231690"
+          }
+         }
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ }
+}

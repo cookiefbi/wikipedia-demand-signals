@@ -76,6 +76,12 @@ def _tables() -> tuple[dict[str, Lang], dict[str, str], dict[str, str]]:
     return by_code, accepted, suggest
 
 
+@functools.cache
+def wikipedia_dbnames() -> frozenset[str]:
+    """Wikidata sitelink keys of all open Wikipedias (plwiki, zh_yuewiki, ...)."""
+    return frozenset(lang.dbname for lang in _tables()[0].values())
+
+
 def lookup(token: str) -> Lang | None:
     by_code, accepted, _ = _tables()
     domain_code = accepted.get(token.strip().lower())
