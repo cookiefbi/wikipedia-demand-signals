@@ -40,7 +40,7 @@
   - Verify: тест на кількість сторінок PDF; відкрити PDF із назвами pl/cs/uk і подивитися очима.
   - Files: `scripts/wds_lib/report.py`, `scripts/wds_lib/i18n.py`, `tests/test_report.py`
 
-- [ ] **T7b. Перевірки контрольної точки B** (≈ 15 хв)
+- [x] **T7b. Перевірки контрольної точки B** (≈ 15 хв)
   - Acceptance:
     - колонка «лише стаття» для 2–3 статей збігається з pageviews.wmcloud.org, результат записано в `docs/verification.md`;
     - `analyze` запущено в **PowerShell 5.1**: назви в консолі коректні, або видно, що `result.json` рятує ситуацію.
