@@ -2,7 +2,7 @@
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["scripts"]
+pythonpath = ["scripts", "evals"]
 markers = ["live: calls the real Wikimedia APIs (run with `pytest -m live`)"]
 addopts = "-m 'not live'"
 

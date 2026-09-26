@@ -1,0 +1,133 @@
+{
+  "skill_name": "wikipedia-demand-signals",
+  "about": "T16 evals (SPEC section 7). Each eval is a conversation: turns run in one Claude Code session (claude -p, then --resume). 'expect' is checked per turn: by script where the transcript or files can answer (commands, flags, PDF, numbers), by an LLM grader where meaning matters (must_say, questions, substitutes, edition vs country). 'reference' is the analyze call the turn should end with: its JSON is the truth for the baseline runs without the skill and warms the cache.",
+  "criteria": {
+    "chain": "script: the Wikipedia data came from the skill in the right order: a topic resolve before analyze (turn 'chain': resolve->analyze), analyze with no new topic resolve in follow-ups (analyze; resolve with --search-lang is a local search, not a new topic), resolve without analyze before an ambiguity question (resolve, no analyze), nothing analysed before a languages question (no analyze)",
+    "params": "script: the last analyze call of the turn uses the expected QID (or, for learning English, not the namesake VOA programme Q2731224 that SPEC section 3 names as the wrong meaning), language editions, --rank-by and --report",
+    "answer_lang": "script: every analyze call of the turn has the language of the user's messages (user_lang) in --answer-lang (default en) and, with --report, in --report-lang; turns without analyze are not applicable",
+    "must_say": "grader: every must_say point of the turn's last analyze JSON (the reference JSON for baseline runs) reaches the answer with its meaning intact: editions, trend and confidence words, each number with its metric, negations",
+    "numbers": "script evals/check_numbers.py: every number in the answer is in the JSON the skill printed in this conversation (result.json, resolve output), allowing for rounding; baseline runs are checked against the reference JSON; answers without numbers are not applicable",
+    "no_article_offer": "grader, turns where an edition has no article: a substitute is offered for it (a broader concept or a closer local article) with how its meaning differs",
+    "questions": "grader: exactly one clarifying question when the turn needs one (languages not named: with a proposed set; ambiguous name: listing the meanings), none otherwise; offers of next steps do not count",
+    "edition_not_country": "grader: interest, audience or potential is attributed to language editions, not to countries ('Польща має потенціал' fails)",
+    "pdf": "script: report.pdf was written during the turn when the user asked for a report",
+    "reply_lang": "grader, extra: the reply is in the language of the user's messages (user_lang)"
+  },
+  "evals": [
+    {
+      "id": 1,
+      "name": "ex1-fasting-pl-cs",
+      "user_lang": "uk",
+      "source": "task example 1, verbatim",
+      "prompt": "Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки.",
+      "expected_output": "resolve 'intermittent fasting' -> Q1666254; analyze pl,cs for 24 months with --answer-lang uk; cs falling with low confidence; pl no_article as a finding, with an offer: the broader 'fasting' (pl 'Post' is mostly religious fasting) and/or the pl-only 'Głodówka lecznicza' via --article; no question.",
+      "turns": [
+        {
+          "prompt": "Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки.",
+          "expect": {"asks": null, "chain": "resolve->analyze", "qid": ["Q1666254"], "langs": ["pl", "cs"], "pdf": false, "no_article": true},
+          "reference": ["analyze", "--qid", "Q1666254", "--langs", "pl,cs", "--period", "24m", "--answer-lang", "uk"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ex2-astronomy-uk",
+      "user_lang": "uk",
+      "source": "task example 2, verbatim",
+      "prompt": "Ми думаємо додати курс з астрономії до освітнього застосунку. Чи зростає інтерес до цієї теми в україномовній Wikipedia, і наскільки цьому зростанню можна довіряти?",
+      "expected_output": "resolve 'astronomy' -> Q333 without a question (broad, not ambiguous); analyze uk with --answer-lang uk; interest is falling, with the confidence and its reason; one article stands for the whole topic.",
+      "turns": [
+        {
+          "prompt": "Ми думаємо додати курс з астрономії до освітнього застосунку. Чи зростає інтерес до цієї теми в україномовній Wikipedia, і наскільки цьому зростанню можна довіряти?",
+          "expect": {"asks": null, "chain": "resolve->analyze", "qid": ["Q333"], "langs": ["uk"], "pdf": false, "no_article": false},
+          "reference": ["analyze", "--qid", "Q333", "--langs", "uk", "--period", "24m", "--answer-lang", "uk"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ex3-learning-english",
+      "user_lang": "uk",
+      "source": "task example 3, verbatim; the languages are not named, so the first turn is one question with a proposed set; the answer is fixed so that runs compare",
+      "prompt": "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської у вибраних нами мовних розділах та підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?",
+      "expected_output": "Turn 1: one question proposing a set of editions, nothing analysed. Turn 2: resolve the exact concept first, then a named proxy (no article on learning English as a foreign language in pl, cs, uk); analyze uk,pl,cs with --report and --answer-lang uk; PDF; the next audiences named as language editions, not countries or markets.",
+      "turns": [
+        {
+          "prompt": "Ми створюємо застосунок для вивчення мов. Порівняй інтерес до вивчення англійської у вибраних нами мовних розділах та підготуй короткий звіт: які аудиторії варто дослідити наступними й чому?",
+          "expect": {"asks": "languages", "chain": "no analyze", "pdf": false, "no_article": false},
+          "reference": null
+        },
+        {
+          "prompt": "Українська, польська й чеська.",
+          "expect": {"asks": null, "chain": "resolve->analyze", "qid_not": ["Q2731224"], "langs": ["uk", "pl", "cs"], "report": true, "pdf": true, "no_article": false},
+          "reference": ["analyze", "--qid", "Q27968", "--langs", "uk,pl,cs", "--period", "24m", "--answer-lang", "uk"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "followup-add-language",
+      "user_lang": "uk",
+      "source": "task example 1, then the follow-up 'add Slovak' (SPEC section 1, scenario 4)",
+      "prompt": "Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки.",
+      "expected_output": "Turn 2: analyze again with the same QID and sk added, no new topic resolve; sk has no article either, reported as a finding with an offer.",
+      "turns": [
+        {
+          "prompt": "Порівняй зростання інтересу до інтервального голодування в польськомовній та чеськомовній Wikipedia за останні два роки.",
+          "expect": {"asks": null, "chain": "resolve->analyze", "qid": ["Q1666254"], "langs": ["pl", "cs"], "pdf": false, "no_article": true},
+          "reference": ["analyze", "--qid", "Q1666254", "--langs", "pl,cs", "--period", "24m", "--answer-lang", "uk"]
+        },
+        {
+          "prompt": "Додай словацьку.",
+          "expect": {"asks": null, "chain": "analyze", "qid": ["Q1666254"], "langs": ["pl", "cs", "sk"], "pdf": false, "no_article": true},
+          "reference": ["analyze", "--qid", "Q1666254", "--langs", "pl,cs,sk", "--period", "24m", "--answer-lang", "uk"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "followup-size-then-report",
+      "user_lang": "uk",
+      "source": "follow-ups 'audience size matters more now' and 'report in Ukrainian' (SPEC section 1, scenario 4) on astronomy in three editions, where growth, share and size rank the editions differently",
+      "prompt": "Порівняй інтерес до астрономії в польськомовній, чеськомовній та україномовній Wikipedia за останні два роки.",
+      "expected_output": "Turn 1: Q333 for pl,cs,uk ranked by growth. Turn 2: the same QID with --rank-by size and the new order. Turn 3: --report in Ukrainian, keeping --rank-by size; PDF.",
+      "turns": [
+        {
+          "prompt": "Порівняй інтерес до астрономії в польськомовній, чеськомовній та україномовній Wikipedia за останні два роки.",
+          "expect": {"asks": null, "chain": "resolve->analyze", "qid": ["Q333"], "langs": ["pl", "cs", "uk"], "pdf": false, "no_article": false},
+          "reference": ["analyze", "--qid", "Q333", "--langs", "pl,cs,uk", "--period", "24m", "--answer-lang", "uk"]
+        },
+        {
+          "prompt": "Тепер важливіший розмір аудиторії.",
+          "expect": {"asks": null, "chain": "analyze", "qid": ["Q333"], "langs": ["pl", "cs", "uk"], "rank_by": "size", "pdf": false, "no_article": false},
+          "reference": ["analyze", "--qid", "Q333", "--langs", "pl,cs,uk", "--period", "24m", "--rank-by", "size", "--answer-lang", "uk"]
+        },
+        {
+          "prompt": "Зроби звіт українською.",
+          "expect": {"asks": null, "chain": "analyze", "qid": ["Q333"], "langs": ["pl", "cs", "uk"], "rank_by": "size", "report": true, "pdf": true, "no_article": false},
+          "reference": ["analyze", "--qid", "Q333", "--langs", "pl,cs,uk", "--period", "24m", "--rank-by", "size", "--answer-lang", "uk"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ambiguous-java-en",
+      "user_lang": "en",
+      "source": "ambiguous name (SPEC section 3: Java = programming language or island), asked in English to check --answer-lang en",
+      "prompt": "Is interest in Java growing on Polish and Czech Wikipedia? Compare the last two years.",
+      "expected_output": "Turn 1: resolve says ambiguous: true -> one question listing the meanings, nothing analysed. Turn 2: analyze Q251 for pl,cs with --answer-lang en (or the default), answer in English.",
+      "turns": [
+        {
+          "prompt": "Is interest in Java growing on Polish and Czech Wikipedia? Compare the last two years.",
+          "expect": {"asks": "meaning", "chain": "resolve, no analyze", "pdf": false, "no_article": false},
+          "reference": null
+        },
+        {
+          "prompt": "The programming language.",
+          "expect": {"asks": null, "chain": "any->analyze", "qid": ["Q251"], "langs": ["pl", "cs"], "pdf": false, "no_article": false},
+          "reference": ["analyze", "--qid", "Q251", "--langs", "pl,cs", "--period", "24m", "--answer-lang", "en"]
+        }
+      ]
+    }
+  ]
+}
