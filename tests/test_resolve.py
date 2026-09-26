@@ -1,5 +1,6 @@
 """resolve rules on real API answers recorded by tests/fixtures/record.py (2026-09-25)."""
 
+import datetime as dt
 import json
 from pathlib import Path
 
@@ -229,6 +230,78 @@ def test_non_exact_items_never_make_a_topic_ambiguous():
     big = cand("A", ["topic"], sites=["plwiki"], extra=100)
     related = cand("B", ["topic history"], sites=["plwiki"], extra=100)
     assert not ambiguous([big, related])
+
+
+# --- first edit and redirects of an article ------------------------------------
+
+# The live uk.wikipedia answer for 'Java' on 2026-09-26: 11 redirects, 4 of them to
+# the section "Платформа".
+JAVA_UK = {
+    "continue": {"rvcontinue": "20040309211500|1331", "continue": "||redirects"},
+    "query": {
+        "pages": [
+            {
+                "ns": 0,
+                "title": "Java",
+                "revisions": [{"timestamp": "2004-03-06T17:51:33Z"}],
+                "redirects": [
+                    {"ns": 0, "title": "Мова програмування Java"},
+                    {"ns": 0, "title": "Ява (мова програмування)"},
+                    {"ns": 0, "title": "Java (мова програмування)"},
+                    {"ns": 0, "title": "Платформа Java"},
+                    {"ns": 0, "title": "JAVA"},
+                    {"ns": 0, "title": "Java (programming language)"},
+                    {
+                        "ns": 0,
+                        "title": "Java (платформа програмного забезпечення)",
+                        "fragment": "Платформа",
+                    },
+                    {
+                        "ns": 0,
+                        "title": "Java (програмна платформа)",
+                        "fragment": "Платформа",
+                    },
+                    {"ns": 0, "title": "Java (платформа)", "fragment": "Платформа"},
+                    {"ns": 0, "title": "Java (Sun)", "fragment": "Платформа"},
+                    {"ns": 0, "title": "Специфікація мови Java"},
+                ],
+            }
+        ]
+    },
+}
+
+
+def test_article_meta_counts_whole_article_redirects_first(monkeypatch):
+    urls = []
+
+    def get_json(url, *, ttl):
+        urls.append(url)
+        return JAVA_UK
+
+    monkeypatch.setattr(api, "get_json", get_json)
+    meta = resolve.article_meta(UK, "Java")
+    assert meta.created == dt.date(2004, 3, 6)
+    assert (meta.redirects_total, len(meta.redirects), meta.more_redirects) == (
+        11,
+        10,
+        False,
+    )
+    # 7 redirects to the whole article in MediaWiki's order, then 3 of the 4
+    # section ones: the last section redirect is left out.
+    assert meta.redirects[6] == "Специфікація мови Java"
+    assert "Java (Sun)" not in meta.redirects
+    assert len(urls) == 1 and "rdnamespace=0" in urls[0]
+
+
+def test_article_meta_notices_a_redirect_list_cut_by_mediawiki(monkeypatch):
+    body = {
+        "continue": {"rdcontinue": "123", "continue": "||revisions"},
+        "query": {"pages": [{"title": "X", "redirects": [{"title": "Y"}]}]},
+    }
+    monkeypatch.setattr(api, "get_json", lambda url, *, ttl: body)
+    meta = resolve.article_meta(UK, "X")
+    assert meta.more_redirects and meta.created is None
+    assert meta.redirects == ("Y",)
 
 
 # --- requests, errors, CLI --------------------------------------------------

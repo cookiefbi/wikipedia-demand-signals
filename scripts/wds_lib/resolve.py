@@ -6,12 +6,17 @@ for all candidates. Ranking and the "ambiguous" flag are decided here in code;
 choosing the candidate that matches the user's meaning is left to the agent.
 """
 
+import datetime as dt
 from dataclasses import dataclass, field
 
 from wds_lib import WdsError, api, langs
 from wds_lib.langs import Lang
 
 WIKIDATA_API = "https://www.wikidata.org/w/api.php"
+
+# Redirects whose views are added to an article: each costs one pageviews request,
+# so a cap keeps the first run of 3 languages x 2 articles within ~90 s (SPEC 9).
+MAX_REDIRECTS = 10
 
 # Results taken from each of the two searches; together they rarely exceed 20
 # distinct items, well within wbgetentities' 50-id limit.
@@ -319,6 +324,58 @@ def lookup_article(lang: Lang, title: str) -> tuple[str, str | None]:
             hint="pick the article for the meaning you want and pass that title",
         )
     return page["title"], props.get("wikibase_item")
+
+
+@dataclass(frozen=True)
+class ArticleMeta:
+    created: dt.date | None  # day of the first edit; None if MediaWiki has no page
+    redirects: tuple[str, ...]  # the ones whose views are counted, at most 10
+    redirects_total: int  # all article-namespace redirects to the article
+    more_redirects: bool = False  # MediaWiki had even more than it listed
+
+
+def article_meta(lang: Lang, title: str) -> ArticleMeta:
+    """First edit and redirects of an existing article, in one MediaWiki request.
+
+    The first edit is when the article appeared: a renamed article keeps its
+    history, so the date is the original creation. Redirects are the article's
+    other and former titles; before a rename its views were recorded under the
+    old title, so without them a renamed article looks like a new one.
+    With more than MAX_REDIRECTS, redirects to the whole article go first (a former
+    title never points to a section), then MediaWiki's order, oldest first.
+    Ranking by views instead would cost 2-3 more requests per article.
+    """
+    url = api.build_url(
+        lang.api_url,
+        {
+            "action": "query",
+            "titles": title,
+            "prop": "redirects|revisions",
+            "rdnamespace": "0",
+            "rdlimit": "max",
+            "rdprop": "title|fragment",
+            "rvdir": "newer",
+            "rvlimit": "1",
+            "rvprop": "timestamp",
+            "format": "json",
+            "formatversion": "2",
+        },
+    )
+    body = api.get_json(url, ttl=api.TTL_WEEK) or {}
+    pages = body.get("query", {}).get("pages", [])
+    page = pages[0] if pages else {}
+    revisions = page.get("revisions", [])
+    created = (
+        dt.date.fromisoformat(revisions[0]["timestamp"][:10]) if revisions else None
+    )
+    redirects = page.get("redirects", [])
+    chosen = sorted(redirects, key=lambda r: "fragment" in r)[:MAX_REDIRECTS]
+    return ArticleMeta(
+        created=created,
+        redirects=tuple(r["title"] for r in chosen),
+        redirects_total=len(redirects),
+        more_redirects="rdcontinue" in body.get("continue", {}),
+    )
 
 
 def resolve(query: str, requested: list[Lang], search_lang: Lang) -> dict:

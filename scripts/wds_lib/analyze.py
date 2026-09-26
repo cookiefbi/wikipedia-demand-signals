@@ -1,9 +1,11 @@
 """The `analyze` command: QIDs or titles -> metrics, verdicts, ranking and files.
 
 Requests, all cached: one Wikidata call for the sitelinks of every --qid, one
-MediaWiki call per --article, one edition answer per language and one answer per
-article. Everything is kept as messages (i18n.Msg) until the very end: the JSON
-gets English text, the PDF the report language.
+MediaWiki call per --article, one edition answer per language and, per article,
+one MediaWiki call (first edit, redirects) plus one pageviews answer for the
+article and one for each counted redirect (at most 10). Everything is kept as
+messages (i18n.Msg) until the very end: the JSON gets English text, the PDF the
+report language.
 """
 
 import csv
@@ -12,6 +14,8 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
+
+import numpy as np
 
 from wds_lib import WdsError, i18n, langs, log, pageviews, resolve, series, verdict
 from wds_lib.i18n import Msg
@@ -193,6 +197,48 @@ def _measure(data: Monthly, period: Span) -> Measured:
     return Measured(data, metrics, verdict.judge(metrics))
 
 
+def article_data(
+    target: Target,
+    meta: resolve.ArticleMeta,
+    window: Span,
+    span: Span,
+    edition: np.ndarray,
+) -> Monthly:
+    """Monthly views of an article plus its redirects, from its first edit on.
+
+    Before a rename the article's views were recorded under its old title, now a
+    redirect: the sum keeps the series continuous across the rename.
+    """
+    created = meta.created
+    if created is not None and created < window.start:
+        created = None  # older than the window: nothing to cut
+
+    def monthly(title: str) -> np.ndarray:
+        daily = pageviews.article_daily(target.lang, title, window)
+        if created is not None:
+            daily = series.drop_before(daily, window.start, created)
+        months, values = series.monthly_totals(daily, window.start)
+        return series.cut(months, values, span)
+
+    article = monthly(target.title)
+    redirects = np.zeros_like(article)
+    for title in meta.redirects:
+        redirects += monthly(title)
+    warnings: tuple[Msg, ...] = ()
+    if meta.redirects_total > len(meta.redirects):
+        total = str(meta.redirects_total) + ("+" if meta.more_redirects else "")
+        params = {"title": target.title, "total": total, "counted": len(meta.redirects)}
+        warnings = (Msg("warn.redirects_capped", params),)
+    return Monthly(
+        span=span,
+        views=article + redirects,
+        redirects=redirects,
+        edition=edition,
+        created=created,
+        warnings=warnings,
+    )
+
+
 def _topic_total(parts: list[Measured], period: Span) -> Measured:
     """Several articles in one language: the topic is their sum."""
     first = parts[0].data
@@ -200,14 +246,39 @@ def _topic_total(parts: list[Measured], period: Span) -> Measured:
     data = Monthly(
         span=first.span,
         views=sum(p.data.views for p in parts),
+        redirects=sum(p.data.redirects for p in parts),
         edition=first.edition,
         created=None if None in created else min(created),
+        warnings=tuple(w for p in parts for w in p.data.warnings),
     )
     return _measure(data, period)
 
 
+def _article_note(t: Target, meta: resolve.ArticleMeta, data: Monthly) -> Msg:
+    """'cs: topic measured by article ... (+3 redirects), created ...'."""
+    count = len(meta.redirects)
+    redirects: Msg | str = ""
+    if count == 1:
+        redirects = Msg("assume.redirects_one")
+    elif count > 1:
+        redirects = Msg("assume.redirects_many", {"count": count})
+    created: Msg | str = ""
+    if data.created is not None and data.created_month >= data.span.first:
+        created = Msg("assume.created", {"day": str(data.created)})
+    return Msg(
+        "assume.article",
+        {
+            "lang": t.lang.code,
+            "title": t.title,
+            "redirects": redirects,
+            "created": created,
+        },
+    )
+
+
 def _assumptions(
-    targets: list[Target],
+    measured: dict[Target, Measured],
+    metas: dict[Target, resolve.ArticleMeta],
     counts: dict[str, int],
     period: Span,
     moved_from: Span | None,
@@ -218,18 +289,14 @@ def _assumptions(
         Msg("assume.lang_added", {"lang": code, "article": article})
         for code, article in added
     ]
-    notes += [
-        Msg("assume.article", {"lang": t.lang.code, "title": t.title})
-        for t in targets
-        if t.title
-    ]
+    notes += [_article_note(t, metas[t], m.data) for t, m in measured.items()]
     notes += [
         Msg("assume.topic_sum", {"lang": code, "count": count})
         for code, count in counts.items()
         if count > 1
     ]
     notes += [
-        Msg("assume.no_redirects"),
+        Msg("assume.redirects", {"max_redirects": resolve.MAX_REDIRECTS}),
         Msg("assume.traffic"),
         Msg(
             "assume.growth",
@@ -305,16 +372,11 @@ def analyze(
         editions[lang.code] = series.cut(months, values, span)
 
     measured: dict[Target, Measured] = {}
+    metas: dict[Target, resolve.ArticleMeta] = {}
     for target in found:
-        months, values = series.monthly_totals(
-            pageviews.article_daily(target.lang, target.title, window), window.start
-        )
-        first = series.first_month_with_views(months, values)
-        data = Monthly(
-            span=span,
-            views=series.cut(months, values, span),
-            edition=editions[target.lang.code],
-            created=None if first is None or first == window.first else first,
+        metas[target] = resolve.article_meta(target.lang, target.title)
+        data = article_data(
+            target, metas[target], window, span, editions[target.lang.code]
         )
         measured[target] = _measure(data, chosen)
 
@@ -344,7 +406,12 @@ def analyze(
         totals=totals,
         ranking=ranking,
         assumptions=_assumptions(
-            targets, counts, chosen, window.shifted(1) if moved else None, added
+            measured,
+            metas,
+            counts,
+            chosen,
+            window.shifted(1) if moved else None,
+            added,
         ),
     )
 
@@ -419,6 +486,7 @@ def write_csv(a: Analysis, path: Path) -> None:
         for target, m in a.measured.items():
             for i, month in enumerate(range(a.span.first, a.span.last + 1)):
                 views, edition = int(m.data.views[i]), int(m.data.edition[i])
+                redirects = int(m.data.redirects[i])
                 share = verdict.per_million(views, edition)
                 writer.writerow(
                     [
@@ -426,8 +494,8 @@ def write_csv(a: Analysis, path: Path) -> None:
                         target.lang.code,
                         target.qid or "",
                         target.title,
-                        views,
-                        "",  # redirects are not fetched yet
+                        views - redirects,
+                        redirects,
                         views,
                         edition,
                         "" if share is None else round(share, 3),

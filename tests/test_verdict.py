@@ -20,12 +20,16 @@ def without_cap(monkeypatch):
     monkeypatch.setattr(verdict, "CONFIDENCE_CAP", None)
 
 
-def monthly(views, edition=EDITION, created=None) -> Monthly:
+def monthly(views, edition=EDITION, created=None, warnings=()) -> Monthly:
+    """created: a month number; the first edit is then on the 14th of that month."""
+    views = np.asarray(np.broadcast_to(views, SPAN.months), dtype=np.int64)
     return Monthly(
         span=SPAN,
-        views=np.asarray(np.broadcast_to(views, SPAN.months), dtype=np.int64),
+        views=views,
+        redirects=np.zeros_like(views),
         edition=np.asarray(np.broadcast_to(edition, SPAN.months), dtype=np.int64),
-        created=created,
+        created=None if created is None else series.first_day(created).replace(day=14),
+        warnings=warnings,
     )
 
 
@@ -117,13 +121,32 @@ def test_young_article_gets_no_growth_and_a_warning():
     assert m.growth_pct is None and m.per_million_growth_pct is None
     assert (v.trend, v.confidence) == ("insufficient_data", LOW)
     warning = i18n.texts(list(v.warnings))[0]
-    assert "views start only in 2024-12" in warning
+    assert warning.startswith("article created 2024-12-14: the 12 months before")
+
+
+def test_article_created_in_the_first_base_month_has_an_incomplete_base():
+    # The creation month is partial, so the base misses part of its first month.
+    m, v = run(monthly(1000, created=PREV.first))
+    assert m.growth_pct is None
+    assert "article created 2024-09-14" in i18n.texts(list(v.warnings))[0]
 
 
 def test_article_created_just_before_the_base_year_is_measured():
     m, _ = run(monthly(1000, created=PREV.first - 1))
     assert m.growth_pct == 0.0
     assert m.history_months == PERIOD.last - PREV.first + 1
+
+
+def test_data_warnings_are_reported_but_growth_is_still_computed():
+    capped = Msg("warn.redirects_capped", {"title": "A", "total": 12, "counted": 10})
+    m, v = run(monthly(two_years(1000, 1200), warnings=(capped,)))
+    assert m.growth_pct == 20.0
+    assert i18n.texts(list(v.warnings)) == [
+        (
+            "'A': 12 redirects lead to it, only 10 are counted (redirects to the "
+            "whole article first, oldest first): views may be undercounted"
+        )
+    ]
 
 
 def test_no_views_at_all():
@@ -149,7 +172,13 @@ def test_volume_is_judged_on_the_growth_months_not_the_whole_period():
     # Big three years ago, small now: a 5-year period must not hide that.
     period = Span(PERIOD.last - 59, PERIOD.last)
     views = np.array([5000] * 36 + [200] * 24)
-    data = Monthly(period, views, np.full(60, EDITION), created=None)
+    data = Monthly(
+        span=period,
+        views=views,
+        redirects=np.zeros_like(views),
+        edition=np.full(60, EDITION),
+        created=None,
+    )
     m = verdict.measure(data, period)
     assert m.median_monthly_views == 200
     assert verdict.judge(m).confidence == LOW

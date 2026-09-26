@@ -6,6 +6,7 @@ The trend comes from one signal only (normalized year-over-year growth); the oth
 checks can only lower the confidence.
 """
 
+import datetime as dt
 from dataclasses import dataclass
 
 import numpy as np
@@ -44,13 +45,21 @@ CONFIDENCE_CAP: str | None = MEDIUM
 class Monthly:
     """Monthly views of an article (or a sum of articles) next to its edition's."""
 
-    span: Span  # months covered by both arrays
-    views: np.ndarray
+    span: Span  # months covered by the arrays
+    views: np.ndarray  # the article's own views plus its redirects'
+    redirects: np.ndarray  # the part of `views` that came through redirects
     edition: np.ndarray
-    # Month the article appeared (first month with views), or None when it is older
-    # than the download window. Months before it are zeros for lack of an article,
-    # not for lack of interest.
-    created: int | None
+    # Day of the article's first edit, or None when it is older than the download
+    # window. Views before it are dropped: zeros for lack of an article, not for
+    # lack of interest.
+    created: dt.date | None
+    # Problems found while fetching (e.g. redirects left out); they do not stop
+    # growth from being computed.
+    warnings: tuple[Msg, ...] = ()
+
+    @property
+    def created_month(self) -> int | None:
+        return None if self.created is None else series.month_of(self.created)
 
 
 @dataclass(frozen=True)
@@ -92,16 +101,16 @@ def measure(data: Monthly, period: Span) -> Metrics:
     views_last, views_prev = total(data.views, last), total(data.views, prev)
     edition_last, edition_prev = total(data.edition, last), total(data.edition, prev)
 
-    warnings: list[Msg] = []
+    created = data.created_month
+    blockers: list[Msg] = []  # problems that leave growth uncomputed
     if views_last == 0 and views_prev == 0:
-        warnings.append(Msg("warn.no_views"))
-    elif data.created is not None and data.created >= prev.first:
+        blockers.append(Msg("warn.no_views"))
+    elif created is not None and created >= prev.first:
         # The creation month itself is partial: the base needs a full year after it.
-        since = series.month_label(data.created)
-        warnings.append(Msg("warn.base_incomplete", {"since": since}))
+        blockers.append(Msg("warn.base_incomplete", {"created": str(data.created)}))
     elif views_prev == 0:
-        warnings.append(Msg("warn.zero_base"))
-    measurable = not warnings
+        blockers.append(Msg("warn.zero_base"))
+    measurable = not blockers
 
     pm_last = per_million(views_last, edition_last)
     pm_prev = per_million(views_prev, edition_prev)
@@ -113,8 +122,8 @@ def measure(data: Monthly, period: Span) -> Metrics:
     # period: with --period 5y an article that was big years ago but is small now
     # would otherwise pass. Zeros before the article existed are left out.
     first_existing = prev.first
-    if data.created is not None:
-        first_existing = min(max(prev.first, data.created + 1), last.last)
+    if created is not None:
+        first_existing = min(max(prev.first, created + 1), last.last)
     existing = series.cut(data.span, data.views, Span(first_existing, last.last))
 
     return Metrics(
@@ -125,8 +134,8 @@ def measure(data: Monthly, period: Span) -> Metrics:
         per_million_last_12m=None if pm_last is None else round(pm_last, 2),
         per_million_growth_pct=pm_growth,
         median_monthly_views=float(np.median(existing)),
-        history_months=None if data.created is None else period.last - data.created,
-        warnings=tuple(warnings),
+        history_months=None if created is None else period.last - created,
+        warnings=tuple(blockers) + data.warnings,
     )
 
 

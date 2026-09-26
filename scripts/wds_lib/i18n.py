@@ -34,8 +34,11 @@ TEXTS: dict[str, dict[str, str]] = {
         "conf.capped": "capped at {cap} until trend stability and one-off spikes are "
         "checked",
         # warnings: problems with the data itself
-        "warn.base_incomplete": "views start only in {since}: the 12 months before "
+        "warn.base_incomplete": "article created {created}: the 12 months before "
         "the last 12 are incomplete, growth not computed",
+        "warn.redirects_capped": "'{title}': {total} redirects lead to it, only "
+        "{counted} are counted (redirects to the whole article first, oldest "
+        "first): views may be undercounted",
         "warn.no_views": "no views recorded in the analysed months",
         "warn.zero_base": "no views in the 12 months before the last 12: growth "
         "from zero is not computed",
@@ -48,10 +51,15 @@ TEXTS: dict[str, dict[str, str]] = {
         # assumptions
         "assume.lang_added": "{lang} added to the compared languages for --article "
         "'{article}'",
-        "assume.article": "{lang}: topic measured by article '{title}'",
+        "assume.article": "{lang}: topic measured by article '{title}'{redirects}"
+        "{created}",
+        "assume.redirects_one": " (+1 redirect)",
+        "assume.redirects_many": " (+{count} redirects)",
+        "assume.created": ", created {day}: earlier days are not counted",
         "assume.topic_sum": "{lang}: topic = sum of {count} articles (topic_totals)",
-        "assume.no_redirects": "views arriving through redirects (other names of an "
-        "article) are not included",
+        "assume.redirects": "views include up to {max_redirects} redirects per "
+        "article (its other and former titles; data.csv lists them apart) and start "
+        "at the article's first edit",
         "assume.traffic": "views = human traffic (agent=user), desktop + mobile web + "
         "apps",
         "assume.growth": "growth = last 12 months ({last_from}..{last_to}) vs the 12 "
@@ -67,8 +75,8 @@ TEXTS: dict[str, dict[str, str]] = {
         "many countries, and many people read the English edition instead",
         "caveat.pay": "interest ≠ willingness to pay: views show curiosity, not "
         "demand for a product",
-        "caveat.proxy": "one article stands for the topic: related articles and "
-        "other names are not counted",
+        "caveat.proxy": "one article (with its redirects) stands for the topic: "
+        "related articles are not counted",
         "caveat.bots": "automated traffic is filtered (agent=user) but not "
         "perfectly: single spikes can be news or bots",
         "caveat.bot_rules": "Wikimedia filters bots more strictly since 2025-03-20 "

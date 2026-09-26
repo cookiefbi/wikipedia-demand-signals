@@ -165,6 +165,16 @@ ANALYZE_SCENARIOS = {
         "articles": ["pl:Głodówka lecznicza"],
         "langs_arg": "pl,cs",
     },
+    # Renamed on 2022-09-08 ("Karol (książę Walii)" -> "Karol III"): before that
+    # the views sit under the old title, now a redirect. cs has 11 redirects, one
+    # over the cap.
+    "renamed": {"qids": ["Q43274"], "articles": [], "langs_arg": "pl,cs"},
+    # --article given by a redirect title: measured as the article it leads to.
+    "article-via-redirect": {
+        "qids": [],
+        "articles": ["pl:Głodówka oczyszczająca"],
+        "langs_arg": None,
+    },
 }
 ANALYZE_FIXTURE = Path(__file__).with_name("analyze.json")
 

@@ -216,11 +216,13 @@ def cut(span: Span, values: np.ndarray, part: Span) -> np.ndarray:
     return values[part.first - span.first : part.last - span.first + 1]
 
 
-def first_month_with_views(span: Span, values: np.ndarray) -> int | None:
-    """First month with any views: where the article's history starts, or None.
+def drop_before(daily: np.ndarray, start: dt.date, day: dt.date) -> np.ndarray:
+    """Daily views with every day before `day` set to zero.
 
-    Stand-in until the article's creation date (first edit) is fetched: months
-    before it are zeros because the article did not exist, not because of no interest.
+    Used with the article's first edit: before it the title was missing or a
+    redirect elsewhere, so its views (and its redirects' views) were not about
+    this article.
     """
-    nonzero = np.flatnonzero(values)
-    return span.first + int(nonzero[0]) if nonzero.size else None
+    kept = daily.copy()
+    kept[: max(0, (day - start).days)] = 0
+    return kept

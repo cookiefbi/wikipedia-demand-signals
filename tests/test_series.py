@@ -147,12 +147,12 @@ def test_full_window_sums_to_the_daily_total():
     assert totals.sum() == daily.sum()
 
 
-def test_first_month_with_views():
-    months = span("2025-01", "2025-06")
-    assert series.first_month_with_views(months, np.array([0, 0, 3, 0, 5, 1])) == m(
-        "2025-03"
-    )
-    assert series.first_month_with_views(months, np.zeros(6, dtype=np.int64)) is None
+def test_days_before_the_first_edit_are_dropped():
+    daily = np.array([5, 5, 5, 5, 5])
+    start = D(2025, 1, 1)
+    assert series.drop_before(daily, start, D(2025, 1, 3)).tolist() == [0, 0, 5, 5, 5]
+    assert series.drop_before(daily, start, D(2024, 6, 1)).tolist() == [5] * 5
+    assert daily.tolist() == [5] * 5  # the input is not changed
 
 
 # --- periods ----------------------------------------------------------------

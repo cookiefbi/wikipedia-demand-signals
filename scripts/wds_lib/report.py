@@ -147,7 +147,11 @@ def chart_lines(a: Analysis) -> tuple[list[Line], int]:
     lines = []
     for code in shown:
         d = data[code].data
+        months = np.arange(a.period.first, a.period.last + 1)
         views = series.cut(d.span, d.views, a.period).astype(float)
+        if d.created is not None:
+            # No line before the article existed; its first month is partial.
+            views[months <= d.created_month] = np.nan
         edition = series.cut(d.span, d.edition, a.period).astype(float)
         share = np.divide(
             views * 1_000_000,
@@ -159,7 +163,7 @@ def chart_lines(a: Analysis) -> tuple[list[Line], int]:
             Line(
                 lang=code,
                 color=SERIES_COLORS[a.langs.index(code)],
-                months=np.arange(a.period.first, a.period.last + 1),
+                months=months,
                 per_million=share,
                 views=views,
             )

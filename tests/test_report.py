@@ -7,8 +7,8 @@ import numpy as np
 import pytest
 import wds
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-from test_analyze import RESPONSES, TODAY, WINDOW
-from wds_lib import analyze, api, pageviews, report, resolve
+from test_analyze import RESPONSES, TODAY, WINDOW, analyze_young_article
+from wds_lib import analyze, api, pageviews, report, resolve, series
 
 
 @pytest.fixture
@@ -44,6 +44,9 @@ def crowded(monkeypatch):
     )
     monkeypatch.setattr(
         pageviews, "published_window", lambda today, lang: (WINDOW, False)
+    )
+    monkeypatch.setattr(
+        resolve, "article_meta", lambda lang, title: resolve.ArticleMeta(None, (), 0)
     )
     days = (WINDOW.end - WINDOW.start).days + 1
     rng = np.random.default_rng(7)
@@ -153,6 +156,15 @@ def test_colors_follow_the_langs_order_not_the_ranking(replay):
 def test_more_than_eight_languages_are_left_to_the_table(crowded):
     lines, hidden = report.chart_lines(crowded)
     assert len(lines) == len(report.SERIES_COLORS) and hidden == 2
+
+
+def test_no_line_before_the_article_existed(monkeypatch):
+    a = analyze_young_article(monkeypatch)  # first edit 2025-01-10
+    [line], _ = report.chart_lines(a)
+    first_full = list(line.months).index(series.parse_month("2025-02", "-"))
+    assert np.isnan(line.views[:first_full]).all()  # its first month is partial
+    assert not np.isnan(line.views[first_full:]).any()
+    assert np.isnan(line.per_million[:first_full]).all()
 
 
 def test_cli_report_writes_png_and_pdf(replay, tmp_path, capsys):

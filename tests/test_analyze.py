@@ -1,4 +1,4 @@
-"""analyze on real API answers recorded by tests/fixtures/record.py (2026-09-25)."""
+"""analyze on real API answers recorded by tests/fixtures/record.py (2026-09-26)."""
 
 import csv
 import datetime as dt
@@ -66,6 +66,11 @@ def raw_sum(lang: str, title: str | None, first: str, last: str) -> int:
     )
 
 
+def raw_views(lang: str, titles: list[str], first: str, last: str) -> int:
+    """An article plus its redirects, straight from the recorded API items."""
+    return sum(raw_sum(lang, title, first, last) for title in titles)
+
+
 def by_lang(result: dict) -> dict:
     return {r["lang"]: r for r in result["results"]}
 
@@ -88,8 +93,9 @@ def test_astronomy_uk_numbers_match_the_raw_api_answers(replay):
     result = run(qids=["Q333"], langs_arg="uk")
     uk = by_lang(result)["uk"]
     assert uk["title"] == "Астрономія"
-    last = raw_sum("uk", "Астрономія", "2025-09", "2026-08")
-    prev = raw_sum("uk", "Астрономія", "2024-09", "2025-08")
+    titles = ["Астрономія", "Astronomy"]  # the article and its only redirect
+    last = raw_views("uk", titles, "2025-09", "2026-08")
+    prev = raw_views("uk", titles, "2024-09", "2025-08")
     edition_last = raw_sum("uk", None, "2025-09", "2026-08")
     edition_prev = raw_sum("uk", None, "2024-09", "2025-08")
     assert (uk["views_last_12m"], uk["views_prev_12m"]) == (last, prev)
@@ -144,7 +150,147 @@ def test_period_12m_uses_a_base_before_the_period(replay):
     result = run(qids=["Q333"], langs_arg="uk", period="12m")
     uk = by_lang(result)["uk"]
     assert result["period"]["months"] == 12
-    assert uk["views_prev_12m"] == raw_sum("uk", "Астрономія", "2024-09", "2025-08")
+    titles = ["Астрономія", "Astronomy"]
+    assert uk["views_prev_12m"] == raw_views("uk", titles, "2024-09", "2025-08")
+
+
+# --- redirects and the first edit ----------------------------------------------
+
+
+def recorded_redirects(lang: str, title: str) -> list[str]:
+    """Redirects in the recorded MediaWiki answer, in MediaWiki's own order."""
+    for url, body in RESPONSES.items():
+        if f"//{lang}.wikipedia.org/" in url and "prop=redirects" in url:
+            page = body["query"]["pages"][0]
+            if page["title"] == title:
+                return [r["title"] for r in page.get("redirects", [])]
+    raise AssertionError(f"no recorded redirects for {lang}:{title}")
+
+
+def test_renamed_article_keeps_its_views_under_the_old_title(replay, tmp_path):
+    """'Karol III' was 'Karol (książę Walii)' until 2022-09-08: the growth base
+    2021-09..2022-08 sits almost entirely under redirects."""
+    a = analyze.analyze(
+        qids=["Q43274"],
+        articles=[],
+        langs_arg="pl",
+        date_from="2021-09",
+        date_to="2023-08",
+        today=TODAY,
+    )
+    pl = by_lang(analyze.to_json(a, files={}))["pl"]
+    redirects = recorded_redirects("pl", "Karol III")
+    assert len(redirects) == 9  # under the cap: all counted
+    titles = ["Karol III", *redirects]
+    prev = raw_views("pl", titles, "2021-09", "2022-08")
+    last = raw_views("pl", titles, "2022-09", "2023-08")
+    assert (pl["views_prev_12m"], pl["views_last_12m"]) == (prev, last)
+    assert pl["growth_pct"] == round((last - prev) / prev * 100, 1)
+    # Under its own title the article had almost nothing before the rename:
+    # growth would read as hundreds of thousands of percent.
+    assert raw_sum("pl", "Karol III", "2021-09", "2022-08") < prev / 1000
+
+    path = tmp_path / "data.csv"
+    analyze.write_csv(a, path)
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        base = list(csv.DictReader(f))[:12]  # 2021-09..2022-08
+    article = sum(int(row["article_views"]) for row in base)
+    through_redirects = sum(int(row["redirect_views"]) for row in base)
+    assert article == raw_sum("pl", "Karol III", "2021-09", "2022-08")
+    assert through_redirects == raw_views("pl", redirects, "2021-09", "2022-08")
+    assert all(
+        int(row["article_views"]) + int(row["redirect_views"]) == int(row["views"])
+        for row in base
+    )
+
+
+def test_more_than_ten_redirects_counts_ten_and_warns(replay):
+    result = run(qids=["Q43274"], langs_arg="cs")
+    cs = by_lang(result)["cs"]
+    redirects = recorded_redirects("cs", "Karel III. Britský")
+    assert len(redirects) == 11 and redirects[-1] == "Charles III."
+    # No section redirects here, so MediaWiki's order decides: the newest is left out.
+    counted = ["Karel III. Britský", *redirects[:10]]
+    assert cs["views_last_12m"] == raw_views("cs", counted, "2025-09", "2026-08")
+    assert cs["warnings"] == [
+        (
+            "'Karel III. Britský': 11 redirects lead to it, only 10 are counted "
+            "(redirects to the whole article first, oldest first): views may be "
+            "undercounted"
+        )
+    ]
+    assert cs["growth_pct"] is not None  # a warning about the data, not a blocker
+    assert (
+        "cs: topic measured by article 'Karel III. Britský' (+10 redirects)"
+        in result["assumptions"]
+    )
+
+
+def test_article_given_by_a_redirect_title_is_measured_as_its_target(replay):
+    result = run(qids=[], articles=["pl:Głodówka oczyszczająca"], langs_arg=None)
+    [row] = result["results"]
+    assert (row["title"], row["qid"]) == ("Głodówka lecznicza", "Q352490")
+    # The given title is counted once, as the article's redirect.
+    titles = ["Głodówka lecznicza", "Głodówka oczyszczająca"]
+    assert row["views_last_12m"] == raw_views("pl", titles, "2025-09", "2026-08")
+    assert (
+        "pl: topic measured by article 'Głodówka lecznicza' (+1 redirect)"
+        in result["assumptions"]
+    )
+
+
+def test_young_article_real_case_starts_at_its_first_edit(replay):
+    # cs 'Přerušovaný půst' was first edited on 2020-10-28: a base year of
+    # 2020-09..2021-08 is incomplete.
+    result = run(
+        qids=["Q1666254"], langs_arg="cs", date_from="2020-09", date_to="2022-08"
+    )
+    cs = by_lang(result)["cs"]
+    assert cs["growth_pct"] is None and cs["per_million_growth_pct"] is None
+    assert cs["warnings"][0].startswith("article created 2020-10-28: ")
+    assert (
+        "cs: topic measured by article 'Přerušovaný půst', created 2020-10-28: "
+        "earlier days are not counted" in result["assumptions"]
+    )
+
+
+def analyze_young_article(monkeypatch) -> analyze.Analysis:
+    """Synthetic: 'New' first edited on 2025-01-10. Its redirect 'Old' has views
+    all along: before that day the title led somewhere else."""
+    monkeypatch.setattr(
+        resolve,
+        "sitelink_titles",
+        lambda qids: {"Q1": {"label": "new", "titles": {"cswiki": "New"}}},
+    )
+    monkeypatch.setattr(
+        resolve,
+        "article_meta",
+        lambda lang, title: resolve.ArticleMeta(dt.date(2025, 1, 10), ("Old",), 1),
+    )
+    monkeypatch.setattr(
+        pageviews, "published_window", lambda today, lang: (WINDOW, False)
+    )
+    days = (WINDOW.end - WINDOW.start).days + 1
+    monkeypatch.setattr(
+        pageviews, "edition_daily", lambda lang, w: np.full(days, 1_000_000)
+    )
+    level = {"New": 100, "Old": 50}
+    monkeypatch.setattr(
+        pageviews, "article_daily", lambda lang, title, w: np.full(days, level[title])
+    )
+    return analyze.analyze(qids=["Q1"], articles=[], langs_arg="cs", today=TODAY)
+
+
+def test_views_before_the_first_edit_are_dropped_for_redirects_too(monkeypatch):
+    a = analyze_young_article(monkeypatch)
+    [m] = a.measured.values()
+    january = series.parse_month("2025-01", "-") - a.span.first
+    assert m.data.views[:january].sum() == 0
+    assert m.data.views[january] == 22 * (100 + 50)  # 10..31 January
+    assert m.data.redirects[january] == 22 * 50
+    [row] = analyze.to_json(a, files={})["results"]
+    assert row["growth_pct"] is None
+    assert row["warnings"][0].startswith("article created 2025-01-10: ")
 
 
 # --- several articles in one language ----------------------------------------
@@ -162,6 +308,9 @@ def test_two_articles_in_one_language_are_summed_into_topic_totals(monkeypatch):
     )
     monkeypatch.setattr(
         pageviews, "published_window", lambda today, lang: (WINDOW, False)
+    )
+    monkeypatch.setattr(
+        resolve, "article_meta", lambda lang, title: resolve.ArticleMeta(None, (), 0)
     )
     days = (WINDOW.end - WINDOW.start).days + 1
     monkeypatch.setattr(
@@ -295,8 +444,9 @@ def test_cli_prints_json_and_writes_the_same_result_json_and_csv(
         rows = list(csv.DictReader(f))
     assert {row["title"] for row in rows} == {"Přerušovaný půst"}
     assert len(rows) == 24  # 24m period; its growth base lies inside it
+    assert {row["redirect_views"] for row in rows} == {"0"}  # it has no redirects
     cs = by_lang(printed)["cs"]
-    last_12 = sum(int(row["article_views"]) for row in rows[-12:])
+    last_12 = sum(int(row["views"]) for row in rows[-12:])
     assert last_12 == cs["views_last_12m"]
 
 
@@ -342,9 +492,10 @@ def test_rerun_is_served_from_the_cache(clock, network, tmp_path, capsys, monkey
     args = ("--qid", "Q1666254", "--langs", "pl,cs", "--out", str(tmp_path))
     assert cli(*args) == 0
     first = capsys.readouterr()
-    assert "requests: 3 network" in first.err  # sitelinks, cs edition, cs article
+    # sitelinks, cs edition, cs first edit + redirects (none), cs article
+    assert "requests: 4 network" in first.err
     assert cli(*args) == 0
     second = capsys.readouterr()
     assert "requests: 0 network" in second.err
     assert json.loads(second.out)["results"] == json.loads(first.out)["results"]
-    assert len(fake.urls) == 3
+    assert len(fake.urls) == 4
