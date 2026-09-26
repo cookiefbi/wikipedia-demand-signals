@@ -154,6 +154,56 @@ def test_period_12m_uses_a_base_before_the_period(replay):
     assert uk["views_prev_12m"] == raw_views("uk", titles, "2024-09", "2025-08")
 
 
+# --- spikes and seasons on real series (checkpoint D) ---------------------------
+
+
+def spike_months(row: dict) -> list[str]:
+    prefix = "one-off spike in "
+    return [
+        r[len(prefix) : len(prefix) + 7] for r in row["reasons"] if r.startswith(prefix)
+    ]
+
+
+def test_uk_astronomy_september_is_the_school_season_not_a_spike(replay):
+    """uk 'Астрономія' 2024-09: 4 687 views against ~1 700 around it, yet September
+    2025 stands out from its own summer too: the season, which must not lower the
+    confidence the way a one-off spike does."""
+    uk = by_lang(run(qids=["Q333"], langs_arg="uk"))["uk"]
+    assert spike_months(uk) == []
+    assert (uk["trend"], uk["confidence"]) == ("falling", "high")
+    assert uk["reasons"][1] == (
+        "steady: 10 of 12 months are below the same month a year earlier "
+        "(typical month -47.2%)"
+    )
+
+
+def test_pl_astronomy_november_2025_is_a_spike(replay):
+    pl = by_lang(run(qids=["Q333"], langs_arg="pl"))["pl"]
+    assert spike_months(pl) == ["2025-11"]
+    assert pl["reasons"][1] == (
+        "one-off spike in 2025-11: 2.8x the months around it, with no such peak in "
+        "2024-11; it inflates the last 12 months, so growth looks higher"
+    )
+    # Everything else passes: the spike alone takes the confidence one step down.
+    assert (pl["trend"], pl["confidence"]) == ("flat", "medium")
+
+
+def test_charles_iii_accession_and_coronation_are_event_spikes(replay):
+    result = run(
+        qids=["Q43274"], langs_arg="pl,cs", date_from="2021-09", date_to="2023-08"
+    )
+    pl, cs = by_lang(result)["pl"], by_lang(result)["cs"]
+    # 2022-09: Elizabeth II dies, Charles becomes king; 2023-05: the coronation.
+    assert spike_months(pl) == spike_months(cs) == ["2022-09", "2023-05"]
+    assert pl["trend"] == cs["trend"] == "rising"
+    assert pl["confidence"] == cs["confidence"] == "low"
+    # In pl the half year after the accession also stayed 3x higher.
+    assert pl["warnings"][0].startswith(
+        "sharp lasting change of level around 2022-09: views per million are 3.1x "
+        "higher"
+    )
+
+
 # --- redirects and the first edit ----------------------------------------------
 
 

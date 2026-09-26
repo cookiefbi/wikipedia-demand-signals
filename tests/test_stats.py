@@ -71,6 +71,38 @@ def test_one_extreme_value_barely_moves_either_statistic():
     assert stats.mann_kendall(spiked).s > 0.8 * stats.mann_kendall(y).s
 
 
+@pytest.mark.parametrize("seed", SEEDS)
+def test_seasonal_forms_sum_and_pool_the_seasons(seed):
+    y = np.random.default_rng(seed).normal(10, 1, 36)  # three years
+    seasons = [y[month::12] for month in range(12)]
+    parts = [stats.mann_kendall(season) for season in seasons]
+    seasonal = stats.seasonal_mann_kendall(y)
+    assert seasonal.s == sum(p.s for p in parts)
+    assert seasonal.var_s == pytest.approx(sum(p.var_s for p in parts))
+    slopes = [
+        (s[later] - s[earlier]) / (later - earlier)
+        for s in seasons
+        for earlier in range(3)
+        for later in range(earlier + 1, 3)
+    ]
+    assert stats.seasonal_theil_sen(y) == pytest.approx(np.median(slopes))
+
+
+def test_over_two_years_the_seasonal_forms_compare_each_month_with_a_year_earlier():
+    y = np.random.default_rng(0).normal(10, 1, 24)
+    higher = int((y[12:] > y[:12]).sum())
+    assert stats.seasonal_mann_kendall(y).s == higher - (12 - higher)
+    assert stats.seasonal_theil_sen(y) == pytest.approx(np.median(y[12:] - y[:12]))
+
+
+def test_a_school_year_is_a_trend_only_for_the_plain_test():
+    # High September, low summer, the same both years: no trend at all.
+    school = np.array([3.0, 1.3, 1.3, 1.3, 1.2, 1.1, 1.0, 1.0, 0.9, 0.45, 0.3, 0.35])
+    y = np.tile(school, 2) * np.random.default_rng(0).lognormal(0, 0.05, 24)
+    assert stats.mann_kendall(y).p < 0.05
+    assert stats.seasonal_mann_kendall(y).p > 0.05
+
+
 def test_constant_series_shows_no_trend():
     mk = stats.mann_kendall(np.full(24, 7.0))
     assert (mk.s, mk.var_s, mk.z, mk.p) == (0, 0.0, 0.0, 1.0)

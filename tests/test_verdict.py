@@ -4,20 +4,16 @@ import numpy as np
 import pytest
 from wds_lib import i18n, series, verdict
 from wds_lib.i18n import Msg
-from wds_lib.series import Span
-from wds_lib.verdict import HIGH, LOW, MEDIUM, Metrics, Monthly
+from wds_lib.series import YEAR, Span
+from wds_lib.verdict import HIGH, LOW, MEDIUM, Metrics, Monthly, Steadiness
 
 PERIOD = Span(series.parse_month("2024-09", "-"), series.parse_month("2026-08", "-"))
 SPAN = series.analysis_span(PERIOD)  # 24 months: the base is inside the period
 LAST, PREV = series.yoy_spans(PERIOD)
 EDITION = 100_000_000  # views of the whole edition per month
-P0_CAP = verdict.CONFIDENCE_CAP
-
-
-@pytest.fixture(autouse=True)
-def without_cap(monkeypatch):
-    """The rules themselves; the temporary P0 cap has its own test below."""
-    monkeypatch.setattr(verdict, "CONFIDENCE_CAP", None)
+# A school year, September first: the shape of uk "Астрономія" (high September,
+# low summer), as a multiple of an ordinary month.
+SCHOOL_YEAR = [3.0, 1.3, 1.3, 1.3, 1.2, 1.1, 1.0, 1.0, 0.9, 0.45, 0.3, 0.35]
 
 
 def monthly(views, edition=EDITION, created=None, warnings=()) -> Monthly:
@@ -80,13 +76,16 @@ def test_steady_growth_is_rising():
     m, v = run(monthly(np.linspace(1000, 2000, SPAN.months).round()))
     assert m.growth_pct > 10
     assert (v.trend, v.confidence) == ("rising", HIGH)
+    assert reasons(v)[1].startswith(
+        "steady: 12 of 12 months are above the same month a year earlier"
+    )
 
 
 def test_pure_seasonality_is_flat():
     season = 1000 + 500 * np.sin(np.arange(SPAN.months) * 2 * np.pi / 12)
     m, v = run(monthly(season.round()))
     assert abs(m.per_million_growth_pct) < 1
-    assert v.trend == "flat"
+    assert (v.trend, v.confidence) == ("flat", HIGH)
 
 
 def test_share_decides_the_trend_not_absolute_views():
@@ -101,7 +100,10 @@ def test_share_decides_the_trend_not_absolute_views():
 
 
 def test_opposite_directions_on_a_flat_topic_are_explained_but_not_penalised():
-    _, v = run(monthly(two_years(1000, 1020), two_years(EDITION, EDITION * 1.05)))
+    # Months go both ways against a year earlier, so there is no steady drift either.
+    views = two_years(1000, 1000)
+    views[YEAR:] = [1070, 970] * 6
+    _, v = run(monthly(views, two_years(EDITION, EDITION * 1.05)))
     assert v.trend == "flat"
     assert v.confidence == HIGH
     assert any("grew 2.0% while the whole edition grew 5.0%" in r for r in reasons(v))
@@ -137,16 +139,22 @@ def test_article_created_just_before_the_base_year_is_measured():
     assert m.history_months == PERIOD.last - PREV.first + 1
 
 
-def test_data_warnings_are_reported_but_growth_is_still_computed():
+def test_left_out_redirects_warn_and_lower_confidence_one_step():
     capped = Msg("warn.redirects_capped", {"title": "A", "total": 12, "counted": 10})
     m, v = run(monthly(two_years(1000, 1200), warnings=(capped,)))
-    assert m.growth_pct == 20.0
+    assert m.growth_pct == 20.0  # a warning about the data, not a blocker
     assert i18n.texts(list(v.warnings)) == [
         (
             "'A': 12 redirects lead to it, only 10 are counted (redirects to the "
             "whole article first, oldest first): views may be undercounted"
         )
     ]
+    # The newest redirects are the ones left out, and a rename makes the newest.
+    assert (v.trend, v.confidence) == ("rising", MEDIUM)
+    assert (
+        "not every redirect is counted (see warnings): views may be undercounted"
+        in reasons(v)
+    )
 
 
 def test_no_views_at_all():
@@ -195,6 +203,7 @@ def metrics(**changes) -> Metrics:
         "median_monthly_views": 1500.0,
         "history_months": None,
         "warnings": (),
+        "steadiness": Steadiness(higher=12, lower=0, p=0.001, typical_pct=100.0),
     }
     return Metrics(**(base | changes))
 
@@ -206,21 +215,124 @@ def test_history_length(history, confidence):
     assert verdict.judge(metrics(history_months=history)).confidence == confidence
 
 
-def test_p0_caps_confidence_at_medium_and_says_why(monkeypatch):
-    monkeypatch.setattr(verdict, "CONFIDENCE_CAP", P0_CAP)
-    assert P0_CAP == MEDIUM
-    _, v = run(monthly(np.linspace(1000, 2000, SPAN.months).round()))
-    assert (v.trend, v.confidence) == ("rising", MEDIUM)
-    assert reasons(v)[-1] == (
-        "capped at medium until trend stability and one-off spikes are checked"
-    )
-    _, low = run(monthly(two_years(100, 200)))
-    assert low.confidence == LOW  # the cap never raises a level
-
-
 def test_two_failed_checks_are_low():
     v = verdict.judge(metrics(history_months=20, growth_pct=-1.0))
     assert v.confidence == LOW
+
+
+# --- month by month: steadiness, spikes, level changes (SPEC 4 and 7) ---------
+
+
+def noisy(levels, sd: float = 0.05, seed: int = 0) -> np.ndarray:
+    """Views with multiplicative noise, the same on every run."""
+    rng = np.random.default_rng(seed)
+    return (
+        np.broadcast_to(levels, SPAN.months) * rng.lognormal(0, sd, SPAN.months)
+    ).round()
+
+
+def flat_with_ripple() -> np.ndarray:
+    """1000 +- 3%, the same in both years: no month differs from a year earlier."""
+    return np.array([1030, 970] * YEAR)
+
+
+def test_flat_series_with_one_spike_is_low_and_names_the_spike():
+    views = flat_with_ripple()
+    views[16] *= 3  # 2026-01, in the last 12 months; 2025-01 had no such peak
+    m, v = run(monthly(views))
+    # The trend follows year-over-year growth alone, so one month can make it
+    # "rising"; the confidence and its reasons say why not to trust it.
+    assert (v.trend, v.confidence) == ("rising", LOW)
+    assert [series.month_label(spike.month) for spike in m.spikes] == ["2026-01"]
+    assert reasons(v)[1:] == [
+        (
+            "one-off spike in 2026-01: 3.2x the months around it, with no such peak "
+            "in 2025-01; it inflates the last 12 months, so growth looks higher"
+        ),
+        (
+            "not steady: only 1 of 12 months are above the same month a year earlier "
+            "(typical month +0.0%): the change may rest on a few months"
+        ),
+    ]
+
+
+def test_spike_in_the_base_year_makes_growth_look_lower():
+    views = flat_with_ripple()
+    views[4] *= 3  # 2025-01, in the 12 months before the last 12
+    _, v = run(monthly(views))
+    assert (v.trend, v.confidence) == ("falling", LOW)
+    assert reasons(v)[1].endswith(
+        "it inflates the 12 months before the last 12, so growth looks lower"
+    )
+
+
+def test_linear_growth_with_noise_is_rising_with_high_confidence():
+    m, v = run(monthly(noisy(1000 * 1.3 ** (np.arange(SPAN.months) / YEAR))))
+    assert (v.trend, v.confidence) == ("rising", HIGH)
+    assert (m.steadiness.higher, m.spikes, m.level_change) == (12, (), None)
+
+
+def test_school_year_is_flat_and_its_september_is_the_season_not_a_spike():
+    views = noisy(1000 * np.tile(SCHOOL_YEAR, 2))
+    m, v = run(monthly(views))
+    assert (v.trend, v.confidence) == ("flat", HIGH)
+    assert m.spikes == ()
+    # The second September stands out from its summer neighbours: a candidate. The
+    # first, with only October-December beside it, stays below SPIKE_RATIO but
+    # above SEASONAL_PEAK_RATIO: enough to make the pair the season.
+    ratios = verdict._peak_ratios(views)  # the edition is constant: same ratios
+    assert ratios[YEAR] >= verdict.SPIKE_RATIO
+    assert verdict.SEASONAL_PEAK_RATIO <= ratios[0] < verdict.SPIKE_RATIO
+
+
+def test_level_jump_warns_and_makes_confidence_low():
+    step = 8  # 2025-05: from then on 3.5 times the views
+    m, v = run(monthly(noisy(np.where(np.arange(SPAN.months) < step, 1000, 3500))))
+    assert m.level_change.month == SPAN.first + step
+    assert v.confidence == LOW
+    [warning] = i18n.texts(list(v.warnings))
+    assert warning.startswith(
+        "sharp lasting change of level around 2025-05: views per million are 3."
+    )
+    assert "x higher in the 6 months from then on than in the 6 before" in warning
+    assert reasons(v)[1].startswith("a sharp lasting change of level (see warnings)")
+
+
+def test_steady_growth_is_not_a_level_change():
+    # +300% a year: 6-month medians move about 2x, not 3x
+    m, _ = run(monthly(noisy(1000 * 4 ** (np.arange(SPAN.months) / YEAR))))
+    assert m.level_change is None
+
+
+def test_signals_disagree_when_one_month_carries_the_year():
+    views = two_years(1000, 950)
+    views[20] = 2900  # 2026-05: the year total grows only because of it
+    _, v = run(monthly(views))
+    assert (v.trend, v.confidence) == ("rising", LOW)
+    assert reasons(v)[1] == (
+        "signals disagree: the 12-month total grew, but 11 of 12 months are below "
+        "the same month a year earlier (typical month -5.0%)"
+    )
+    assert reasons(v)[2].startswith("one-off spike in 2026-05")
+
+
+def test_flat_with_a_slow_steady_drift_is_medium():
+    _, v = run(monthly(two_years(1000, 950)))
+    assert (v.trend, v.confidence) == ("flat", MEDIUM)
+    assert reasons(v)[1] == (
+        "slow steady drift: 12 of 12 months are below the same month a year earlier "
+        "(typical month -5.0%), though the 12-month total moved less than 10%"
+    )
+
+
+def test_rising_that_is_not_steady_is_medium():
+    views = two_years(1000, 1000)
+    views[YEAR : YEAR + 6] = 1300
+    views[YEAR + 6 :] = 940
+    m, v = run(monthly(views))
+    assert m.per_million_growth_pct == 12.0
+    assert (v.trend, v.confidence) == ("rising", MEDIUM)
+    assert reasons(v)[1].startswith("not steady: only 6 of 12 months are above")
 
 
 # --- ranking ----------------------------------------------------------------

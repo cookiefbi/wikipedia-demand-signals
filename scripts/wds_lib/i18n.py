@@ -21,9 +21,13 @@ TEXTS: dict[str, dict[str, str]] = {
         "edition {edition_dir} {edition_abs:.1f}%",
         "dir.grew": "grew",
         "dir.fell": "fell",
+        "dir.above": "above",
+        "dir.below": "below",
+        "dir.higher": "higher",
+        "dir.lower": "lower",
         # confidence
         "conf.checks_passed": "checks passed: at least {min_views} views a month, "
-        "{min_months}+ months of history{signs}",
+        "{min_months}+ months of history, no one-off spikes or data warnings{signs}",
         "conf.signs_agree": ", absolute and per-million growth agree",
         "conf.volume_low": "median {median:,.0f} views a month is below {min_views}: "
         "percentages this small are mostly noise",
@@ -31,14 +35,39 @@ TEXTS: dict[str, dict[str, str]] = {
         "conf.history_too_short": "only {months} months of history: too short for "
         "any trend",
         "conf.insufficient": "confidence is low whenever growth cannot be measured",
-        "conf.capped": "capped at {cap} until trend stability and one-off spikes are "
-        "checked",
+        # month by month: each of the last 12 months against the same month a year
+        # earlier (seasonal Mann-Kendall; typical month = seasonal Theil-Sen)
+        "conf.steady": "steady: {count} of {of} months are {dir} the same month a "
+        "year earlier{typical}",
+        "conf.unsteady": "not steady: only {count} of {of} months are {dir} the same "
+        "month a year earlier{typical}: the change may rest on a few months",
+        "conf.disagree": "signals disagree: the 12-month total {total_dir}, but "
+        "{count} of {of} months are {dir} the same month a year earlier{typical}",
+        "conf.no_drift": "no steady drift: {higher} of {of} months are above the same "
+        "month a year earlier, {lower} below{typical}",
+        "conf.drift": "slow steady drift: {count} of {of} months are {dir} the same "
+        "month a year earlier{typical}, though the 12-month total moved less than "
+        "{threshold:g}%",
+        "conf.typical": " (typical month {pct:+.1f}%)",
+        "conf.spike": "one-off spike in {month}: {ratio:.1f}x the months around it, "
+        "with no such peak in {pair}; it inflates {effect}",
+        "spike.last": "the last 12 months, so growth looks higher",
+        "spike.base": "the 12 months before the last 12, so growth looks lower",
+        "conf.level_change": "a sharp lasting change of level (see warnings) makes "
+        "the growth compare two different levels",
+        "conf.redirects_capped": "not every redirect is counted (see warnings): "
+        "views may be undercounted",
         # warnings: problems with the data itself
         "warn.base_incomplete": "article created {created}: the 12 months before "
         "the last 12 are incomplete, growth not computed",
         "warn.redirects_capped": "'{title}': {total} redirects lead to it, only "
         "{counted} are counted (redirects to the whole article first, oldest "
         "first): views may be undercounted",
+        "warn.level_change": "sharp lasting change of level around {month}: views "
+        "per million are {factor:.1f}x {dir} in the {months} months from then on "
+        "than in the {months} before (medians); possibly a rename or merge that "
+        "redirects do not cover, a change in how views are counted, or a long news "
+        "event",
         "warn.no_views": "no views recorded in the analysed months",
         "warn.zero_base": "no views in the 12 months before the last 12: growth "
         "from zero is not computed",
