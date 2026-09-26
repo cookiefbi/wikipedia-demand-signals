@@ -70,9 +70,9 @@ article title in each requested edition, `null` = no article there. Real output,
   {"qid": "Q108800304", "label": "pickleball", "description": "ball used for pickleball", "…": "…"}]}
 ```
 
-1. **`ambiguous: true`** → the name has several real meanings ("Mercury": planet or element).
-   Ask one question listing the top meanings by label and description, and wait. This is
-   the code's call, so do not ask when it is `false`.
+1. **`"status": "needs_clarification"`** → the name has several real meanings ("Mercury":
+   planet or element). Ask the user the `ask_user` question, in their language, and wait;
+   then analyze the candidate they chose. This is the code's call: with `"ok"`, do not ask.
 2. Otherwise take the **first candidate whose description fits what the user means**.
    Skip namesakes: a radio programme, album, magazine, company, app or person that merely
    carries the words of the query. Being first in the list does not make it right.
@@ -81,9 +81,9 @@ article title in each requested edition, `null` = no article there. Real output,
    changes the question, so say it in the answer and in `--note`: which article you used
    and what it covers instead (the thing itself, not learning, buying or doing it).
 4. **Articles in only some languages** → keep one QID for all: only the same item compares
-   fairly, and `no_article` is a finding (little local coverage). For each such edition, also
-   rerun the same `resolve` with `--langs pl --search-lang pl` (its code): it searches that
-   edition itself and may find a closer local article. You offer both options in the answer.
+   fairly. Its `must_say` point offers a stand-in; only if the user accepts, rerun `resolve`
+   with a broader English term, or the same query with `--langs pl --search-lang pl` (the
+   edition's own search) and show that article with `--article "pl:…"`: say how it differs.
 5. A **broad topic** (a whole science or sport) is not ambiguous: take the main article and
    tell the user that this one article stands for the whole topic, so its sub-topics are
    not counted. Offer to add related articles (`--qid Q1,Q2` sums them per language).
@@ -107,10 +107,8 @@ Real output (`--report`), trimmed at `…`:
 
 ```json
 {"status": "ok", "period": {"from": "2024-09", "to": "2026-08", "months": 24},
- "must_say": ["Ranked by growth of share — uk: rising, views per million +44.9% year over year; cs: insufficient data (low confidence).",
-  "uk: medium confidence — not steady: only 9 of 12 months are above the same month a year earlier (typical month +58.0%): the change may rest on a few months. cs: low confidence — article created 2026-05-06: the 12 months before the last 12 are incomplete, growth not computed.",
-  "pl, sk: no article on this topic — little local coverage; interest there cannot be measured this way.",
-  "A language edition is not a country (its readers live in many countries), and interest is not willingness to pay: …", "Wikimedia filters bots more strictly since 2025-03-20 …"],
+ "answer_block": "- Ranked by growth of share — uk: rising, views per million +44.9% year over year; cs: insufficient data (low confidence).\n- uk: medium confidence — not steady: only 9 of 12 months are above the same month a year earlier (typical month +58.0%): the change may rest on a few months. cs: low confidence — article created 2026-05-06: …\n- pl, sk: no article on this topic — little local coverage; interest there cannot be measured this way. A broader concept (its meaning differs) or a separate local article could stand in: say so, and I will look for one.\n- A language edition is not a country (its readers live in many countries), and interest is not willingness to pay: …\n- Wikimedia filters bots more strictly since 2025-03-20 …",
+ "must_say": ["Ranked by growth of share — uk: rising, …", "…"],
  "assumptions": ["cs: topic measured by article 'Pickleball', created 2026-05-06: earlier days are not counted", "uk: topic measured by article 'Піклбол'", "…"],
  "results": [
   {"qid": "Q866224", "lang": "pl", "status": "no_article"},
@@ -122,9 +120,9 @@ Real output (`--report`), trimmed at `…`:
  "files": {"result_json": "…", "data_csv": "…", "chart_png": "…", "report_pdf": "…"}}
 ```
 
-- `must_say` is what the user has to hear, written by code from the fields below: the ranking
-  with one number per edition, confidence with its main reason, missing articles and the key
-  caveats. The rest of the JSON is there for details and follow-up questions.
+- `answer_block` is what the user has to hear, written by code from the fields below (the
+  `must_say` points as one text): the ranking with one number per edition, confidence with its
+  main reason, missing articles and the key caveats. The rest is for details and follow-ups.
 - Growth is always **year over year**: the last 12 months against the 12 before them, for any
   `--period` (months in the `growth = …` assumption). Never call it growth "over two years".
 - `trend` follows `per_million_growth_pct` (views per million views of the whole edition):
@@ -150,15 +148,12 @@ Pageviews show attention only: do not call an edition a promising market, niche 
 
 Use these parts, headings in the user's language, each short:
 
-1. **Answer:** every `must_say` point, in order, each as its own sentence or bullet. Translate
-   them only if they are not in the user's language, keeping each number with its metric, each trend
-   and confidence word, and the meaning (a "not" stays a "not"). Do not drop, merge or soften
-   a point: they carry the caveats that, written freely, came and went between runs. Then say
-   in a sentence or two what this means for the user's question.
+1. **Answer:** paste `answer_block` as it is, every line. Retold point by point, caveats
+   got lost (evals: all points in 7 of 27 answers). Translate it only if it is not in the
+   user's language, keeping each number with its metric and every "not". Then say in a
+   sentence or two what this means for the user's question.
 2. **Topic:** the article behind each edition, and whether it is only a proxy (the thing
-   itself, not learning or buying it): the code cannot know. For each `no_article` edition,
-   offer two options: a broader candidate from `resolve` present in every edition, saying how
-   its meaning differs, and a different, local article from its own search (`--article "pl:…"`).
+   itself, not learning or buying it): the code cannot know.
 3. **Files:** if a tool can send or show files to the user, show `report.pdf` and `chart.png`
    with it; otherwise give their paths as clickable markdown links: `[report.pdf](<path>)`.
 4. **Next steps** you can run: add a language, rank by size or share, a longer period,

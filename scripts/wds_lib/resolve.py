@@ -31,6 +31,8 @@ DISAMBIGUATION_ITEM = "Q4167410"
 # 250 vs element 176. Astronomy (252) vs its namesakes (magazine 9, song 0) is not.
 # Counts as recorded on 2026-09-25, see tests/fixtures/resolve/.
 AMBIGUITY_RATIO = 1 / 3
+# Meanings named in the clarifying question: more than three is a list, not a question.
+MAX_MEANINGS_ASKED = 3
 
 
 @dataclass
@@ -238,16 +240,31 @@ def is_ambiguous(
     A disambiguation page among search results is not a signal by itself:
     "learning English" has one but is a broad topic, not an ambiguous one.
     """
-    wanted = normalize(query)
     exact = sorted(
-        (
-            len(c.sitelinks)
-            for c in candidates
-            if wanted in c.names and coverage(c, requested) > 0
-        ),
+        (len(c.sitelinks) for c in meanings(candidates, query, requested)),
         reverse=True,
     )
     return len(exact) >= 2 and exact[1] >= exact[0] * AMBIGUITY_RATIO
+
+
+def meanings(
+    candidates: list[Candidate], query: str, requested: list[Lang]
+) -> list[Candidate]:
+    """Items that carry exactly the queried name and have an article to compare."""
+    wanted = normalize(query)
+    return [c for c in candidates if wanted in c.names and coverage(c, requested) > 0]
+
+
+def clarifying_question(
+    candidates: list[Candidate], query: str, requested: list[Lang]
+) -> str:
+    """The one question for an ambiguous name, made of the meanings' descriptions."""
+    options = [
+        c.description or f"{c.label} ({c.qid})"
+        for c in meanings(candidates, query, requested)[:MAX_MEANINGS_ASKED]
+    ]
+    listed = ", ".join(options[:-1]) + " or " + options[-1]
+    return f'Which "{query}" do you mean: {listed}?'
 
 
 def sitelink_titles(qids: list[str]) -> dict[str, dict]:
@@ -392,11 +409,17 @@ def resolve(query: str, requested: list[Lang], search_lang: Lang) -> dict:
             hint="rephrase in English or use a broader term; for a topic that only "
             "exists in a local Wikipedia add --search-lang <code>",
         )
-    return {
-        "status": "ok",
+    ambiguous = is_ambiguous(shown, query, requested)
+    # A status that is not "ok" is harder to read past than a flag inside one (T16).
+    head: dict = {
+        "status": "needs_clarification" if ambiguous else "ok",
         "query": query,
         "langs": [lang.code for lang in requested],
-        "ambiguous": is_ambiguous(shown, query, requested),
+        "ambiguous": ambiguous,
+    }
+    if ambiguous:
+        head["ask_user"] = clarifying_question(shown, query, requested)
+    return head | {
         "candidates": [
             {
                 "qid": c.qid,

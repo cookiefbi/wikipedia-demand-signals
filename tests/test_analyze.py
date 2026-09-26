@@ -346,6 +346,11 @@ BOT_RULES = (
     "Wikimedia filters bots more strictly since 2025-03-20 and did not reprocess "
     "earlier data, so growth across that date partly reflects the rule change."
 )
+# The no_article point offers a stand-in itself: in T16 Haiku never did (0/9).
+OFFER = (
+    " A broader concept (its meaning differs) or a separate local article could "
+    "stand in: say so, and I will look for one."
+)
 PROXY = (
     "One article (with its redirects) stands for the topic: related articles are "
     "not counted."
@@ -394,12 +399,16 @@ def json_numbers(value) -> set[float]:
 
 def test_must_say_for_one_language(replay):
     result = run(qids=["Q333"], langs_arg="uk")
-    assert list(result)[:3] == ["status", "period", "must_say"]
+    assert list(result)[:4] == ["status", "period", "answer_block", "must_say"]
     assert result["must_say"] == [
         "uk: falling, views per million -46.4% year over year.",
         "uk: high confidence — checks passed.",
         LIMITS,
         BOT_RULES,  # the growth base 2024-09..2025-08 straddles 2025-03-20
+    ]
+    # the same points as one text to paste as it is
+    assert result["answer_block"].splitlines() == [
+        f"- {point}" for point in result["must_say"]
     ]
 
 
@@ -430,7 +439,7 @@ def test_must_say_names_a_missing_article_and_low_confidence(replay):
         ),
         (
             "pl: no article on this topic — little local coverage; interest there "
-            "cannot be measured this way."
+            "cannot be measured this way." + OFFER
         ),
         LIMITS,
         BOT_RULES,
@@ -534,8 +543,9 @@ def test_must_say_in_ukrainian_for_one_language(replay):
     ]
     # the rest of the JSON is data for the agent and stays English
     english = analyze.to_json(a, files={})
-    assert {k: v for k, v in result.items() if k != "must_say"} == {
-        k: v for k, v in english.items() if k != "must_say"
+    texts = ("must_say", "answer_block")
+    assert {k: v for k, v in result.items() if k not in texts} == {
+        k: v for k, v in english.items() if k not in texts
     }
 
 
@@ -741,7 +751,7 @@ def test_must_say_when_no_language_has_an_article(monkeypatch):
     assert result["must_say"] == [
         (
             "pl, cs: no article on this topic — little local coverage; interest "
-            "there cannot be measured this way."
+            "there cannot be measured this way." + OFFER
         ),
         LIMITS,
         BOT_RULES,

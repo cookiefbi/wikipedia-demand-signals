@@ -79,6 +79,25 @@ def test_java_and_mercury_are_ambiguous(replay, name, pair):
     result = run(replay, name, "pl,cs,uk")
     assert result["ambiguous"] is True
     assert pair <= set(qids(result))
+    # not "ok": the agent has to ask before it analyses anything
+    assert result["status"] == "needs_clarification"
+
+
+def test_ambiguous_name_comes_with_the_question_to_ask(replay):
+    result = run(replay, "java", "pl,cs,uk")
+    by_qid = {c["qid"]: c["description"] for c in result["candidates"]}
+    question = result["ask_user"]
+    assert question.startswith('Which "Java" do you mean: ')
+    assert question.endswith("?")
+    assert by_qid["Q251"] in question
+    assert by_qid["Q3757"] in question
+    assert list(result)[:5] == ["status", "query", "langs", "ambiguous", "ask_user"]
+
+
+def test_clear_topic_has_status_ok_and_no_question(replay):
+    result = run(replay, "astronomy", "pl,cs,uk")
+    assert result["status"] == "ok"
+    assert "ask_user" not in result
 
 
 @pytest.mark.parametrize(
@@ -108,7 +127,9 @@ def test_at_most_five_candidates_with_the_contract_fields(replay):
         "mercury",
     ):
         result = run(replay, name, "pl,cs")
-        assert result["status"] == "ok"
+        assert result["status"] == (
+            "needs_clarification" if result["ambiguous"] else "ok"
+        )
         assert 1 <= len(result["candidates"]) <= resolve.MAX_CANDIDATES
         for c in result["candidates"]:
             assert set(c) == {

@@ -125,7 +125,9 @@ TEXTS: dict[str, dict[str, str]] = {
         "must.confidence": "{langs}: {level} confidence — {reason}.",
         "must.checks_passed": "checks passed",
         "must.no_article": "{langs}: no article on this topic — little local "
-        "coverage; interest there cannot be measured this way.",
+        "coverage; interest there cannot be measured this way. A broader concept "
+        "(its meaning differs) or a separate local article could stand in: say so, "
+        "and I will look for one.",
         "must.limits": "A language edition is not a country (its readers live in "
         "many countries), and interest is not willingness to pay: views show "
         "curiosity, not demand for a product.",
@@ -326,7 +328,8 @@ _UK = {
     "must.confidence": "{langs}: {level} довіра — {reason}.",
     "must.checks_passed": "перевірки пройдено",
     "must.no_article": "{langs}: статті на цю тему немає — місцевого висвітлення "
-    "мало; виміряти інтерес там цим способом не можна.",
+    "мало; виміряти інтерес там цим способом не можна. Замість неї можна взяти ширше "
+    "поняття (зміст інший) або окрему статтю в самому розділі — скажіть, і я знайду.",
     "must.limits": "Мовний розділ — не країна (його читачі живуть у багатьох "
     "країнах), а інтерес — не готовність платити: перегляди показують цікавість, "
     "а не попит на продукт.",

@@ -573,6 +573,12 @@ def must_say(a: Analysis, lang: str = "en") -> list[str]:
     return points
 
 
+def answer_block(points: list[str]) -> str:
+    """must_say as one text to paste as it is: Haiku dropped points when it retold
+    them one by one (T16: all points in 7 of 27 answers)."""
+    return "\n".join(f"- {point}" for point in points)
+
+
 def _numbers(m: Measured) -> dict:
     metrics, v = m.metrics, m.verdict
     return {
@@ -599,11 +605,13 @@ def to_json(a: Analysis, files: dict[str, str], lang: str = "en") -> dict:
             )
         else:
             results.append(head | {"status": "no_article"})
+    points = must_say(a, lang)
     out: dict = {
         "status": "ok",
         "period": a.period.as_dict(),
-        # right after the period, so a cut-off output still carries it
-        "must_say": must_say(a, lang),
+        # right after the period, so a cut-off output still carries them
+        "answer_block": answer_block(points),
+        "must_say": points,
         "assumptions": i18n.texts(a.assumptions),
         "results": results,
     }
