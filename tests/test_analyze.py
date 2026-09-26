@@ -3,6 +3,7 @@
 import csv
 import datetime as dt
 import json
+import re
 from pathlib import Path
 
 import numpy as np
@@ -302,6 +303,174 @@ def test_when_all_results_are_low_the_values_decide(replay):
     }
 
 
+# --- must_say on real series ---------------------------------------------------
+
+LIMITS = (
+    "A language edition is not a country (its readers live in many countries), and "
+    "interest is not willingness to pay: views show curiosity, not demand for a "
+    "product."
+)
+BOT_RULES = (
+    "Wikimedia filters bots more strictly since 2025-03-20 and did not reprocess "
+    "earlier data, so growth across that date partly reflects the rule change."
+)
+PROXY = (
+    "One article (with its redirects) stands for the topic: related articles are "
+    "not counted."
+)
+
+# Every scenario the fixture holds, with each ranking key.
+MUST_SAY_CASES = [
+    {"qids": ["Q333"], "langs_arg": "uk"},
+    {"qids": ["Q333"], "langs_arg": "pl,cs,uk", "rank_by": "growth"},
+    {"qids": ["Q333"], "langs_arg": "pl,cs,uk", "rank_by": "share"},
+    {"qids": ["Q333"], "langs_arg": "pl,cs,uk", "rank_by": "size"},
+    {"qids": ["Q333"], "langs_arg": "pl,cs,uk", "date_to": "2023-10"},
+    {"qids": ["Q1666254"], "langs_arg": "pl,cs"},
+    {"qids": ["Q1666254"], "articles": ["pl:Głodówka lecznicza"], "langs_arg": "pl,cs"},
+    {
+        "qids": ["Q1666254"],
+        "articles": ["pl:Głodówka lecznicza"],
+        "langs_arg": "cs",
+        "date_from": "2020-09",
+        "date_to": "2022-08",
+    },
+    {"qids": ["Q43274"], "langs_arg": "pl,cs", "rank_by": "size"},
+    {"qids": ["Q43274"], "langs_arg": "pl,cs", "date_to": "2023-08"},
+    {"qids": [], "articles": ["pl:Głodówka oczyszczająca"], "langs_arg": None},
+]
+
+
+def numbers(text: str) -> list[float]:
+    """Numbers as written, sign aside; '17,175' is one number."""
+    text = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", text)
+    return [float(token) for token in re.findall(r"\d+(?:\.\d+)?", text)]
+
+
+def json_numbers(value) -> set[float]:
+    """Every number in the JSON: its numeric fields and the numbers in its texts."""
+    if isinstance(value, bool) or value is None:
+        return set()
+    if isinstance(value, int | float):
+        return {abs(float(value))}
+    if isinstance(value, str):
+        return set(numbers(value))
+    items = value.values() if isinstance(value, dict) else value
+    return set().union(*(json_numbers(item) for item in items))
+
+
+def test_must_say_for_one_language(replay):
+    result = run(qids=["Q333"], langs_arg="uk")
+    assert list(result)[:3] == ["status", "period", "must_say"]
+    assert result["must_say"] == [
+        "uk: falling, views per million -46.4% year over year.",
+        "uk: high confidence — checks passed.",
+        LIMITS,
+        BOT_RULES,  # the growth base 2024-09..2025-08 straddles 2025-03-20
+    ]
+
+
+def test_must_say_for_several_languages_ranked_by_size(replay):
+    result = run(qids=["Q333"], langs_arg="pl,cs,uk", rank_by="size")
+    answer, trust, *rest = result["must_say"]
+    assert answer == (
+        "Ranked by audience size — pl: flat, 17,175 views in the last 12 months; "
+        "uk: falling, 6,712 views in the last 12 months; cs: falling, 6,222 views "
+        "in the last 12 months."
+    )
+    # equal levels with equal reasons are named together
+    assert trust == (
+        "pl: medium confidence — one-off spike in 2025-11: 2.8x the months around "
+        "it, with no such peak in 2024-11; it inflates the last 12 months, so growth "
+        "looks higher. uk, cs: high confidence — checks passed."
+    )
+    assert rest == [LIMITS, BOT_RULES]
+
+
+def test_must_say_names_a_missing_article_and_low_confidence(replay):
+    result = run(qids=["Q1666254"], langs_arg="pl,cs")
+    assert result["must_say"] == [
+        "cs: falling, views per million -47.0% year over year (low confidence).",
+        (
+            "cs: low confidence — median 232 views a month is below 300: "
+            "percentages this small are mostly noise."
+        ),
+        (
+            "pl: no article on this topic — little local coverage; interest there "
+            "cannot be measured this way."
+        ),
+        LIMITS,
+        BOT_RULES,
+    ]
+
+
+def test_must_say_gives_the_first_limiting_rule_not_the_note_on_signs(replay):
+    """cs 'Karel III. Britský' is flat, but absolute views fell while its share
+    grew: reasons[1] explains that, and the rule that kept the confidence at
+    medium comes after it. must_say gives the rule, with the warning it points to
+    rather than "(see warnings)"."""
+    result = run(qids=["Q43274"], langs_arg="pl,cs")
+    cs = by_lang(result)["cs"]
+    assert cs["trend"] == "flat"
+    assert cs["reasons"][1].startswith("absolute views fell 7.3% while the whole")
+    assert cs["reasons"][2].startswith("not every redirect is counted (see warnings)")
+    assert result["must_say"][1].endswith(
+        "cs: medium confidence — " + cs["warnings"][0] + "."
+    )
+
+
+def test_insufficient_growth_gives_what_blocked_it(replay):
+    result = run(
+        qids=["Q1666254"],
+        articles=["pl:Głodówka lecznicza"],
+        langs_arg="cs",
+        date_from="2020-09",
+        date_to="2022-08",
+    )
+    answer, trust = result["must_say"][:2]
+    assert answer.endswith("; cs: insufficient data (low confidence).")
+    assert trust.endswith(
+        "cs: low confidence — article created 2020-10-28: the 12 months before the "
+        "last 12 are incomplete, growth not computed."
+    )
+
+
+@pytest.mark.parametrize(
+    ("dates", "caveat"),
+    [
+        ({"date_from": "2022-09", "date_to": "2024-08"}, PROXY),
+        ({"date_to": "2025-02"}, PROXY),  # the last month ends before 2025-03-20
+        ({"date_to": "2025-03"}, BOT_RULES),
+        ({}, BOT_RULES),
+    ],
+)
+def test_bot_rules_caveat_only_when_growth_straddles_the_change(replay, dates, caveat):
+    result = run(qids=["Q333"], langs_arg="uk", **dates)
+    assert result["must_say"][-1] == caveat
+    assert BOT_RULES not in result["must_say"][:-1]
+
+
+@pytest.mark.parametrize("args", MUST_SAY_CASES)
+def test_must_say_has_three_to_five_points(replay, args):
+    points = run(**args)["must_say"]
+    assert 3 <= len(points) <= 5
+    assert LIMITS in points
+
+
+@pytest.mark.parametrize("args", MUST_SAY_CASES)
+def test_must_say_numbers_come_from_the_json(replay, args):
+    result = run(**args)
+    rest = json_numbers({k: v for k, v in result.items() if k != "must_say"})
+    for point in result["must_say"]:
+        assert set(numbers(point)) <= rest, point
+    # The main point: the value each language is ranked by, in ranking order.
+    rows = {r["lang"]: r for r in result["results"] if r["status"] == "ok"}
+    field = verdict.RANK_FIELDS[result["ranking"]["by"]]
+    values = [rows[lang][field] for lang in ranked(result)]
+    main = result["must_say"][0].replace("the last 12 months", "")
+    assert numbers(main) == [abs(v) for v in values if v is not None]
+
+
 # --- redirects and the first edit ----------------------------------------------
 
 
@@ -474,6 +643,30 @@ def test_two_articles_in_one_language_are_summed_into_topic_totals(monkeypatch):
     a, b = result["results"]
     assert total["views_last_12m"] == a["views_last_12m"] + b["views_last_12m"]
     assert "cs: topic = sum of 2 articles (topic_totals)" in result["assumptions"]
+    # Without the bot caveat, must_say names the articles, not one article.
+    earlier = run(qids=["Q1", "Q2"], langs_arg="cs", date_to="2024-08")
+    assert earlier["must_say"][-1] == (
+        "The chosen articles (with their redirects) stand for the topic: related "
+        "articles are not counted."
+    )
+
+
+def test_must_say_when_no_language_has_an_article(monkeypatch):
+    monkeypatch.setattr(
+        resolve,
+        "sitelink_titles",
+        lambda qids: {"Q1": {"label": "a", "titles": {"enwiki": "A"}}},
+    )
+    result = run(qids=["Q1"], langs_arg="pl,cs")
+    assert result["ranking"]["order"] == []
+    assert result["must_say"] == [
+        (
+            "pl, cs: no article on this topic — little local coverage; interest "
+            "there cannot be measured this way."
+        ),
+        LIMITS,
+        BOT_RULES,
+    ]
 
 
 # --- argument errors ---------------------------------------------------------

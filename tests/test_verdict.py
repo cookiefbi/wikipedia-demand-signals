@@ -107,6 +107,19 @@ def test_opposite_directions_on_a_flat_topic_are_explained_but_not_penalised():
     assert v.trend == "flat"
     assert v.confidence == HIGH
     assert any("grew 2.0% while the whole edition grew 5.0%" in r for r in reasons(v))
+    assert v.limit is None  # nothing kept it from high
+
+
+def test_main_limit_of_a_flat_topic_is_the_rule_not_the_note_on_signs():
+    """must_say names Verdict.limit. In `reasons` the note on opposite signs
+    stands where the first limiting rule would stand otherwise."""
+    views = two_years(100, 100)  # below 300 a month: low
+    views[YEAR:] = [107, 97] * 6
+    _, v = run(monthly(views, two_years(EDITION, EDITION * 1.05)))
+    assert (v.trend, v.confidence) == ("flat", LOW)
+    assert reasons(v)[1].startswith("absolute views grew 2.0% while")
+    assert v.limit.render() == reasons(v)[2]
+    assert v.limit.render().startswith("median 100 views a month is below 300")
 
 
 def test_small_volume_caps_confidence_at_low():
@@ -124,6 +137,7 @@ def test_young_article_gets_no_growth_and_a_warning():
     assert (v.trend, v.confidence) == ("insufficient_data", LOW)
     warning = i18n.texts(list(v.warnings))[0]
     assert warning.startswith("article created 2024-12-14: the 12 months before")
+    assert v.limit.render() == warning  # what kept growth from being computed
 
 
 def test_article_created_in_the_first_base_month_has_an_incomplete_base():
@@ -244,6 +258,7 @@ def test_flat_series_with_one_spike_is_low_and_names_the_spike():
     # "rising"; the confidence and its reasons say why not to trust it.
     assert (v.trend, v.confidence) == ("rising", LOW)
     assert [series.month_label(spike.month) for spike in m.spikes] == ["2026-01"]
+    assert v.limit.render() == reasons(v)[1]  # the first of the two failed checks
     assert reasons(v)[1:] == [
         (
             "one-off spike in 2026-01: 3.2x the months around it, with no such peak "
@@ -296,6 +311,8 @@ def test_level_jump_warns_and_makes_confidence_low():
     )
     assert "x higher in the 6 months from then on than in the 6 before" in warning
     assert reasons(v)[1].startswith("a sharp lasting change of level (see warnings)")
+    # must_say has no warnings to point to: the limit is the warning itself
+    assert v.limit.render() == warning
 
 
 def test_steady_growth_is_not_a_level_change():

@@ -23,7 +23,7 @@ from matplotlib.textpath import TextToPath
 from matplotlib.ticker import FuncFormatter, MaxNLocator
 
 from wds_lib import __version__, i18n, series
-from wds_lib.analyze import Analysis, Measured, Target
+from wds_lib.analyze import Analysis, Measured, Target, per_language
 from wds_lib.i18n import Msg
 
 # Ships with matplotlib and covers Cyrillic and Central European letters (ł, ř, ě),
@@ -127,16 +127,6 @@ class Line:
     months: np.ndarray  # month numbers of the period
     per_million: np.ndarray
     views: np.ndarray
-
-
-def per_language(a: Analysis) -> dict[str, Measured]:
-    """The measurement that stands for each language: the topic total, or the
-    language's only article."""
-    out: dict[str, Measured] = {}
-    for target, measured in a.measured.items():
-        code = target.lang.code
-        out.setdefault(code, a.totals.get(code, measured))
-    return out
 
 
 def chart_lines(a: Analysis) -> tuple[list[Line], int]:

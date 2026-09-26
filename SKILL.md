@@ -105,34 +105,36 @@ Ask the user only in case 1, when languages are not named, or when nothing fits 
 
 ## Reading the analyze JSON
 
-Real output, trimmed:
+Real output (`--report`), trimmed at `…`:
 
 ```json
 {"status": "ok", "period": {"from": "2024-09", "to": "2026-08", "months": 24},
- "assumptions": ["cs: topic measured by article 'Pickleball'", "uk: topic measured by article 'Піклбол'", "…"],
+ "must_say": ["Ranked by growth of share — uk: rising, views per million +44.9% year over year; cs: insufficient data (low confidence).",
+  "uk: medium confidence — not steady: only 9 of 12 months are above the same month a year earlier (typical month +58.0%): the change may rest on a few months. cs: low confidence — article created 2026-05-06: the 12 months before the last 12 are incomplete, growth not computed.",
+  "pl, sk: no article on this topic — little local coverage; interest there cannot be measured this way.",
+  "A language edition is not a country (its readers live in many countries), and interest is not willingness to pay: …", "Wikimedia filters bots more strictly since 2025-03-20 …"],
+ "assumptions": ["cs: topic measured by article 'Pickleball', created 2026-05-06: earlier days are not counted", "uk: topic measured by article 'Піклбол'", "…"],
  "results": [
   {"qid": "Q866224", "lang": "pl", "status": "no_article"},
-  {"qid": "Q866224", "lang": "cs", "status": "ok", "title": "Pickleball", "views_last_12m": 4070, "views_prev_12m": 0,
-   "growth_pct": null, "per_million_last_12m": 5.71, "per_million_growth_pct": null, "trend": "insufficient_data", "confidence": "low",
-   "reasons": ["no year-over-year growth, so no trend", "…"],
-   "warnings": ["views start only in 2026-05: the 12 months before the last 12 are incomplete, growth not computed"]},
   {"qid": "Q866224", "lang": "uk", "status": "ok", "title": "Піклбол", "views_last_12m": 6401, "views_prev_12m": 5859,
    "growth_pct": 9.3, "per_million_last_12m": 9.43, "per_million_growth_pct": 44.9, "trend": "rising", "confidence": "medium",
-   "reasons": ["views per million edition views +44.9% year over year (+10% or more counts as rising)", "…"], "warnings": []}, "…"],
- "ranking": {"by": "growth", "order": [{"lang": "uk", "why": "per-million growth +44.9%, medium confidence"}, {"lang": "cs", "why": "no value to rank by: listed last"}]},
+   "reasons": ["views per million edition views +44.9% year over year (+10% or more counts as rising)", "not steady: …"], "warnings": []}, "…"],
+ "ranking": {"by": "growth", "order": [{"lang": "uk", "why": "views per million +44.9% year over year, medium confidence"}, {"lang": "cs", "why": "growth of share not measured (see warnings): listed last"}]},
  "caveats": ["language edition ≠ country: …", "interest ≠ willingness to pay: …", "…"],
  "files": {"result_json": "…", "data_csv": "…", "chart_png": "…", "report_pdf": "…"}}
 ```
 
+- `must_say` is what the user has to hear, written by code from the fields below: the ranking
+  with one number per edition, confidence with its main reason, missing articles and the key
+  caveats. The rest of the JSON is there for details and follow-up questions.
 - Growth is always **year over year**: the last 12 months against the 12 before them, for any
   `--period` (months in the `growth = …` assumption). Never call it growth "over two years".
 - `trend` follows `per_million_growth_pct` (views per million views of the whole edition):
   it removes the edition's own growth or decline, so it can differ from the absolute
   `growth_pct`. `insufficient_data` means growth could not be measured.
-- `confidence` (high, medium, low) is explained by `reasons`; `warnings` are problems in
-  the data. Each line matters (one may say the confidence is capped), so retell all of them.
-- `ranking.order` is the answer to "where is it stronger": follow it, with its `why`.
-  Low-confidence results are always listed after confident ones.
+- `reasons` explain `confidence` (high, medium, low) in full; `warnings` are problems in the data.
+- `ranking.order` answers "where is it stronger", with a `why` for each place; low-confidence
+  results always come after confident ones.
 - `topic_totals` appears when one language has several articles; the ranking uses it.
 
 ## What to tell the user
@@ -150,19 +152,14 @@ Pageviews show attention only: do not call an edition a promising market, niche 
 
 Use these parts, headings in the user's language, each short:
 
-1. **Answer:** editions in `ranking.order`, each with its `trend` word (falling stays falling,
-   even where it falls least), confidence and one or two numbers from the JSON, then what
-   this means for the user's question.
-2. **How far to trust it:** one bullet per `reasons` and `warnings` line, in plain words,
-   none skipped or merged; caveats belong to the closing part, not here.
-3. **No article:** each `no_article` edition as a finding (case 4 above).
-4. **Files:** the PDF and chart paths when a report was made.
-5. **Next steps** you can run: add a language, rank by size or share, a longer period,
+1. **Answer:** every `must_say` point, in order, each as its own sentence or bullet. Translate
+   them if the user writes another language, keeping each number with its metric, each trend
+   and confidence word, and the meaning (a "not" stays a "not"). Do not drop, merge or soften
+   a point: they carry the caveats that, written freely, came and went between runs. Then say
+   in a sentence or two what this means for the user's question.
+2. **Topic:** the article that stands for the topic in each edition. If the user asked about
+   learning, buying or doing something and the article covers the thing itself, say it is
+   only a proxy, and name any broader substitute: the code cannot know either.
+3. **Files:** the PDF and chart paths when a report was made.
+4. **Next steps** you can run: add a language, rank by size or share, a longer period,
    related articles, a report in Ukrainian.
-
-**Always close with these two sections**, however long the answer: without them the
-numbers look like stronger evidence than they are.
-- **Assumptions:** the article that stands for the topic in each edition (if the user asked
-  about learning, buying or doing something and the article covers the thing itself, say
-  it is only a proxy); any broader substitute; which 12 months are compared with which.
-- **Caveats:** all five lines of `caveats`, one short sentence each.

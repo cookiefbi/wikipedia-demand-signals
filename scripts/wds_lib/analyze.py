@@ -38,6 +38,11 @@ DEFAULT_ROOT = "wds-output"
 LAST_RESULT = "last-result.json"
 # Keeps folder names short: Windows paths are limited to 260 characters in total.
 TOPIC_SLUG_MAX = 40
+
+# Wikimedia filters bots more strictly from this day on and did not reprocess
+# earlier data (Wikitech, Data Issues 2025-06-03): growth whose two years straddle
+# it partly measures the rule change, which makes it the key caveat in must_say.
+BOT_RULES_CHANGED = dt.date(2025, 3, 20)
 # Letters that Unicode normalization cannot split into an ASCII letter + accent.
 ASCII_LETTERS = str.maketrans(
     {"ł": "l", "Ł": "L", "đ": "d", "Đ": "D", "ø": "o", "Ø": "O", "ß": "ss", "æ": "ae"}
@@ -419,6 +424,86 @@ def analyze(
 # --- outputs ----------------------------------------------------------------
 
 
+def per_language(a: Analysis) -> dict[str, Measured]:
+    """The measurement that stands for each language: the topic total, or the
+    language's only article."""
+    out: dict[str, Measured] = {}
+    for target, measured in a.measured.items():
+        code = target.lang.code
+        out.setdefault(code, a.totals.get(code, measured))
+    return out
+
+
+def _main_point(a: Analysis, data: dict[str, Measured], lang: str) -> str:
+    """Languages in ranking order, each with its trend word and the value it is
+    ranked by, the metric named next to every number."""
+    field = verdict.RANK_FIELDS[a.rank_by]
+    items = []
+    for code, _ in a.ranking:
+        m = data[code]
+        value = getattr(m.metrics, field)
+        params = {
+            "lang": code,
+            "trend": Msg(f"trend_name.{m.verdict.trend}"),
+            "value": value,
+        }
+        key = "must.item.unknown" if value is None else f"must.item.{a.rank_by}"
+        item = i18n.render(key, params, lang)
+        if m.verdict.confidence == verdict.LOW:
+            item = i18n.render("must.low", {"item": item}, lang)
+        items.append(item)
+    if len(items) == 1:
+        return i18n.render("must.main_one", {"items": items[0]}, lang)
+    params = {"by": Msg(f"rank_by.{a.rank_by}"), "items": "; ".join(items)}
+    return i18n.render("must.main", params, lang)
+
+
+def _confidence_point(a: Analysis, data: dict[str, Measured], lang: str) -> str:
+    """Confidence per language with its main reason; languages that share both
+    are named together."""
+    groups: dict[tuple[str, str], list[str]] = {}
+    for code, _ in a.ranking:
+        v = data[code].verdict
+        limit = Msg("must.checks_passed") if v.limit is None else v.limit
+        groups.setdefault((v.confidence, limit.render(lang)), []).append(code)
+    return " ".join(
+        i18n.render(
+            "must.confidence",
+            {
+                "langs": ", ".join(codes),
+                "level": Msg(f"conf_name.{level}"),
+                "reason": reason,
+            },
+            lang,
+        )
+        for (level, reason), codes in groups.items()
+    )
+
+
+def must_say(a: Analysis, lang: str = "en") -> list[str]:
+    """3-5 sentences the agent passes on point by point (SPEC 3), made only of what
+    the JSON already holds: the answer, how far to trust it, missing articles, what
+    pageviews cannot show, and the one data caveat that matters most here."""
+    data = per_language(a)
+    points = []
+    if a.ranking:
+        points += [_main_point(a, data, lang), _confidence_point(a, data, lang)]
+    languages = dict.fromkeys(t.lang.code for t in a.targets if t.title is None)
+    missing = [code for code in languages if code not in data]
+    if missing:
+        params = {"langs": ", ".join(missing)}
+        points.append(i18n.render("must.no_article", params, lang))
+    points.append(i18n.render("must.limits", None, lang))
+    last, prev = series.yoy_spans(a.period)
+    if prev.start < BOT_RULES_CHANGED <= last.end:
+        params = {"day": str(BOT_RULES_CHANGED)}
+        points.append(i18n.render("must.bot_rules", params, lang))
+    else:
+        key = "must.proxy_sum" if a.totals else "must.proxy"
+        points.append(i18n.render(key, None, lang))
+    return points
+
+
 def _numbers(m: Measured) -> dict:
     metrics, v = m.metrics, m.verdict
     return {
@@ -447,6 +532,8 @@ def to_json(a: Analysis, files: dict[str, str]) -> dict:
     out: dict = {
         "status": "ok",
         "period": a.period.as_dict(),
+        # right after the period, so a cut-off output still carries it
+        "must_say": must_say(a),
         "assumptions": i18n.texts(a.assumptions),
         "results": results,
     }

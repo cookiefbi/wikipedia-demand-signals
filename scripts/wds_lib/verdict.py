@@ -138,6 +138,11 @@ class Verdict:
     confidence: str
     reasons: tuple[Msg, ...]
     warnings: tuple[Msg, ...]
+    # The first rule that kept the confidence from being higher; None for high.
+    # must_say names it as the main reason. Set where the rule fires rather than
+    # read off `reasons` by position: a flat topic's note on opposite signs comes
+    # before it there, and a passed check comes first when nothing failed.
+    limit: Msg | None = None
 
 
 def growth_pct(last: float, prev: float) -> float | None:
@@ -376,17 +381,29 @@ def _spike_reason(spike: Spike) -> Msg:
     )
 
 
-def _confidence(trend: str, m: Metrics, signs: Msg | None) -> tuple[str, list[Msg]]:
+# Reasons that say "(see warnings)" -> the warning they point to.
+WARNING_OF = {
+    "conf.level_change": "warn.level_change",
+    "conf.redirects_capped": "warn.redirects_capped",
+}
+
+
+def _confidence(
+    trend: str, m: Metrics, signs: Msg | None
+) -> tuple[str, list[Msg], Msg | None]:
     """Base checks: enough volume, no one-off spikes, no data warnings, 24+ months
     of history. rising/falling add: steady month by month in the same direction,
     and absolute and per-million growth agreeing; flat adds: no steady drift.
     All pass -> high, one fails -> medium, two or more -> low.
     Low regardless: too little volume, under 12 months of history, a sharp lasting
     level change, or a month-by-month test steady the other way ("signals disagree").
-    Reasons come in that order: what limited the confidence first.
+    Reasons come in that order: what limited the confidence first. Also returns
+    the first of them (Verdict.limit).
     """
     if trend == INSUFFICIENT:
-        return LOW, [Msg("conf.insufficient")]
+        # measure() lists what kept growth from being computed first
+        blocker = m.warnings[0] if m.warnings else Msg("conf.insufficient")
+        return LOW, [Msg("conf.insufficient")], blocker
     caps: list[Msg] = []  # each alone makes it low
     failed: list[tuple[Msg, ...]] = []  # one entry per failed check
     if m.median_monthly_views < MIN_MEDIAN_MONTHLY_VIEWS:
@@ -422,11 +439,14 @@ def _confidence(trend: str, m: Metrics, signs: Msg | None) -> tuple[str, list[Ms
         failed.append((Msg("conf.redirects_capped"),))
 
     passed = [month_by_month] if outcome == "pass" else []
-    reasons = caps + [msg for check in failed for msg in check] + passed
-    if caps or len(failed) >= 2:
-        return LOW, reasons
-    if failed:
-        return MEDIUM, reasons
+    limits = caps + [msg for check in failed for msg in check]
+    reasons = limits + passed
+    if limits:
+        limit = limits[0]
+        # must_say has no warnings to point to: it gets the warning itself
+        if limit.key in WARNING_OF:
+            limit = next(w for w in m.warnings if w.key == WARNING_OF[limit.key])
+        return (LOW if caps or len(failed) >= 2 else MEDIUM), reasons, limit
     checks = Msg(
         "conf.checks_passed",
         {
@@ -435,7 +455,7 @@ def _confidence(trend: str, m: Metrics, signs: Msg | None) -> tuple[str, list[Ms
             "signs": Msg("conf.signs_agree") if directional else "",
         },
     )
-    return HIGH, [*passed, checks]
+    return HIGH, [*passed, checks], None
 
 
 def judge(m: Metrics) -> Verdict:
@@ -455,8 +475,8 @@ def judge(m: Metrics) -> Verdict:
     signs = _signs_differ(m)
     if signs is not None and trend == FLAT:
         reasons.append(signs)  # for rising/falling it is one of the failed checks
-    confidence, checks = _confidence(trend, m, signs)
-    return Verdict(trend, confidence, tuple(reasons + checks), m.warnings)
+    confidence, checks, limit = _confidence(trend, m, signs)
+    return Verdict(trend, confidence, tuple(reasons + checks), m.warnings, limit)
 
 
 # --- ranking ----------------------------------------------------------------

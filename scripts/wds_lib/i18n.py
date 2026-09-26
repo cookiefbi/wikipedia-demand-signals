@@ -81,6 +81,30 @@ TEXTS: dict[str, dict[str, str]] = {
         "rank.low_after": "{base}: listed after confident results",
         "rank.low_outscores": "{base}: higher than {langs} by this measure, but "
         "listed after confident results",
+        # must_say: 3-5 sentences the agent passes on point by point (SPEC 3)
+        "must.main": "Ranked by {by} — {items}.",
+        "must.main_one": "{items}.",
+        "must.item.growth": "{lang}: {trend}, views per million {value:+.1f}% year "
+        "over year",
+        "must.item.share": "{lang}: {trend}, {value:.2f} views per million edition "
+        "views in the last 12 months",
+        "must.item.size": "{lang}: {trend}, {value:,} views in the last 12 months",
+        "must.item.unknown": "{lang}: {trend}",
+        "must.low": "{item} (low confidence)",
+        "must.confidence": "{langs}: {level} confidence — {reason}.",
+        "must.checks_passed": "checks passed",
+        "must.no_article": "{langs}: no article on this topic — little local "
+        "coverage; interest there cannot be measured this way.",
+        "must.limits": "A language edition is not a country (its readers live in "
+        "many countries), and interest is not willingness to pay: views show "
+        "curiosity, not demand for a product.",
+        "must.bot_rules": "Wikimedia filters bots more strictly since {day} and did "
+        "not reprocess earlier data, so growth across that date partly reflects the "
+        "rule change.",
+        "must.proxy": "One article (with its redirects) stands for the topic: "
+        "related articles are not counted.",
+        "must.proxy_sum": "The chosen articles (with their redirects) stand for the "
+        "topic: related articles are not counted.",
         # assumptions
         "assume.lang_added": "{lang} added to the compared languages for --article "
         "'{article}'",
