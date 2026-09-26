@@ -133,8 +133,8 @@ Real output (`--report`), trimmed at `…`:
   it removes the edition's own growth or decline, so it can differ from the absolute
   `growth_pct`. `insufficient_data` means growth could not be measured.
 - `reasons` explain `confidence` (high, medium, low) in full; `warnings` are problems in the data.
-- `ranking.order` answers "where is it stronger", with a `why` for each place; low-confidence
-  results always come after confident ones.
+- `ranking.order` answers "where is it stronger", with a `why` for each place. By growth, low
+  confidence goes last; by size or share, only a number its `why` calls unreliable does.
 - `topic_totals` appears when one language has several articles; the ranking uses it.
 
 ## What to tell the user

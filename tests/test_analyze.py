@@ -216,9 +216,12 @@ def why(result: dict) -> dict[str, str]:
     return {row["lang"]: row["why"] for row in result["ranking"]["order"]}
 
 
-GROWTH_WHY = "views per million {:+.1f}% year over year"
-SHARE_WHY = "{:.2f} views per million edition views in the last 12 months"
-SIZE_WHY = "{:,} views in the last 12 months"
+GROWTH_WHY = "views per million {:+.1f}% year over year, {confidence} confidence"
+SHARE_WHY = (
+    "{:.2f} views per million edition views in the last 12 months (trend: {trend}, "
+    "{confidence} confidence)"
+)
+SIZE_WHY = "{:,} views in the last 12 months (trend: {trend}, {confidence} confidence)"
 
 
 @pytest.mark.parametrize(
@@ -241,39 +244,68 @@ def test_the_three_keys_rank_astronomy_three_ways(replay, by, order, field, text
     rows = by_lang(result)
     for lang in order:
         row = rows[lang]
-        expected = text.format(row[field]) + f", {row['confidence']} confidence"
+        expected = text.format(row[field], **row)
         assert why(result)[lang] == expected
 
 
-def test_low_confidence_largest_audience_is_listed_after_confident_results(replay):
-    """Up to 2023-10 uk had the most views and the largest share, but a spike in
-    its base year leaves its trend at low confidence: confident pl and cs come
-    first, and why says that uk is higher on the measure itself."""
-    expected = {
-        "size": (
-            ["pl", "cs", "uk"],
-            (
-                "39,434 views in the last 12 months, low confidence: higher than pl, "
-                "cs by this measure, but listed after confident results"
-            ),
-        ),
-        "share": (
-            ["cs", "pl", "uk"],
-            (
-                "33.54 views per million edition views in the last 12 months, low "
-                "confidence: higher than cs, pl by this measure, but listed after "
-                "confident results"
-            ),
-        ),
-    }
-    for by, (order, uk_why) in expected.items():
+def test_trend_confidence_orders_growth_but_not_size_or_share(replay):
+    """Up to 2023-10 uk had the most views and the largest share of pl/cs/uk; its
+    trend is low only because of a spike in the base year. By growth that keeps
+    it after the confident results; its 12-month number is sound, so by size and
+    share it comes first."""
+    result = run(qids=["Q333"], langs_arg="pl,cs,uk", date_to="2023-10")
+    assert by_lang(result)["uk"]["confidence"] == "low"
+    assert ranked(result) == ["cs", "pl", "uk"]
+    assert why(result)["uk"].endswith("low confidence: listed after confident results")
+    for by in ("size", "share"):
         result = run(qids=["Q333"], langs_arg="pl,cs,uk", date_to="2023-10", rank_by=by)
-        rows = by_lang(result)
         field = verdict.RANK_FIELDS[by]
-        assert rows["uk"]["confidence"] == "low"
+        rows = by_lang(result)
+        assert ranked(result)[0] == "uk"
         assert rows["uk"][field] == max(r[field] for r in rows.values())
-        assert ranked(result) == order
-        assert why(result)["uk"] == uk_why
+        assert "listed after" not in " ".join(why(result).values())
+    assert why(result)["uk"] == (
+        "33.54 views per million edition views in the last 12 months (trend: "
+        "falling, low confidence)"
+    )
+
+
+def test_left_out_redirect_moves_the_largest_share_down(replay):
+    """Charles III: cs has the larger share, but its 11th redirect is not counted,
+    so the share itself may be too small or too large to compare."""
+    result = run(qids=["Q43274"], langs_arg="pl,cs", rank_by="share")
+    rows = by_lang(result)
+    assert rows["cs"]["per_million_last_12m"] > rows["pl"]["per_million_last_12m"]
+    assert ranked(result) == ["pl", "cs"]
+    assert why(result)["cs"] == (
+        "142.32 views per million edition views in the last 12 months (trend: flat, "
+        "medium confidence); higher than pl, but not every redirect is counted, so "
+        "views may be undercounted: listed after reliable numbers"
+    )
+
+
+def test_views_mostly_from_spikes_are_named_even_when_all_are_unreliable(replay):
+    # Charles III's accession (2022-09) and coronation (2023-05): 74% of pl's and
+    # 71% of cs's views in the 12 months to 2023-08.
+    result = run(
+        qids=["Q43274"],
+        langs_arg="pl,cs",
+        date_from="2021-09",
+        date_to="2023-08",
+        rank_by="size",
+    )
+    assert ranked(result) == ["pl", "cs"]  # by value: both numbers are unreliable
+    spikes = (
+        "more than half of these views came in one-off spike months: 2022-09, 2023-05"
+    )
+    assert why(result)["pl"] == (
+        "1,904,394 views in the last 12 months (trend: rising, low confidence); "
+        + spikes
+    )
+    assert result["must_say"][0].startswith(
+        f"Ranked by audience size — pl: rising (low confidence), 1,904,394 views in "
+        f"the last 12 months ({spikes}); "
+    )
 
 
 def test_unmeasured_growth_is_listed_last_with_its_reason(replay):
@@ -337,6 +369,7 @@ MUST_SAY_CASES = [
     },
     {"qids": ["Q43274"], "langs_arg": "pl,cs", "rank_by": "size"},
     {"qids": ["Q43274"], "langs_arg": "pl,cs", "date_to": "2023-08"},
+    {"qids": ["Q43274"], "langs_arg": "pl,cs", "date_to": "2023-08", "rank_by": "size"},
     {"qids": [], "articles": ["pl:Głodówka oczyszczająca"], "langs_arg": None},
 ]
 
@@ -390,7 +423,7 @@ def test_must_say_for_several_languages_ranked_by_size(replay):
 def test_must_say_names_a_missing_article_and_low_confidence(replay):
     result = run(qids=["Q1666254"], langs_arg="pl,cs")
     assert result["must_say"] == [
-        "cs: falling, views per million -47.0% year over year (low confidence).",
+        "cs: falling (low confidence), views per million -47.0% year over year.",
         (
             "cs: low confidence — median 232 views a month is below 300: "
             "percentages this small are mostly noise."
@@ -467,7 +500,9 @@ def test_must_say_numbers_come_from_the_json(replay, args):
     rows = {r["lang"]: r for r in result["results"] if r["status"] == "ok"}
     field = verdict.RANK_FIELDS[result["ranking"]["by"]]
     values = [rows[lang][field] for lang in ranked(result)]
+    # without the metric's "last 12 months" and the reasons in parentheses
     main = result["must_say"][0].replace("the last 12 months", "")
+    main = re.sub(r"\([^)]*\)", "", main)
     assert numbers(main) == [abs(v) for v in values if v is not None]
 
 

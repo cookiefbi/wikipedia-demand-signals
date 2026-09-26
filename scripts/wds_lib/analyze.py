@@ -442,16 +442,20 @@ def _main_point(a: Analysis, data: dict[str, Measured], lang: str) -> str:
     for code, _ in a.ranking:
         m = data[code]
         value = getattr(m.metrics, field)
+        # growth is ranked by the trend itself: its number has no separate flaw
+        reason = None if a.rank_by == "growth" else verdict.unreliable_number(m.metrics)
+        low = m.verdict.confidence == verdict.LOW
         params = {
             "lang": code,
             "trend": Msg(f"trend_name.{m.verdict.trend}"),
+            "low": Msg("must.low") if low else "",
             "value": value,
+            "unreliable": ""
+            if reason is None
+            else Msg("must.unreliable", {"reason": reason}),
         }
         key = "must.item.unknown" if value is None else f"must.item.{a.rank_by}"
-        item = i18n.render(key, params, lang)
-        if m.verdict.confidence == verdict.LOW:
-            item = i18n.render("must.low", {"item": item}, lang)
-        items.append(item)
+        items.append(i18n.render(key, params, lang))
     if len(items) == 1:
         return i18n.render("must.main_one", {"items": items[0]}, lang)
     params = {"by": Msg(f"rank_by.{a.rank_by}"), "items": "; ".join(items)}

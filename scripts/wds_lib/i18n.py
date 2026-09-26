@@ -74,23 +74,42 @@ TEXTS: dict[str, dict[str, str]] = {
         # ranking: the metric is named with its value, as in the trend reason
         "rank.growth": "views per million {value:+.1f}% year over year, {confidence} "
         "confidence",
+        # size and share are levels: the trend's confidence is only information
         "rank.share": "{value:.2f} views per million edition views in the last 12 "
-        "months, {confidence} confidence",
-        "rank.size": "{value:,} views in the last 12 months, {confidence} confidence",
+        "months (trend: {trend}, {confidence} confidence)",
+        "rank.size": "{value:,} views in the last 12 months (trend: {trend}, "
+        "{confidence} confidence)",
         "rank.unknown": "{metric} not measured (see warnings): listed last",
+        "rank.low": "low confidence",
         "rank.low_after": "{base}: listed after confident results",
         "rank.low_outscores": "{base}: higher than {langs} by this measure, but "
         "listed after confident results",
+        "rank.unreliable": "{base}; {reason}",
+        "rank.unreliable_after": "{base}; {reason}: listed after reliable numbers",
+        "rank.unreliable_outscores": "{base}; higher than {langs}, but {reason}: "
+        "listed after reliable numbers",
+        # why a 12-month number cannot be taken at face value (size and share)
+        "unrel.partial": "the article has only {months} full months of views, so the "
+        "12 months are incomplete",
+        "unrel.spikes": "more than half of these views came in one-off spike months: "
+        "{months}",
+        "unrel.level_change": "the level changed sharply around {month}, possibly a "
+        "rename or merge that redirects do not cover",
+        "unrel.redirects": "not every redirect is counted, so views may be "
+        "undercounted",
         # must_say: 3-5 sentences the agent passes on point by point (SPEC 3)
         "must.main": "Ranked by {by} — {items}.",
         "must.main_one": "{items}.",
-        "must.item.growth": "{lang}: {trend}, views per million {value:+.1f}% year "
-        "over year",
-        "must.item.share": "{lang}: {trend}, {value:.2f} views per million edition "
-        "views in the last 12 months",
-        "must.item.size": "{lang}: {trend}, {value:,} views in the last 12 months",
-        "must.item.unknown": "{lang}: {trend}",
-        "must.low": "{item} (low confidence)",
+        # {low} follows the trend word it is about; {unreliable} follows the number
+        "must.item.growth": "{lang}: {trend}{low}, views per million {value:+.1f}% "
+        "year over year",
+        "must.item.share": "{lang}: {trend}{low}, {value:.2f} views per million "
+        "edition views in the last 12 months{unreliable}",
+        "must.item.size": "{lang}: {trend}{low}, {value:,} views in the last 12 "
+        "months{unreliable}",
+        "must.item.unknown": "{lang}: {trend}{low}",
+        "must.low": " (low confidence)",
+        "must.unreliable": " ({reason})",
         "must.confidence": "{langs}: {level} confidence — {reason}.",
         "must.checks_passed": "checks passed",
         "must.no_article": "{langs}: no article on this topic — little local "

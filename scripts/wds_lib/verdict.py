@@ -60,6 +60,12 @@ SEASONAL_PEAK_RATIO = 1.5
 LEVEL_RATIO = 3.0
 LEVEL_WINDOW_MONTHS = 6
 
+# Ranking by size or share (SPEC 3): the 12-month number stands for a news event
+# rather than an audience when one-off spike months hold more than this share of
+# it. On real series ordinary spikes hold 22% (pl "Astronomia" 2025-11, cs
+# "Přerušovaný půst" 2026-01), Charles III's accession and coronation 71-74%.
+SPIKE_VOLUME_SHARE = 0.5
+
 RISING, FALLING, FLAT, INSUFFICIENT = "rising", "falling", "flat", "insufficient_data"
 HIGH, MEDIUM, LOW = "high", "medium", "low"
 
@@ -130,6 +136,7 @@ class Metrics:
     steadiness: Steadiness | None = None
     spikes: tuple[Spike, ...] = ()
     level_change: LevelChange | None = None
+    spike_views_last_12m: int = 0  # views in the spike months of the last 12
 
 
 @dataclass(frozen=True)
@@ -287,6 +294,10 @@ def measure(data: Monthly, period: Span) -> Metrics:
         spikes = _spikes(shares, months.first)
         level = _level_change(shares, months.first)
     level_warning = () if level is None else (_level_warning(level),)
+    # a spike in the last 12 months has its pair a year earlier
+    spike_views = sum(
+        total(data.views, Span(s.month, s.month)) for s in spikes if s.month > s.pair
+    )
 
     return Metrics(
         views_last_12m=views_last,
@@ -301,6 +312,7 @@ def measure(data: Monthly, period: Span) -> Metrics:
         steadiness=steadiness,
         spikes=spikes,
         level_change=level,
+        spike_views_last_12m=spike_views,
     )
 
 
@@ -488,39 +500,64 @@ RANK_FIELDS = {
 }
 
 
-def rank(entries: list[tuple[str, Metrics, Verdict]], by: str) -> list[tuple[str, Msg]]:
-    """Languages in order, each with why. Low confidence never ranks above a
-    confident result; an unknown value goes after known ones; ties keep --langs order.
+def unreliable_number(m: Metrics) -> Msg | None:
+    """Why the last 12 months' views (and so their share) cannot be taken at face
+    value, or None. The first that applies: the article is younger than 12 months,
+    one-off spikes brought most of the views, the level changed sharply, or not
+    every redirect is counted."""
+    if m.history_months is not None and m.history_months < YEAR:
+        return Msg("unrel.partial", {"months": m.history_months})
+    if m.spike_views_last_12m > SPIKE_VOLUME_SHARE * m.views_last_12m:
+        months = [series.month_label(s.month) for s in m.spikes if s.month > s.pair]
+        return Msg("unrel.spikes", {"months": ", ".join(months)})
+    if m.level_change is not None:
+        month = series.month_label(m.level_change.month)
+        return Msg("unrel.level_change", {"month": month})
+    if any(w.key == "warn.redirects_capped" for w in m.warnings):
+        return Msg("unrel.redirects")
+    return None
 
-    `why` names the metric and its value as in the JSON. A low result says so when
-    confident results come first, and names those it outscores: they rank above it
-    only because of the confidence, which the user would not guess from the order.
+
+def rank(entries: list[tuple[str, Metrics, Verdict]], by: str) -> list[tuple[str, Msg]]:
+    """Languages in order, each with why; an unknown value goes last, ties keep the
+    --langs order. What moves a language down depends on the key (SPEC 3): by
+    growth, low confidence, which describes the trend being ranked; by size and
+    share, an unreliable number (unreliable_number), with the trend's confidence
+    only mentioned in why.
+
+    `why` names the metric and its value as in the JSON. A language moved down says
+    why and names those above it that it outscores: the order alone would hide that.
     """
     field = RANK_FIELDS[by]
 
-    def key(entry: tuple[str, Metrics, Verdict]) -> tuple:
-        value = getattr(entry[1], field)
-        return (entry[2].confidence == LOW, value is None, -(value or 0))
+    def held_back(metrics: Metrics, verdict: Verdict) -> Msg | None:
+        if by == "growth":
+            return Msg("rank.low") if verdict.confidence == LOW else None
+        return unreliable_number(metrics)
 
-    ordered = sorted(entries, key=key)
-    confident = [
-        (lang, getattr(metrics, field))
-        for lang, metrics, verdict in ordered
-        if verdict.confidence != LOW
-    ]
+    rows = [(lang, getattr(m, field), v, held_back(m, v)) for lang, m, v in entries]
+    rows.sort(key=lambda row: (row[3] is not None, row[1] is None, -(row[1] or 0)))
+    kept = [(lang, value) for lang, value, _, held in rows if held is None]
     order = []
-    for lang, metrics, verdict in ordered:
-        value = getattr(metrics, field)
+    for lang, value, verdict, held in rows:
         if value is None:
-            why = Msg("rank.unknown", {"metric": Msg(f"rank_by.{by}")})
-        else:
-            why = Msg(f"rank.{by}", {"value": value, "confidence": verdict.confidence})
-            if verdict.confidence == LOW and confident:
-                outscored = [c for c, v in confident if v is not None and v < value]
-                if outscored:
-                    params = {"base": why, "langs": ", ".join(outscored)}
-                    why = Msg("rank.low_outscores", params)
-                else:
-                    why = Msg("rank.low_after", {"base": why})
+            order.append((lang, Msg("rank.unknown", {"metric": Msg(f"rank_by.{by}")})))
+            continue
+        params = {
+            "value": value,
+            "trend": Msg(f"trend_name.{verdict.trend}"),
+            "confidence": verdict.confidence,
+        }
+        why = Msg(f"rank.{by}", params)
+        if held is not None:
+            kind = "low" if by == "growth" else "unreliable"
+            outscored = [c for c, v in kept if v is not None and v < value]
+            if outscored:
+                params = {"base": why, "reason": held, "langs": ", ".join(outscored)}
+                why = Msg(f"rank.{kind}_outscores", params)
+            elif kept:
+                why = Msg(f"rank.{kind}_after", {"base": why, "reason": held})
+            elif kind == "unreliable":  # all unreliable: the reason still matters
+                why = Msg("rank.unreliable", {"base": why, "reason": held})
         order.append((lang, why))
     return order

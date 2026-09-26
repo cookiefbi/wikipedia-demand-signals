@@ -355,11 +355,12 @@ def test_rising_that_is_not_steady_is_medium():
 # --- ranking ----------------------------------------------------------------
 
 
-def entry(lang, confidence, growth, share=10.0, size=1000):
+def entry(lang, confidence, growth, share=10.0, size=1000, **changes):
     m = metrics(
         per_million_growth_pct=growth,
         per_million_last_12m=share,
         views_last_12m=size,
+        **changes,
     )
     trend = verdict.trend_of(growth)
     return lang, m, verdict.Verdict(trend, confidence, (), ())
@@ -418,11 +419,15 @@ def test_unknown_value_goes_last():
             "share",
             "pl",
             (
-                "9.00 views per million edition views in the last 12 months, high "
-                "confidence"
+                "9.00 views per million edition views in the last 12 months (trend: "
+                "flat, high confidence)"
             ),
         ),
-        ("size", "cs", "90,000 views in the last 12 months, high confidence"),
+        (
+            "size",
+            "cs",
+            "90,000 views in the last 12 months (trend: flat, high confidence)",
+        ),
     ],
 )
 def test_rank_by_share_and_size(by, first, why):
@@ -432,6 +437,81 @@ def test_rank_by_share_and_size(by, first, why):
     ]
     lang, msg = verdict.rank(entries, by)[0]
     assert (lang, msg.render()) == (first, why)
+
+
+@pytest.mark.parametrize("by", ["size", "share"])
+def test_size_and_share_ignore_the_trend_confidence(by):
+    """A level is not a trend: low confidence in the trend does not move a sound
+    12-month number down."""
+    entries = [
+        entry("cs", HIGH, 1.0, share=5.0, size=50_000),
+        entry("uk", LOW, -30.0, share=9.0, size=90_000),
+    ]
+    order = verdict.rank(entries, by)
+    assert [lang for lang, _ in order] == ["uk", "cs"]
+    assert "low confidence)" in order[0][1].render()
+    assert "listed after" not in order[0][1].render()
+
+
+# The first reason that applies, in this order.
+UNRELIABLE = [
+    (
+        {"history_months": 3},
+        "the article has only 3 full months of views, so the 12 months are incomplete",
+    ),
+    (
+        {
+            "spike_views_last_12m": 50_001,
+            "spikes": (
+                verdict.Spike(month=PERIOD.last, ratio=20.0, pair=PERIOD.last - 12),
+            ),
+        },
+        "more than half of these views came in one-off spike months: 2026-08",
+    ),
+    (
+        {"level_change": verdict.LevelChange(month=PERIOD.last - 5, ratio=3.2)},
+        (
+            "the level changed sharply around 2026-03, possibly a rename or merge "
+            "that redirects do not cover"
+        ),
+    ),
+    (
+        {
+            "warnings": (
+                Msg(
+                    "warn.redirects_capped", {"title": "A", "total": 11, "counted": 10}
+                ),
+            )
+        },
+        "not every redirect is counted, so views may be undercounted",
+    ),
+]
+
+
+@pytest.mark.parametrize(("changes", "reason"), UNRELIABLE)
+def test_an_unreliable_number_goes_after_sound_ones_with_its_reason(changes, reason):
+    entries = [
+        entry("cs", HIGH, 1.0, size=40_000),
+        entry("sk", HIGH, 1.0, size=100_000, **changes),
+        entry("pl", HIGH, 1.0, size=120_000),
+    ]
+    order = verdict.rank(entries, "size")
+    assert [lang for lang, _ in order] == ["pl", "cs", "sk"]
+    assert order[2][1].render() == (
+        "100,000 views in the last 12 months (trend: flat, high confidence); higher "
+        f"than cs, but {reason}: listed after reliable numbers"
+    )
+    # growth ranks by the trend: the number's own flaws do not move it there
+    assert verdict.rank(entries, "growth")[2][0] == "pl"
+
+
+def test_the_first_reason_wins_and_spikes_count_only_above_half():
+    m = metrics(history_months=5, level_change=verdict.LevelChange(PERIOD.last, 3.2))
+    assert verdict.unreliable_number(m).key == "unrel.partial"
+    assert verdict.unreliable_number(metrics(history_months=12)) is None
+    spike = (verdict.Spike(month=PERIOD.last, ratio=20.0, pair=PERIOD.last - 12),)
+    half = metrics(views_last_12m=100_000, spike_views_last_12m=50_000, spikes=spike)
+    assert verdict.unreliable_number(half) is None
 
 
 def test_ties_keep_the_requested_order():
