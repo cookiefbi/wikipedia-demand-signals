@@ -16,11 +16,12 @@ because the user cannot verify them.
 ## Running the script
 
 Run the commands with the **Bash tool**, from the user's current folder (results go to
-`./wds-output/`). Write them exactly as below, including the quotes:
+`./wds-output/`). Write them exactly as below, including the quotes. `<uk|en>`: `uk` if the
+user writes Ukrainian (`must_say` and the PDF then come in proofread Ukrainian), else `en`:
 
 ```bash
 uv run "${CLAUDE_SKILL_DIR}/scripts/wds.py" resolve "pickleball" --langs pl,cs,uk,sk
-uv run "${CLAUDE_SKILL_DIR}/scripts/wds.py" analyze --qid Q866224 --langs pl,cs,uk,sk --period 24m
+uv run "${CLAUDE_SKILL_DIR}/scripts/wds.py" analyze --qid Q866224 --langs pl,cs,uk,sk --period 24m --answer-lang <uk|en>
 ```
 
 - `${CLAUDE_SKILL_DIR}` is the folder of this SKILL.md; if not filled in, use its absolute path.
@@ -79,13 +80,11 @@ article title in each requested edition, `null` = no article there. Real output,
    `resolve` with a broader English term (the parent field, the language itself). This
    changes the question, so say it in the answer and in `--note`: which article you used
    and what it covers instead (the thing itself, not learning, buying or doing it).
-4. **Articles in only some languages** → keep one QID for all languages: only the same
-   item compares fairly. `no_article` is a finding: that edition has no article on the
-   topic at all (little local coverage), so interest there cannot be measured this way.
-   Then *offer* a broader concept present in every language, saying how its meaning differs.
-5. A closer article that exists in one edition only can be shown separately with
-   `--article "pl:Exact title"`; say that it is a different article.
-6. A **broad topic** (a whole science or sport) is not ambiguous: take the main article and
+4. **Articles in only some languages** → keep one QID for all: only the same item compares
+   fairly, and `no_article` is a finding (little local coverage). For each such edition, also
+   rerun the same `resolve` with `--langs pl --search-lang pl` (its code): it searches that
+   edition itself and may find a closer local article. You offer both options in the answer.
+5. A **broad topic** (a whole science or sport) is not ambiguous: take the main article and
    tell the user that this one article stands for the whole topic, so its sub-topics are
    not counted. Offer to add related articles (`--qid Q1,Q2` sums them per language).
 
@@ -96,8 +95,7 @@ Ask the user only in case 1, when languages are not named, or when nothing fits 
 - `--qid Q…` (repeat or comma-separate) and/or `--article lang:Title`; `--langs` is
   required with `--qid` (an `--article` language is added automatically).
 - `--rank-by growth|share|size`: `growth` by default; `size` = audience, `share` = per million.
-- `--report` adds `chart.png` and a one-page `report.pdf`. User writes in Ukrainian → add
-  `--answer-lang uk`: `must_say` and the PDF come in proofread Ukrainian (default `en`).
+- `--report` adds `chart.png` and a one-page `report.pdf` in the `--answer-lang` language.
 - `--note "…"`: your one- or two-sentence recommendation, printed in the PDF. Words with
   digits only (`22%`, `2024`) are rejected, since PDF numbers come from code; `B2C` is fine.
 - **Follow-ups** ("add Slovak", "size matters more now", "report in Ukrainian"): rerun
@@ -157,9 +155,11 @@ Use these parts, headings in the user's language, each short:
    and confidence word, and the meaning (a "not" stays a "not"). Do not drop, merge or soften
    a point: they carry the caveats that, written freely, came and went between runs. Then say
    in a sentence or two what this means for the user's question.
-2. **Topic:** the article that stands for the topic in each edition. If the user asked about
-   learning, buying or doing something and the article covers the thing itself, say it is
-   only a proxy, and name any broader substitute: the code cannot know either.
-3. **Files:** the PDF and chart paths when a report was made.
+2. **Topic:** the article behind each edition, and whether it is only a proxy (the thing
+   itself, not learning or buying it): the code cannot know. For each `no_article` edition,
+   offer two options: a broader candidate from `resolve` present in every edition, saying how
+   its meaning differs, and a different, local article from its own search (`--article "pl:…"`).
+3. **Files:** if a tool can send or show files to the user, show `report.pdf` and `chart.png`
+   with it; otherwise give their paths as clickable markdown links: `[report.pdf](<path>)`.
 4. **Next steps** you can run: add a language, rank by size or share, a longer period,
    related articles, a report in Ukrainian.
