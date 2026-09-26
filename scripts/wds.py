@@ -71,6 +71,7 @@ def cmd_analyze(args: argparse.Namespace) -> dict:
         },
         args.out,
         report=args.report,
+        answer_lang=args.answer_lang,
         report_lang=args.report_lang,
         note=args.note,
     )
@@ -139,9 +140,18 @@ def build_parser() -> JsonArgumentParser:
         default="growth",
         help="how to order languages (default: growth)",
     )
+    p.add_argument(
+        "--answer-lang",
+        choices=["en", "uk"],
+        default="en",
+        help="language of must_say, to pass on word for word (default: en); "
+        "uk when the user writes Ukrainian",
+    )
     p.add_argument("--report", action="store_true", help="also write chart PNG and PDF")
     p.add_argument(
-        "--report-lang", choices=["en", "uk"], default="en", help="PDF language"
+        "--report-lang",
+        choices=["en", "uk"],
+        help="PDF language (default: --answer-lang)",
     )
     p.add_argument(
         "--out",
@@ -149,7 +159,8 @@ def build_parser() -> JsonArgumentParser:
     )
     p.add_argument(
         "--note",
-        help="agent's recommendation for the PDF; words made only of digits are rejected",
+        help="agent's recommendation for the PDF, in words: a word of digits and "
+        "punctuation only ('22%%', '2024') is rejected; 'B2C', 'COVID-19' pass",
     )
     p.set_defaults(handler=cmd_analyze)
     return parser

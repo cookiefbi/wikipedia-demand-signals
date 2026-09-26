@@ -94,7 +94,8 @@ def wrap(text: str, width_pt: float, size: float, bold: bool = False) -> list[st
     limit = width_pt * WIDTH_SLACK
     lines: list[str] = []
     current = ""
-    for word in text.split():
+    # Only plain spaces break a line: a no-break space keeps "6 712" or "-8,0 %" whole.
+    for word in filter(None, text.split(" ")):
         candidate = f"{current} {word}" if current else word
         if text_width(candidate, size, bold) <= limit:
             current = candidate
@@ -272,8 +273,12 @@ def draw_chart(
     # Per-million values run from hundredths (small topics) to hundreds.
     high = top_ax.get_ylim()[1]
     decimals = 0 if high >= 10 else 1 if high >= 1 else 2
-    top_ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:,.{decimals}f}"))
-    low_ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:,.0f}"))
+    top_ax.yaxis.set_major_formatter(
+        FuncFormatter(lambda v, _: i18n.number(v, f",.{decimals}f", lang))
+    )
+    low_ax.yaxis.set_major_formatter(
+        FuncFormatter(lambda v, _: i18n.number(v, ",.0f", lang))
+    )
     ticks = _month_ticks(a.period.first, a.period.last)
     low_ax.set_xticks(ticks, [series.month_label(m) for m in ticks])
     top_ax.tick_params(labelbottom=False)
@@ -338,12 +343,12 @@ def _subtitle(a: Analysis, lang: str) -> str:
     )
 
 
-def _pct(value: float | None) -> str:
-    return "—" if value is None else f"{value:+.1f}%"
+def _pct(value: float | None, lang: str) -> str:
+    return "—" if value is None else i18n.render("num.pct", {"value": value}, lang)
 
 
-def _num(value: float | None, digits: int = 0) -> str:
-    return "—" if value is None else f"{value:,.{digits}f}"
+def _num(value: float | None, lang: str, digits: int = 0) -> str:
+    return "—" if value is None else i18n.number(value, f",.{digits}f", lang)
 
 
 def table_rows(a: Analysis, lang: str) -> list[tuple[str, list[str]]]:
@@ -357,10 +362,10 @@ def table_rows(a: Analysis, lang: str) -> list[tuple[str, list[str]]]:
         metrics, v = m.metrics, m.verdict
         return [
             title,
-            _num(metrics.views_last_12m),
-            _pct(metrics.growth_pct),
-            _num(metrics.per_million_last_12m, 2),
-            _pct(metrics.per_million_growth_pct),
+            _num(metrics.views_last_12m, lang),
+            _pct(metrics.growth_pct, lang),
+            _num(metrics.per_million_last_12m, lang, 2),
+            _pct(metrics.per_million_growth_pct, lang),
             i18n.render(f"trend_name.{v.trend}", lang=lang),
             i18n.render(f"conf_name.{v.confidence}", lang=lang),
         ]
@@ -472,12 +477,13 @@ class Page:
 
 # Table columns: (i18n key, width in inches, right-aligned); they add up to the
 # text width of the page. Widths fit the measured headers and the longest values
-# ("insufficient data" is 0.90 in at 8 pt); the article title takes the rest.
+# ("insufficient data" is 0.90 in at 8 pt, a 3-digit growth in uk "+523,5 %" 0.76
+# in); the article title takes the rest.
 COLUMNS = (
     ("col.lang", 0.62, False),
-    ("col.article", 1.41, False),
+    ("col.article", 1.37, False),
     ("col.views", 0.9, True),
-    ("col.growth", 0.72, True),
+    ("col.growth", 0.76, True),
     ("col.per_million", 0.75, True),
     ("col.pm_growth", 0.9, True),
     ("col.trend", 1.05, False),

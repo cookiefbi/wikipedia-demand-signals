@@ -4,8 +4,8 @@ Requests, all cached: one Wikidata call for the sitelinks of every --qid, one
 MediaWiki call per --article, one edition answer per language and, per article,
 one MediaWiki call (first edit, redirects) plus one pageviews answer for the
 article and one for each counted redirect (at most 10). Everything is kept as
-messages (i18n.Msg) until the very end: the JSON gets English text, the PDF the
-report language.
+messages (i18n.Msg) until the very end: the JSON gets English text, must_say the
+answer language, the PDF the report language.
 """
 
 import csv
@@ -17,7 +17,17 @@ from pathlib import Path
 
 import numpy as np
 
-from wds_lib import WdsError, i18n, langs, log, pageviews, resolve, series, verdict
+from wds_lib import (
+    WdsError,
+    api,
+    i18n,
+    langs,
+    log,
+    pageviews,
+    resolve,
+    series,
+    verdict,
+)
 from wds_lib.i18n import Msg
 from wds_lib.langs import Lang
 from wds_lib.series import Span
@@ -29,6 +39,12 @@ CHART_PNG = "chart.png"
 REPORT_PDF = "report.pdf"
 
 QID_PATTERN = re.compile(r"Q[1-9]\d*")
+
+# First-run time (SPEC 3), from runs with an empty cache and --report (T10,
+# docs/readme-notes.md): 49 requests took 30.9 s, 71 took 47.1 s.
+SECONDS_PER_REQUEST = 0.65
+# An agent's Bash call times out after about 2 minutes unless it asks for more.
+BASH_TIMEOUT_S = 120
 
 # Without --out every question gets its own folder, so a second topic never
 # overwrites the first one's report. last-result.json always holds the latest
@@ -117,6 +133,25 @@ def parse_article(value: str) -> tuple[Lang, str]:
     return langs.parse_langs(code)[0], title.strip()
 
 
+def check_note(note: str | None) -> None:
+    """--note is the agent's words only: every number in the PDF comes from code.
+
+    A word with a digit but no letter is a number ('22%', '2024', '3.5', '(+15%)');
+    words with letters ('B2C', 'COVID-19') are names and pass.
+    """
+    found = [
+        word
+        for word in (note or "").split()
+        if any(c.isdigit() for c in word) and not any(c.isalpha() for c in word)
+    ]
+    if found:
+        raise WdsError(
+            "--note must not contain numbers: " + ", ".join(f"'{w}'" for w in found),
+            hint="the PDF already shows every number, computed by code; say it in "
+            "words, e.g. 'share grew fastest in cs' instead of 'cs grew 22%'",
+        )
+
+
 def slug(text: str, max_len: int = TOPIC_SLUG_MAX) -> str:
     """ASCII-only piece of a folder name: 'Głodówka lecznicza' -> 'glodowka-lecznicza'.
 
@@ -195,6 +230,34 @@ def collect_targets(
             labels.append(canonical)
             targets.append(Target(lang, qid, canonical))
     return targets, " + ".join(labels), item_labels
+
+
+def download_estimate(found: list[Target], window: Span) -> str | None:
+    """How long the downloads may take, for stderr before they start (SPEC 3);
+    None when every article's and edition's views are cached (a rerun).
+
+    Per article: first edit + redirects, its views and each redirect's views, so
+    the range runs from no redirects to MAX_REDIRECTS for every new article.
+    """
+    editions = dict.fromkeys(t.lang for t in found)
+    new_editions = sum(
+        not api.is_cached(pageviews.edition_url(lang, window)) for lang in editions
+    )
+    new_articles = sum(
+        not api.is_cached(pageviews.article_url(t.lang, t.title, window)) for t in found
+    )
+    if not new_editions and not new_articles:
+        return None
+    fewest = new_editions + 2 * new_articles
+    most = fewest + resolve.MAX_REDIRECTS * new_articles
+    low, high = (round(n * SECONDS_PER_REQUEST) for n in (fewest, most))
+    text = (
+        f"first run: {new_articles} article(s), {new_editions} edition(s) to "
+        f"download, about {low}-{high} s (redirects add requests); reruns use the cache"
+    )
+    if high > BASH_TIMEOUT_S:
+        text += "; if the command times out, rerun it: finished downloads are kept"
+    return text
 
 
 def _measure(data: Monthly, period: Span) -> Measured:
@@ -364,6 +427,8 @@ def analyze(
     targets, label, item_labels = collect_targets(qid_list, article_list, requested)
     found = [t for t in targets if t.title]
     window, moved = series.fetch_window(today), False
+    if estimate := download_estimate(found, window):
+        log(estimate)
     if found:
         window, moved = pageviews.published_window(today, found[0].lang)
     chosen = series.resolve_period(window, period, date_from, date_to)
@@ -523,7 +588,8 @@ def _numbers(m: Measured) -> dict:
     }
 
 
-def to_json(a: Analysis, files: dict[str, str]) -> dict:
+def to_json(a: Analysis, files: dict[str, str], lang: str = "en") -> dict:
+    """The result JSON: English for the agent, must_say in the answer language."""
     results = []
     for t in a.targets:
         head = {"qid": t.qid, "lang": t.lang.code}
@@ -537,7 +603,7 @@ def to_json(a: Analysis, files: dict[str, str]) -> dict:
         "status": "ok",
         "period": a.period.as_dict(),
         # right after the period, so a cut-off output still carries it
-        "must_say": must_say(a),
+        "must_say": must_say(a, lang),
         "assumptions": i18n.texts(a.assumptions),
         "results": results,
     }
@@ -599,18 +665,17 @@ def run(
     out: str | None,
     *,
     report: bool = False,
-    report_lang: str = "en",
+    answer_lang: str = "en",
+    report_lang: str | None = None,
     note: str | None = None,
     today: dt.date | None = None,
 ) -> dict:
     """analyze() plus files; returns the result JSON (result.json is written by the
-    caller with exactly what goes to stdout).
+    caller with exactly what goes to stdout). The PDF is in the answer language
+    unless report_lang says otherwise.
     """
-    if report and report_lang not in i18n.TEXTS:
-        raise WdsError(
-            f"--report-lang {report_lang} is not available yet",
-            hint="use --report-lang en",
-        )
+    check_note(note)
+    report_lang = report_lang or answer_lang
     analysis = analyze(**args, today=today)
     if out:
         folder = output_dir(out)
@@ -637,4 +702,4 @@ def run(
             hint="pass --out with a folder you can write to; if report.pdf is open "
             "in a viewer, close it and rerun",
         ) from exc
-    return to_json(analysis, files)
+    return to_json(analysis, files, answer_lang)

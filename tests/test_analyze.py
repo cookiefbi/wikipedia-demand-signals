@@ -506,6 +506,50 @@ def test_must_say_numbers_come_from_the_json(replay, args):
     assert numbers(main) == [abs(v) for v in values if v is not None]
 
 
+# --- must_say in Ukrainian (--answer-lang uk) -----------------------------------
+
+
+def uk_numbers(text: str) -> set[float]:
+    """Numbers as a Ukrainian text writes them: '1 904 394', '-46,4 %'."""
+    text = re.sub(r"(?<=\d) (?=\d{3}(?!\d))", "", text)
+    return set(numbers(re.sub(r"(?<=\d),(?=\d)", ".", text)))
+
+
+def test_must_say_in_ukrainian_for_one_language(replay):
+    a = analyze.analyze(qids=["Q333"], articles=[], langs_arg="uk", today=TODAY)
+    result = analyze.to_json(a, files={}, lang="uk")
+    assert result["must_say"] == [
+        "uk: спадає, перегляди на мільйон -46,4 % рік до року.",
+        "uk: висока довіра — перевірки пройдено.",
+        (
+            "Мовний розділ — не країна (його читачі живуть у багатьох країнах), а "
+            "інтерес — не готовність платити: перегляди показують цікавість, а не "
+            "попит на продукт."
+        ),
+        (
+            "З 2025-03-20 Вікімедіа фільтрує ботів суворіше, а раніші дані не "
+            "перераховано, тож порівняння через цю дату частково відображає зміну "
+            "правил."
+        ),
+    ]
+    # the rest of the JSON is data for the agent and stays English
+    english = analyze.to_json(a, files={})
+    assert {k: v for k, v in result.items() if k != "must_say"} == {
+        k: v for k, v in english.items() if k != "must_say"
+    }
+
+
+@pytest.mark.parametrize("args", MUST_SAY_CASES)
+def test_ukrainian_must_say_has_the_same_points_and_numbers(replay, args):
+    a = analyze.analyze(**{"articles": []} | args, today=TODAY)
+    english, ukrainian = analyze.must_say(a, "en"), analyze.must_say(a, "uk")
+    assert len(ukrainian) == len(english)
+    for en, uk in zip(english, ukrainian, strict=True):
+        # "the 12 months before the last 12" names 12 once in Ukrainian: sets
+        assert uk_numbers(uk) == set(numbers(en)), uk
+        assert not re.search(r"\d\.\d", uk), uk  # a decimal comma, never a point
+
+
 # --- redirects and the first edit ----------------------------------------------
 
 
@@ -739,6 +783,36 @@ def test_argument_errors_come_before_any_request(monkeypatch, args, in_error):
     assert in_error in info.value.error
 
 
+@pytest.mark.parametrize(
+    ("note", "rejected"),
+    [
+        ("cs grew 22% a year", "'22%'"),
+        ("since 2024 the share fell", "'2024'"),
+        ("about 3.5 times more", "'3.5'"),
+        ("частка зросла на 22 % (+15%),", "'22', '(+15%),'"),
+    ],
+)
+def test_note_with_a_number_is_rejected_before_any_request(
+    monkeypatch, tmp_path, note, rejected
+):
+    def no_network(url, *, ttl):
+        raise AssertionError(f"unexpected request {url}")
+
+    monkeypatch.setattr(api, "get_json", no_network)
+    args = {"qids": ["Q333"], "articles": [], "langs_arg": "uk"}
+    with pytest.raises(WdsError) as info:
+        analyze.run(args, str(tmp_path), report=True, note=note)
+    assert info.value.error == f"--note must not contain numbers: {rejected}"
+    assert "in words" in info.value.hint
+
+
+@pytest.mark.parametrize(
+    "note", ["Start with B2C readers in cs", "Interest since COVID-19 — ask why", ""]
+)
+def test_note_words_with_letters_pass(note):
+    analyze.check_note(note)
+
+
 def test_article_language_is_added_and_said_in_the_assumptions(replay):
     result = run(qids=["Q1666254"], articles=["pl:Głodówka lecznicza"], langs_arg="cs")
     rows = [(r["qid"], r["lang"], r["status"]) for r in result["results"]]
@@ -870,8 +944,26 @@ def test_rerun_is_served_from_the_cache(clock, network, tmp_path, capsys, monkey
     first = capsys.readouterr()
     # sitelinks, cs edition, cs first edit + redirects (none), cs article
     assert "requests: 4 network" in first.err
+    # before the downloads: 1 edition + 2 requests, plus up to 10 redirects
+    assert "first run: 1 article(s), 1 edition(s) to download, about 2-8 s" in first.err
     assert cli(*args) == 0
     second = capsys.readouterr()
     assert "requests: 0 network" in second.err
+    assert "first run" not in second.err
     assert json.loads(second.out)["results"] == json.loads(first.out)["results"]
     assert len(fake.urls) == 4
+
+
+def test_first_run_estimate_says_when_it_may_outlast_a_bash_call(clock):
+    # clock: an empty cache in tmp_path
+    found = [
+        analyze.Target(langs.lookup(code), f"Q{i}", f"Title {i}")
+        for code in ["pl", "cs", "uk", "sk", "de", "fr", "es", "it", "hu", "ro"]
+        for i in range(3)
+    ]
+    text = analyze.download_estimate(found, WINDOW)
+    # 10 editions + 30 articles x 2 = 70 requests; up to 370 with 10 redirects each
+    assert "30 article(s), 10 edition(s) to download, about 46-240 s" in text
+    assert "if the command times out, rerun it" in text
+    small = analyze.download_estimate(found[:2], WINDOW)
+    assert "times out" not in small

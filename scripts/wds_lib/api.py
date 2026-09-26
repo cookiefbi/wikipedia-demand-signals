@@ -87,6 +87,11 @@ def get_json(url: str, *, ttl: float | None) -> dict | list | None:
     return body
 
 
+def is_cached(url: str) -> bool:
+    """Whether an answer kept forever (TTL_FOREVER: pageviews) is already on disk."""
+    return _cache_path(url).exists()
+
+
 def _cache_path(url: str) -> Path:
     digest = hashlib.sha256(url.encode("utf-8")).hexdigest()
     return cache_dir() / digest[:2] / f"{digest}.json"

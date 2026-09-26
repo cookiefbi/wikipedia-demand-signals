@@ -546,7 +546,7 @@ def rank(entries: list[tuple[str, Metrics, Verdict]], by: str) -> list[tuple[str
         params = {
             "value": value,
             "trend": Msg(f"trend_name.{verdict.trend}"),
-            "confidence": verdict.confidence,
+            "confidence": Msg(f"conf_name.{verdict.confidence}"),
         }
         why = Msg(f"rank.{by}", params)
         if held is not None:

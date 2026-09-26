@@ -96,8 +96,8 @@ Ask the user only in case 1, when languages are not named, or when nothing fits 
 - `--qid Q…` (repeat or comma-separate) and/or `--article lang:Title`; `--langs` is
   required with `--qid` (an `--article` language is added automatically).
 - `--rank-by growth|share|size`: `growth` by default; `size` = audience, `share` = per million.
-- `--report` adds `chart.png` and a one-page `report.pdf`; add `--report-lang uk` when the
-  user writes in Ukrainian (default `en`).
+- `--report` adds `chart.png` and a one-page `report.pdf`. User writes in Ukrainian → add
+  `--answer-lang uk`: `must_say` and the PDF come in proofread Ukrainian (default `en`).
 - `--note "…"`: your one- or two-sentence recommendation, printed in the PDF. Words with
   digits only (`22%`, `2024`) are rejected, since PDF numbers come from code; `B2C` is fine.
 - **Follow-ups** ("add Slovak", "size matters more now", "report in Ukrainian"): rerun
@@ -153,7 +153,7 @@ Pageviews show attention only: do not call an edition a promising market, niche 
 Use these parts, headings in the user's language, each short:
 
 1. **Answer:** every `must_say` point, in order, each as its own sentence or bullet. Translate
-   them if the user writes another language, keeping each number with its metric, each trend
+   them only if they are not in the user's language, keeping each number with its metric, each trend
    and confidence word, and the meaning (a "not" stays a "not"). Do not drop, merge or soften
    a point: they carry the caveats that, written freely, came and went between runs. Then say
    in a sentence or two what this means for the user's question.

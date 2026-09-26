@@ -2,13 +2,14 @@
 
 import json
 import re
+import warnings
 
 import numpy as np
 import pytest
 import wds
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from test_analyze import RESPONSES, TODAY, WINDOW, analyze_young_article
-from wds_lib import analyze, api, pageviews, report, resolve, series
+from wds_lib import analyze, api, i18n, pageviews, report, resolve, series
 
 
 @pytest.fixture
@@ -80,9 +81,24 @@ def test_png_is_written(replay, tmp_path):
     assert path.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n"
 
 
-def test_overflowing_content_still_fits_one_page(crowded, tmp_path):
+def test_ukrainian_pdf_is_one_page_with_every_glyph_in_dejavu(replay, tmp_path):
+    note = "Почніть із B2C-читачів українського розділу; ґрунтовно, з їхніми питаннями."
+    with warnings.catch_warnings():
+        # matplotlib warns "Glyph ... missing from font(s)" for a letter it lacks
+        warnings.simplefilter("error")
+        path = report.write_pdf(astronomy(), tmp_path / "report.pdf", "uk", note)
+    assert pdf_pages(path) == 1
+    assert b"DejaVuSans" in path.read_bytes()
+    with report.matplotlib.rc_context(report.RC):
+        texts = [t.get_text() for t in report.build_pdf_figure(astronomy(), "uk").texts]
+    assert "Висновки" in texts and "Застереження" in texts
+    assert "1. pl: стабільний, середня довіра" in texts
+
+
+@pytest.mark.parametrize("lang", ["en", "uk"])
+def test_overflowing_content_still_fits_one_page(crowded, tmp_path, lang):
     note = "Interview readers in the editions with rising share first. " * 30
-    path = report.write_pdf(crowded, tmp_path / "report.pdf", note=note)
+    path = report.write_pdf(crowded, tmp_path / "report.pdf", lang, note)
     assert pdf_pages(path) == 1
 
 
@@ -94,10 +110,11 @@ def _text_boxes(fig):
     ]
 
 
-def test_nothing_leaves_the_page_or_runs_into_the_footer(crowded):
+@pytest.mark.parametrize("lang", ["en", "uk"])
+def test_nothing_leaves_the_page_or_runs_into_the_footer(crowded, lang):
     note = "Interview readers in the editions with rising share first. " * 30
     with report.matplotlib.rc_context(report.RC):
-        fig = report.build_pdf_figure(crowded, note=note)
+        fig = report.build_pdf_figure(crowded, lang, note)
         boxes = _text_boxes(fig)
     page = fig.bbox
     for text, _, box in boxes:
@@ -108,10 +125,11 @@ def test_nothing_leaves_the_page_or_runs_into_the_footer(crowded):
     assert len(footer) >= 1
     assert min(b.y0 for b in body) > max(f.y1 for f in footer)
     texts = [text for text, _, _ in boxes]
-    assert "... more in result.json" in texts  # verdicts or assumptions were cut
+    # verdicts or assumptions were cut
+    assert i18n.render("report.truncated", lang=lang) in texts
     # 40 article rows do not fit: one row per language instead, all ten shown
     assert set(LANGS.split(",")) <= set(texts)
-    assert texts.count("topic total (3 articles)") == 10
+    assert texts.count(i18n.render("row.total", {"count": 3}, lang)) == 10
 
 
 def test_long_titles_are_shortened_with_an_ellipsis():
@@ -188,13 +206,33 @@ def test_cli_report_writes_png_and_pdf(replay, tmp_path, capsys):
     assert pdf_pages(out / "report.pdf") == 1
 
 
-def test_report_language_without_a_template_fails_before_any_request(
-    monkeypatch, tmp_path, capsys
+def test_pdf_follows_answer_lang_unless_report_lang_is_given(
+    replay, tmp_path, capsys, monkeypatch
 ):
-    def no_network(url, *, ttl):
-        raise AssertionError(f"unexpected request {url}")
+    langs = []
+    write_pdf = report.write_pdf
 
-    monkeypatch.setattr(api, "get_json", no_network)
-    args = ["analyze", "--qid", "Q333", "--langs", "uk", "--report", "--report-lang"]
-    assert wds.main([*args, "uk", "--out", str(tmp_path)]) == wds.EXIT_ERROR
-    assert "--report-lang uk" in json.loads(capsys.readouterr().out)["error"]
+    def spy(a, path, lang="en", note=None):
+        langs.append(lang)
+        return write_pdf(a, path, lang, note)
+
+    monkeypatch.setattr(report, "write_pdf", spy)
+    args = [
+        "analyze",
+        "--qid",
+        "Q333",
+        "--langs",
+        "uk",
+        "--report",
+        "--out",
+        str(tmp_path),
+    ]
+    assert wds.main([*args, "--answer-lang", "uk"]) == 0
+    ukrainian = json.loads(capsys.readouterr().out)
+    assert wds.main([*args, "--answer-lang", "uk", "--report-lang", "en"]) == 0
+    assert json.loads(capsys.readouterr().out) == ukrainian  # PDF language only
+    assert wds.main(args) == 0
+    english = json.loads(capsys.readouterr().out)
+    assert langs == ["uk", "en", "en"]
+    assert ukrainian["must_say"][1] == "uk: висока довіра — перевірки пройдено."
+    assert english["must_say"][1] == "uk: high confidence — checks passed."
