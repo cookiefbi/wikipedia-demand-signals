@@ -71,12 +71,16 @@ TEXTS: dict[str, dict[str, str]] = {
         "warn.no_views": "no views recorded in the analysed months",
         "warn.zero_base": "no views in the 12 months before the last 12: growth "
         "from zero is not computed",
-        # ranking
-        "rank.growth": "per-million growth {value:+.1f}%, {confidence} confidence",
-        "rank.share": "{value:.2f} views per million, {confidence} confidence",
+        # ranking: the metric is named with its value, as in the trend reason
+        "rank.growth": "views per million {value:+.1f}% year over year, {confidence} "
+        "confidence",
+        "rank.share": "{value:.2f} views per million edition views in the last 12 "
+        "months, {confidence} confidence",
         "rank.size": "{value:,} views in the last 12 months, {confidence} confidence",
-        "rank.unknown": "no value to rank by: listed last",
-        "rank.low_after": "{base}; listed after confident results",
+        "rank.unknown": "{metric} not measured (see warnings): listed last",
+        "rank.low_after": "{base}: listed after confident results",
+        "rank.low_outscores": "{base}: higher than {langs} by this measure, but "
+        "listed after confident results",
         # assumptions
         "assume.lang_added": "{lang} added to the compared languages for --article "
         "'{article}'",

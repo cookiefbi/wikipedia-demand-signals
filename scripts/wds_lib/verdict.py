@@ -471,6 +471,10 @@ RANK_FIELDS = {
 def rank(entries: list[tuple[str, Metrics, Verdict]], by: str) -> list[tuple[str, Msg]]:
     """Languages in order, each with why. Low confidence never ranks above a
     confident result; an unknown value goes after known ones; ties keep --langs order.
+
+    `why` names the metric and its value as in the JSON. A low result says so when
+    confident results come first, and names those it outscores: they rank above it
+    only because of the confidence, which the user would not guess from the order.
     """
     field = RANK_FIELDS[by]
 
@@ -478,14 +482,25 @@ def rank(entries: list[tuple[str, Metrics, Verdict]], by: str) -> list[tuple[str
         value = getattr(entry[1], field)
         return (entry[2].confidence == LOW, value is None, -(value or 0))
 
+    ordered = sorted(entries, key=key)
+    confident = [
+        (lang, getattr(metrics, field))
+        for lang, metrics, verdict in ordered
+        if verdict.confidence != LOW
+    ]
     order = []
-    for lang, metrics, verdict in sorted(entries, key=key):
+    for lang, metrics, verdict in ordered:
         value = getattr(metrics, field)
         if value is None:
-            why = Msg("rank.unknown")
+            why = Msg("rank.unknown", {"metric": Msg(f"rank_by.{by}")})
         else:
             why = Msg(f"rank.{by}", {"value": value, "confidence": verdict.confidence})
-            if verdict.confidence == LOW:
-                why = Msg("rank.low_after", {"base": why})
+            if verdict.confidence == LOW and confident:
+                outscored = [c for c, v in confident if v is not None and v < value]
+                if outscored:
+                    params = {"base": why, "langs": ", ".join(outscored)}
+                    why = Msg("rank.low_outscores", params)
+                else:
+                    why = Msg("rank.low_after", {"base": why})
         order.append((lang, why))
     return order

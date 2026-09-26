@@ -102,8 +102,8 @@ python <skill-creator>/scripts/quick_validate.py .
     {"qid": "Q1666254", "lang": "pl", "status": "no_article"}
   ],
   "ranking": {"by": "growth", "order": [
-    {"lang": "cs", "why": "highest relative growth, medium confidence"},
-    {"lang": "sk", "why": "low confidence: listed after confident results"}]},
+    {"lang": "cs", "why": "views per million +0.0% year over year, medium confidence"},
+    {"lang": "sk", "why": "views per million +0.0% year over year, low confidence: higher than cs by this measure, but listed after confident results"}]},
   "caveats": ["language edition ≠ country", "interest ≠ willingness to pay", "…"],
   "files": {"result_json": "…", "data_csv": "…", "chart_png": "…", "report_pdf": "…"}
 }
@@ -119,6 +119,7 @@ python <skill-creator>/scripts/quick_validate.py .
   **Мова пунктів — `--answer-lang en|uk`** (T14), з того самого словника `i18n`, що й PDF. З `uk` пункти одразу українською: агент їх не перекладає, а переносить дослівно, тож зміст не перевертається (у T15 Haiku раз переклав «earlier data were not reprocessed» як «дані перероблено»), а мова — та, яку ми вичитали. Для інших мов користувача — англійською, агент перекладає, як зараз. Решта JSON (`reasons`, `caveats`, помилки) лишається англійською: це дані для агента.
   Числа в `must_say` ті самі, що в полях JSON; формат — за мовою (у `uk` десяткова кома), `check_numbers.py` це нормалізує. Повні `reasons`, `warnings`, `caveats` лишаються в JSON і в PDF без змін.
 - **Ранжування** йде по мовах. Якщо QID кілька, тема = сума їхніх статей у мові: той самий вердикт (`trend`, `confidence`) рахується й по сумарному ряду мови (поле `topic_totals`), а деталі по кожній статті лишаються в `results`. Ранжування спирається на `topic_totals`. Результати з `confidence: low` ніколи не стоять вище за впевнені; кожна позиція має коротке `why`.
+  - **Як зроблено (T13):** `why` називає метрику і її значення так само, як у полях JSON (`views per million −23.6% year over year`, `17.08 views per million edition views in the last 12 months`, `6,712 views in the last 12 months`) і довіру. Для low, коли вище стоять упевнені результати, додається «listed after confident results», а якщо за самою метрикою low-мова їх обганяє — ще й які саме: «higher than pl, cs by this measure». Без цього порядок ховав би знахідку: uk «Астрономія» до 2023-10 мала найбільше переглядів і найбільшу частку з трьох мов, але low через сплеск у базі, тож стоїть третьою. Коли всі результати low, порядок дають значення, без примітки. Ріст, який не порахувався, — «not measured (see warnings): listed last». Один ключ для трьох порядків видно на реальних даних: astronomy pl/cs/uk за 24m — growth pl → cs → uk, share uk → cs → pl, size pl → uk → cs.
 
 Помилки мають вигляд `{"status": "error", "error": "...", "hint": "..."}` і пишуться для агента: «unknown language 'polski', did you mean 'pl'?». Прогрес пишеться в stderr. Повні часові ряди йдуть у CSV, не в stdout.
 

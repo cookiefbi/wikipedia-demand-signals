@@ -355,22 +355,66 @@ def test_low_confidence_never_ranks_first():
     )
     assert [lang for lang, _ in order] == ["cs", "pl", "sk"]
     why = {lang: w.render() for lang, w in order}
-    assert why["cs"] == "per-million growth +12.0%, medium confidence"
-    assert why["sk"].endswith("listed after confident results")
+    assert why["cs"] == "views per million +12.0% year over year, medium confidence"
+    # The order alone would hide that sk has the highest value: why says it.
+    assert why["sk"] == (
+        "views per million +80.0% year over year, low confidence: higher than cs, "
+        "pl by this measure, but listed after confident results"
+    )
+
+
+def test_low_result_names_only_the_confident_ones_it_outscores():
+    order = verdict.rank(
+        [entry("sk", LOW, 20.0), entry("cs", HIGH, 30.0), entry("pl", HIGH, 10.0)],
+        "growth",
+    )
+    why = {lang: w.render() for lang, w in order}
+    assert why["sk"].endswith(
+        "low confidence: higher than pl by this measure, but listed after confident "
+        "results"
+    )
+    order = verdict.rank([entry("sk", LOW, 5.0), entry("cs", HIGH, 30.0)], "growth")
+    last = order[1][1].render()
+    assert last.endswith("low confidence: listed after confident results")
+
+
+def test_all_low_results_are_ranked_by_value_without_a_note():
+    order = verdict.rank([entry("sk", LOW, -30.0), entry("cs", LOW, 5.0)], "growth")
+    assert [(lang, w.render()) for lang, w in order] == [
+        ("cs", "views per million +5.0% year over year, low confidence"),
+        ("sk", "views per million -30.0% year over year, low confidence"),
+    ]
 
 
 def test_unknown_value_goes_last():
     order = verdict.rank([entry("uk", LOW, None), entry("sk", LOW, -30.0)], "growth")
     assert [lang for lang, _ in order] == ["sk", "uk"]
+    assert order[1][1].render() == (
+        "growth of share not measured (see warnings): listed last"
+    )
 
 
-@pytest.mark.parametrize(("by", "first"), [("share", "pl"), ("size", "cs")])
-def test_rank_by_share_and_size(by, first):
+@pytest.mark.parametrize(
+    ("by", "first", "why"),
+    [
+        (
+            "share",
+            "pl",
+            (
+                "9.00 views per million edition views in the last 12 months, high "
+                "confidence"
+            ),
+        ),
+        ("size", "cs", "90,000 views in the last 12 months, high confidence"),
+    ],
+)
+def test_rank_by_share_and_size(by, first, why):
     entries = [
         entry("cs", HIGH, 1.0, share=5.0, size=90_000),
         entry("pl", HIGH, 2.0, share=9.0, size=50_000),
     ]
-    assert verdict.rank(entries, by)[0][0] == first
+    lang, msg = verdict.rank(entries, by)[0]
+    assert (lang, msg.render()) == (first, why)
 
 
 def test_ties_keep_the_requested_order():
@@ -382,11 +426,8 @@ def test_ties_keep_the_requested_order():
 
 
 def test_nested_messages_render_in_the_same_language():
-    msg = Msg("rank.low_after", {"base": Msg("rank.unknown")})
-    assert (
-        msg.render()
-        == "no value to rank by: listed last; listed after confident results"
-    )
+    msg = Msg("rank.unknown", {"metric": Msg("rank_by.size")})
+    assert msg.render() == "audience size not measured (see warnings): listed last"
 
 
 def test_every_caveat_renders():

@@ -9,7 +9,7 @@ import numpy as np
 import pytest
 import wds
 from helpers import UrlNetwork
-from wds_lib import WdsError, analyze, api, langs, pageviews, resolve, series
+from wds_lib import WdsError, analyze, api, langs, pageviews, resolve, series, verdict
 
 FIXTURE = json.loads(
     (Path(__file__).parent / "fixtures" / "analyze.json").read_text(encoding="utf-8")
@@ -202,6 +202,104 @@ def test_charles_iii_accession_and_coronation_are_event_spikes(replay):
         "sharp lasting change of level around 2022-09: views per million are 3.1x "
         "higher"
     )
+
+
+# --- ranking on real series ----------------------------------------------------
+
+
+def ranked(result: dict) -> list[str]:
+    return [row["lang"] for row in result["ranking"]["order"]]
+
+
+def why(result: dict) -> dict[str, str]:
+    return {row["lang"]: row["why"] for row in result["ranking"]["order"]}
+
+
+GROWTH_WHY = "views per million {:+.1f}% year over year"
+SHARE_WHY = "{:.2f} views per million edition views in the last 12 months"
+SIZE_WHY = "{:,} views in the last 12 months"
+
+
+@pytest.mark.parametrize(
+    ("by", "order", "field", "text"),
+    [
+        # all three fall; pl falls least (flat: its one-off spike props it up)
+        ("growth", ["pl", "cs", "uk"], "per_million_growth_pct", GROWTH_WHY),
+        # the smallest edition gives the topic the largest share of its views
+        ("share", ["uk", "cs", "pl"], "per_million_last_12m", SHARE_WHY),
+        # the largest edition gives it the most views
+        ("size", ["pl", "uk", "cs"], "views_last_12m", SIZE_WHY),
+    ],
+)
+def test_the_three_keys_rank_astronomy_three_ways(replay, by, order, field, text):
+    """The same pl/cs/uk data, three different orders: the metric asked for decides
+    the answer, so each why names its metric and the value from the JSON."""
+    result = run(qids=["Q333"], langs_arg="pl,cs,uk", rank_by=by)
+    assert result["ranking"]["by"] == by
+    assert ranked(result) == order
+    rows = by_lang(result)
+    for lang in order:
+        row = rows[lang]
+        expected = text.format(row[field]) + f", {row['confidence']} confidence"
+        assert why(result)[lang] == expected
+
+
+def test_low_confidence_largest_audience_is_listed_after_confident_results(replay):
+    """Up to 2023-10 uk had the most views and the largest share, but a spike in
+    its base year leaves its trend at low confidence: confident pl and cs come
+    first, and why says that uk is higher on the measure itself."""
+    expected = {
+        "size": (
+            ["pl", "cs", "uk"],
+            (
+                "39,434 views in the last 12 months, low confidence: higher than pl, "
+                "cs by this measure, but listed after confident results"
+            ),
+        ),
+        "share": (
+            ["cs", "pl", "uk"],
+            (
+                "33.54 views per million edition views in the last 12 months, low "
+                "confidence: higher than cs, pl by this measure, but listed after "
+                "confident results"
+            ),
+        ),
+    }
+    for by, (order, uk_why) in expected.items():
+        result = run(qids=["Q333"], langs_arg="pl,cs,uk", date_to="2023-10", rank_by=by)
+        rows = by_lang(result)
+        field = verdict.RANK_FIELDS[by]
+        assert rows["uk"]["confidence"] == "low"
+        assert rows["uk"][field] == max(r[field] for r in rows.values())
+        assert ranked(result) == order
+        assert why(result)["uk"] == uk_why
+
+
+def test_unmeasured_growth_is_listed_last_with_its_reason(replay):
+    # cs 'Přerušovaný půst' is younger than the growth base of 2020-09..2021-08.
+    result = run(
+        qids=["Q1666254"],
+        articles=["pl:Głodówka lecznicza"],
+        langs_arg="cs",
+        date_from="2020-09",
+        date_to="2022-08",
+    )
+    assert ranked(result) == ["pl", "cs"]
+    assert why(result)["cs"] == (
+        "growth of share not measured (see warnings): listed last"
+    )
+
+
+def test_when_all_results_are_low_the_values_decide(replay):
+    result = run(
+        qids=["Q1666254"], articles=["pl:Głodówka lecznicza"], langs_arg="pl,cs"
+    )
+    assert {r.get("confidence") for r in result["results"]} == {None, "low"}
+    assert ranked(result) == ["pl", "cs"]
+    assert why(result) == {
+        "pl": "views per million -30.1% year over year, low confidence",
+        "cs": "views per million -47.0% year over year, low confidence",
+    }
 
 
 # --- redirects and the first edit ----------------------------------------------
