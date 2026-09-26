@@ -16,19 +16,25 @@
 
 Потрібні Python 3.11+ і доступ до API Wikimedia. Рекомендовано [uv](https://docs.astral.sh/uv/): він сам ставить залежності (`numpy`, `matplotlib`) із заголовка скрипта (PEP 723) і нічого не створює в репозиторії.
 
-**Встановити в Claude Code** — у папку проєкту, з її кореня. Усі команди нижче однакові в bash, PowerShell і cmd. Через [skills CLI](https://github.com/vercel-labs/skills) (потрібен Node.js):
+**Встановити в Claude Code.** Навичку можна покласти в папку проєкту (`.claude/skills/`, діє лише в ньому) або в особисту (`~/.claude/skills/`, діє в усіх проєктах).
+
+Через [skills CLI](https://github.com/vercel-labs/skills) (потрібен Node.js), з кореня проєкту. Команда однакова в bash, PowerShell і cmd; куди ставити, вона спитає сама, а з `-g` одразу ставить в особисту папку:
 
 ```bash
 npx skills add cookiefbi/wikipedia-demand-signals -a claude-code
 ```
 
-Або без Node.js: корінь репозиторію — це і є папка навички.
+Або без Node.js, через `git clone` (корінь репозиторію — це і є папка навички). У проєкт, з його кореня, однаково в усіх оболонках:
 
 ```bash
 git clone https://github.com/cookiefbi/wikipedia-demand-signals.git .claude/skills/wikipedia-demand-signals
 ```
 
-Обидва способи кладуть навичку в `.claude/skills/wikipedia-demand-signals/`, і вона діє лише в цьому проєкті. Щоб навичка була в усіх проєктах, додайте до `npx skills add` прапорець `-g` (тоді вона ляже в `~/.claude/skills/`).
+В особисту папку (bash і PowerShell; у cmd замість `$HOME` пишіть `%USERPROFILE%`):
+
+```bash
+git clone https://github.com/cookiefbi/wikipedia-demand-signals.git "$HOME/.claude/skills/wikipedia-demand-signals"
+```
 
 **Запитати.** Найнадійніше — викликати навичку через `/` ([чому](#багато-навичок-і-дозволи)):
 
@@ -36,7 +42,7 @@ git clone https://github.com/cookiefbi/wikipedia-demand-signals.git .claude/skil
 /wikipedia-demand-signals Чи зростає інтерес до астрономії в україномовній Wikipedia і наскільки цьому можна довіряти?
 ```
 
-**Без агента** — ті самі дві команди, які запускає агент (з кореня проєкту; результати з'являються в `./wds-output/`):
+**Без агента** — ті самі дві команди, які запускає агент. Тут вони для навички в проєкті й запускаються з його кореня; для особистої папки замініть `.claude/skills/wikipedia-demand-signals` на повний шлях до неї. Результати з'являються в `./wds-output/`:
 
 ```bash
 uv run .claude/skills/wikipedia-demand-signals/scripts/wds.py resolve "astronomy" --langs uk
